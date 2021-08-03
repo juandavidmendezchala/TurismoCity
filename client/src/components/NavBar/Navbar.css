@@ -1,0 +1,12 @@
+.NavBarContainer{
+    background-color: red;
+    height: 40px;
+    display:flex;
+    justify-content:space-around;
+}
+.Links{
+    text-decoration: none;
+    color: white;
+    padding-left: 30px;
+    font-size: 25px;
+}
