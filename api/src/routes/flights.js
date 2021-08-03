@@ -1,9 +1,10 @@
 const {Router} = require('express');
 
-const flightsRoutes = require('./flights.js');
-
 const router = Router();
 
-router.use('/flights', flightsRoutes)
+
+router.get('/', (req, res) => {
+    res.send("hola")
+})
 
 module.exports = router;
