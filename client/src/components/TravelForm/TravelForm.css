@@ -1,0 +1,50 @@
+.TravelFormContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.FormContainer{
+    display:flex;
+    flex-direction: column;
+    background-color: #0F3057;
+    padding-top: 30px;
+    height: 500px;
+    width: 900px;
+    border-radius: 10%;
+    opacity: 80%;
+}
+.DesdeHaciaContainer{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 130px;
+}
+.TextTravelForm{
+    color: white;
+    font-size: 30px;
+}
+.DesdeHastaContainer{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 130px;
+}
+.FormTravelButton{
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+.SelectTravelForm{
+    width: 130px;
+    height: 30px;
+}
+.InputTravelForm{
+    height:30px;
+    border-radius: 10%;
+    width: 200px;
+}

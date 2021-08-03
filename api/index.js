@@ -25,3 +25,4 @@ conn.sync({force: true})
 app.listen(PORT, () => {
     console.log(`Listen on port ${PORT}`)
 });
+
