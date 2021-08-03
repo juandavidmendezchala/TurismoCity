@@ -7,4 +7,4 @@ conn.sync({ force: true }).then(() => {
     });
 });
 
-"hola"
+
