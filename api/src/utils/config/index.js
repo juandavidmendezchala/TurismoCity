@@ -6,6 +6,6 @@ module.exports = {
     dbPort: process.env.DB_PORT,
     dbHost: process.env.HOST,
     dbPassword: process.env.DB_PASSWORD,
-    host: process.env.HOST,
+    host: process.env.HOST || 3001,
     PORT: process.env.PORT
 }
