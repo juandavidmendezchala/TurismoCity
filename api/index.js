@@ -10,6 +10,7 @@ const setHeaders = require('./src/utils/middelwares/setHeaders.js');
 
 app.use(express.urlencoded({extended: true, limit: "50mb"}));
 app.use(express.json({limit: "50mb"}))
+app.use(cors()) // uso de cors definido anteriormente
 app.use(morgan('dev'))
 app.use(errorHandler)
 app.use(setHeaders)
