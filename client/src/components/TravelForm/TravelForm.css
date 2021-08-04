@@ -8,7 +8,7 @@
 .FormContainer {
   display: flex;
   flex-direction: column;
-  background-color: #0f3057;
+  background-color: grey;
   padding-top: 30px;
   height: 500px;
   width: 900px;
@@ -60,4 +60,8 @@
   padding-left: 15px;
   color: rgb(17, 17, 17);
   margin-bottom: 9%;
+}
+.DesdeInput{
+
+  color: white;
 }

@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux"
 import { connect } from 'react-redux'
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField';
+
 
 
 const TravelForm = (props) => {
@@ -32,33 +35,28 @@ const TravelForm = (props) => {
         props.getFrom(airport.from)
         alert("funciono")
     }
-    
+
     return (
         <div className="TravelFormContainer">
             <h1>Hola viajerx. A donde te gustaria ir?</h1>
             <div className="FormContainer">
-                <form onSubmit={onSubmitFrom}>
+                <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
                         <div>
-                            <form action="">
-                                <label>Ida</label>
-                                <input type="radio" value="onewaytrip" name="time" />
-                                <label>Ida y Vuelta</label>
-                                <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
-                            </form>
                             <h1 className="TextTravelForm">  DESDE : </h1>
+                            <TextField className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airport.from} name="from" onChange={handleChangeAirport} />
 
-                            <input type="search" placeholder="ciudad o aeropuerto" value={airport.from} name="from" onChange={handleChangeAirport} />
                         </div>
-
-                        {/* <h1 className="TextTravelForm">Hacia</h1> */}
-
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <input type="search" placeholder="ciudad o aeropuerto" value={airportArrival.to} name="to" onChange={handleChangeAirportArrival} />
-
+                            <TextField className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airportArrival.to} name="to" onChange={handleChangeAirportArrival} />
                         </div>
                     </div>
-
+                    <form action="">
+                        <label>Ida</label>
+                        <input type="radio" value="onewaytrip" name="time" />
+                        <label>Ida y Vuelta</label>
+                        <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
+                    </form>
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelForm">Desde</h1>
@@ -78,7 +76,9 @@ const TravelForm = (props) => {
                         </select>
                     </div>
                     <div className="FormTravelButtonContainer">
-                        <button type="submit" className="FormTravelButton" >Buscar</button>
+                        <Button variant="contained" color="secondary" type="submit" onSubmit={onSubmitFrom}>
+                            Buscar
+                        </Button>
                     </div>
                 </form>
 
