@@ -8,10 +8,8 @@
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-<<<<<<< HEAD
-=======
     "react-router-dom": "^5.2.0",
->>>>>>> 96dc8f60ce35a89293225489f0db53f8b896f7ae
+
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
