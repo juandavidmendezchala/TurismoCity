@@ -20,6 +20,7 @@ const DinamicSearch = () => {
             }, [])
     const onSugHandle = (text)=> {
         setText(text)
+        console.log(sug[0])
         setSug([])
     }
     const onChangeHandle = (text)=> {
@@ -28,7 +29,7 @@ const DinamicSearch = () => {
             matches = users.filter(user => {
                 const regex = new RegExp(`${text}`, "gi")
                 // return user.email.match(regex)
-                return user.code.match(regex)
+                return user.city.match(regex)
 
             })
         }
@@ -43,9 +44,9 @@ const DinamicSearch = () => {
             onChange= {e => onChangeHandle(e.target.value)}
             value={text}
                 
-                />
+                /> 
                 {sug && sug.map((sug, i )=>  i< 5 &&
-                <div className= "inputSug"  key={i} onClick={()=> onSugHandle(sug.code)}> {sug.code}  </div>
+                <div className= "inputSug"  key={i} onClick={()=> onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
                 )}
             
         </div>
