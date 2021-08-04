@@ -1,0 +1,40 @@
+.body{
+    background-color: hotpink;
+    background-image: url('./img.jpg');
+    
+}
+.conteinerAllCard{
+    margin-top: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flightCard{
+    border-radius: 20px;
+    height: 200px;
+    background-color: rgb(231, 231, 231);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.InfoIda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    font-size: small;   
+}
+
+.horarioDestinoIda{
+    margin-left: 20px;
+}
+.horarioIda{
+    margin: 0px;
+    padding: 0px;
+}
+.destinoIda{
+    margin: 0px;
+    padding: 0px;
+    opacity: 70%;
+}
