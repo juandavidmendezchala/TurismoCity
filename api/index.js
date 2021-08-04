@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const cors = require('cors') // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
 const { conn } = require('./src/models/index.js');
 const routes  = require('./src/routes/index')
 
@@ -11,7 +10,6 @@ const setHeaders = require('./src/utils/middelwares/setHeaders.js');
 
 app.use(express.urlencoded({extended: true, limit: "50mb"}));
 app.use(express.json({limit: "50mb"}))
-app.use(cors) // uso de cors definido anteriormente
 app.use(morgan('dev'))
 app.use(errorHandler)
 app.use(setHeaders)
