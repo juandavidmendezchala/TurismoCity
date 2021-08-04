@@ -4,14 +4,12 @@ import Banner from "../Banner/Banner"
 import Navbar from "../NavBar/Navbar"
 import TravelForm from "../TravelForm/TravelForm"
 
-export const Landing = () => {
+export const Home = () => {
     return (
         <div className="LandingContainer">
-            <Banner />
-            <Navbar />
             <TravelForm />
         </div>
     )
 }
 
-export default Landing
+export default Home
