@@ -65,7 +65,7 @@ const TravelForm = (props) => {
                         <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
                     </div>
                     <div>
-                        <h1 className="TextTravelForm">HACIA</h1>
+                        <h1 className="TextTravelForm">HASTA</h1>
                         <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
                     </div>
                     <div className="FormTravelButtonContainer">
