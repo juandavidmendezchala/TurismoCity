@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
@@ -10,7 +11,7 @@ import { detailFlight } from "../../store/actions/datailFlight";
 
 
 export default function TravelForm(props) {
-
+    const history = useHistory()
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
@@ -28,7 +29,7 @@ export default function TravelForm(props) {
     function onSubmitFrom(e) {
         e.preventDefault()
         dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
-
+        history.push("/flights")
     }
 
 
