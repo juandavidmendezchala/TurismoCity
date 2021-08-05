@@ -1,4 +1,4 @@
-import {GET_FROM, GET_FLIGHTS, LOAD_INFO, DETAIL_FLIGHTS} from "../Consts/Consts.js"
+import {GET_FROM, GET_FLIGHTS, LOAD_INFO, DETAIL_FLIGHTS, FROM, TO} from "../Consts/Consts.js"
 
 const initialState = {
     from: [],

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
+import DinamicTo from '../DinamicSearch/DynamicTo'
 import { useDispatch } from "react-redux"
 import "./TravelForm.css"
 import { detailFlight } from "../../store/actions/detailFlight";
@@ -12,17 +13,25 @@ export default function TravelForm(props) {
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
-    // const [fromPlace, setFromPlace] = useState('');
-    // const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
+    const [adults, setAdults] = useState('');
+    const [kids, setKids] = useState('');
+    const [babies, setBabies] = useState('');
     const [currency, setcurrency] = useState('USD');
 
 
     function onSubmitFrom(e) {
         e.preventDefault()
-        dispatch(detailFlight(fromDate, toDate, classFlight))
+        dispatch(detailFlight(
+            fromDate, 
+            toDate, 
+            classFlight, 
+            adults, 
+            kids, 
+            babies, 
+            currency))
     }
 
 
@@ -47,7 +56,7 @@ export default function TravelForm(props) {
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <DinamicSearch />
+                            <DinamicTo />
 
                         </div>
                     </div>
@@ -62,12 +71,35 @@ export default function TravelForm(props) {
                             <input type="date" className="InputTravelForm" placeholder="Indique su fecha de llegada" onChange={e => setToDate(e.target.value)}></input>
                         </div>
                     </div>
-                    <div className="SelectTravelFormContainer">
+                    <div className="SelectTravelFormContainer"> Categoría
                         <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
                             <option selected value="Economy">Economy</option>
                             <option value="Business">Business</option>
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
+                        </select>
+                    </div>
+
+                    <div className="SelectTravelFormContainer"> Adultos  
+                        <select className="SelectTravelForm" onChange={e => setAdults(e.target.value)}> 
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        Niños  
+                        <select className="SelectTravelForm" onChange={e => setKids(e.target.value)}> 
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        Bebés
+                        <select className="SelectTravelForm" onChange={e => setBabies(e.target.value)}>
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
 

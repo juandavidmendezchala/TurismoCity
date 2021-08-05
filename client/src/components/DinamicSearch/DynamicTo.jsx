@@ -1,18 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import airports from "../../assets/airports.json"
+import { useDispatch } from 'react-redux'
 import "./DinamicSearch.css"
-import { getFrom } from '../../store/actions/searchFlights'
-import { infoFligth } from '../../store/actions/infoFlight'
-import { placeFrom, placeTo } from '../../store/actions/fromTo'
+import { placeTo } from '../../store/actions/fromTo'
 
 const DinamicSearch = () => {
 
     const dispatch = useDispatch();
     const [users, serUsers] = useState([]);
-    const [from, setFrom] = useState('')
+    const [to, setTo] = useState('')
     const [sug, setSug] = useState([]);
 
 
@@ -27,9 +24,9 @@ const DinamicSearch = () => {
         loadUsers()
     }, [])
 
-    const onSugFrom = (text) => {
-        setFrom(text)
-        dispatch(placeFrom(text))
+    const onSugTo = (text) => {
+        setTo(text)
+        dispatch(placeTo(text))
         setSug([])
     }
 
@@ -46,24 +43,23 @@ const DinamicSearch = () => {
         }
         console.log('matches', matches)
         setSug(matches)
-        setFrom(e.target.text)       
+        setTo(e.target.text)
     }
-    
+
     return (
         <div className="Container">
             {/* <div>{text}</div> */}
-            <input type="text" className="inputSearch" name="From"
+            <input type="text" className="inputSearch" name="To"
                 onChange={e => onChangeHandle(e)}
-                value={from}
+                value={to}
 
             />
             {sug && sug.map((sug, i) => i < 5 &&
-                <div className="inputSug" key={i} onClick={() => onSugFrom(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
+                <div className="inputSug" key={i} onClick={() => onSugTo(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
             )}
 
         </div>
     )
 }
 
-
-export default DinamicSearch
+export default DinamicSearch;
