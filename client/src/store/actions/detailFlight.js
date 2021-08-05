@@ -1,4 +1,4 @@
-export const DETAIL_FLIGHTS = "DETAIL_FLIGHTS"
+import {DETAIL_FLIGHTS} from '../Consts/Consts'
 
 export const detailFlight = (dateFrom, dateTo, category) => {
     return function (dispatch) {

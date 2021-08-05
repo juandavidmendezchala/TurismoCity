@@ -1,7 +1,4 @@
-import { GET_FROM } from "../actions/searchFlights"
-import { GET_FLIGHTS } from "../actions/getFlights"
-import { LOAD_INFO } from "../actions/infoFlight"
-import { DETAIL_FLIGHTS } from "../actions/datailFlight"
+import {GET_FROM, GET_FLIGHTS, LOAD_INFO, DETAIL_FLIGHTS} from "../Consts/Consts.js"
 
 const initialState = {
     from: [],
@@ -22,7 +19,7 @@ const initialState = {
     //categoria 
 }
 
-const reducer = (state = initialState, action) => {
+const flightReducer = (state = initialState, action) => {
     if (action.type === DETAIL_FLIGHTS) {
         return {
             ...state,
@@ -59,4 +56,4 @@ const reducer = (state = initialState, action) => {
     return state;
 }
 
-export default reducer;
+export default flightReducer;

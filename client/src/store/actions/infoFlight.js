@@ -1,4 +1,4 @@
-export const LOAD_INFO = "LOAD_INFO"
+import { LOAD_INFO } from "../Consts/Consts"
 
 export const infoFligth = (from) => {
     return function (dispatch) {

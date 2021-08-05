@@ -1,4 +1,4 @@
-export const GET_FLIGHTS = "GET_FLIGHTS";
+import { GET_FLIGHTS } from "../Consts/Consts";
 
 export function getFlights() {
     return function(dispatch) {
