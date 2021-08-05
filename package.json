@@ -1,31 +1,17 @@
-{"scripts":{"start":"nodemon --watch api --exec node --experimental-modules api/index.js"},"dependencies":{"cors":"^2.8.5","dotenv":"^10.0.0","express":"^4.17.1","morgan":"^1.10.0","pg":"^8.7.1","pg-hstore":"^2.3.4","sequelize":"^6.6.5"},"devDependencies":{"nodemon":"^2.0.12"}}
 {
   "scripts": {
     "start": "nodemon --watch api --exec node --experimental-modules api/index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ded19effcdbf55e2c7e2cb50ee78344aba47b745
     "pg-hstore": "^2.3.4",
-    "react-router-dom": "^5.2.0",
-
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-<<<<<<< HEAD
-=======
-    "react-router-dom": "^5.2.0",
-    "sequelize": "^6.6.5"
->>>>>>> 7950401ba9e67d72e6f4e56326fa15abd60ccdce
-=======
->>>>>>> ded19effcdbf55e2c7e2cb50ee78344aba47b745
   }
 }
-
