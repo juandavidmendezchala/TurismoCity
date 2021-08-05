@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors"); // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
@@ -6,6 +7,14 @@ const routes = require("./src/routes/index");
 // const cors = require('cors')
 // const routes = require('./src/routes/index')
 // const cors = require('cors')
+=======
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors') // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
+const { conn } = require('./src/models/index.js');
+const routes = require('./src/routes/index')
+
+>>>>>>> 2b37945087f2af98ddcefc67d412c5b061d27cc0
 
 const app = express();
 const { PORT } = require("./src/utils/config/index.js");
