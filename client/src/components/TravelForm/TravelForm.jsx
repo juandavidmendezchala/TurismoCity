@@ -1,33 +1,33 @@
 
 import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
+import { detailFlight } from "../../store/actions/datailFlight";
 
 
 
-export default function TravelForm (props) {
+export default function TravelForm(props) {
 
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
-    const [fromPlace, setFromPlace] = useState('');
-    const [toPlace, setToPlace] = useState('');
+    // const [fromPlace, setFromPlace] = useState('');
+    // const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
-    const [currency, setcurrency] = useState('COP');
-    
+    const [currency, setcurrency] = useState('USD');
+
 
     function onSubmitFrom(e) {
         e.preventDefault()
-        alert("funciono")
+        dispatch(detailFlight(fromDate, toDate, classFlight))
     }
-    
 
-const TravelForm = (props) => {
+
     return (
         <div className="TravelFormContainer">
             <h1>Hola viajerx. A donde te gustaria ir?</h1>
@@ -37,19 +37,19 @@ const TravelForm = (props) => {
                         <div>
                             <form action="">
                                 <label>Ida</label>
-                                <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)}/>
+                                <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                                 <label>Ida y Vuelta</label>
-                                <input type="radio" id="radioB1" name="time" value="roundtrip"  onChange={e => setWay(e.target.value)} />
+                                <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                             </form>
                             <h1 className="TextTravelForm">  DESDE : </h1>
 
-                            <input type="search" placeholder="ciudad o aeropuerto" value={fromPlace} name="from" onChange={e => setFromPlace(e.target.value)} />
+                            <DinamicSearch />
                         </div>
 
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <input type="search" placeholder="ciudad o aeropuerto" value={toPlace} name="to" onChange={e => setToPlace(e.target.value)} />
+                            <DinamicSearch />
 
                         </div>
                     </div>
@@ -71,45 +71,17 @@ const TravelForm = (props) => {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
-                <div className="DesdeHaciaContainer">
-                    <form action="">
-                        <label>Ida</label>
-                        <input type="radio" value="onewaytrip" name="time" />
-                        <label>Ida y Vuelta</label>
-                        <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
-                    </form>
-                    <br />
-                    <div>  <h1 className="TextTravelForm">  DESDE : </h1>
-
-                        <DinamicSearch />
                     </div>
 
-                    {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
-                    <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                        <DinamicSearch />
-                    </div>
-                </div>
 
-                <div className="DesdeHastaContainer">
-                    <div>
-                        <h1 className="TextTravelForm">Desde</h1>
-                        <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
-                    </div>
-                    <div>
-                        <h1 className="TextTravelForm">HASTA</h1>
-                        <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
-                    </div>
                     <div className="FormTravelButtonContainer">
-                        <button type="submit" className="FormTravelButton" >Buscar</button>
+                        <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                     </div>
-                </div>
-
+                </form>
             </div>
 
         </div >
     )
 }
-
-export default TravelForm
 
