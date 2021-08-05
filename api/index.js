@@ -3,9 +3,6 @@ const morgan = require('morgan');
 const cors = require('cors') // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
 const { conn } = require('./src/models/index.js');
 const routes = require('./src/routes/index')
-const cors = require('cors')
-const routes = require('./src/routes/index')
-const cors = require('cors')
 
 
 const app = express();
