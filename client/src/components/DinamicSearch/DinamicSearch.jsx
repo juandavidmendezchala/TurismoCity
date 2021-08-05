@@ -19,8 +19,6 @@ const DinamicSearch = () => {
     useEffect(() => {
         const loadUsers = async () => {
             const response = await axios.get('http://localhost:3001/allAirports')
-            // const response = await airports
-            // console.log(response[0].code)
             serUsers(response.data)
         }
         loadUsers()

@@ -6,20 +6,16 @@ import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 const initialState = {
     from: [],
     detailFlights: {
+        way: "",
         dateFrom: "",
         dateTo: "",
         category: "",
         adults: "",
         kids: "",
         babies: "",
-        currency: "USD"
+        currency: "",
     },
     flights: [],
-    // tipo de viaje ida o ida y vuelta
-    // aeropuertos
-    //fecha o fechas
-    // pasajeros objeto que tenga adultos menore y ninios 
-    //categoria 
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,12 +23,14 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             detailFlights: {
+                way: action.payload.way,
                 dateFrom: action.payload.dateFrom,
                 dateTo: action.payload.dateTo,
                 category: action.payload.category,
-                // adults: action.payload.adults,
-                // kids: action.payload.kids,
-                // babies: action.payload.babies,
+                adults: action.payload.adults,
+                kids: action.payload.kids,
+                babies: action.payload.babies,
+                currency: action.payload.currency
             }
         }
     }

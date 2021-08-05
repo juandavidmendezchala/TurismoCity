@@ -19,12 +19,16 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
-    const [currency, setcurrency] = useState('USD');
+    const [adults, setAdults] = useState('')
+    const [kids, setKids] = useState('')
+    const [babies, setBabies] = useState('')
+    const [currency, setCurrency] = useState('');
 
 
     function onSubmitFrom(e) {
         e.preventDefault()
-        dispatch(detailFlight(fromDate, toDate, classFlight))
+        dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
+
     }
 
 
@@ -73,6 +77,25 @@ export default function TravelForm(props) {
                         </select>
                     </div>
 
+                    <div className="selectPassengers">
+                        <label>Adultos</label>
+                        <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+
+                        <label>Ninos</label>
+                        <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+
+                        <label>Bebes</label>
+                        <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                    </div>
+
+                    <div className="selectCurrency">
+                        <label>Seleccione moneda</label>
+                        <select onChange={e => setCurrency(e.target.value)}>
+                            <option value="USD" >Dolar Estadounidense USD</option>
+                            <option value="ARS" >Peso Argentino ARS</option>
+                            <option value="COP" >Peso Colombiano COP</option>
+                        </select>
+                    </div>
 
 
                     <div className="FormTravelButtonContainer">
