@@ -1,0 +1,19 @@
+.inputSug {
+ 
+
+
+    cursor: pointer;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    color: azure;
+    font-weight: 500;
+    position: relative;
+    
+
+}
+.inputSug:hover{
+    background-color: cadetblue;
+       
+
+}
