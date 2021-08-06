@@ -1,5 +1,4 @@
 import { GET_FROM } from "../actions/searchFlights"
-import { GET_FLIGHTS } from "../actions/getFlights"
 import { LOAD_INFO } from "../actions/infoFlight"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 import {GET_FLIGHTS} from "../actions/getFlights"

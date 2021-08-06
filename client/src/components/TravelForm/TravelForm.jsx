@@ -121,7 +121,6 @@ export default function TravelForm(props) {
                         <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                     </div>
 
-                </form>
 
                 </div>
             </div>
