@@ -8,6 +8,6 @@ const router = Router();
 
 router.use('/flights', flightsRoutes)
 router.use('/allAirports', airportsRoutes)
-router.use('/usersign', usersRoutes)
+router.use('/user', usersRoutes)
 
 module.exports = router;
