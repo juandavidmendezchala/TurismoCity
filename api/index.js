@@ -27,9 +27,9 @@ app.use(setHeaders);
 app.use("/", routes);
 
 conn.sync({ force: true }).then(() => {
-  console.log("Connect");
+    console.log("Connect");
 });
 
 app.listen(PORT, () => {
-  console.log(`Listen on port ${PORT}`);
+    console.log(`Listen on port ${PORT}`);
 });
