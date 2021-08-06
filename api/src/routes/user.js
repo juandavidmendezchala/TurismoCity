@@ -25,12 +25,23 @@ router.post('/signin', async(req, res) => {
 })
 
 router.post('/register', async(req, res) => {
+    let {
+        name,
+        email,
+        lastname,
+        birthdate,
+        password
+    } =  req.body;
     const user = await User.create({
-        name: req.body.name, 
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
+        name: name, 
+        email: email,
+        lastname: lastname,
+        birthdate: birthdate,
+        password: bcrypt.hashSync(password, 8)
     })
-    const [createdUser] = await User.findAll();
+    const createdUser = await User.findOne({where:{
+        email: email
+    }});
     res.send({
         id: createdUser.id,
         name: createdUser.name,

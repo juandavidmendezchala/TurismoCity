@@ -13,11 +13,11 @@ module.exports = function(sequelize) {
         },
         lastname:{
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         birthdate: {
             type: DataTypes.DATE,
-            allowNull:true
+            allowNull:false
         },
         email: {
             type: DataTypes.STRING,
