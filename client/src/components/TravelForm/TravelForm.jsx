@@ -1,12 +1,13 @@
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 import { detailFlight } from "../../store/actions/datailFlight";
+import { getFlights } from "../../store/actions/getFlights"
 
 
 
@@ -15,8 +16,8 @@ export default function TravelForm(props) {
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
-    // const [fromPlace, setFromPlace] = useState('');
-    // const [toPlace, setToPlace] = useState('');
+    const [fromPlace, setFromPlace] = useState('');
+    const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
@@ -25,12 +26,21 @@ export default function TravelForm(props) {
     const [babies, setBabies] = useState('')
     const [currency, setCurrency] = useState('');
 
+    const airports0 = useSelector(state => state.from)
+    const airports1 = useSelector(state => state.to)
+    useEffect(() => {
+        setFromPlace(airports0)
+        setToPlace(airports1)
+    }, [airports0, airports1])
 
-    function onSubmitFrom(e) {
+
+    async function onSubmitFrom(e) {
         e.preventDefault()
-        dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
     }
+
 
 
     return (
@@ -48,13 +58,13 @@ export default function TravelForm(props) {
                             </form>
                             <h1 className="TextTravelForm">  DESDE : </h1>
 
-                            <DinamicSearch />
+                            <DinamicSearch id="0" />
                         </div>
 
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <DinamicSearch />
+                            <DinamicSearch id="1" />
 
                         </div>
                     </div>

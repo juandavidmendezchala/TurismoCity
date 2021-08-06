@@ -1,10 +1,11 @@
 export const GET_FLIGHTS = "GET_FLIGHTS";
+const apiKey = "6100341367b32f6d377e967d"
+export function getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency) {
 
-export function getFlights() {
   return function (dispatch) {
     //Modificar parametros al link
     // Tener condiciones para los casos de oneway o roud trip
-    return fetch('https://api.flightapi.io/roundtrip/610bfea21c7bef42b2e75db4/LHR/LAX/2021-10-11/2021-10-15/2/0/1/Economy/ARS')
+    return fetch(`https://api.flightapi.io/roundtrip/${apiKey}/${fromPlace}/${toPlace}/${fromDate}/${toDate}/${adults}/${kids}/${babies}/${classFlight}/${currency}`)
       .then(response => response.json())
       .then(json => {
         var arregloFlights = json.trips?.map(combinacion => {

@@ -1,12 +1,16 @@
 import { GET_FROM } from "../actions/searchFlights"
 import { GET_FLIGHTS } from "../actions/getFlights"
 import { LOAD_INFO } from "../actions/infoFlight"
+import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 
 const initialState = {
     from: [],
+    to: [],
     detailFlights: {
         way: "",
+        fromPlace: "",
+        toPlace: "",
         dateFrom: "",
         dateTo: "",
         category: "",
@@ -24,6 +28,8 @@ const reducer = (state = initialState, action) => {
             ...state,
             detailFlights: {
                 way: action.payload.way,
+                fromPlace: action.payload.fromPlace,
+                toPlace: action.payload.toPlace,
                 dateFrom: action.payload.dateFrom,
                 dateTo: action.payload.dateTo,
                 category: action.payload.category,
@@ -34,10 +40,17 @@ const reducer = (state = initialState, action) => {
             }
         }
     }
+    // almacena la info del aeropuerto en el estado from
     if (action.type === LOAD_INFO) {
         return {
             ...state,
-            from: state.from.concat(action.payload)
+            from: action.payload
+        }
+    }
+    if (action.type === LOAD_INFO_TO) {
+        return {
+            ...state,
+            to: action.payload
         }
     }
     if (action.type === GET_FROM) {

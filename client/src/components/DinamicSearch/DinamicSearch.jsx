@@ -3,12 +3,12 @@ import { connect, useSelector } from 'react-redux'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import airports from "../../assets/airports.json"
 import "./DinamicSearch.css"
 import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
+import { infoFligthTo } from '../../store/actions/infoFlightTo'
 
-const DinamicSearch = () => {
+const DinamicSearch = ({ id }) => {
 
     const dispatch = useDispatch();
     const [users, serUsers] = useState([]);
@@ -26,7 +26,13 @@ const DinamicSearch = () => {
 
     const onSugHandle = (text) => {
         setText(text)
-        dispatch(infoFligth(text))
+        if (id === "0") {
+            dispatch(infoFligth(text))
+        } else {
+            //Modificar accion para que despache al TO
+            dispatch(infoFligthTo(text))
+        }
+
         setSug([])
     }
     const onChangeHandle = (text) => {
@@ -42,11 +48,10 @@ const DinamicSearch = () => {
         console.log('matches', matches)
         setSug(matches)
         setText(text)
-
     }
     return (
 
-        <div className="Container">
+        <div className="Container" id={id}>
             {/* <div>{text}</div> */}
             <input type="text" className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
