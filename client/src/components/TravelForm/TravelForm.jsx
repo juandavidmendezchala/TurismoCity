@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch, useSelector } from "react-redux"
@@ -40,8 +39,6 @@ export default function TravelForm(props) {
         dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
     }
-
-
 
     return (
         <div className="TravelFormContainer">
@@ -88,6 +85,8 @@ export default function TravelForm(props) {
                         </select>
                     </div>
 
+
+
                     <div className="selectPassengers">
                         <label>Adultos</label>
                         <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
@@ -107,8 +106,6 @@ export default function TravelForm(props) {
                             <option value="COP" >Peso Colombiano COP</option>
                         </select>
                     </div>
-
-
                     <div className="FormTravelButtonContainer">
                         <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                     </div>
@@ -118,4 +115,15 @@ export default function TravelForm(props) {
         </div >
     )
 }
+
+
+
+
+
+
+
+
+
+
+
 

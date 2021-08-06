@@ -3,6 +3,7 @@ import { GET_FLIGHTS } from "../actions/getFlights"
 import { LOAD_INFO } from "../actions/infoFlight"
 import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
+import { SORT_FLIGHT } from "../actions/sortFlight"
 
 const initialState = {
     from: [],
@@ -66,6 +67,12 @@ const reducer = (state = initialState, action) => {
         };
     }
 
+    if (action.type === SORT_FLIGHT) {
+        return {
+            ...state,
+            flights: action.payload
+        };
+    }
 
     return state;
 }
