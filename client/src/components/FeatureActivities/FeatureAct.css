@@ -1,0 +1,26 @@
+.FeatureActContainer{ 
+  background-image: url(./pexels-rachel-claire-4992646.jpg);
+  height: 670px;
+  width: 1400px; 
+  background-color: #0F3057;
+}
+.TitleFeaturesAct{
+    color: white;
+    font-size: 70px;
+    padding-top: 30px;
+}
+.FeatureAct{
+    color: red;
+    margin-top: -10px;
+    font-size: 40px ;
+}
+.ContainerCardFeature{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.ImgSurf{
+    height: 100px;
+}

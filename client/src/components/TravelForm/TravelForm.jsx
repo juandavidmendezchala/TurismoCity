@@ -3,8 +3,14 @@ import { useDispatch } from "react-redux"
 import { connect } from 'react-redux'
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField';
+import { Button, Radio } from 'semantic-ui-react'
+import logoAerolineas from "./Imagenes/Argentina.png"
+import logoAmerican from "./Imagenes/American.png"
+import logoFrance from "./Imagenes/France.png"
+import logoNew from "./Imagenes/New.png"
+import logoUnited from "./Imagenes/United.png"
+import logoBritish from "./Imagenes/British.png"
+
 
 
 
@@ -38,32 +44,25 @@ const TravelForm = (props) => {
 
     return (
         <div className="TravelFormContainer">
-            <h1>Hola viajerx. A donde te gustaria ir?</h1>
+            <h2 className="TitleHome">Hola, viajeros. ¿A dónde les gustaría ir? </h2>
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
                         <div>
-                            <h1 className="TextTravelForm">  DESDE : </h1>
-                            <TextField className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airport.from} name="from" onChange={handleChangeAirport} />
-
+                            <h1 className="TextTravelFormArriba">De:</h1>
+                            <input className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airport.from} name="from" placeholder="Elige una ciudad o aeropuerto" onChange={handleChangeAirport} />
                         </div>
-                        <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <TextField className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airportArrival.to} name="to" onChange={handleChangeAirportArrival} />
+                        <div>  <h1 className="TextTravelFormArriba" >A:</h1>
+                            <input className="DesdeInput" type="search" id="outlined-basic" label="Desde" variant="outlined" value={airportArrival.to} name="to" placeholder="Elige una ciudad o aeropuerto" onChange={handleChangeAirportArrival} />
                         </div>
                     </div>
-                    <form action="">
-                        <label>Ida</label>
-                        <input type="radio" value="onewaytrip" name="time" />
-                        <label>Ida y Vuelta</label>
-                        <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
-                    </form>
                     <div className="DesdeHastaContainer">
                         <div>
-                            <h1 className="TextTravelForm">Desde</h1>
+                            <h1 className="TextTravelFormAbajo">Desde:</h1>
                             <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
                         </div>
                         <div>
-                            <h1 className="TextTravelForm">Hasta</h1>
+                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
                             <input type="date" className="InputTravelForm" placeholder="Indique su fecha de llegada"></input>
                         </div>
                     </div>
@@ -75,16 +74,25 @@ const TravelForm = (props) => {
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
                     </div>
-                    <div className="FormTravelButtonContainer">
-                        <Button variant="contained" color="secondary" type="submit" onSubmit={onSubmitFrom}>
+                    <div className="PositionButton">
+                        <Button inverted color='red'>
                             Buscar
-                        </Button>
-                    </div>
+                        </Button></div>
                 </form>
+                <div className="PublicityContainer">
+                    <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
+                    <div className="AcomodoImg">
+                        <img className="LogoAerolineas" src={logoAmerican} alt="American Airlines" />
+                        <img className="LogoAerolineas" src={logoAerolineas} alt="Aerolineas Argentinas" />
+                        <img className="LogoAerolineas" src={logoBritish} alt="British Airlines" />
+                        <img className="LogoAerolineas" src={logoFrance} alt="France Airlines" />
+                        <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
+                        <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
+                    </div>
+                </div>
+            </div >
+        </div>
 
-            </div>
-
-        </div >
     )
 }
 
@@ -95,3 +103,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(TravelForm)
+
+
