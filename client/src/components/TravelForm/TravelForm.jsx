@@ -1,5 +1,4 @@
-
-import React, { useState, useDispatch } from "react"
+import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
 import "./TravelForm.css"
@@ -69,6 +68,7 @@ export default function TravelForm (props) {
                         </select>
 
                     </div>
+                    </form>
 
                       </div>  
 
@@ -105,13 +105,7 @@ export default function TravelForm (props) {
                         <button type="submit" className="FormTravelButton" >Buscar</button>
                     </div>
                 </div>
-
-            </form>
-
-              </form>
             </div>
-
-        </div >
     )
 }
 
