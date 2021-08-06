@@ -28,14 +28,12 @@ router.post('/register', async(req, res) => {
     let {
         name,
         email,
-        lastname,
-        birthdate,
-        password
+        password,
+        birthdate
     } =  req.body;
     const user = await User.create({
         name: name, 
         email: email,
-        lastname: lastname,
         birthdate: birthdate,
         password: bcrypt.hashSync(password, 8)
     })
