@@ -38,14 +38,14 @@ export default function Register(props) {
 
     return(
         <div>
-            <form onSubmit={submitHandler}>
+            <form className="form" onSubmit={submitHandler}>
                 <div>
                     <h1>Create Account</h1>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant="danger">{error}</MessageBox>}
                 <div>
-                    <label  htmlFor="name">Nombre</label>
+                    <label htmlFor="name">Nombre</label>
                     <input
                     type="name"
                     id="name"
