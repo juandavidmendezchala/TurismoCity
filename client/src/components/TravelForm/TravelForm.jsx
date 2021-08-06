@@ -1,7 +1,7 @@
 
 import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
@@ -26,8 +26,6 @@ export default function TravelForm (props) {
         alert("funciono")
     }
     
-
-const TravelForm = (props) => {
     return (
         <div className="TravelFormContainer">
             <h1>Hola viajerx. A donde te gustaria ir?</h1>
@@ -71,6 +69,7 @@ const TravelForm = (props) => {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
+                    </div>
                 <div className="DesdeHaciaContainer">
                     <form action="">
                         <label>Ida</label>
@@ -104,12 +103,12 @@ const TravelForm = (props) => {
                         <button type="submit" className="FormTravelButton" >Buscar</button>
                     </div>
                 </div>
-
+            </form>
             </div>
 
         </div >
     )
 }
 
-export default TravelForm
+
 
