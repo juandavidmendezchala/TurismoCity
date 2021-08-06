@@ -1,9 +1,7 @@
 
-import React, { useState } from "react"
+import React, { useState, useDispatch } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
-// import { connect } from 'react-redux'
-// import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 
 
@@ -69,7 +67,11 @@ export default function TravelForm (props) {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
+
                     </div>
+
+                      </div>  
+
                 <div className="DesdeHaciaContainer">
                     <form action="">
                         <label>Ida</label>
@@ -103,12 +105,13 @@ export default function TravelForm (props) {
                         <button type="submit" className="FormTravelButton" >Buscar</button>
                     </div>
                 </div>
+
             </form>
+
+              </form>
             </div>
 
         </div >
     )
 }
-
-
 

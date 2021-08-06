@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers/reducers";
 import reducer from "./reducers/reducerFlights";
 import thunk from "redux-thunk";
 // comentar esta linea y la 9 si no tienen el redux dev tools instalado
