@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 import { detailFlight } from "../../store/actions/datailFlight";
+import { getFlights } from "../../store/actions/getFlights"
 
 
 
@@ -14,8 +15,8 @@ export default function TravelForm(props) {
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
-    // const [fromPlace, setFromPlace] = useState('');
-    // const [toPlace, setToPlace] = useState('');
+    const [fromPlace, setFromPlace] = useState('');
+    const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
@@ -24,10 +25,18 @@ export default function TravelForm(props) {
     const [babies, setBabies] = useState('')
     const [currency, setCurrency] = useState('');
 
+    const airports0 = useSelector(state => state.from)
+    const airports1 = useSelector(state => state.to)
+    useEffect(() => {
+        setFromPlace(airports0)
+        setToPlace(airports1)
+    }, [airports0, airports1])
 
-    function onSubmitFrom(e) {
+
+    async function onSubmitFrom(e) {
         e.preventDefault()
-        dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
     }
 
@@ -46,13 +55,13 @@ export default function TravelForm(props) {
                             </form>
                             <h1 className="TextTravelForm">  DESDE : </h1>
 
-                            <DinamicSearch />
+                            <DinamicSearch id="0" />
                         </div>
 
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <DinamicSearch />
+                            <DinamicSearch id="1" />
 
                         </div>
                     </div>
@@ -74,56 +83,46 @@ export default function TravelForm(props) {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
-
-
                     </div>
-                    </form>
+                </form>
 
 
-                      </div>  
 
-                <div className="DesdeHaciaContainer">
-                    <form action="">
-                        <label>Ida</label>
-                        <input type="radio" value="onewaytrip" name="time" />
-                        <label>Ida y Vuelta</label>
-                        <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
-                    </form>
-                    <br />
-                    <div>  <h1 className="TextTravelForm">  DESDE : </h1>
+                <div className="selectPassengers">
+                    <label>Adultos</label>
+                    <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                        <DinamicSearch />
+                    <label>Ninos</label>
+                    <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                    </div>
+                    <label>Bebes</label>
+                    <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                </div>
 
-                    <div className="selectPassengers">
-                        <label>Adultos</label>
-                        <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
-
-                        <label>Ninos</label>
-                        <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
-
-                        <label>Bebes</label>
-                        <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
-                    </div>
-
-                    <div className="selectCurrency">
-                        <label>Seleccione moneda</label>
-                        <select onChange={e => setCurrency(e.target.value)}>
-                            <option value="USD" >Dolar Estadounidense USD</option>
-                            <option value="ARS" >Peso Argentino ARS</option>
-                            <option value="COP" >Peso Colombiano COP</option>
-                        </select>
-                    </div>
-
-
-                    <div className="FormTravelButtonContainer">
-                        <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
-                    </div>
-
-
+                <div className="selectCurrency">
+                    <label>Seleccione moneda</label>
+                    <select onChange={e => setCurrency(e.target.value)}>
+                        <option value="USD" >Dolar Estadounidense USD</option>
+                        <option value="ARS" >Peso Argentino ARS</option>
+                        <option value="COP" >Peso Colombiano COP</option>
+                    </select>
+                </div>
+                <div className="FormTravelButtonContainer">
+                    <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                 </div>
             </div>
+        </div>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
 
