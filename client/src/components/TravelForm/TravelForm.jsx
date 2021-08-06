@@ -1,31 +1,37 @@
 
-import React, { useState } from "react"
+import React, { useState, useDispatch } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
+import { detailFlight } from "../../store/actions/datailFlight";
 
 
 
-export default function TravelForm (props) {
-
+export default function TravelForm(props) {
+    const history = useHistory()
     const dispatch = useDispatch();
 
     const [way, setWay] = useState('');
-    const [fromPlace, setFromPlace] = useState('');
-    const [toPlace, setToPlace] = useState('');
+    // const [fromPlace, setFromPlace] = useState('');
+    // const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
-    const [currency, setcurrency] = useState('COP');
-    
+    const [adults, setAdults] = useState('')
+    const [kids, setKids] = useState('')
+    const [babies, setBabies] = useState('')
+    const [currency, setCurrency] = useState('');
+
 
     function onSubmitFrom(e) {
         e.preventDefault()
-        alert("funciono")
+        dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        history.push("/flights")
     }
-    
+
     return (
         <div className="TravelFormContainer">
             <h1>Hola viajerx. A donde te gustaria ir?</h1>
@@ -35,19 +41,19 @@ export default function TravelForm (props) {
                         <div>
                             <form action="">
                                 <label>Ida</label>
-                                <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)}/>
+                                <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                                 <label>Ida y Vuelta</label>
-                                <input type="radio" id="radioB1" name="time" value="roundtrip"  onChange={e => setWay(e.target.value)} />
+                                <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                             </form>
                             <h1 className="TextTravelForm">  DESDE : </h1>
 
-                            <input type="search" placeholder="ciudad o aeropuerto" value={fromPlace} name="from" onChange={e => setFromPlace(e.target.value)} />
+                            <DinamicSearch />
                         </div>
 
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                            <input type="search" placeholder="ciudad o aeropuerto" value={toPlace} name="to" onChange={e => setToPlace(e.target.value)} />
+                            <DinamicSearch />
 
                         </div>
                     </div>
@@ -69,7 +75,13 @@ export default function TravelForm (props) {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
+
+
                     </div>
+
+
+                      </div>  
+
                 <div className="DesdeHaciaContainer">
                     <form action="">
                         <label>Ida</label>
@@ -81,34 +93,45 @@ export default function TravelForm (props) {
                     <div>  <h1 className="TextTravelForm">  DESDE : </h1>
 
                         <DinamicSearch />
+
                     </div>
 
-                    {/* <h1 className="TextTravelForm">Hacia</h1> */}
+                    <div className="selectPassengers">
+                        <label>Adultos</label>
+                        <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                    <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-                        <DinamicSearch />
-                    </div>
-                </div>
+                        <label>Ninos</label>
+                        <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                <div className="DesdeHastaContainer">
-                    <div>
-                        <h1 className="TextTravelForm">Desde</h1>
-                        <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
+                        <label>Bebes</label>
+                        <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
                     </div>
-                    <div>
-                        <h1 className="TextTravelForm">HASTA</h1>
-                        <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
+
+                    <div className="selectCurrency">
+                        <label>Seleccione moneda</label>
+                        <select onChange={e => setCurrency(e.target.value)}>
+                            <option value="USD" >Dolar Estadounidense USD</option>
+                            <option value="ARS" >Peso Argentino ARS</option>
+                            <option value="COP" >Peso Colombiano COP</option>
+                        </select>
                     </div>
+
+
                     <div className="FormTravelButtonContainer">
-                        <button type="submit" className="FormTravelButton" >Buscar</button>
+                        <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                     </div>
+
+                </form>
+
                 </div>
+
             </form>
+
+              </form>
+
             </div>
 
         </div >
     )
 }
-
-
 

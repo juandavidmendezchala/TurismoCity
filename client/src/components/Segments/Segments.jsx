@@ -8,12 +8,17 @@ export default function Segments(props){
     return (
         <div className='TarjetaSegmentos'>
             <div className='encabezadoSegmentos'> Detalle Tramos: </div>
-            {props.segmentos?.map(segmento =>
+            {props.segmentos?.map((segmento,indice) =>
                 {return (
-                    <div>
-                    <strong className='horarioIda'> {segmento.departureDateTime.slice(11,16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11,16)}</strong>
-                    <p className='destinoIda'>{"CIUDAD"} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"CIUDAD 2"} ({segmento.arrivalAirportCode})</p>
-                    <br/>
+                    <div className='segmentosBox'>
+                        <figure id='photo' data-title={props.flight[indice].name} tooltip-dir="left">
+                                <img src={props.flight[indice].logo} alt={props.flight[indice].name} height={40}/>
+                        </figure>
+                        <div>
+                            <strong className='horarioIda'> {segmento.departureDateTime.slice(11,16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11,16)}</strong>
+                            <p className='destinoIda'>{"CIUDAD"} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"CIUDAD 2"} ({segmento.arrivalAirportCode})</p>
+                        </div>
+                        <br/>
                     </div>
                     
                 )
