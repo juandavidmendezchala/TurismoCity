@@ -39,7 +39,7 @@ class Login extends Component {
                     cookies.set('apellido', respuesta.apellido, { path: '/' })
                     cookies.set('username', respuesta.username, { path: '/' })
                     alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido}`)
-                    window.location.href = 'http://localhost:3001/home'//aqui va la direccion del home con ./
+                    window.location.href = 'http://localhost:3000/'//aqui va la direccion del home con ./
                 } else {
                     alert('El usuario o la contraseña no es correcta')
                 }
@@ -51,7 +51,7 @@ class Login extends Component {
 
     componentDidMount() {
         if (cookies.get('username')) {
-            window.location.href = 'http://localhost:3001/home'//aqui va la direccion del home con ./
+            window.location.href = 'http://localhost:3000/'//aqui va la direccion del home con ./
         }
     }
 

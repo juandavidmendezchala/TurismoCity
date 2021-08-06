@@ -36,10 +36,10 @@ class Register extends Component {
                 <label>Apellido</label>
                 <Field name='lastname' type='text' component='input' onChange= {event =>this.valueToState(event.target)}/>
                 </div>
-               {/*  <div>
+                <div>
                 <label>Fecha de nacimiento</label>
-                <Field name='birth' type='' component='input'/>
-                </div> */}
+                <Field name='birth' type='date' component='input'/>
+                </div>
                 <div>
                 <label>Password</label> 
                 <Field name='password' type='password' component='input' onChange= {event =>this.valueToState(event.target)}/>
