@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import './Login.css'
 import { signin } from '../../store/actions/userActions';
 
 
@@ -29,7 +29,7 @@ export default function Login(props) {
 
     return (
         <div>
-            <form onSubmit={submitHandler}>
+            <form className="form" onSubmit={submitHandler}>
                 <div>
                     <h1>Sign In</h1>
                 </div>
