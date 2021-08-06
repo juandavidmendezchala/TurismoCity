@@ -1,8 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers/reducerFlights";
 import reducers from "./reducers/reducers";
-import reducer from "./reducers/reducerFlights";
 
 import thunk from "redux-thunk";
 import reducerFligts from "./reducers/reducerFlights";

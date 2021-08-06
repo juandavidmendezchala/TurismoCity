@@ -24,7 +24,7 @@ export function getFlights() {
   };
 }
 
-    return function(dispatch) {
+/*     return function(dispatch) {
        return fetch('https://api.flightapi.io/roundtrip/610c9bfb1c7bef42b2e7608a/LHR/LAX/2021-10-11/2021-10-15/2/0/1/Economy/ARS')
 
         .then(response => response.json())
@@ -52,6 +52,6 @@ export function getFlights() {
             
           dispatch({ type: GET_FLIGHTS, payload: [arregloFlights[0],arregloFlights[1]]});
         });
-    };
-  }
+    }; */
+  /* } */
 
