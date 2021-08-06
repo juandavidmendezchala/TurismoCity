@@ -1,63 +1,37 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Segmentos.css'
-import { getFlights } from '../../store/actions/getFlights';
-import {connect} from 'react-redux';
 
-export default function Segments(props){
- console.log(props)
+
+export default function Segments(props) {
+    console.log(props)
+
+    const getCity = (airportCode) => {
+        var airport = props.airports?.find(airport => airport.code === airportCode)
+        var city = props.cities?.find(city => city.code === airport.cityCode)
+        return city.name;
+    }
+
     return (
         <div className='TarjetaSegmentos'>
             <div className='encabezadoSegmentos'> Detalle Tramos: </div>
-            {props.segmentos?.map((segmento,indice) =>
-                {return (
+            {props.segmentos?.map((segmento, index) => {
+                return (
                     <div className='segmentosBox'>
-                        <figure id='photo' data-title={props.flight[indice].name} tooltip-dir="left">
-                                <img src={props.flight[indice].logo} alt={props.flight[indice].name} height={40}/>
+                        <figure id='photo' data-title={props.flight[index].name} tooltip-dir="left">
+                            <img src={props.flight[index].logo} alt={props.flight[index].name} height={40} />
                         </figure>
                         <div>
-                            <strong className='horarioIda'> {segmento.departureDateTime.slice(11,16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11,16)}</strong>
-                            <p className='destinoIda'>{"CIUDAD"} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"CIUDAD 2"} ({segmento.arrivalAirportCode})</p>
+                            <p className='escalaTitulo'> Duracion: {Math.floor(segmento.durationMinutes/60)}h {Math.ceil(((segmento.durationMinutes/60)-Math.floor(segmento.durationMinutes/60))*60)}min </p>
+                            <strong className='horarioIda'> {segmento.departureDateTime.slice(11, 16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11, 16)}</strong>
+                            <p className='destinoIda'>{getCity(segmento.departureAirportCode)} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {getCity(segmento.arrivalAirportCode)} ({segmento.arrivalAirportCode})</p>
                         </div>
-                        <br/>
+                        <br />
                     </div>
-                    
+
                 )
-                })}
-            
-            {/* {props.segmentos.map(flight =>{
-                return(
-                    <div className='contein'>
-                    <div className='flightCard'>
-                        <div className='InfoIda'>
-                        <figure id='photo' data-title={flight.airlineCode} tooltip-dir="left">
-                            <img src={flight.airlineIda.logo} alt={flight.airlineIda.name} height={40}/>
-                        </figure>
-                            <div className='horarioDestinoIda'>
-                                <strong className='horarioIda'> {flight.vueloIda.departureDateTime}</strong><i className='line'> ------------------------</i><strong> {flight.arrivalDateTime}</strong>
-                                <p className='destinoIda'>{"NOMBRE DE LA CIUDAD"} ({flight.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"NOMBRE CIUDAD 2"} ({flight.arrivalAirportCode})</p>
-                            </div>
-                            
-                        </div>                     
-                    </div>
-                    </div>
-                )
-            })} */}
-            
-           
+            })}
+
         </div>
     )
 
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         getFlights: flights => dispatch(getFlights(flights))
-//     }
-// }
-// const mapStateToProps = state => {
-//     return {
-//         flights: state.flights
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Segments)

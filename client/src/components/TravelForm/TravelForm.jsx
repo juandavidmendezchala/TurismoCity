@@ -1,7 +1,7 @@
 
-import React, { useState, useDispatch } from "react"
+import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 // import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"

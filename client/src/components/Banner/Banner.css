@@ -12,3 +12,8 @@
     padding-top: 30px;
     padding-left: 10px;
 }
+.algo{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
