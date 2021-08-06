@@ -1,5 +1,5 @@
 
-import React, { useState } from "react"
+import React, { useState, useDispatch } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
@@ -31,7 +31,6 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
     }
-
 
     return (
         <div className="TravelFormContainer">
@@ -76,6 +75,20 @@ export default function TravelForm(props) {
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
+
+                      </div>  
+                <div className="DesdeHaciaContainer">
+                    <form action="">
+                        <label>Ida</label>
+                        <input type="radio" value="onewaytrip" name="time" />
+                        <label>Ida y Vuelta</label>
+                        <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
+                    </form>
+                    <br />
+                    <div>  <h1 className="TextTravelForm">  DESDE : </h1>
+
+                        <DinamicSearch />
+
                     </div>
 
                     <div className="selectPassengers">
@@ -102,7 +115,12 @@ export default function TravelForm(props) {
                     <div className="FormTravelButtonContainer">
                         <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                     </div>
+
                 </form>
+
+                </div>
+              </form>
+
             </div>
 
         </div >
