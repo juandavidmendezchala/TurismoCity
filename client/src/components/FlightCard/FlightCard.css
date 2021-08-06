@@ -1,0 +1,77 @@
+body{
+    background-image: url('./img.jpg');
+    
+}
+.conteinerAllCard{
+    margin-top: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contein{
+    border-radius: 20px;
+    height: 200px;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    margin: 20px;
+    padding:0px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+        
+}
+.flightCard{
+    /* border-radius: 20px;
+    height: 200px;
+    background-color: rgb(231, 231, 231); */
+    display:flex;
+    /* width: 500px; */
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    /* margin: 20px;
+    padding:0px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+}
+.InfoIda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 600px; */
+    font-size: small;   
+}
+.line{
+    opacity: 30%;
+}
+.horarioDestinoIda{
+    margin-left: 20px;
+}
+.horarioIda{
+    margin: 0px;
+    padding: 0px;
+}
+.destinoIda{
+    margin: 0px;
+    padding: 0px;
+    opacity: 70%;
+}
+.reserve{
+    margin-top: 20px;
+    align-self: flex-end;
+    text-decoration: none;
+}
+.reserve-box{
+    background: rgb(67,117,152);
+background: linear-gradient(337deg, rgba(67,117,152,1) 28%, rgba(91,153,195,1) 70%, rgba(108,160,241,1) 100%);
+    color: white;
+    padding: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+}

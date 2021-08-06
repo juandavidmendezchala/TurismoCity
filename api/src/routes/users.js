@@ -1,0 +1,70 @@
+var express = require('express');
+
+// Defino el modelo user para utilizarlo en las rutas correspondientes
+const { User } = require('../models/index')
+
+var router = express.Router();
+
+// aquí voy a obtener el usuario en caso de que ya esté registrado
+router.get('/users', async (req, res) => {
+    // tomo del form de login el mail y la contraseña (aquí en query pero probaremos por body)
+    const {email, password} = req.query
+    // reviso que lleguen bien
+    if (!email || email === "") {
+      return res.status(400).json({"error":"el mail no existe"})
+    }
+    if (!password || password === "") {
+      return res.status(400).json({"error":"la clave no existe"})
+    }
+    await User.findAll({
+      where: {
+        email: email,
+        password: password
+      }
+    })
+    .then(result => {
+      if (result.length === 0) {
+        return res.status(400).json({"error":"usuario y claves no enontrados"})
+      }
+      res.json(result)
+    })
+    // res.send("get user")
+})
+
+router.post('/users', async (req, res) => {
+    // tomo todos los campos del form de registro de usuario
+    const {email, password, dni, name, lastname, birthdate} = req.body
+    // chequeo que estén completos los 3 campos requeridos
+    if (!email || email === "") {
+      return res.status(400).json({'error':'Falta ingresar e-mail correspondiente'})
+    }
+    if (!password || password === "") {
+      return res.status(400).json({'error':'Falta ingresar password correspondiente'})
+    }
+    if (!name || name === "") {
+      return res.status(400).json({'error':'Falta ingresar name correspondiente'})
+    }
+    console.log("Objeto de usuario creado")
+    // armo el objeto
+    const objUser = {
+      email,
+      password,
+      dni,
+      name,
+      lastname,
+      birthdate
+    }
+    try {
+      // envio los datos al modelo sequelize para que los guarde en la database
+      let newUser = await User.create(objUser);
+      // si todo sale bien devuelvo el objeto agregado
+      console.log("Objeto de usuario guardado")
+      res.send(objUser)
+    } catch (error) {
+      // en caso de error lo devuelvo al frontend
+      console.log(error)
+      res.status(500).json({ "error" : error});
+    } 
+})
+
+module.exports = router;

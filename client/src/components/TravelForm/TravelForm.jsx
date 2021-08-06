@@ -1,117 +1,97 @@
-import React from "react"
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { connect } from 'react-redux'
+import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 
 
+const TravelForm = (props) => {
+    const dispatch = useDispatch();
 
+    const [airport, setAirport] = useState({
+        from: ""
+    })
+    const [airportArrival, setAirportArrival] = useState({
+        to: ""
+    })
 
+    function handleChangeAirport(e) {
+        setAirport({
+            [e.target.name]: e.target.value
+        })
+    };
+    function handleChangeAirportArrival(e) {
+        setAirportArrival({
+            [e.target.name]: e.target.value
+        })
+    };
 
-
-
-const TravelForm = () => {
+    function onSubmitFrom(e) {
+        e.preventDefault()
+        console.log(airport.from)
+        props.getFrom(airport.from)
+        alert("funciono")
+    }
+    
     return (
         <div className="TravelFormContainer">
             <h1>Hola viajerx. A donde te gustaria ir?</h1>
             <div className="FormContainer">
-                <div className="DesdeHaciaContainer">
-                <div>  <h1 className="TextTravelForm">  DESDE : </h1>
-              
-<select >
-              {/* <select
-               onChange={e => changeCode(e)}> */}
+                <form onSubmit={onSubmitFrom}>
+                    <div className="DesdeHaciaContainer">
+                        <div>
+                            <form action="">
+                                <label>Ida</label>
+                                <input type="radio" value="onewaytrip" name="time" />
+                                <label>Ida y Vuelta</label>
+                                <input type="radio" id="radioB1" name="time" value="roundtrip" checked='true' />
+                            </form>
+                            <h1 className="TextTravelForm">  DESDE : </h1>
 
-          <option value="AFG">Afghanistan</option>
-          <option value="ALA">Åland Islands</option>
-          <option value="ALB">Albania</option>
-          <option value="DZA">Algeria</option>
-          <option value="ASM">American Samoa</option>
-          <option value="AND">Andorra</option>
-          <option value="AGO">Angola</option>
-          <option value="AIA">Anguilla</option>
-          <option value="ATA">Antarctica</option>
-          <option value="ATG">Antigua and Barbuda</option>
-          <option value="ARG">Argentina</option>
-          <option value="ARM">Armenia</option>
-          <option value="ABW">Aruba</option>
-          <option value="AUS">Australia</option>
-          <option value="AUT">Austria</option>
-          <option value="AZE">Azerbaijan</option>
-          <option value="VUT">Vanuatu</option>
-          <option value="VEN">Venezuela, Bolivarian Republic of</option>
-          <option value="VNM">Viet Nam</option>
-          <option value="VGB">Virgin Islands, British</option>
-          <option value="VIR">Virgin Islands, U.S.</option>
-          <option value="WLF">Wallis and Futuna</option>
-          <option value="ESH">Western Sahara</option>
-          <option value="YEM">Yemen</option>
-          <option value="ZMB">Zambia</option>
-          <option value="ZWE">Zimbabwe</option>
-      </select>
-              </div> 
-                    
+                            <input type="search" placeholder="ciudad o aeropuerto" value={airport.from} name="from" onChange={handleChangeAirport} />
+                        </div>
+
                         {/* <h1 className="TextTravelForm">Hacia</h1> */}
 
                         <div>  <h1 className="TextTravelForm" > HACIA : </h1>
-              
-              <select>
-                            {/* <select
-                             onChange={e => changeCode(e)}> */}
-                             
-                        <option value="AFG">Afghanistan</option>
-                        <option value="ALA">Åland Islands</option>
-                        <option value="ALB">Albania</option>
-                        <option value="DZA">Algeria</option>
-                        <option value="ASM">American Samoa</option>
-                        <option value="AND">Andorra</option>
-                        <option value="AGO">Angola</option>
-                        <option value="AIA">Anguilla</option>
-                        <option value="ATA">Antarctica</option>
-                        <option value="ATG">Antigua and Barbuda</option>
-                        <option value="ARG">Argentina</option>
-                        <option value="ARM">Armenia</option>
-                        <option value="ABW">Aruba</option>
-                        <option value="AUS">Australia</option>
-                        <option value="AUT">Austria</option>
-                        <option value="AZE">Azerbaijan</option>
-                       
-                        <option value="VUT">Vanuatu</option>
-                        <option value="VEN">Venezuela, Bolivarian Republic of</option>
-                        <option value="VNM">Viet Nam</option>
-                        <option value="VGB">Virgin Islands, British</option>
-                        <option value="VIR">Virgin Islands, U.S.</option>
-                        <option value="WLF">Wallis and Futuna</option>
-                        <option value="ESH">Western Sahara</option>
-                        <option value="YEM">Yemen</option>
-                        <option value="ZMB">Zambia</option>
-                        <option value="ZWE">Zimbabwe</option>
-                    </select>
-                            </div> 
-                </div>
-             
-                <div className="DesdeHastaContainer">
-                <div>
-                        <h1 className="TextTravelForm">Desde</h1>
-                        <input type ="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
+                            <input type="search" placeholder="ciudad o aeropuerto" value={airportArrival.to} name="to" onChange={handleChangeAirportArrival} />
+
+                        </div>
                     </div>
-                    <div>
-                        <h1 className="TextTravelForm">Hasta</h1>
-                        <input type ="date"  className="InputTravelForm" placeholder="Indique su fecha de llegada"></input>
+
+                    <div className="DesdeHastaContainer">
+                        <div>
+                            <h1 className="TextTravelForm">Desde</h1>
+                            <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida"></input>
+                        </div>
+                        <div>
+                            <h1 className="TextTravelForm">Hasta</h1>
+                            <input type="date" className="InputTravelForm" placeholder="Indique su fecha de llegada"></input>
+                        </div>
                     </div>
-                </div>
-                <div className="SelectTravelFormContainer">
-                <select className="SelectTravelForm">
-                    <option selected value="Economy">Economy</option>
-                    <option value="Business">Business</option>
-                    <option value="First">First</option>
-                    <option value="PremiumEconomy">PremiumEconomy</option>
-                </select>
-                </div>
-                <div className="FormTravelButtonContainer">
-                <button type="submit" className="FormTravelButton">Buscar</button>
-                </div>
+                    <div className="SelectTravelFormContainer">
+                        <select className="SelectTravelForm">
+                            <option selected value="Economy">Economy</option>
+                            <option value="Business">Business</option>
+                            <option value="First">First</option>
+                            <option value="PremiumEconomy">PremiumEconomy</option>
+                        </select>
+                    </div>
+                    <div className="FormTravelButtonContainer">
+                        <button type="submit" className="FormTravelButton" >Buscar</button>
+                    </div>
+                </form>
+
             </div>
 
-        </div>
+        </div >
     )
 }
 
-export default TravelForm
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getFrom: from => dispatch(getFrom(from))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(TravelForm)
