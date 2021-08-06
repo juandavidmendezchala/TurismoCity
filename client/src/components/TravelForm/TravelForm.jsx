@@ -1,5 +1,4 @@
-
-import React, { useState, useDispatch } from "react"
+import React, { useState } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
@@ -78,6 +77,7 @@ export default function TravelForm(props) {
 
 
                     </div>
+                    </form>
 
 
                       </div>  
@@ -124,14 +124,7 @@ export default function TravelForm(props) {
                 </form>
 
                 </div>
-
-            </form>
-
-              </form>
-
             </div>
-
-        </div >
     )
 }
 
