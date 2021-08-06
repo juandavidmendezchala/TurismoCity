@@ -5,6 +5,25 @@ const { User } = require('../models/index')
 
 var router = express.Router();
 
+//var bcryptjs = require ('bcryptjs')
+
+
+router.post ('/login', async (req, res) =>{
+  const email= req.body.email;
+  const password = req.body.password;
+  if(email == "mati" && password == '12345'){ // para prueba en postman
+    var passwordHash = await bcryptjs.hash(password, 8)
+    res.json({
+      message:'Se autentico adecuadamente'
+    })
+  }else {
+    res.json({
+      message:'Email o contraseña equivocada'
+    })
+  }
+})
+
+
 // aquí voy a obtener el usuario en caso de que ya esté registrado
 router.get('/users', async (req, res) => {
     // tomo del form de login el mail y la contraseña (aquí en query pero probaremos por body)

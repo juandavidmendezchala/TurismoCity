@@ -4,6 +4,7 @@ export const GET_FLIGHTS = "GET_FLIGHTS";
 export function getFlights() {
     return function(dispatch) {
        return fetch('https://api.flightapi.io/roundtrip/610c9bfb1c7bef42b2e7608a/LHR/LAX/2021-10-11/2021-10-15/2/0/1/Economy/ARS')
+
         .then(response => response.json())
         .then(json => {
                 if(json.message) console.log(json.message);
@@ -31,3 +32,4 @@ export function getFlights() {
         });
     };
   }
+
