@@ -33,13 +33,13 @@ function FlightCard(props){
                             <img src={flight.airlineIda.logo} alt={flight.airlineIda.name} height={40}/>
                         </figure>
                             <div className='horarioDestinoIda'>
-                            {flight.vueloIda.stopoverCode!=='DIRECT'?(<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo' onClick={()=>segmentsFunction(flight.vueloIda.id)}>{flight.vueloIda.segments.length-1} Escala{flight.vueloIda.segments.length>2?('s'):null}</a></p>):null}
+                            {flight.vueloIda.stopoverCode!=='DIRECT'?(<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo' onClick={()=>segmentsFunction(flight.vueloIda.id)}>{flight.vueloIda.segments.length-1} Escala{flight.vueloIda.segments.length>2?('s'):null}</a></p>):(<p className='escalaTitulo'>Directo</p>)}
                                 <strong className='horarioIda'> {flight.vueloIda.departureTime}</strong><i className='line'> ------------------------</i><strong> {flight.vueloIda.arrivalTime}</strong>
                                 <p className='destinoIda'>{flight.city1.name} ({flight.vueloIda.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {flight.city2.name} ({flight.vueloIda.arrivalAirportCode})</p>
                             </div>
                         
                         </div>
-                        {state===flight.vueloIda.id&&state2===true&&flight.vueloIda.stopoverCode!=='DIRECT'?(<Segments segmentos={flight.vueloIda.segments}/>):null}
+                        {state===flight.vueloIda.id&&state2===true&&flight.vueloIda.stopoverCode!=='DIRECT'?(<Segments segmentos={flight.vueloIda.segments} flight={flight.airlinesLogosIda}/>):null}
                         <br/>
                         <br/>
                         <div className='InfoIda'>
@@ -47,13 +47,13 @@ function FlightCard(props){
                                 <img src={flight.airlineVuelta.logo} alt={flight.airlineVuelta.name} height={40}/>
                             </figure>
                             <div className='horarioDestinoIda'>
-                            {flight.vueloVuelta.stopoverCode!=='DIRECT'?(<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo' onClick={()=>segmentsFunction(flight.vueloVuelta.id)}>{flight.vueloVuelta.segments.length-1} Escala{flight.vueloVuelta.segments.length>2?('s'):null}</a></p>):null}
+                            {flight.vueloVuelta.stopoverCode!=='DIRECT'?(<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo' onClick={()=>segmentsFunction(flight.vueloVuelta.id)}>{flight.vueloVuelta.segments.length-1} Escala{flight.vueloVuelta.segments.length>2?('s'):null}</a></p>):(<p className='escalaTitulo'>Directo</p>)}
                                 <strong className='horarioIda'> {flight.vueloVuelta.departureTime}</strong><i className='line'> ------------------------</i><strong> {flight.vueloVuelta.arrivalTime}</strong>
                                 <p className='destinoIda'>{flight.city2.name} ({flight.vueloVuelta.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {flight.city1.name} ({flight.vueloVuelta.arrivalAirportCode})</p>
                             </div>
                         </div>
                         
-                        {state===flight.vueloVuelta.id&&state2===true&&flight.vueloVuelta.stopoverCode!=='DIRECT'?(<Segments segmentos={flight.vueloVuelta.segments}/>):null}
+                        {state===flight.vueloVuelta.id&&state2===true&&flight.vueloVuelta.stopoverCode!=='DIRECT'?(<Segments segmentos={flight.vueloVuelta.segments} flight={flight.airlinesLogosVuelta}/>):null}
     
                     </div>
                     <div className='reserve-box'>
