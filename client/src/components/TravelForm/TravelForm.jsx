@@ -15,6 +15,7 @@ import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
 
 
+
 export default function TravelForm(props) {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -52,12 +53,6 @@ export default function TravelForm(props) {
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
-                        <form action="">
-                            <label>Ida</label>
-                            <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
-                            <label>Ida y Vuelta</label>
-                            <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
-                        </form>
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
                             <DinamicSearch id="0" />
@@ -67,7 +62,12 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
-
+                    <form className="RadioTravelForm" action="">
+                        <label className="LabelRadioTravelForm">Ida</label>
+                        <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
+                        <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                    </form>
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
