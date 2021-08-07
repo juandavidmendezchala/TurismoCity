@@ -4,7 +4,6 @@ import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 import { GET_FLIGHTS } from "../actions/getFlights"
 import { SORT_FLIGHT } from "../actions/sortFlight"
-import { GET_FLIGHTS } from "../actions/getFlights"
 
 const initialState = {
     from: [],

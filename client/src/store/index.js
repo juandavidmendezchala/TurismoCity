@@ -1,9 +1,4 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-<<<<<<< HEAD
-import reducers from "./reducers/reducers";
-
-=======
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
 import thunk from "redux-thunk";
 import reducerFlights from "./reducers/reducerFlights";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";

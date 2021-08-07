@@ -78,21 +78,6 @@ export default function TravelForm(props) {
                             <input type="date" className="InputTravelForm" placeholder="Indique su fecha de regreso" onChange={e => setToDate(e.target.value)}></input>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div className="SelectTravelFormContainer">
-                        <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
-                            <option selected value="Economy">Economy</option>
-                            <option value="Business">Business</option>
-                            <option value="First">First</option>
-                            <option value="PremiumEconomy">PremiumEconomy</option>
-                        </select>
-                    </div>
-                
-
-
-
-=======
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
                     <div className="selectPassengers">
                         <label>Adultos</label>
                         <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
@@ -134,28 +119,9 @@ export default function TravelForm(props) {
                         <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
                         <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
                     </div>
-<<<<<<< HEAD
-                </form>
-            </div>
-        </div>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
-=======
                 </div>
             </div >
         </div>
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
 
     )
 }

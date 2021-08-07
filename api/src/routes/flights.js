@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-const {Router} = require('express');
-const axios = require('axios')
-const fetch = require('node-fetch');
-
-=======
 const { Router } = require('express');
 const axios = require('axios')
 const fetch = require('node-fetch');
 
 const { APIKEY } = require('../utils/config/index')
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
 
 const router = Router();
 const KEY_API = '6108ab9e1c7bef42b2e7580e'
@@ -56,11 +49,6 @@ function getAll(req, res, next) {
     axios.get(`https://api.flightapi.io/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${fechaRegreso}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
         .then(response => {
 
-<<<<<<< HEAD
-          res.send(response.data)
-      }); 
-}
-=======
             res.send(response.data)
         });
 }
@@ -80,7 +68,6 @@ router.get('/', async (req, res, next) => {
     const { data } = await axios.get(request)
     res.send(data)
 })
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
 
 //module.exports = router;
 module.exports = {
