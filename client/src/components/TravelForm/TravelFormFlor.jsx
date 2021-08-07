@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 // import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 import { detailFlight } from "../../store/actions/datailFlight";
@@ -10,7 +10,7 @@ import { getFlights } from "../../store/actions/getFlights"
 
 
 
-export default function TravelForm(props) {
+function TravelForm(props) {
     const history = useHistory()
     const dispatch = useDispatch();
 
@@ -25,8 +25,8 @@ export default function TravelForm(props) {
     const [babies, setBabies] = useState('')
     const [currency, setCurrency] = useState('');
 
-    const airports0 = useSelector(state => state.from)
-    const airports1 = useSelector(state => state.to)
+    const airports0 = useSelector(state => state.listflights.from)
+    const airports1 = useSelector(state => state.listtflights.to)
     useEffect(() => {
         setFromPlace(airports0)
         setToPlace(airports1)
@@ -35,8 +35,8 @@ export default function TravelForm(props) {
 
     async function onSubmitFrom(e) {
         e.preventDefault()
-        dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        dispatch(detailFlight(way, listFlights.from, lisFlights.to, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        props.getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         history.push("/flights")
     }
 
@@ -108,21 +108,21 @@ export default function TravelForm(props) {
                     </select>
                 </div>
                 <div className="FormTravelButtonContainer">
-                    <button type="submit" className="FormTravelButton"  >Buscar</button>
+                    <button type="submit" className="FormTravelButton" onClick={onSubmitFrom} >Buscar</button>
                 </div>
             </div>
         </div>
     )
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getFlights: flights => dispatch(getFlights(flights))
+    }
+}
+const mapStateToProps = state => {
+    return {
+        flights: state.flights
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(TravelForm)

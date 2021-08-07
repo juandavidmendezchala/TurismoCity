@@ -1,16 +1,16 @@
 import airlinesLogo from '../../airlines.json';
 export const GET_FLIGHTS = "GET_FLIGHTS";
+const apiKey = "610d77b52337b81bfb00b5f9"
 
-export function getFlights() {
+export function getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency) {
+  // console.log({way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency})
   return function (dispatch) {
-    return fetch('https://api.flightapi.io/roundtrip/610d77b52337b81bfb00b5f9/LHR/LAX/2021-10-11/2021-10-15/2/0/1/Economy/ARS')
+    return fetch(`https://api.flightapi.io/roundtrip/${apiKey}/${fromPlace}/${toPlace}/${fromDate}/${toDate}/${adults}/${kids}/${babies}/${classFlight}/${currency}`)
       .then(response => response.json())
       .then(json => {
         if (json.message) console.log(json.message);
-        
         var airlinesLogosIda = '';
         var airlinesLogosVuelta = '';
-
         var arregloFlights = json.trips?.map(combinacion => {
           var vueloIda = json.legs?.find(vuelo => combinacion.legIds[0] == vuelo.id)
           var vueloVuelta = json.legs?.find(vuelo => combinacion.legIds[1] == vuelo.id)
@@ -23,12 +23,12 @@ export function getFlights() {
           var city2 = json.cities?.find(city => city.code === airport2.cityCode)
           vueloIda.stopoverCode !== 'DIRECT' ? (airlinesLogosIda = vueloIda.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosIda = null)
           vueloVuelta.stopoverCode !== 'DIRECT' ? (airlinesLogosVuelta = vueloVuelta.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosVuelta = null)
-
+          console.log(fromDate)
 
           return ({ "moneda":json.search.currencyCode,city1, city2, airlineIda, airlineVuelta, linkRedireccion, vueloIda, vueloVuelta, "cities": json.cities, "airports": json.airports, airlinesLogosIda, airlinesLogosVuelta})
         }
         )
-
+        console.log(arregloFlights)
         dispatch({ type: GET_FLIGHTS, payload: arregloFlights});
       });
   };

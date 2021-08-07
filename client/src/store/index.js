@@ -1,12 +1,23 @@
-import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers/reducers";
-import reducer from "./reducers/reducerFlights";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
-// comentar esta linea y la 9 si no tienen el redux dev tools instalado
+import reducerFligts from "./reducers/reducerFlights";
+import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
+const initialState = {
+  userSignin: {
+    userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
+  }
+}
+
+const reducer = combineReducers({
+  listFlights: reducerFligts,
+  userSignin: userSigninReducer,
+  userRegister: userRegisterReducer
+})
+
 const store = createStore(
-  reducer, composeEnhancers(applyMiddleware(thunk))
+  reducer, initialState, composeEnhancers(applyMiddleware(thunk))
 );
 
 export default store;
