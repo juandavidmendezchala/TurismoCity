@@ -7,6 +7,7 @@ import "./DinamicSearch.css"
 import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
+import { Input } from 'semantic-ui-react'
 
 const DinamicSearch = ({ id }) => {
 
@@ -46,14 +47,12 @@ const DinamicSearch = ({ id }) => {
                 const regex = new RegExp(`${text}`, "gi")
                 // return user.email.match(regex)
                 return user.city.match(regex)
-
             })
         }
-        console.log('matches', text)
         setSug(matches)
         setText(text)
         setVisible(visible)
-        console.log(text, visible)
+
     }
     return (
 
@@ -62,10 +61,14 @@ const DinamicSearch = ({ id }) => {
             <input type="hidden" className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
-            /><input type="text" className="inputSearch"
+            /><input type="text"
+                className="inputSearch" placeholder='Search users...' icon='map marker alternate' iconPosition='left'
+
                 onChange={e => onChangeHandle(e.target.value)}
                 value={visible}
             />
+
+
             {sug && sug.map((sug, i) => i < 5 &&
                 <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code, sug.city)}> {sug.city} {sug.name} {(sug.code)}  </div>
             )}
@@ -76,3 +79,5 @@ const DinamicSearch = ({ id }) => {
 
 
 export default DinamicSearch
+
+

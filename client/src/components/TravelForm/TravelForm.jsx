@@ -21,6 +21,7 @@ import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
 
 
+
 export default function TravelForm(props) {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -31,7 +32,7 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
-    const [adults, setAdults] = useState('')
+    const [adults, setAdults] = useState('0')
     const [kids, setKids] = useState('0')
     const [babies, setBabies] = useState('0')
     const [currency, setCurrency] = useState('USD');
@@ -81,13 +82,13 @@ export default function TravelForm(props) {
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
-                        <div>
+                        {/* <div>
                             <label>Ida</label>
-                            <input type="radio" value="onewaytrip" name="tripType" autocomplete="off" onChange={e => setWay(e.target.value)} />
+
                             <label>Ida y Vuelta</label>
                             <input type="radio" id="radioB1" name="tripType" value="roundtrip" autocomplete="off" onChange={e => setWay(e.target.value)} />
                         </div>
-
+ */}
 
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
@@ -98,7 +99,12 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
-
+                    <form className="RadioTravelForm" action="">
+                        <label className="LabelRadioTravelForm">Ida</label>
+                        <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
+                        <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                    </form>
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
@@ -111,13 +117,13 @@ export default function TravelForm(props) {
                     </div>
                     <div className="selectPassengers">
                         <label>Adultos</label>
-                        <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <input type="number" placeholder="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
                         <label>Ninos</label>
-                        <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <input type="number" placeholder="0" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
                         <label>Bebes</label>
-                        <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <input type="number" placeholder="0" min="0" max="10" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
                         <select className="SelectTravelForm" onChange={(e) => { e.preventDefault(); valClass(e.target.value) }}>
