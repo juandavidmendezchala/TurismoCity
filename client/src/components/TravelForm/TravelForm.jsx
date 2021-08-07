@@ -43,7 +43,7 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push("/flights")
+        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
 
     return (
