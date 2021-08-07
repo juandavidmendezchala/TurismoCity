@@ -16,7 +16,6 @@ import { getFlights } from "../../store/actions/getFlights"
 
 
 
-
 export default function TravelForm(props) {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -45,7 +44,7 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push("/flights")
+        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
 
     return (
@@ -54,6 +53,12 @@ export default function TravelForm(props) {
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
+                        <form action="">
+                            <label>Ida</label>
+                            <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                            <label>Ida y Vuelta</label>
+                            <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        </form>
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
                             <DinamicSearch id="0" />

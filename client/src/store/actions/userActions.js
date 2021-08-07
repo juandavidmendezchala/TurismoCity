@@ -4,7 +4,8 @@ import {USER_REGISTER_SUCCESS,
     USER_REGISTER_FAIL,
     USER_SIGNIN_FAIL, 
     USER_SIGNIN_REQUEST,
-    USER_SIGNIN_SUCCESS} from '../Consts/Consts'
+    USER_SIGNIN_SUCCESS,
+    USER_LOGOUT} from '../Consts/Consts'
 
 export const register = (name, email, password, birthdate) => async(dispatch) => {
     dispatch({type: USER_REGISTER_REQUEST, payload: {name, email, password, birthdate} })
@@ -39,5 +40,11 @@ export const signin = (email, password) => async(dispatch) => {
                 : err.message
         })
     }
+
+}
+
+export const logout = () => (dispath) =>{
+    localStorage.removeItem('userInfo')
+    dispath({type: USER_LOGOUT})
 
 }
