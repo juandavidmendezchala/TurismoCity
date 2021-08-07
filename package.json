@@ -4,10 +4,13 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5"
@@ -15,15 +18,4 @@
   "devDependencies": {
     "nodemon": "^2.0.12"
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-
-}
-
-}
->>>>>>> 2b37945087f2af98ddcefc67d412c5b061d27cc0
-=======
-}
->>>>>>> 4f53dedbdfefe7d58b7581f4ae2499e6a459d5dd
