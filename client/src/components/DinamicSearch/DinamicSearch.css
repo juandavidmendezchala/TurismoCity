@@ -1,3 +1,15 @@
+.ContainerDinamicSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 220px;
+}
+.inputSearch {
+width: 200px;
+display: flex;
+
+}
 .inputSug {
  
 
