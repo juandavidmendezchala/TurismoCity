@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   width: 800px;
-  height: 400px;
+  height: 500px;
   background-color: #0F3057;
   opacity: 90%;
 }
@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: space-around;
   height: 80px; 
-  margin-top: 30px;
+  margin-bottom: 10px;
 }
 .DesdeHastaContainer {
   display: flex;
@@ -40,8 +40,7 @@
   align-items: center;
   justify-content: space-around;
   height: 80px;
-  background-color: wheat;
-  width: 450px;
+  width: 440px;
   
 }
 .TextTravelFormAbajo {
@@ -54,10 +53,34 @@
   font-size: 15px;
   margin-right: 170px;
 }
+.selectPassengers{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px;
+}
+.LabelSelectPassengers{
+  color:white
+}
+.InputSelectPassengers{
+  width: 30px;
+  height: 20px;
+}
+.selectCurrency{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.LabelSelectCurrency{
+  color: white;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
 .SelectTravelForm {
   width: 400px;
   height: 40px;
-  border-radius: 0;
+
 }
 .InputTravelForm {
   width: 200px;
@@ -76,9 +99,14 @@
 }
 .TextAirlines{
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 80px;
 }
 .PublicityContainer{
-  height: 400px;
+  height: 500px;
   width: 480px  ;
   display: flex;
   flex-direction: column;
@@ -88,21 +116,65 @@
 }
 .LogoAerolineas{
   width: 160px;
-  
 }
 .AcomodoImg{
-  display: inline-flexbox;
+  display: inline-flexbox; 
+  
+  width: 300px;
+  height: 400px;
+}
+.LogoAerolineasAmerican{
+  width: 150px;
+  height: 70px;
+  background-color: white;
+}
+.LogoAerolineasArgentina{ 
+  width: 150px;
+  height: 70px;
+  background-color: white;
+}
+.LogoAerolineasNew{
+ width: 120px;
+  height:60px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.LogoAerolineasFrance{
+  width: 130px;
+  height: 70px;
+  margin-bottom: -8px;
+}
+.LogoAerolineasUnited{
+  width: 160px;
+  height: 70px;
+  margin-left: -20px;
+
+}
+.LogoAerolineasBritish{
+  width: 160px;
+  height: 60px;
+
+  padding-left: 20px;
+  
 }
 .RadioTravelForm{
   width: 200px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -200px;
+  margin-left: -250px;
+  align-items:baseline;
+
 }
 .LabelRadioTravelForm{
   color: white;
   font-size: 15px;
   padding-right: 10px;
   padding-left: 10px;
+  margin-bottom: 10px;
+}
+.SelectCurrencySelect{
+  height: 40px;
+  width: 250px;
+  border-color: none;
 }

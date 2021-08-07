@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
-import { Button, Radio } from 'semantic-ui-react'
+import { Button, Input } from 'semantic-ui-react'
 import logoAerolineas from "./Imagenes/Argentina.png"
 import logoAmerican from "./Imagenes/American.png"
 import logoFrance from "./Imagenes/France.png"
@@ -13,6 +13,7 @@ import logoUnited from "./Imagenes/United.png"
 import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
+
 
 
 export default function TravelForm(props) {
@@ -76,22 +77,26 @@ export default function TravelForm(props) {
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
-                            <input type="date" className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)}></input>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setFromDate(e.target.value)}
+                            />
+
                         </div>
                         <div>
                             <h1 className="TextTravelFormAbajo">Hasta:</h1>
-                            <input type="date" className="InputTravelForm" placeholder="Indique su fecha de regreso" onChange={e => setToDate(e.target.value)}></input>
-                        </div>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setToDate(e.target.value)}
+                            />                        </div>
                     </div>
                     <div className="selectPassengers">
-                        <label>Adultos</label>
-                        <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <label className="LabelSelectPassengers">Adultos</label>
+                        <input className="InputSelectPassengers" type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                        <label>Ninos</label>
-                        <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <label className="LabelSelectPassengers">Niños</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                        <label>Bebes</label>
-                        <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <label className="LabelSelectPassengers">Bebes</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
                         <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
@@ -102,8 +107,8 @@ export default function TravelForm(props) {
                         </select>
                     </div>
                     <div className="selectCurrency">
-                        <label>Seleccione moneda</label>
-                        <select onChange={e => setCurrency(e.target.value)}>
+                        <label className="LabelSelectCurrency">Seleccione moneda</label>
+                        <select className="SelectCurrencySelect" onChange={e => setCurrency(e.target.value)}>
                             <option value="USD" >Dolar Estadounidense USD</option>
                             <option value="ARS" >Peso Argentino ARS</option>
                             <option value="COP" >Peso Colombiano COP</option>
@@ -117,12 +122,12 @@ export default function TravelForm(props) {
                 <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
-                        <img className="LogoAerolineas" src={logoAmerican} alt="American Airlines" />
-                        <img className="LogoAerolineas" src={logoAerolineas} alt="Aerolineas Argentinas" />
-                        <img className="LogoAerolineas" src={logoBritish} alt="British Airlines" />
-                        <img className="LogoAerolineas" src={logoFrance} alt="France Airlines" />
-                        <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
-                        <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
+                        <img className="LogoAerolineasAmerican" src={logoAmerican} alt="American Airlines" />
+                        <img className="LogoAerolineasArgentina" src={logoAerolineas} alt="Aerolineas Argentinas" />
+                        <img className="LogoAerolineasUnited" src={logoUnited} alt="United Airlines" />
+                        <img className="LogoAerolineasFrance" src={logoFrance} alt="France Airlines" />
+                        <img className="LogoAerolineasNew" src={logoNew} alt="New Zealand Airlines" />
+                        <img className="LogoAerolineasBritish" src={logoBritish} alt="British Airlines" />
                     </div>
                 </div>
             </div >
