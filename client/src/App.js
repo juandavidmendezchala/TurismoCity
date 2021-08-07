@@ -14,10 +14,9 @@ function App() {
       <Route path="/" component={Banner} />
       <Route path="/" component={Navbar}></Route>
       <Route exact path="/" component={Home}></Route>
-      <Route path="/flights" component={FlightCard}></Route>
       <Route exact path="/login" component={Login}></Route>
       <Route exact path="/register" component={Register}></Route>
-      <Route path="/flights" component={Search}></Route>
+      <Route path="/flights" render={({match})=><Search path={match}/>}></Route>
     </div>
   );
 }

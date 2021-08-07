@@ -43,7 +43,7 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push("/flights")
+        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
 
     return (
@@ -109,32 +109,6 @@ export default function TravelForm(props) {
                             Buscar
                         </Button></div>
                 </form>
-<<<<<<< HEAD
-
-
-
-                <div className="selectPassengers">
-                    <label>Adultos</label>
-                    <input type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
-
-                    <label>Ninos</label>
-                    <input type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
-
-                    <label>Bebes</label>
-                    <input type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
-                </div>
-
-                <div className="selectCurrency">
-                    <label>Seleccione moneda</label>
-                    <select onChange={e => setCurrency(e.target.value)}>
-                        <option value="USD" >Dolar Estadounidense USD</option>
-                        <option value="ARS" >Peso Argentino ARS</option>
-                        <option value="COP" >Peso Colombiano COP</option>
-                    </select>
-                </div>
-                <div className="FormTravelButtonContainer">
-                    <button type="submit" className="FormTravelButton"  >Buscar</button>
-=======
                 <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
@@ -145,7 +119,6 @@ export default function TravelForm(props) {
                         <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
                         <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
                     </div>
->>>>>>> b1faec0012bd164b595edfabc41e4582e14b1f05
                 </div>
             </div >
         </div>
