@@ -84,6 +84,7 @@ export default function TravelForm(props) {
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
                     </div>
+                
 
 
 
@@ -111,8 +112,7 @@ export default function TravelForm(props) {
                     </div>
                 </form>
             </div>
-
-        </div >
+        </div>
     )
 }
 

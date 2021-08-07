@@ -1,12 +1,7 @@
 const {Router} = require('express');
-<<<<<<< HEAD
 const axios = require('axios')
 const fetch = require('node-fetch');
 
-=======
-const axios = require('axios');
-const {APIKEY} = require('../utils/config/index')
->>>>>>> 61c5a534f95264f3a0517c8b501c7bcdde9d4438
 
 const router = Router();
 const KEY_API = '6100341367b32f6d377e967d'
@@ -53,28 +48,9 @@ function getAll (req,res, next) {
     axios.get(`https://api.flightapi.io/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${fechaRegreso}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
       .then(response => {
 
-<<<<<<< HEAD
           res.send(response.data)
       }); 
 }
-=======
-router.get('/', async(req, res, next) => {
-    let {
-        roundTrip,
-        fromCountry,
-        toCountry,
-        fromDate,
-        toDate,
-        classFlight,
-        currency
-    } = req.body
-    const request = roundTrip ? 
-    `https://api.flightapi.io/roundtrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/${toDate}/2/0/1/${classFlight}/${currency}`:
-    `https://api.flightapi.io/onewaytrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/2/0/1/${classFlight}/${currency}`
-    const {data} = await axios.get(request)
-    res.send(data)
-})
->>>>>>> 61c5a534f95264f3a0517c8b501c7bcdde9d4438
 
 //module.exports = router;
 module.exports = {
