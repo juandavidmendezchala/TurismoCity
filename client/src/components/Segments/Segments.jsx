@@ -1,29 +1,29 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './Segmentos.css'
 import { getFlights } from '../../store/actions/getFlights';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-export default function Segments(props) {
-    console.log(props)
+export default function Segments(props){
+ console.log(props)
     return (
         <div className='TarjetaSegmentos'>
             <div className='encabezadoSegmentos'> Detalle Tramos: </div>
-            {props.segmentos?.map((segmento, indice) => {
-                return (
+            {props.segmentos?.map((segmento,indice) =>
+                {return (
                     <div className='segmentosBox'>
                         <figure id='photo' data-title={props.flight[indice].name} tooltip-dir="left">
-                            <img src={props.flight[indice].logo} alt={props.flight[indice].name} height={40} />
+                                <img src={props.flight[indice].logo} alt={props.flight[indice].name} height={40}/>
                         </figure>
                         <div>
-                            <strong className='horarioIda'> {segmento.departureDateTime.slice(11, 16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11, 16)}</strong>
+                            <strong className='horarioIda'> {segmento.departureDateTime.slice(11,16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11,16)}</strong>
                             <p className='destinoIda'>{"CIUDAD"} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"CIUDAD 2"} ({segmento.arrivalAirportCode})</p>
                         </div>
-                        <br />
+                        <br/>
                     </div>
-
+                    
                 )
-            })}
-
+                })}
+            
             {/* {props.segmentos.map(flight =>{
                 return(
                     <div className='contein'>
@@ -42,8 +42,8 @@ export default function Segments(props) {
                     </div>
                 )
             })} */}
-
-
+            
+           
         </div>
     )
 

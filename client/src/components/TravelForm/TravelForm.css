@@ -1,65 +1,94 @@
 .TravelFormContainer {
+  background-image: url(../Landing/img.jpg);
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  height: 600px;
+  width: 1400px;
   align-items: center;
-  padding-top: 20px;
+  justify-content: center;
+}
+.TitleHome {
+  font-size: 40px;
+  padding-top: -10px;
 }
 .FormContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
   background-color: #0f3057;
-  padding-top: 30px;
-  height: 500px;
-  width: 900px;
-  border-radius: 10%;
-  opacity: 80%;
+  opacity: 90%;
+}
+.ContainerForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 550px;
 }
 .DesdeHaciaContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  height: 130px;
-  margin-bottom: 5rem;
-}
-.TextTravelForm {
-  position: relative;
-  color: white;
-  font-size: 30px;
+  height: 150px;
+  margin-top: -30px;
 }
 .DesdeHastaContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  height: 130px;
+  height: 150px;
+  margin-top: -55px;
 }
-.FormTravelButton {
-  width: 100px;
-  height: 40px;
-  background-color: red;
+.TextTravelFormAbajo {
   color: white;
+  font-size: 15px;
+  margin-right: 140px;
+}
+.TextTravelFormArriba {
+  color: white;
+  font-size: 15px;
+  margin-right: 170px;
 }
 .SelectTravelForm {
-  width: 130px;
-  height: 30px;
+  width: 400px;
+  height: 40px;
+  border-radius: 0;
 }
 .InputTravelForm {
-  height: 30px;
-  border-radius: 10%;
   width: 200px;
+  height: 40px;
 }
-
-.Form select {
-  margin-top: 2rem;
+.DesdeInput {
+  color: black;
+  width: 200px;
+  height: 40px;
+}
+.PositionButton {
+  padding-top: 20px;
+  width: 90px;
+  height: 80px;
+}
+.TextAirlines {
+  color: black;
+}
+.PublicityContainer {
+  height: 400px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  /* width: 100px; */
-  height: 25px;
-  border: none;
-  border-radius: 4px;
-  font-size: 20px;
-  padding-left: 15px;
-  color: rgb(17, 17, 17);
-  margin-bottom: 9%;
+  background-color: white;
+  padding-top: 30px;
+}
+.LogoAerolineas {
+  width: 160px;
+}
+.AcomodoImg {
+  display: inline-flexbox;
+}
+.danger {
+  display: none;
 }
