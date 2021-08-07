@@ -25,7 +25,6 @@ export default function Segments(props) {
                             <strong className='horarioIda'> {segmento.departureDateTime.slice(11, 16)}</strong><i className='line'> ------------------------</i><strong> {segmento.arrivalDateTime.slice(11, 16)}</strong>
                             <p className='destinoIda'>{getCity(segmento.departureAirportCode)} ({segmento.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {getCity(segmento.arrivalAirportCode)} ({segmento.arrivalAirportCode})</p>
                         </div>
-                        <br />
                     </div>
 
                 )

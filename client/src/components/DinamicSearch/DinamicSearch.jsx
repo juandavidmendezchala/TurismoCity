@@ -7,6 +7,7 @@ import "./DinamicSearch.css"
 import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
+import { Input } from 'semantic-ui-react'
 
 const DinamicSearch = ({ id }) => {
 
@@ -53,11 +54,12 @@ const DinamicSearch = ({ id }) => {
 
         <div className="Container" id={id}>
             {/* <div>{text}</div> */}
-            <input type="text" className="inputSearch"
+
+            <Input type="text" icon='map marker alternate' iconPosition='left' placeholder='Search users...' className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
-
             />
+
             {sug && sug.map((sug, i) => i < 5 &&
                 <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
             )}

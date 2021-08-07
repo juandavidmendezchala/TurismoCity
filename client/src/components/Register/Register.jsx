@@ -36,6 +36,10 @@ export default function Register(props) {
         }
     }, [props.history, userInfo, redirect])
 
+    const alertRegister = () =>{
+        alert('¡Te has registrado exitosamente!')
+    }
+
     return(
         <div>
             <form className="form" onSubmit={submitHandler}>
@@ -96,7 +100,7 @@ export default function Register(props) {
                 </div>
                 <div>
                     <label />
-                    <button type="submit">
+                    <button type="submit" onClick={alertRegister}>
                         Register
                     </button>
                 </div>

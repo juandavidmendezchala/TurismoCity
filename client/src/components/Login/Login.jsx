@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Login.css'
 import { signin } from '../../store/actions/userActions';
+import {Link} from 'react-router-dom'
 
 
 export default function Login(props) {
@@ -60,6 +61,7 @@ export default function Login(props) {
                         Sign In
                     </button>
             </div>
+            <label>¿No tienes una cuenta aún? <Link to="/register">¡Registrate acá!</Link></label>
             </form>
         </div>
     )
