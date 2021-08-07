@@ -9,9 +9,9 @@ function FlightCard(props) {
     const [state, setState] = useState('');
     const [state2, setState2] = useState(false);
 
-    useEffect(() => {
-        props.getFlights();
-    }, [])
+    // useEffect(() => {
+    //     props.getFlights();
+    // }, [])
 
     const segmentsFunction = function (id) {
 

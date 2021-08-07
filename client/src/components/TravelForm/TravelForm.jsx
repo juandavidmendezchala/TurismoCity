@@ -39,11 +39,11 @@ export default function TravelForm(props) {
     }, [airports0, airports1])
     const prueba = useSelector(state => state)
 
-    function onSubmitFrom(e) {
+    async function onSubmitFrom(e) {
         e.preventDefault()
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
-        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        await dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
     }
 
