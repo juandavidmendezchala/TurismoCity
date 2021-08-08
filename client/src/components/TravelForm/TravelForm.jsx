@@ -13,8 +13,7 @@ import logoUnited from "./Imagenes/United.png"
 import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
-
-
+import 'semantic-ui-css/semantic.min.css'
 
 
 export default function TravelForm(props) {
@@ -45,7 +44,7 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push("/flights")
+        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
 
     return (
@@ -53,6 +52,7 @@ export default function TravelForm(props) {
             <h2 className="TitleHome">Hola, viajeros. ¿A dónde les gustaría ir? </h2>
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
+                    <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
                     <div className="DesdeHaciaContainer">
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
@@ -117,12 +117,21 @@ export default function TravelForm(props) {
                 <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
-                        <img className="LogoAerolineasAmerican" src={logoAmerican} alt="American Airlines" />
-                        <img className="LogoAerolineasArgentina" src={logoAerolineas} alt="Aerolineas Argentinas" />
-                        <img className="LogoAerolineasUnited" src={logoUnited} alt="United Airlines" />
-                        <img className="LogoAerolineasFrance" src={logoFrance} alt="France Airlines" />
-                        <img className="LogoAerolineasNew" src={logoNew} alt="New Zealand Airlines" />
-                        <img className="LogoAerolineasBritish" src={logoBritish} alt="British Airlines" />
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasAmerican" src={logoAmerican} alt="American Airlines" />
+                            <img className="LogoAerolineasArgentina" src={logoAerolineas} alt="Aerolineas Argentinas" />
+                        </div>
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasUnited" src={logoUnited} alt="United Airlines" />
+                            <img className="LogoAerolineasFrance" src={logoFrance} alt="France Airlines" />
+                        </div>
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasBritish" src={logoBritish} alt="British Airlines" />
+                            <img className="LogoAerolineasNew" src={logoNew} alt="New Zealand Airlines" />
+                        </div>
+
+                    </div>
+                    <div className="Subiteaeseavion">
                     </div>
                 </div>
             </div >

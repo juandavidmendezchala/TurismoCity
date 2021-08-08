@@ -8,6 +8,7 @@ import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
 import { Input } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 const DinamicSearch = ({ id }) => {
 

@@ -12,7 +12,7 @@ module.exports = function(sequelize) {
             allowNull: false
         },
         birthdate: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull:false
         },
         email: {
