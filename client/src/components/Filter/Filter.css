@@ -115,3 +115,7 @@ h4 {
   .select-css option {
     font-weight:normal;
   }
+
+  .colorCk {
+    color: #222;
+  }

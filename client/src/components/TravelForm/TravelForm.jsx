@@ -3,6 +3,7 @@ import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getFrom } from "../../store/actions/searchFlights"
+
 import "./TravelForm.css"
 
 import { Button, Input } from 'semantic-ui-react'
