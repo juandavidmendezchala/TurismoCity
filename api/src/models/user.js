@@ -11,12 +11,8 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastname:{
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         birthdate: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull:false
         },
         email: {

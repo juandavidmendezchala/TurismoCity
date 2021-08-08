@@ -17,10 +17,14 @@ export default function Filter(){
 
    const dispatch = useDispatch()
    //const recipes = useSelector(state=> state.recipeLoaded)
-   const flight = useSelector(state => state.flights)
+
+   
    const aeroUnico = useSelector(state => state.aeroFiltro)
 
    //console.log('aero', aeroLoaded)
+
+   const flight = useSelector(state => state.listFlights.flights)
+
 
    function handlerChange(e){ //se encarga de actualizar el estado
     dispatch(sortFlight(e.target.value,flight))
