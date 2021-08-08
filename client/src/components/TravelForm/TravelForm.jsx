@@ -104,17 +104,17 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
-                    <form className="RadioTravelForm" action="">
+                    <form className="RadioTravelForm" action="" >
                         <label className="LabelRadioTravelForm">Ida</label>
-                        <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                     </form>
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
 
-                            <input type="date" name={today} min={today} className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)}></input>
+                            <input type="date" name={today} min={today} className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)} required></input>
                         </div>
                         <div>
                             <h1 className={(way === "onewaytrip") ? 'danger' : 'TextTravelFormAbajo'}>Hasta:</h1>
@@ -123,17 +123,17 @@ export default function TravelForm(props) {
                     </div>
                     <div className="selectPassengers">
                         <label>Adultos</label>
-                        <input type="number" placeholder="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <input type="number" required placeholder="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
                         <label>Ninos</label>
-                        <input type="number" placeholder="0" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <input type="number" required placeholder="0" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
                         <label>Bebes</label>
-                        <input type="number" placeholder="0" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <input type="number" required placeholder="0" min="0" max="10" onChange={e => setBabies(e.target.value)} />
 
                     </div>
                     <div className="SelectTravelFormContainer">
-                        <select className="SelectTravelForm" onChange={(e) => { e.preventDefault(); valClass(e.target.value) }}>
+                        <select className="SelectTravelForm" required onChange={(e) => { e.preventDefault(); valClass(e.target.value) }} >
                             <option selected value="">Select a category</option>
                             <option value="Economy">Economy</option>
                             <option value="Business">Business</option>
@@ -144,7 +144,7 @@ export default function TravelForm(props) {
                     </div>
                     <div className="selectCurrency">
                         <label className="LabelSelectCurrency">Seleccione moneda</label>
-                        <select className="SelectCurrencySelect" onChange={e => setCurrency(e.target.value)}>
+                        <select className="SelectCurrencySelect" required onChange={e => setCurrency(e.target.value)}>
                             <option value="USD" >Dolar Estadounidense USD</option>
                             <option value="ARS" >Peso Argentino ARS</option>
                             <option value="COP" >Peso Colombiano COP</option>
