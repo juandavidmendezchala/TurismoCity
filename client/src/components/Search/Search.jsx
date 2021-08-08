@@ -7,6 +7,7 @@
 import Filter from "../Filter/Filter";
 import FlightCard from "../FlightCard/FlightCard";
 
+
 export default function Search(props) {
 
   const paramsString = window.location.search;
@@ -34,3 +35,4 @@ export default function Search(props) {
     </div>
   )
 }
+

@@ -1,5 +1,6 @@
-import airlinesLogo from '../../airlines.json';
+import airlinesLogo from "../../airlines.json";
 export const GET_FLIGHTS = "GET_FLIGHTS";
+
 const apiKey = "610ed01e747a9a053255e81f"
 const apiKey2 = "610ecfda747a9a053255e81e"
 const apikey3= "610ed044747a9a053255e820"
@@ -36,6 +37,7 @@ const apikey3= "610ed044747a9a053255e820"
         )
         console.log(arregloFlights)
         dispatch({ type: GET_FLIGHTS, payload: arregloFlights});
+
       });
   };
 }
