@@ -38,6 +38,7 @@ const apikey3= "610ed044747a9a053255e820"
         console.log(arregloFlights)
         dispatch({ type: GET_FLIGHTS, payload: arregloFlights});
 
+
       });
   };
 }
