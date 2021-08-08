@@ -56,13 +56,15 @@ const DinamicSearch = ({ id }) => {
     }
     return (
 
-        <div className="Container" id={id}>
+        <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
+
             <input type="hidden" className="inputSearch"
+
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
             /><input type="text"
-                className="inputSearch" placeholder='Search users...' icon='map marker alternate' iconPosition='left'
+                className="inputSearch" placeholder='Buscar por ciudad o aeropuerto'  icon='map marker alternate' iconPosition='left'
 
                 onChange={e => onChangeHandle(e.target.value)}
                 value={visible}

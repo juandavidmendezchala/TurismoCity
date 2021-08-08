@@ -7,6 +7,7 @@ import FlightCard from "./components/FlightCard/FlightCard";
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Search from "./components/Search/Search";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
       <Route path="/" component={Banner} />
       <Route path="/" component={Navbar}></Route>
       <Route exact path="/" component={Home}></Route>
-      <Route path="/flights" component={FlightCard}></Route>
       <Route exact path="/login" component={Login}></Route>
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
+      <Route path="/profile" component={Profile}></Route>
     </div>
   );
 }

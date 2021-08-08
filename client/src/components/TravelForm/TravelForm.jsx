@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
-import { Button, Radio } from 'semantic-ui-react'
-// @ts-ignore
+
+import { Button, Input } from 'semantic-ui-react'
+
 import logoAerolineas from "./Imagenes/Argentina.png"
 // @ts-ignore
 import logoAmerican from "./Imagenes/American.png"
@@ -50,8 +51,10 @@ export default function TravelForm(props) {
         e.preventDefault()
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
+
         await dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         history.push("/flights")
+
     }
     // const valAirports = (value) => {
     //     if (value.length < 1) {
@@ -82,6 +85,7 @@ export default function TravelForm(props) {
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="DesdeHaciaContainer">
+
                         {/* <div>
                             <label>Ida</label>
 
@@ -89,6 +93,7 @@ export default function TravelForm(props) {
                             <input type="radio" id="radioB1" name="tripType" value="roundtrip" autocomplete="off" onChange={e => setWay(e.target.value)} />
                         </div>
  */}
+
 
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
@@ -108,6 +113,7 @@ export default function TravelForm(props) {
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
+
                             <input type="date" name={today} min={today} className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)}></input>
                         </div>
                         <div>
@@ -124,6 +130,7 @@ export default function TravelForm(props) {
 
                         <label>Bebes</label>
                         <input type="number" placeholder="0" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+
                     </div>
                     <div className="SelectTravelFormContainer">
                         <select className="SelectTravelForm" onChange={(e) => { e.preventDefault(); valClass(e.target.value) }}>
@@ -136,8 +143,8 @@ export default function TravelForm(props) {
                         {(!errorClass) ? null : <span className="errorClass"> {errorClass}</span>}
                     </div>
                     <div className="selectCurrency">
-                        <label>Seleccione moneda</label>
-                        <select onChange={e => setCurrency(e.target.value)}>
+                        <label className="LabelSelectCurrency">Seleccione moneda</label>
+                        <select className="SelectCurrencySelect" onChange={e => setCurrency(e.target.value)}>
                             <option value="USD" >Dolar Estadounidense USD</option>
                             <option value="ARS" >Peso Argentino ARS</option>
                             <option value="COP" >Peso Colombiano COP</option>
@@ -151,12 +158,12 @@ export default function TravelForm(props) {
                 <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
-                        <img className="LogoAerolineas" src={logoAmerican} alt="American Airlines" />
-                        <img className="LogoAerolineas" src={logoAerolineas} alt="Aerolineas Argentinas" />
-                        <img className="LogoAerolineas" src={logoBritish} alt="British Airlines" />
-                        <img className="LogoAerolineas" src={logoFrance} alt="France Airlines" />
-                        <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
-                        <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
+                        <img className="LogoAerolineasAmerican" src={logoAmerican} alt="American Airlines" />
+                        <img className="LogoAerolineasArgentina" src={logoAerolineas} alt="Aerolineas Argentinas" />
+                        <img className="LogoAerolineasUnited" src={logoUnited} alt="United Airlines" />
+                        <img className="LogoAerolineasFrance" src={logoFrance} alt="France Airlines" />
+                        <img className="LogoAerolineasNew" src={logoNew} alt="New Zealand Airlines" />
+                        <img className="LogoAerolineasBritish" src={logoBritish} alt="British Airlines" />
                     </div>
                 </div>
             </div >
