@@ -7,8 +7,6 @@ import { LOAD_INFO } from "../actions/infoFlight"
 import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 
-
-
 const initialState = {
     from: [],
     to: [],
