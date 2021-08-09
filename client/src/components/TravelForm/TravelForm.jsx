@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
-import { Button, Radio } from 'semantic-ui-react'
+import { Button, Input } from 'semantic-ui-react'
 import logoAerolineas from "./Imagenes/Argentina.png"
 import logoAmerican from "./Imagenes/American.png"
 import logoFrance from "./Imagenes/France.png"
@@ -14,6 +14,7 @@ import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
 import { resetFlights } from "../../store/actions/resetFlights";
+
 
 
 export default function TravelForm(props) {
@@ -57,14 +58,31 @@ export default function TravelForm(props) {
             <h2 className="TitleHome">Hola, viajeros. ¿A dónde les gustaría ir? </h2>
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
-                    <div className="DesdeHaciaContainer">
-                        <form action="">
-                            <label>Ida</label>
-                            <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
-                            <label>Ida y Vuelta</label>
-                            <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
-                        </form>
+                    <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
+                    <div className="DesdeHastaContainer">
                         <div>
+                            <h1 className="TextTravelFormAbajo">Desde:</h1>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setFromDate(e.target.value)}
+                            />
+
+                        </div>
+                        <div>
+                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setToDate(e.target.value)}
+                            />                        </div>
+                    </div>
+                    <form className="RadioTravelForm" action="">
+                        <label className="LabelRadioTravelForm">Ida</label>
+                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
+                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                    </form>
+                    <div className="DesdeHaciaContainer">
+                        <div>
+
+
                             <h1 className="TextTravelFormArriba">De:</h1>
                             <DinamicSearch id="0" />
                         </div>
@@ -73,33 +91,19 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
-                    <form className="RadioTravelForm" action="">
-                        <label className="LabelRadioTravelForm">Ida</label>
-                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
-                        <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
-                    </form>
-                    <div className="DesdeHastaContainer">
-                        <div>
-                            <h1 className="TextTravelFormAbajo">Desde:</h1>
-                            <input required type="date" className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)}></input>
-                        </div>
-                        <div>
-                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
-                            <input required type="date" className="InputTravelForm" placeholder="Indique su fecha de regreso" onChange={e => setToDate(e.target.value)}></input>
-                        </div>
-                    </div>
                     <div className="selectPassengers">
-                        <label>Adultos</label>
-                        <input required type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <label className="LabelSelectPassengers">Adultos</label>
+                        <input className="InputSelectPassengers" type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                        <label>Ninos</label>
-                        <input required type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <label className="LabelSelectPassengers">Niños</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                        <label>Bebes</label>
-                        <input required type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <label className="LabelSelectPassengers">Bebes</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+
                     </div>
                     <div className="SelectTravelFormContainer">
+                        <label className="LabelSelectCurrency">Seleccione clase</label>
                         <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
                             <option selected value="Economy">Economy</option>
                             <option value="Business">Business</option>
@@ -108,8 +112,8 @@ export default function TravelForm(props) {
                         </select>
                     </div>
                     <div className="selectCurrency">
-                        <label>Seleccione moneda</label>
-                        <select onChange={e => setCurrency(e.target.value)}>
+                        <label className="LabelSelectCurrency">Seleccione moneda</label>
+                        <select className="SelectCurrencySelect" onChange={e => setCurrency(e.target.value)}>
                             <option value="USD" >Dolar Estadounidense USD</option>
                             <option value="ARS" >Peso Argentino ARS</option>
                             <option value="COP" >Peso Colombiano COP</option>
@@ -123,12 +127,21 @@ export default function TravelForm(props) {
                 <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
-                        <img className="LogoAerolineas" src={logoAmerican} alt="American Airlines" />
-                        <img className="LogoAerolineas" src={logoAerolineas} alt="Aerolineas Argentinas" />
-                        <img className="LogoAerolineas" src={logoBritish} alt="British Airlines" />
-                        <img className="LogoAerolineas" src={logoFrance} alt="France Airlines" />
-                        <img className="LogoAerolineas" src={logoNew} alt="New Zealand Airlines" />
-                        <img className="LogoAerolineas" src={logoUnited} alt="United Airlines" />
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasAmerican" src={logoAmerican} alt="American Airlines" />
+                            <img className="LogoAerolineasArgentina" src={logoAerolineas} alt="Aerolineas Argentinas" />
+                        </div>
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasUnited" src={logoUnited} alt="United Airlines" />
+                            <img className="LogoAerolineasFrance" src={logoFrance} alt="France Airlines" />
+                        </div>
+                        <div className="PrimerasDos">
+                            <img className="LogoAerolineasBritish" src={logoBritish} alt="British Airlines" />
+                            <img className="LogoAerolineasNew" src={logoNew} alt="New Zealand Airlines" />
+                        </div>
+
+                    </div>
+                    <div className="Subiteaeseavion">
                     </div>
                 </div>
             </div >

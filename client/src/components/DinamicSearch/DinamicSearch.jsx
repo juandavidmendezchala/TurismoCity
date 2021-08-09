@@ -8,6 +8,7 @@ import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
 import { Input } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 const DinamicSearch = ({ id }) => {
 
@@ -52,16 +53,20 @@ const DinamicSearch = ({ id }) => {
     }
     return (
 
-        <div className="Container" id={id}>
+        <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
 
-            <Input type="text" icon='map marker alternate' iconPosition='left' placeholder='Search users...' className="inputSearch"
+            <Input required type="text" icon='map marker alternate' iconPosition='left' placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
             />
 
             {sug && sug.map((sug, i) => i < 5 &&
+
                 <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> <span className='avioncito'> &#9992; </span> {sug.city} {sug.name} {(sug.code)}  </div>
+
+//                 <label type="search" className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </label>
+
             )}
 
         </div>

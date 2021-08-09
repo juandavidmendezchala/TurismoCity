@@ -3,6 +3,7 @@ import { Dropdown, Icon } from 'semantic-ui-react'
 import "./TriggerLogin.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../store/actions/userActions'
+import 'semantic-ui-css/semantic.min.css'
 
 
 
@@ -10,7 +11,7 @@ import { logout } from '../../store/actions/userActions'
 const DropdownTriggerExample = () => {
 
     const userSingin = useSelector(state => state.userSignin)
-    const {userInfo} = userSingin
+    const { userInfo } = userSingin
 
     const dispatch = useDispatch()
 
@@ -23,7 +24,7 @@ const DropdownTriggerExample = () => {
             <Icon name='user' /> Hola, {userInfo.name}
         </span>
     )
-    
+
     const options = [
         {
             key: 'user',
@@ -34,15 +35,15 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href:'profile' },
-        { key: 'sign-out', text: 'Sign Out', onClick: singout, href:'/'},
+        { key: 'profile', text: 'Your Profile', href: 'profile' },
+        { key: 'sign-out', text: 'Sign Out', onClick: singout, href: '/' },
     ]
 
-    return(
+    return (
         <div>
-        <Dropdown trigger={trigger} options={options} />
+            <Dropdown trigger={trigger} options={options} />
         </div>
-    )   
+    )
 }
 
 export default DropdownTriggerExample
