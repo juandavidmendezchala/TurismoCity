@@ -27,9 +27,19 @@ width: 200px;
     color: black;
     font-weight: 500;
     width: 200px;
+
 }
 
 .inputSug:hover{
+    background-color: rgb(95, 141, 160);
+    color: white;
+    box-shadow: 10px 10px 30x 10px black;
+}
+.inputSearch{
+    width: 200px;
     background-color: tomato;
        
+}
+.avioncito{
+    color: rgb(49, 92, 133)
 }

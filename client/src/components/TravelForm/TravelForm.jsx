@@ -13,6 +13,7 @@ import logoUnited from "./Imagenes/United.png"
 import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
+import { resetFlights } from "../../store/actions/resetFlights";
 
 
 
@@ -30,21 +31,26 @@ export default function TravelForm(props) {
     const [kids, setKids] = useState('')
     const [babies, setBabies] = useState('')
     const [currency, setCurrency] = useState('');
-
     const airports0 = useSelector(state => state.listFlights.from)
     const airports1 = useSelector(state => state.listFlights.to)
     useEffect(() => {
         setFromPlace(airports0)
         setToPlace(airports1)
     }, [airports0, airports1])
+
+    useEffect(()=>{
+        dispatch(resetFlights())
+    },[])
+
     const prueba = useSelector(state => state)
 
     function onSubmitFrom(e) {
         e.preventDefault()
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
-        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        dispatch(getFlights({way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency}))
+        if(way==='roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        if(way==='onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
 
     return (
@@ -69,12 +75,14 @@ export default function TravelForm(props) {
                     </div>
                     <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm">Ida</label>
-                        <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                     </form>
                     <div className="DesdeHaciaContainer">
                         <div>
+
+
                             <h1 className="TextTravelFormArriba">De:</h1>
                             <DinamicSearch id="0" />
                         </div>
@@ -92,6 +100,7 @@ export default function TravelForm(props) {
 
                         <label className="LabelSelectPassengers">Bebes</label>
                         <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+
                     </div>
                     <div className="SelectTravelFormContainer">
                         <label className="LabelSelectCurrency">Seleccione clase</label>
