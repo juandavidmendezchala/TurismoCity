@@ -1,25 +1,30 @@
 import React from "react"
+import { useHistory } from "react-router";
 import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css'
 
 export const Banner = () => {
-    
-    const userSingin = useSelector(state => state.userSignin)
-    const {userInfo} = userSingin
 
+    const userSingin = useSelector(state => state.userSignin)
+    const { userInfo } = userSingin
+    const history= useHistory();
+const sendHome = function(){
+    history.push('/')
+}
     return (
         <div className="BannerContainer">
             <div className="Banner">
-                <h1 className="BannerTitle">TicketBarato</h1>
+                <div><div onClick={()=>sendHome()}className="BannerTitle">LowHenry</div></div>
                 {
-                    userInfo?
-                    <DropdownTriggerExample userInfo={userInfo}/>:
-                    <NavLink className="LinkToLogin" to="/login">Log in</NavLink>
-                }               
-                
+                    userInfo ?
+
+                        <DropdownTriggerExample userInfo={userInfo} /> :
+                        <NavLink className="LinkToLogin" to="/login">Ingresar</NavLink>
+                }
+
             </div>
         </div>
     )

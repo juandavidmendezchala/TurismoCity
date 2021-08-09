@@ -13,31 +13,35 @@ ul.pagination {
 
 ul.pagination li {display: inline;}
 
-ul.pagination li a {
+.numeritos {
     color: rgb(97, 97, 97);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
 }
 
-ul.pagination li a.active {
-    border-radius: 100px;
+.active {
+    border-radius: 200px;
     background-color: rgb(156, 156, 156);
     color: white;
+    color: rgb(97, 97, 97);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 
-ul.pagination li a:hover:not(.active) {
+.numeritos:hover:not(.active) {
     border-radius: 100px;
     background-color: rgb(156, 156, 156);
     color: white;
     cursor: pointer;
 }
-ul.pagination li span {
+/* ul.pagination li span {
     color: rgb(97, 97, 97);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-}
+} */
 
 .active:hover {
     border-radius: 100px;
