@@ -12,6 +12,8 @@ import {FILTER_SCALA} from '../actions/filterScale'
 import {FILTER_PRICE} from '../actions/searchPrice'
 import {FILTER_TIME} from '../actions/filterTime'
 import {BACKUP_FLIGHT} from '../actions/backupFlight'
+import { GET_FLIGHTS_ONEWAY } from "../actions/getFlightsOneway"
+import { RESET_FLIGHTS } from "../actions/resetFlights"
 
 const initialState = {
     from: [],
@@ -31,7 +33,8 @@ const initialState = {
     flights: [],
     aeroFiltro: [],
     escala: [],
-    backFlights: []
+    backFlights: [],
+    flightsOneway:[],
 }
 
 const reducer = (state = initialState, action) => {
@@ -65,6 +68,12 @@ const reducer = (state = initialState, action) => {
             to: action.payload
         }
     }
+    if (action.type === RESET_FLIGHTS) {
+        return {
+            ...state,
+            flights: action.payload
+        }
+    }
     if (action.type === GET_FROM) {
         return {
             ...state,
@@ -77,22 +86,24 @@ const reducer = (state = initialState, action) => {
             flights: action.payload
         };
     }
+    if (action.type === FILTER_AERO_N) {
+       
+            console.log('reducer filter', action.payload)
+            return {
+                ...state,
+                aeroFiltro: action.payload
+            };
+        
+    }
+
+    if (action.type === GET_FLIGHTS_ONEWAY) {
+        return {
+            ...state,
+            flightsOneway: action.payload
+        };
+    }
 
     if (action.type === SORT_FLIGHT) {
-        return {
-            ...state,
-            flights: action.payload
-        };
-    }
-    if (action.type === FILTER_AERO_N) {
-        console.log('reducer filter', action.payload)
-        return {
-            ...state,
-            aeroFiltro: action.payload
-        };
-    }
-
-    if (action.type === FILTER_CARD_AERO) {
         return {
             ...state,
             flights: action.payload

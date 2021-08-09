@@ -8,13 +8,13 @@ import { getFrom } from '../../store/actions/searchFlights'
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
 import { Input } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
 const DinamicSearch = ({ id }) => {
 
     const dispatch = useDispatch();
     const [users, serUsers] = useState([]);
     const [text, setText] = useState("");
-    const [visible, setVisible] = useState("");
     const [sug, setSug] = useState([])
 
 
@@ -26,10 +26,8 @@ const DinamicSearch = ({ id }) => {
         loadUsers()
     }, [])
 
-    const onSugHandle = (text, visible) => {
+    const onSugHandle = (text) => {
         setText(text)
-        setVisible(visible)
-
         if (id === "0") {
             dispatch(infoFligth(text))
         } else {
@@ -40,39 +38,35 @@ const DinamicSearch = ({ id }) => {
         setSug([])
     }
     const onChangeHandle = (text) => {
-        let visible = text
         let matches = []
         if (text.length > 0) {
             matches = users.filter(user => {
                 const regex = new RegExp(`${text}`, "gi")
                 // return user.email.match(regex)
                 return user.city.match(regex)
+
             })
         }
+        console.log('matches', matches)
         setSug(matches)
         setText(text)
-        setVisible(visible)
-
     }
     return (
 
         <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
 
-            <input type="hidden" className="inputSearch"
-
+            <Input required type="text" icon='map marker alternate' iconPosition='left' placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
-            /><input type="text"
-                className="inputSearch" placeholder='Buscar por ciudad o aeropuerto'  icon='map marker alternate' iconPosition='left'
-
-                onChange={e => onChangeHandle(e.target.value)}
-                value={visible}
             />
 
-
             {sug && sug.map((sug, i) => i < 5 &&
-                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code, sug.city)}> {sug.city} {sug.name} {(sug.code)}  </div>
+
+                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> <span className='avioncito'> &#9992; </span> {sug.city} {sug.name} {(sug.code)}  </div>
+
+//                 <label type="search" className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </label>
+
             )}
 
         </div>
@@ -81,5 +75,3 @@ const DinamicSearch = ({ id }) => {
 
 
 export default DinamicSearch
-
-

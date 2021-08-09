@@ -1,6 +1,5 @@
 export const FILTER_CARD_AERO = "FILTER_CARD_AERO";
 
-
 export function filterCardAero(flight, aero){
     return function (dispatch){
        // console.log('esta en el action')

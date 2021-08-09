@@ -1,26 +1,56 @@
-span{
-    cursor: pointer;
-}
+
 ul.pagination {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: 40px;
+    border: 1px solid rgb(116, 116, 116);
+    border-radius: 500px;
+    background: rgba(67, 117, 152, 0.123);
+    background: linear-gradient(337deg, rgba(67, 117, 152, 0.452) 28%, rgba(91, 153, 195, 0.13) 70%, rgba(108, 159, 241, 0.514) 100%);
 }
+
 
 ul.pagination li {display: inline;}
 
 ul.pagination li a {
-    color: black;
+    color: rgb(97, 97, 97);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
 }
 
 ul.pagination li a.active {
-    background-color: #4CAF50;
+    border-radius: 100px;
+    background-color: rgb(156, 156, 156);
     color: white;
 }
 
 ul.pagination li a:hover:not(.active) {
     border-radius: 100px;
-    background-color: rgb(138, 128, 128);}
+    background-color: rgb(156, 156, 156);
+    color: white;
+    cursor: pointer;
+}
+ul.pagination li span {
+    color: rgb(97, 97, 97);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.active:hover {
+    border-radius: 100px;
+    background-color: rgb(156, 156, 156);
+    color: white;
+    cursor: pointer;
+}
+.inable:hover{
+    border-radius: 100px;
+    
+    
+}
+.inableNext:hover{
+    border-radius: 100px;
+    
+}
