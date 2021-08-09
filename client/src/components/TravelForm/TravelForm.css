@@ -31,11 +31,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: -10px;
   justify-content: space-around;
-  margin-left: 15px;
+  margin-left: 20px;
   height: 80px; 
   width: 430px;
-  margin-bottom: 10px;
 }
 .DesdeHastaContainer {
   display: flex;
@@ -44,7 +44,8 @@
   justify-content: space-around;
   height: 80px;
   width: 440px;
-  
+  padding-bottom: 10px;
+  padding-top: -10px;
 }
 .ContainerSelectAbajo{
   display: flex;
@@ -54,16 +55,19 @@
   color: white;
   font-size: 20px;
   margin-right: 140px;
+  
 }
 .TextTravelFormArriba{
   color: white;
   font-size: 20px;
+  margin-left: -25px;
   margin-right: 170px;
 }
 .selectPassengers{
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding-top: 30px;
   margin-bottom: 20px;
   width: 400px;
 }
@@ -98,7 +102,7 @@
 .InputTravelForm {
   width: 200px;
   height: 40px;
-
+  position:absolute;
 }
 .DesdeInput{
   color: black;
