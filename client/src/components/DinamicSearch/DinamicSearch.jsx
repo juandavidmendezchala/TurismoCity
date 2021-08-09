@@ -56,13 +56,13 @@ const DinamicSearch = ({ id }) => {
         <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
 
-            <Input type="text" icon='map marker alternate' iconPosition='left' placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
+            <Input required type="text" icon='map marker alternate' iconPosition='left' placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
             />
 
             {sug && sug.map((sug, i) => i < 5 &&
-                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
+                <label type="search" className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </label>
             )}
 
         </div>

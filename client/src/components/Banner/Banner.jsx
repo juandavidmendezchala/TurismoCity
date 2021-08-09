@@ -14,12 +14,12 @@ export const Banner = () => {
     return (
         <div className="BannerContainer">
             <div className="Banner">
-                <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">TicketBarato</NavLink></div>
+                <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">LowHenry</NavLink></div>
                 {
                     userInfo ?
 
                         <DropdownTriggerExample userInfo={userInfo} /> :
-                        <NavLink className="LinkToLogin" to="/login">Log in</NavLink>
+                        <NavLink className="LinkToLogin" to="/login">Ingresar</NavLink>
                 }
 
             </div>

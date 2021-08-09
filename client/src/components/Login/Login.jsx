@@ -34,7 +34,7 @@ export default function Login(props) {
 
             <form className="formLogin" onSubmit={submitHandler}>
                 <div>
-                    <h2 className="ColorTextLoginTitle">Haz regresado!</h2>
+                    <h2 className="ColorTextLoginTitle">Iniciar Sesion</h2>
                 </div>
                 <div className="EmailModify">
                     <label className="ColorTextLogin">Ingresa tu email</label>
