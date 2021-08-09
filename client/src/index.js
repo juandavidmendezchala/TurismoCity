@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/index.js";
-import 'semantic-ui-css/semantic.min.css'
+
 
 ReactDOM.render(
   <React.StrictMode>

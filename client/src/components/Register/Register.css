@@ -1,17 +1,45 @@
-.form{
-    max-width: 60rem;
-    margin: 0 auto;
-  }
+.ContainerTodoRegister{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formContainerRegister{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #0F3057;
+  align-items: center;
+  width: 600px;
+  height: 700px;
+  padding-top: 50px;
+  margin-top: 50px;
+}
+.ContainerTitleRegister{
+  color: white;
+  margin-bottom: 30px;
+  margin-top: -10px;
   
-.form > div {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-  }
-.form label{
-    margin: 1rem 0;
-  }
-
+}
+.TitleRegister{
+  font-size: 40px;
+}
+.LabelRegister{
+  color: white;
+  font-size: 20px;
+}
+.ContainerLabelInputRegister{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+ 
+  margin-top: 10px;
+  height: 100px;
+}
 .button.user{
     background-color: #f0c040;
+  }
+  .ContenedorButton{
+    padding-top: 10px;
   }

@@ -13,9 +13,14 @@
     animation: pulse; 
     animation-duration: 2s; 
     color: white;
+    padding-top: 25px;
     width: 300px;
+    text-decoration: none;
     height:80px;
     font-size: 50px;
+}
+.BannerTitle:hover{
+  color: tomato;
 }
 .LinkToLogin{
     display: flex;
@@ -25,7 +30,7 @@
    margin-right: 30px;
    width: 100px;
    height: 30px;
-   background-color: red;
+   background-color: tomato;
    color: white;
    font-size: 20px;
 }

@@ -1,28 +1,38 @@
 .ContainerDinamicSearch{
     display: flex;
     justify-content: center;
+    position: static;
     align-items: center;
-    
+    flex-direction: column;
     width: 220px;
+    height: 50px;
+    box-sizing:border-box;
 }
 .inputSearch {
 width: 200px;
-display: flex;
-
+display:block;
+flex-direction: column;
 }
 .inputSug {
- 
-
-
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position: static;
+    background-color: #0F3057;
+    height: auto;
+    word-wrap: word-break;
     cursor: pointer;
     border-right: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    color: azure;
+    color: white;
     font-weight: 500;
-    position: relative;
-    
-
+}
+.AcomodoSuggestion{
+    display: flex;
+    flex-direction: column;
+    background-color: #0F3057;
+    box-sizing:border-box
 }
 .inputSug:hover{
     background-color: cadetblue;
