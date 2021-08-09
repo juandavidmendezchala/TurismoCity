@@ -4,6 +4,8 @@ import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
 import { GET_FLIGHTS } from "../actions/getFlights"
 import { SORT_FLIGHT } from "../actions/sortFlight"
+import { GET_FLIGHTS_ONEWAY } from "../actions/getFlightsOneway"
+import { RESET_FLIGHTS } from "../actions/resetFlights"
 
 const initialState = {
     from: [],
@@ -21,6 +23,7 @@ const initialState = {
         currency: "",
     },
     flights: [],
+    flightsOneway:[],
 }
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +57,12 @@ const reducer = (state = initialState, action) => {
             to: action.payload
         }
     }
+    if (action.type === RESET_FLIGHTS) {
+        return {
+            ...state,
+            flights: action.payload
+        }
+    }
     if (action.type === GET_FROM) {
         return {
             ...state,
@@ -64,6 +73,12 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             flights: action.payload
+        };
+    }
+    if (action.type === GET_FLIGHTS_ONEWAY) {
+        return {
+            ...state,
+            flightsOneway: action.payload
         };
     }
 

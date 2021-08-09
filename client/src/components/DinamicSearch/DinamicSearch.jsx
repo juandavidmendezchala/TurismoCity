@@ -61,7 +61,7 @@ const DinamicSearch = ({ id }) => {
             />
 
             {sug && sug.map((sug, i) => i < 5 &&
-                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> {sug.city} {sug.name} {(sug.code)}  </div>
+                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code)}> <span className='avioncito'> &#9992; </span> {sug.city} {sug.name} {(sug.code)}  </div>
             )}
 
         </div>

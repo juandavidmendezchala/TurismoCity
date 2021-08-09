@@ -3,6 +3,7 @@ import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
+import 'semantic-ui-css/semantic.min.css';
 
 export const Banner = () => {
     
