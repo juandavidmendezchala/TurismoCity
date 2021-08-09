@@ -1,19 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import "./Profile.css"
 
 export default function Profile() {
 
     const userSingin = useSelector(state => state.userSignin)
-    const {userInfo} = userSingin
+    const { userInfo } = userSingin
 
-    return(
-        <div>
-            <h4>Nombre</h4>
-            <p>{userInfo.name}</p>
-            <h4>Correo Electronico</h4>
-            <p>{userInfo.email}</p>
-            <h4>Fecha de nacimiento</h4>
-            <p>{userInfo.birthdate}</p>
+    return (
+        <div className="SuperContainerProfile">
+            <div className="ContainerProfile">
+                <p className="DatesProfile">Hola, {userInfo.name}!</p>
+                <h2 className="DescriptionProfile">Estamos por traerte nuevas funcionalidades para poder acompañarte mejor</h2>
+                <h3 className="InformacionPersonal">Informacion Personal</h3>
+                <p className="EmailProfile">{userInfo.email}</p>
+                <p className="DatesProfile" >{userInfo.birthdate}</p>
+            </div>
         </div>
     )
 }

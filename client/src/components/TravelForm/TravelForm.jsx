@@ -94,6 +94,7 @@ export default function TravelForm(props) {
                         <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
+                        <label className="LabelSelectCurrency">Seleccione clase</label>
                         <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
                             <option selected value="Economy">Economy</option>
                             <option value="Business">Business</option>

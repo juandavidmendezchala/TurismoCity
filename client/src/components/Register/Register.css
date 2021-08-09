@@ -19,10 +19,16 @@
   color: white;
   margin-bottom: 30px;
   margin-top: -10px;
+  display: flex;
+  justify-content: center;
   
 }
 .TitleRegister{
   font-size: 40px;
+  background-color: #ff6347;
+  width: 450px;
+  height: 70px;
+  padding-top: 10px;
 }
 .LabelRegister{
   color: white;

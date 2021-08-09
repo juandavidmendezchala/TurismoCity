@@ -9,6 +9,7 @@
 .formLogin{
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 20px;
   background-color: #0F3057;
   width: 600px;
@@ -23,6 +24,12 @@
 }
 .ColorTextLoginTitle{
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6347;
+  width: 400px;
+  height: 80px;
   font-size: 40px;
 }
 .EmailModify{

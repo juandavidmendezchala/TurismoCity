@@ -44,6 +44,10 @@
   width: 440px;
   
 }
+.ContainerSelectAbajo{
+  display: flex;
+  flex-direction: row;
+}
 .TextTravelFormAbajo {
   color: white;
   font-size: 20px;
@@ -70,6 +74,7 @@
   height: 20px;
 }
 .selectCurrency{
+  
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -83,6 +88,10 @@
   width: 235px;
   height: 40px;
 
+}
+.SelectTravelFormContainer{
+  display: flex;
+  flex-direction: column;
 }
 .InputTravelForm {
   width: 200px;
