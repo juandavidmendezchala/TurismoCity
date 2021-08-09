@@ -121,7 +121,9 @@ function FlightCard(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFlights: flights => dispatch(getFlights(flights))
+        getFlights: flights => dispatch(getFlights(flights)),
+        //backupFligth: f => dispatch(backupFligth(f))
+
     }
 }
 const mapStateToProps = state => {
