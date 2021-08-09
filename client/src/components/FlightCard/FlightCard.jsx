@@ -5,7 +5,7 @@ import { getFlights } from '../../store/actions/getFlights';
 import { connect } from 'react-redux';
 import Segments from '../Segments/Segments';
 import Pagination from '../Pagination/Pagination';
-
+//import {backupFligth} from '../../store/actions/backupFlight'
 function FlightCard(props) {
     const [state, setState] = useState('');
     const [state2, setState2] = useState(false);
@@ -17,7 +17,7 @@ function FlightCard(props) {
     useEffect(() => {
         
         // setLoding(true);
-        props.getFlights({
+       props.getFlights({
             "fromPlace":props.fromPlace,
             "toPlace":props.toPlace,
             "fromDate":props.fromDate,
@@ -27,6 +27,7 @@ function FlightCard(props) {
             "kids":props.kids,
             "babies":props.babies,
             "currency":props.currency,});
+        //props.backupFligth(props.flights)
 
     }, [])
     console.log(props);
@@ -110,7 +111,9 @@ function FlightCard(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFlights: flights => dispatch(getFlights(flights))
+        getFlights: flights => dispatch(getFlights(flights)),
+        //backupFligth: f => dispatch(backupFligth(f))
+
     }
 }
 const mapStateToProps = state => {

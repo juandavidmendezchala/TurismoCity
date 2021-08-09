@@ -1,4 +1,4 @@
-export const FILTER_AERO = "FILTER_AERO";
+export const FILTER_AERO_N= "FILTER_AERO_N";
 
 
 export function filterAeroFligths(flight){
@@ -22,7 +22,7 @@ export function filterAeroFligths(flight){
       var aeroUnico = aerolineasNombre.filter(onlyUnique);
       console.log('unico', aeroUnico)
        dispatch({
-         type: FILTER_AERO,
+         type: FILTER_AERO_N,
          payload: aeroUnico
        })
     }

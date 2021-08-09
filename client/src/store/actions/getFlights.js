@@ -3,7 +3,7 @@ export const GET_FLIGHTS = "GET_FLIGHTS";
 
 const apiKey = "610ed01e747a9a053255e81f"
 const apiKey2 = "610ecfda747a9a053255e81e"
-const apikey3= "610ed044747a9a053255e820"
+const apiKey3= "610ffbb5747a9a053255eb04"
 
 // export function getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency) {
   export function getFlights(p) {
@@ -12,9 +12,11 @@ const apikey3= "610ed044747a9a053255e820"
   //   return fetch(`https://api.flightapi.io/roundtrip/${apiKey}/${fromPlace}/${toPlace}/${fromDate}/${toDate}/${adults}/${kids}/${babies}/${classFlight}/${currency}`)
   console.log('ESTO LLEGA A GETFLIGHTS:'+p.fromPlace + p.toPlace)
   return function (dispatch) {
-    return fetch(`https://api.flightapi.io/roundtrip/${apiKey}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)   
+    //return fetch('https://api.flightapi.io/roundtrip/610ffbb5747a9a053255eb04/LHR/LAX/2021-10-11/2021-10-15/2/0/1/Economy/ARS') 
+    return fetch(`https://api.flightapi.io/roundtrip/611139e7747a9a053255edf5/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)  
       .then(response => response.json())
       .then(json => {
+        console.log(json)
         if (json.message) console.log(json.message);
         var airlinesLogosIda = '';
         var airlinesLogosVuelta = '';

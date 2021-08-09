@@ -6,6 +6,12 @@ import {FILTER_CARD_AERO} from "../actions/filterFligthCard"
 import { LOAD_INFO } from "../actions/infoFlight"
 import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
+import {FILTER_AERO_N} from '../actions/filterAeroFligths'
+import {ESCALA} from '../actions/Escala'
+import {FILTER_SCALA} from '../actions/filterScale'
+import {FILTER_PRICE} from '../actions/searchPrice'
+import {FILTER_TIME} from '../actions/filterTime'
+import {BACKUP_FLIGHT} from '../actions/backupFlight'
 
 const initialState = {
     from: [],
@@ -23,7 +29,9 @@ const initialState = {
         currency: "",
     },
     flights: [],
-    aeroFiltro: []
+    aeroFiltro: [],
+    escala: [],
+    backFlights: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -76,7 +84,8 @@ const reducer = (state = initialState, action) => {
             flights: action.payload
         };
     }
-    if (action.type === FILTER_AERO) {
+    if (action.type === FILTER_AERO_N) {
+        console.log('reducer filter', action.payload)
         return {
             ...state,
             aeroFiltro: action.payload
@@ -90,6 +99,39 @@ const reducer = (state = initialState, action) => {
         };
     }
     
+    if (action.type === ESCALA) {
+        return {
+            ...state,
+            escala: action.payload
+        };
+    }
+
+    if (action.type === FILTER_SCALA) {
+        return {
+            ...state,
+            flights: action.payload
+        };
+    }
+
+    if (action.type === FILTER_PRICE) {
+        return {
+            ...state,
+            flights: action.payload
+        };
+    }
+
+    if (action.type === FILTER_TIME) {
+        return {
+            ...state,
+            flights: action.payload
+        };
+    }
+    if (action.type === BACKUP_FLIGHT) {
+        return {
+            ...state,
+            backFlights: action.payload
+        };
+    }
 
     return state;
 }
