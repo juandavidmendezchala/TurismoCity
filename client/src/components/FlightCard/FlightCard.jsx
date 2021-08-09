@@ -13,7 +13,6 @@ function FlightCard(props) {
     const [postsPerPage] = useState(10);
     // const [loding, setLoding] = useState(false)
 
-
     useEffect(() => {
         
         // setLoding(true);
@@ -30,7 +29,6 @@ function FlightCard(props) {
 
     }, [])
     console.log(props);
-
 
     const indexOfLastPost = currentPage*postsPerPage;
     const indexOfFirstPost = indexOfLastPost-postsPerPage;

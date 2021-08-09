@@ -3,21 +3,13 @@ import DinamicSearch from "../DinamicSearch/DinamicSearch"
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getFrom } from "../../store/actions/searchFlights"
-
 import "./TravelForm.css"
-
 import { Button, Input } from 'semantic-ui-react'
-
 import logoAerolineas from "./Imagenes/Argentina.png"
-// @ts-ignore
 import logoAmerican from "./Imagenes/American.png"
-// @ts-ignore
 import logoFrance from "./Imagenes/France.png"
-// @ts-ignore
 import logoNew from "./Imagenes/New.png"
-// @ts-ignore
 import logoUnited from "./Imagenes/United.png"
-// @ts-ignore
 import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
@@ -34,11 +26,10 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('');
-    const [adults, setAdults] = useState('0')
-    const [kids, setKids] = useState('0')
-    const [babies, setBabies] = useState('0')
-    const [currency, setCurrency] = useState('USD');
-    const [errorClass, setErrorClass] = useState('');
+    const [adults, setAdults] = useState('')
+    const [kids, setKids] = useState('')
+    const [babies, setBabies] = useState('')
+    const [currency, setCurrency] = useState('');
 
     const airports0 = useSelector(state => state.listFlights.from)
     const airports1 = useSelector(state => state.listFlights.to)
@@ -46,39 +37,15 @@ export default function TravelForm(props) {
         setFromPlace(airports0)
         setToPlace(airports1)
     }, [airports0, airports1])
-    // const prueba = useSelector(state => state)
+    const prueba = useSelector(state => state)
 
-    async function onSubmitFrom(e) {
+    function onSubmitFrom(e) {
         e.preventDefault()
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
-
-        await dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
-        history.push("/flights")
-
+        dispatch(getFlights(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
+        history.push(`/flights?fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
-    // const valAirports = (value) => {
-    //     if (value.length < 1) {
-    //         setError('Set al list one passanger')
-    //     } else {
-    //         setError('')
-    //     }
-    //     setFromPlace(airports0)
-    // }
-    const valClass = (value) => {
-        if (value.length < 1) {
-            setErrorClass('Set your category')
-        } else {
-            setErrorClass('')
-        }
-        setClassFlight(value)
-    }
-    var today = new Date().toISOString().split('T')[0];
-
-
-    // console.log(today)
-
-
 
     return (
         <div className="TravelFormContainer">
@@ -87,7 +54,6 @@ export default function TravelForm(props) {
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
                     <div className="DesdeHaciaContainer">
-
                         <div>
                             <h1 className="TextTravelFormArriba">De:</h1>
                             <DinamicSearch id="0" />
@@ -97,47 +63,48 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
-                    <form className="RadioTravelForm" action="" >
+                    <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm">Ida</label>
-                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <input type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                     </form>
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setFromDate(e.target.value)}
+                            />
 
-                            <input type="date" name={today} min={today} className="InputTravelForm" placeholder="Indique su fecha de partida" onChange={e => setFromDate(e.target.value)} required></input>
                         </div>
                         <div>
-                            <h1 className={(way === "onewaytrip") ? 'danger' : 'TextTravelFormAbajo'}>Hasta:</h1>
-                            <input type="date" min={fromDate} className={(way === "onewaytrip") ? 'danger' : 'InputTravelForm'} placeholder="Indique su fecha de regreso" onChange={e => setToDate(e.target.value)}></input>
-                        </div>
+                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
+                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                                nChange={e => setToDate(e.target.value)}
+                            />                        </div>
                     </div>
                     <div className="selectPassengers">
-                        <label>Adultos</label>
-                        <input type="number" required placeholder="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <label className="LabelSelectPassengers">Adultos</label>
+                        <input className="InputSelectPassengers" type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                        <label>Ninos</label>
-                        <input type="number" required placeholder="0" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <label className="LabelSelectPassengers">Niños</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                        <label>Bebes</label>
-                        <input type="number" required placeholder="0" min="0" max="10" onChange={e => setBabies(e.target.value)} />
-
+                        <label className="LabelSelectPassengers">Bebes</label>
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
-                        <select className="SelectTravelForm" required onChange={(e) => { e.preventDefault(); valClass(e.target.value) }} >
-                            <option selected value="">Select a category</option>
-                            <option value="Economy">Economy</option>
+                        <label className="LabelSelectCurrency">Seleccione clase</label>
+                        <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
+                            <option selected value="Economy">Economy</option>
                             <option value="Business">Business</option>
                             <option value="First">First</option>
                             <option value="PremiumEconomy">PremiumEconomy</option>
                         </select>
-                        {(!errorClass) ? null : <span className="errorClass"> {errorClass}</span>}
                     </div>
                     <div className="selectCurrency">
                         <label className="LabelSelectCurrency">Seleccione moneda</label>
-                        <select className="SelectCurrencySelect" required onChange={e => setCurrency(e.target.value)}>
+                        <select className="SelectCurrencySelect" onChange={e => setCurrency(e.target.value)}>
                             <option value="USD" >Dolar Estadounidense USD</option>
                             <option value="ARS" >Peso Argentino ARS</option>
                             <option value="COP" >Peso Colombiano COP</option>

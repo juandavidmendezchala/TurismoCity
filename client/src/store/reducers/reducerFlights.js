@@ -1,12 +1,9 @@
 import { GET_FROM } from "../actions/searchFlights"
-
-import {GET_FLIGHTS} from "../actions/getFlights"
-import {SORT_FLIGHT} from "../actions/sortFlight"
-import {FILTER_AERO} from "../actions/filterAeroFligths"
-import {FILTER_CARD_AERO} from "../actions/filterFligthCard"
 import { LOAD_INFO } from "../actions/infoFlight"
 import { LOAD_INFO_TO } from "../actions/infoFlightTo"
 import { DETAIL_FLIGHTS } from "../actions/datailFlight"
+import { GET_FLIGHTS } from "../actions/getFlights"
+import { SORT_FLIGHT } from "../actions/sortFlight"
 
 const initialState = {
     from: [],
@@ -24,7 +21,6 @@ const initialState = {
         currency: "",
     },
     flights: [],
-    aeroFiltro: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -77,22 +73,6 @@ const reducer = (state = initialState, action) => {
             flights: action.payload
         };
     }
-
-    if (action.type === FILTER_AERO) {
-        return {
-            ...state,
-            aeroFiltro: action.payload
-        };
-    }
-
-    if (action.type === FILTER_CARD_AERO) {
-        return {
-            ...state,
-            flights: action.payload
-        };
-    }
-    
-
 
     return state;
 }
