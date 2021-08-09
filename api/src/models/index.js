@@ -10,7 +10,7 @@ const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}/${
 })
 
 const User = userModel(sequelize)
-const Activitie = userModel(sequelize)
+const Activitie = userActivity(sequelize)
 const Airports = airportsModel(sequelize)
 
 module.exports = {
@@ -19,3 +19,6 @@ module.exports = {
     Activitie,
     Airports
 }
+
+Activitie.belongsTo(User)
+User.hasMany(Activitie)

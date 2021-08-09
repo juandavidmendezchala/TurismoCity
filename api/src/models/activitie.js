@@ -1,4 +1,4 @@
-const {DataTypes} = require('sequelize');
+const {DataTypes, Sequelize} = require('sequelize');
 
 module.exports = function(sequelize) {
     return sequelize.define('activitie', {
@@ -7,13 +7,27 @@ module.exports = function(sequelize) {
             autoIncrement: true,
             primaryKey: true
         },
-        agency_id: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.DECIMAL,
+            allowNull: false
+        },
+        images: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false
+        },
+        country: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
+    }, {
+        timestamps: false
     })
 }

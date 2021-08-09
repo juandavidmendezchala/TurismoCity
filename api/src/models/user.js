@@ -22,6 +22,18 @@ module.exports = function(sequelize) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        }, 
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        votes: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        rating: {
+            type: DataTypes.DECIMAL,
+            allowNull: true
         }
     })
 }
