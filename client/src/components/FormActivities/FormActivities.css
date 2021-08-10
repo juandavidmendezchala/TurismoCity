@@ -1,0 +1,12 @@
+.formfirst {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #0f3057;
+  width: 600px;
+  height: 600px;
+  padding-top: 50px;
+  margin-top: 50px;
+}
