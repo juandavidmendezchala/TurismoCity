@@ -9,45 +9,40 @@ import Pagination from '../Pagination/Pagination';
 function FlightCard(props) {
     const [state, setState] = useState('');
     const [state2, setState2] = useState(false);
-    const [currentPage,setCurrentPage]=useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
     // const [loding, setLoding] = useState(false)
 
-<<<<<<< HEAD
-    // useEffect(() => {
-    //     props.getFlights();
-    // }, [])
-=======
     useEffect(() => {
-        
+
         // setLoding(true);
         props.getFlights({
-            "fromPlace":props.fromPlace,
-            "toPlace":props.toPlace,
-            "fromDate":props.fromDate,
-            "toDate":props.toDate,
-            "classFlight":props.classFlight,
-            "adults":props.adults,
-            "kids":props.kids,
-            "babies":props.babies,
-            "currency":props.currency,});
+            "fromPlace": props.fromPlace,
+            "toPlace": props.toPlace,
+            "fromDate": props.fromDate,
+            "toDate": props.toDate,
+            "classFlight": props.classFlight,
+            "adults": props.adults,
+            "kids": props.kids,
+            "babies": props.babies,
+            "currency": props.currency,
+        });
 
     }, [])
     console.log(props);
->>>>>>> e47b1af813117a823406de4383ff8e606499472e
 
-    const indexOfLastPost = currentPage*postsPerPage;
-    const indexOfFirstPost = indexOfLastPost-postsPerPage;
-    const currentPosts = props.flights?.slice(indexOfFirstPost,indexOfLastPost)
-    const pagination= (pageNumber) => setCurrentPage(pageNumber)
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = props.flights?.slice(indexOfFirstPost, indexOfLastPost)
+    const pagination = (pageNumber) => setCurrentPage(pageNumber)
     const segmentsFunction = function (id) {
 
         setState(id);
         setState2(!state2);
         console.log(state);
 
-    }  
-    
+    }
+
     return (
         <div className='conteinerAllCard'>
             {/* {loding === false ? (<img src='https://media.giphy.com/media/IdmhVqdlIvpj3EalKg/giphy.gif' type='gif' />) : null} */}
@@ -105,7 +100,7 @@ function FlightCard(props) {
                 )
             })}
             <div>
-                <Pagination postsPerPage={postsPerPage} totalPosts={props.flights?.length} paginate={pagination}/>
+                <Pagination postsPerPage={postsPerPage} totalPosts={props.flights?.length} paginate={pagination} />
             </div>
         </div>
     )
