@@ -1,6 +1,5 @@
 body{
     background-image: url('./img.jpg');
-    
 }
 .conteinerAllCard{
     margin-top: 50px;
@@ -210,4 +209,23 @@ body{
       justify-content: center;
       align-items: center;
       margin-top: 15px;
+  }
+  .imgLoading{
+    /* height: 100vh; */
+    width: 500%;
+  }
+  .alert{
+    color: rgb(47, 88, 163);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .refresh{
+    font-size: 40px;
+    transition: 0.3s;
+    border-color: 0.5px solid white;
+  }
+  .refresh:hover{
+    font-size: 45px;
+    transition: 0.3s;
+
+    
   }

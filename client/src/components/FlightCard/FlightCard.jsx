@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo-de-aerolineas-argentinas.png';
 import './FlightCard.css'
 import { getFlights } from '../../store/actions/getFlights';
 import { connect } from 'react-redux';
 import Segments from '../Segments/Segments';
 import Pagination from '../Pagination/Pagination';
+import FlightCardVuelta from '../FlightCardVuelta/FlightCardVuelta';
+import image2 from './1315214.png';
+import imageSorry from './sorry2.png';
+import { StyledBall } from './Loading';
 
 function FlightCard(props) {
     const [state, setState] = useState('');
     const [state2, setState2] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
-    // const [loding, setLoding] = useState(false)
+    const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-
-        // setLoding(true);
-        props.getFlights({
+    useEffect(async() => {
+        
+        await props.getFlights({
+            "way": props.way,
             "fromPlace": props.fromPlace,
             "toPlace": props.toPlace,
             "fromDate": props.fromDate,
@@ -26,8 +29,9 @@ function FlightCard(props) {
             "kids": props.kids,
             "babies": props.babies,
             "currency": props.currency,
-        });
 
+        });
+        setLoading(true);
     }, [])
     console.log(props);
 
@@ -35,18 +39,39 @@ function FlightCard(props) {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = props.flights?.slice(indexOfFirstPost, indexOfLastPost)
     const pagination = (pageNumber) => setCurrentPage(pageNumber)
+    
     const segmentsFunction = function (id) {
-
         setState(id);
         setState2(!state2);
         console.log(state);
-
     }
+
+    if (!loading) {
+		return (
+			<StyledBall>
+				<div className="div_loading">
+					<img className="imgLoading" src={'https://media.giphy.com/media/elUMUuePOzH9WndXbc/giphy.gif'} alt="Loading" />
+                    {/* <img className="imgLoading" src={image2} alt="Loading" /> */}
+                    <p className="p">Cargando ...</p>
+				</div>
+                {/* 'https://media.giphy.com/media/elUMUuePOzH9WndXbc/giphy.gif' */}
+				<div className="div_p">
+					
+				</div>
+			</StyledBall>
+		);}
 
     return (
         <div className='conteinerAllCard'>
-            {/* {loding === false ? (<img src='https://media.giphy.com/media/IdmhVqdlIvpj3EalKg/giphy.gif' type='gif' />) : null} */}
-            {currentPosts?.map(flight => {
+            {props.flights===undefined?(<div className='alert'>Lo sentimos, problemas con el servidor.<br/><br/><img src={imageSorry} height={200}/></div>):null}
+            {props.flights?.length===1&&props.flights[0].message==="Campos invalidos"?(<div className='alert'>Alguno de los campos llenados es inválido. Por favor vuelva a intentarlo<br/><br/><img src={image2} height={200}/></div>):null}
+            {props.flights?.length===0&&props.way==='roundtrip'?(<div className='alert'>Se excedió el tiempo de busqueda o no hay vuelos que coincidan con esta búsqueda.<br/> Por favor, inténtalo nuevamente haciendo click aquí: <br/><br/><br/><a className='refresh' href={`http://localhost:3000/flights?way=${props.way}&fromPlace=${props.fromPlace}&toPlace=${props.toPlace}&fromDate=${props.fromDate}&toDate=${props.toDate}&classFlight=${props.classFlight}&adults=${props.adults}&kids=${props.kids}&babies=${props.babies}&currency=${props.currency}`}>&#128257;</a></div>):null}
+            {props.flights?.length===0&&props.way==='onewaytrip'?(<div className='alert'>Se excedió el tiempo de busqueda o no hay vuelos que coincidan con esta búsqueda.<br/> Por favor, inténtalo nuevamente haciendo click aquí: <br/><br/><br/><a className='refresh' href={`http://localhost:3000/flights?way=${props.way}&fromPlace=${props.fromPlace}&toPlace=${props.toPlace}&fromDate=${props.fromDate}&classFlight=${props.classFlight}&adults=${props.adults}&kids=${props.kids}&babies=${props.babies}&currency=${props.currency}`}>&#128257;</a></div>):null}
+            {props.flights?.length===1&&props.flights[0].message==="Your request quota has reached its maximum limits. Kindly upgrade to continue using it."?(<div className='alert'>Lo sentimos, problemas con el servidor.<br/><br/><img src={imageSorry} height={200}/></div>):null}
+            {props.flights?.length===1&&props.flights[0].message==="Something went wrong or key is invalid"?(<div className='alert'>Alguno de los campos llenados es inválido. Por favor vuelva a intentarlo<br/><br/><img src={image2} height={200}/></div>):null}
+                {props.flights?.length>1?(
+                    <div className='conteinerAllCard'>
+                        {currentPosts?.map(flight => {
                 return (
                     <div className='contein'>
                         <div className='flightCard'>
@@ -54,37 +79,20 @@ function FlightCard(props) {
 
                                 <div className='IDAyVUELTA'>
                                     <strong>&nbsp;&nbsp;&nbsp;IDA&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-                                    <p className='escalaTitulo'> Duracion: {flight.vueloIda.duration}</p>
+                                    <p className='escalaTitulo'> Duracion: {flight.vueloIda?.duration}</p>
                                 </div>
-                                <figure id='photo' data-title={flight.airlineIda.name} tooltip-dir="left">
-                                    <img src={flight.airlineIda.logo} alt={flight.airlineIda.name} height={40} />
+                                <figure id='photo' data-title={flight.airlineIda?.name} tooltip-dir="left">
+                                    <img src={flight.airlineIda?.logo} alt={flight.airlineIda?.name} height={40} />
                                 </figure>
                                 <div className='horarioDestinoIda'>
-                                    {flight.vueloIda.stopoverCode !== 'DIRECT' ? (<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo'>{flight.vueloIda.segments.length - 1} Escala{flight.vueloIda.segments.length > 2 ? ('s') : null}</a></p>) : (<p className='escalaTitulo'>Directo</p>)}
+                                    {flight.vueloIda?.stopoverCode !== 'DIRECT' ? (<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo'>{flight.vueloIda.segments?.length - 1} Escala{flight.vueloIda.segments?.length > 2 ? ('s') : null}</a></p>) : (<p className='escalaTitulo'>Directo</p>)}
                                     <strong className='horarioIda'> {flight.vueloIda.departureTime}</strong><i className='line'> ------------</i><span className='puntito' onClick={() => segmentsFunction(flight.vueloIda.id)}>{flight.vueloIda.stopoverCode !== 'DIRECT' ? ('◉') : null}</span><i className='line'>------------</i><strong> {flight.vueloIda.arrivalTime}</strong>
                                     <p className='destinoIda'>{flight.city1.name} ({flight.vueloIda.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {flight.city2.name} ({flight.vueloIda.arrivalAirportCode})</p>
                                     {/* <span className='escalaTitulo'> Duracion: {flight.vueloIda.duration}</span> */}
                                 </div>
                             </div>
                             {state === flight.vueloIda.id && state2 === true && flight.vueloIda.stopoverCode !== 'DIRECT' ? (<Segments segmentos={flight.vueloIda.segments} airports={flight.airports} cities={flight.cities} flight={flight.airlinesLogosIda} />) : null}
-
-                            <div className='InfoIda'>
-                                <div className='IDAyVUELTA'>
-                                    <strong>VUELTA</strong>
-                                    <p className='escalaTitulo'> Duracion: {flight.vueloVuelta.duration}</p>
-                                </div>
-                                <figure id='photo' data-title={flight.airlineVuelta.name} tooltip-dir="left">
-                                    <img src={flight.airlineVuelta.logo} alt={flight.airlineVuelta.name} height={40} />
-                                </figure>
-                                <div className='horarioDestinoIda'>
-                                    {flight.vueloVuelta.stopoverCode !== 'DIRECT' ? (<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo' onClick={() => segmentsFunction(flight.vueloVuelta.id)}>{flight.vueloVuelta.segments.length - 1} Escala{flight.vueloVuelta.segments.length > 2 ? ('s') : null}</a></p>) : (<p className='escalaTitulo'>Directo</p>)}
-                                    <strong className='horarioIda'> {flight.vueloVuelta.departureTime}</strong><i className='line'> ------------</i><span className='puntito' onClick={() => segmentsFunction(flight.vueloVuelta.id)}>{flight.vueloVuelta.stopoverCode !== 'DIRECT' ? ('◉') : null}</span><i className='line'>------------</i><strong> {flight.vueloVuelta.arrivalTime}</strong>
-                                    <p className='destinoIda'>{flight.city2.name} ({flight.vueloVuelta.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {flight.city1.name} ({flight.vueloVuelta.arrivalAirportCode})</p>
-                                    {/* <span className='escalaTitulo'> Duracion: {flight.vueloVuelta.duration}</span> */}
-                                </div>
-                            </div>
-
-                            {state === flight.vueloVuelta.id && state2 === true && flight.vueloVuelta.stopoverCode !== 'DIRECT' ? (<Segments segmentos={flight.vueloVuelta.segments} airports={flight.airports} cities={flight.cities} flight={flight.airlinesLogosVuelta} />) : null}
+                            {props.way === 'roundtrip' ? (<FlightCardVuelta flight={flight} />) : null}
 
                         </div>
                         <div className='reserve-box'>
@@ -100,8 +108,12 @@ function FlightCard(props) {
                 )
             })}
             <div>
-                <Pagination postsPerPage={postsPerPage} totalPosts={props.flights?.length} paginate={pagination} />
+                {loading===true&&props.flights?.length!==0&&props.flights!==undefined?(<Pagination postsPerPage={postsPerPage} totalPosts={props.flights?.length} paginate={pagination} />):null}
             </div>
+                    </div>
+
+                ):null}
+                
         </div>
     )
 
@@ -109,12 +121,15 @@ function FlightCard(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFlights: flights => dispatch(getFlights(flights))
+        getFlights: flights => dispatch(getFlights(flights)),
+        //backupFligth: f => dispatch(backupFligth(f))
+
     }
 }
 const mapStateToProps = state => {
     return {
-        flights: state.listFlights.flights
+        flights: state.listFlights.flights,
+        flightsOneway: state.listFlights.flightsOneWay
     }
 }
 
