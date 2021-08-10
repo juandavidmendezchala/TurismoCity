@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import reducerFlights from "./reducers/reducerFlights";
 import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
+import { activityReducer } from './reducers/reducerActivity'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -17,7 +18,8 @@ const reducer = combineReducers({
   listFlights: reducerFlights,
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
-  activities: reducerActivities
+  activity: reducerActivities,
+  getActivities: activityReducer
 })
 
 const store = createStore(
