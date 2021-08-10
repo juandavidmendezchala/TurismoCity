@@ -1,9 +1,14 @@
 import React from 'react'
 
-export default function Actities(){
-    return(
-        <div>
-            Thinig
+
+
+const Activities = () => {
+    return (
+        <div >
+            <h1>ACTIVITIES</h1>
+
         </div>
     )
 }
+
+export default Activities
