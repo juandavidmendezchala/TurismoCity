@@ -33,17 +33,21 @@ router.get('/', async(req, res) => {
         const getActivities = await Activity.findAll(findBy || findByOrder)
         return res.send(getActivities)
     }
-    const findBy = city? {
-        where: {
-            city
-        }      
-    } :  
-    {
-        where: {
-            country
-        }    
-    }
-    const getActivities = await Activity.findAll(findBy || {})
+    if(city || country) {
+        const findBy = city? {
+            where: {
+                city
+            }      
+        } :  
+        {
+            where: {
+                country
+            }    
+        }
+        const getActivities = await Activity.findAll(findBy)
+        return res.send(getActivities)
+    }    
+    const getActivities = await Activity.findAll({})
     return res.send(getActivities)
 })
 
