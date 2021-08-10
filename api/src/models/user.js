@@ -11,12 +11,8 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastname:{
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         birthdate: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull:false
         },
         email: {
@@ -26,6 +22,18 @@ module.exports = function(sequelize) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        }, 
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        votes: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        rating: {
+            type: DataTypes.DECIMAL,
+            allowNull: true
         }
     })
 }

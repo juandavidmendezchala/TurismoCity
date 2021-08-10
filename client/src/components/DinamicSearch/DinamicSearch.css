@@ -1,0 +1,45 @@
+.ContainerDinamicSearch{
+    position: absolute;
+    align-items: center;
+    top: 350px;
+    padding-right: -2px;
+    height: 40px;
+    width: 250px;
+    margin-top: 120px;
+    margin-left: -50px;
+}
+.inputSearch {
+width: 200px;
+}
+.inputSug {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position:relative;
+    background-color: white;
+    left:25px;
+    height: auto;
+    word-wrap: word-break;
+    cursor: pointer;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    color: black;
+    font-weight: 500;
+    width: 200px;
+
+}
+
+.inputSug:hover{
+    background-color: rgb(95, 141, 160);
+    color: white;
+    box-shadow: 10px 10px 30x 10px black;
+}
+.inputSearch{
+    width: 200px;
+    background-color: tomato;
+       
+}
+.avioncito{
+    color: rgb(49, 92, 133)
+}

@@ -1,0 +1,175 @@
+/* .conteinerAllCard{
+    margin-top: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contein{
+    border-radius: 20px;
+
+    height: 200px;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    margin: 20px;
+    padding:0px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+        
+}
+.flightCard{
+  
+    display:flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+
+}
+.InfoIda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 20px; 
+}
+.line{
+    opacity: 30%;
+}
+.horarioDestinoIda{
+    margin-left: 20px;
+}
+.horarioIda{
+    margin: 0px;
+    padding: 0px;
+}
+.destinoIda{
+    margin: 0px;
+    padding: 0px;
+    opacity: 50%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+.reserve{
+    margin-top: 20px;
+    align-self: flex-end;
+    text-decoration: none;
+}
+.reserve-box{
+    background: rgb(67,117,152);
+    background: linear-gradient(337deg, rgba(67,117,152,1) 28%, rgba(91,153,195,1) 70%, rgba(108,160,241,1) 100%);
+    color: white;
+    padding: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+}
+.reservarVuelo{
+    background-color:rgb(49, 90, 228);
+  
+    border: none;
+    border-radius: 8px;
+    color: white;
+
+    padding: 13px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+.reservarVuelo:hover{
+    background-color:rgb(254, 254, 255);
+    color: rgb(49, 90, 228);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+    transition-duration: 0.3s; 
+}
+
+[data-title]{
+    border-radius: 100%;
+    display: block;
+    position: relative;
+    font-size: small;
+  }
+
+  [data-title]:after {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    color: #fff;
+    content: attr(data-title);
+    opacity: 0;
+    padding: 6px 12px;
+    position: absolute;
+    left: 110%;
+    top: 30px;
+    transition: all .25s ease;
+    visibility: hidden;
+    white-space: nowrap;
+  }
+  
+  [data-title][tooltip-dir="left"]:after {
+    left: auto;
+    right: 110%;
+  }
+  
+  [data-title][tooltip-dir="bottom"]:after,
+  [data-title][tooltip-dir="top"]:after {
+    left: 50%;
+      right: auto;
+  
+    transform: translateX(-50%);
+  }
+  
+  [data-title][tooltip-dir="bottom"]:after {
+    bottom: auto;
+    top: 110%;
+  }
+  
+  [data-title][tooltip-dir="top"]:after {
+    bottom: 110%;
+    top: auto;
+  }
+  
+  [data-title]:hover:after {
+    opacity: 60%;
+    visibility: visible;
+  } */
+  .TarjetaSegmentos{
+    /* padding-top:10px; */
+    margin-left:40px;
+    /* margin-right: 40px; */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
+  }
+  .encabezadoSegmentos{
+    background: rgb(146, 177, 199);
+    background: linear-gradient(337deg, rgb(115, 155, 184) 28%, rgb(155, 192, 216) 70%, rgb(209, 217, 229) 100%);
+    margin-bottom: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    font-size: small;
+    color: rgb(87, 87, 87);
+    display: flex;
+    align-self: flex-start;
+  }
+  .segmentosBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 25px;
+  }
+
+i{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

@@ -1,6 +1,5 @@
 body{
     background-image: url('./img.jpg');
-    
 }
 .conteinerAllCard{
     margin-top: 50px;
@@ -12,13 +11,20 @@ body{
 }
 .contein{
     border-radius: 20px;
-    height: 200px;
+    /* font-size: 16px; */
+    /* height: 200px; */
+    background-image: url(https://img.freepik.com/vector-gratis/textura-papel-blanco-hecho-mano_125540-947.jpg?size=626&ext=jpg);
     background-color: rgb(231, 231, 231);
     display: flex;
     margin: 20px;
     padding:0px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
-        
+    box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.418);   
+    transition: 0.5s;    
+}
+
+.contein:hover{
+    box-shadow: 10px 10px 13px 1px rgba(0, 0, 0, 0.671); 
+    transition: 0.5s;
 }
 .flightCard{
     /* border-radius: 20px;
@@ -28,9 +34,10 @@ body{
     /* width: 500px; */
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
-    /* margin: 20px;
-    padding:0px;
+    /* padding: 50px; */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    /* padding:0px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 }
 .InfoIda{
@@ -38,14 +45,17 @@ body{
     justify-content: center;
     align-items: center;
     /* width: 600px; */
-    font-size: small;   
+    font-size: 18px;
+    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    margin: 15px;
+    margin-left: 40px; 
 }
 .line{
     opacity: 30%;
 }
-.horarioDestinoIda{
+/* .horarioDestinoIda{
     margin-left: 20px;
-}
+} */
 .horarioIda{
     margin: 0px;
     padding: 0px;
@@ -53,7 +63,9 @@ body{
 .destinoIda{
     margin: 0px;
     padding: 0px;
-    opacity: 70%;
+    opacity: 50%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: small;
 }
 .reserve{
     margin-top: 20px;
@@ -62,12 +74,12 @@ body{
 }
 .reserve-box{
     background: rgb(67,117,152);
-background: linear-gradient(337deg, rgba(67,117,152,1) 28%, rgba(91,153,195,1) 70%, rgba(108,160,241,1) 100%);
+    background: linear-gradient(337deg, rgba(67,117,152,1) 28%, rgba(91,153,195,1) 70%, rgba(108,160,241,1) 100%);
     color: white;
     padding: 30px;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -75,3 +87,145 @@ background: linear-gradient(337deg, rgba(67,117,152,1) 28%, rgba(91,153,195,1) 7
     display: flex;
     flex-direction: column;
 }
+.reservarVuelo{
+    background-color:rgb(49, 90, 228);
+    /* background-color:rgb(255, 255, 255); */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    /* color: black; */
+    padding: 13px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.reservarVuelo:hover{
+    background-color:rgb(254, 254, 255);
+    color: rgb(49, 90, 228);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+    transition-duration: 0.3s; 
+    cursor:pointer;
+}
+
+[data-title]{
+    border-radius: 100%;
+    display: block;
+    position: relative;
+    font-size: small;
+    margin-top:30px;
+  }
+
+  [data-title]:after {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    color: #fff;
+    content: attr(data-title);
+    opacity: 0;
+    padding: 6px 12px;
+    position: absolute;
+    left: 110%;
+    top: 45px;
+    transition: all .25s ease;
+    visibility: hidden;
+    white-space: nowrap;
+  }
+  
+  [data-title][tooltip-dir="left"]:after {
+    left: auto;
+    right: 110%;
+  }
+  
+  [data-title][tooltip-dir="bottom"]:after,
+  [data-title][tooltip-dir="top"]:after {
+    left: 50%;
+      right: auto;
+  
+    transform: translateX(-50%);
+  }
+  
+  [data-title][tooltip-dir="bottom"]:after {
+    bottom: auto;
+    top: 110%;
+  }
+  
+  [data-title][tooltip-dir="top"]:after {
+    bottom: 110%;
+    top: auto;
+  }
+  
+  [data-title]:hover:after {
+    opacity: 60%;
+    visibility: visible;
+  }
+  .escalaTitulo{
+      font-size: x-small;
+      margin:0px;
+      padding: 0px;
+      text-decoration: none;
+      color: rgb(129, 129, 129);
+
+  }
+  .escalaTitulop{
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding: 0px;
+  }
+
+  .puntito{
+    color: rgb(129, 129, 129);
+    cursor:pointer;
+    font-size: small;
+  }
+  /* .flightGif{
+    visibility:hidden;
+    display: flex;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 60px;
+  }
+  .reservarVuelo:hover ~ .flightGif{
+    visibility:visible;
+  } */
+
+  /* .destacada img{
+    visibility:hidden;
+    display: flex;
+    position: absolute;
+
+    margin:0px;
+    bottom: 200px;
+  }
+  
+  .contenido.text-center a:hover ~ img{
+    visibility: visible;
+  } */
+
+  .IDAyVUELTA{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+  }
+  .imgLoading{
+    /* height: 100vh; */
+    width: 500%;
+  }
+  .alert{
+    color: rgb(47, 88, 163);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .refresh{
+    font-size: 40px;
+    transition: 0.3s;
+    border-color: 0.5px solid white;
+  }
+  .refresh:hover{
+    font-size: 45px;
+    transition: 0.3s;
+
+    
+  }

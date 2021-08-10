@@ -5,8 +5,10 @@ const { User } = require('../models/index')
 
 var router = express.Router();
 
-var bcryptjs = require ('bcryptjs')
 
+var bcryptjs = require ('bcryptjs')
+//var bcryptjs = require ('bcryptjs')
+//var bcryptjs = require ('bcryptjs')
 
 router.post ('/login', async (req, res) =>{
   const email= req.body.email;
