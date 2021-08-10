@@ -6,20 +6,17 @@ const router = Router();
 router.get('/', async(req, res) => {
     let {
         filter,
-        orderPrice
+        order
     } = req.body;
-
-    if(orderPrice.length > 1) {
+    if(order) {
         const getActivities = await Activity.findAll({
-            
+            order: [
+                [filter, order]
+            ]            
         
         })
         return res.send(getActivities)
     }
-
-    
-
-    const getActivities = await Activitie.findAll({})
 })
 
 router.post('/', async(req, res) => {
@@ -57,7 +54,7 @@ router.post('/', async(req, res) => {
             email
         }
     })
-/*     await findUser.addActivity(createPack) */
+    await findUser.addActivity(createPack)
     return res.send(createPack)
 })
 

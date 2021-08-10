@@ -16,8 +16,8 @@ module.exports = function(sequelize) {
             allowNull: false
         },
         date: {
-            type: DataTypes.ARRAY(DataTypes.DATEONLY),
-            allowNull: true
+            type: DataTypes.DATEONLY,
+            allowNull: false
         },
         price: {
             type: DataTypes.DECIMAL,
