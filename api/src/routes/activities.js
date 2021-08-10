@@ -6,17 +6,45 @@ const router = Router();
 router.get('/', async(req, res) => {
     let {
         filter,
-        order
+        order,
+        country,
+        city
     } = req.body;
     if(order) {
-        const getActivities = await Activity.findAll({
+        const findBy = city? {
+            where: {
+                city 
+            },
             order: [
                 [filter, order]
             ]            
         
-        })
+        } :  
+        {
+            where: {
+                country
+            },
+            order: [
+                [filter, order]
+            ]            
+        
+        }
+        const findByOrder = {order: [[filter, order]]}
+        const getActivities = await Activity.findAll(findBy || findByOrder)
         return res.send(getActivities)
     }
+    const findBy = city? {
+        where: {
+            city
+        }      
+    } :  
+    {
+        where: {
+            country
+        }    
+    }
+    const getActivities = await Activity.findAll(findBy || {})
+    return res.send(getActivities)
 })
 
 router.post('/', async(req, res) => {
@@ -47,7 +75,8 @@ router.post('/', async(req, res) => {
         passengers,
         images,
         country,
-        city 
+        city,
+        active: true 
     })
     const findUser = await User.findOne({
         where: {

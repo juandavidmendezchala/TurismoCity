@@ -54,6 +54,10 @@ module.exports = function(sequelize) {
         city: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     }, {
         timestamps: false
