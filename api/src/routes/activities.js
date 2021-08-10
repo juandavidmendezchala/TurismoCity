@@ -13,7 +13,7 @@ router.get('/', async(req, res) => {
     if(order) {
         const findBy = city? {
             where: {
-                city
+                city 
             },
             order: [
                 [filter, order]
@@ -75,7 +75,8 @@ router.post('/', async(req, res) => {
         passengers,
         images,
         country,
-        city 
+        city,
+        active: true 
     })
     const findUser = await User.findOne({
         where: {
