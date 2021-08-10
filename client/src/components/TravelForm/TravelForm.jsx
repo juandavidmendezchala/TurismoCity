@@ -27,7 +27,7 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('Economy');
-    const [adults, setAdults] = useState('')
+    const [adults, setAdults] = useState('0')
     const [kids, setKids] = useState('0')
     const [babies, setBabies] = useState('0')
     const [currency, setCurrency] = useState('USD');
@@ -38,9 +38,9 @@ export default function TravelForm(props) {
         setToPlace(airports1)
     }, [airports0, airports1])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(resetFlights())
-    },[])
+    }, [])
 
     const prueba = useSelector(state => state)
 
@@ -48,10 +48,11 @@ export default function TravelForm(props) {
         e.preventDefault()
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
-        dispatch(getFlights({way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency}))
-        if(way==='roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
-        if(way==='onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        dispatch(getFlights({ way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency }))
+        if (way === 'roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        if (way === 'onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
     }
+    var today = new Date().toISOString().split('T')[0];
 
     return (
         <div className="TravelFormContainer">
@@ -62,14 +63,14 @@ export default function TravelForm(props) {
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
-                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                            <Input type="date" name={today} min={today} icon='calendar alternate outline' iconPosition='left' className="InputTravelForm"
                                 onChange={e => setFromDate(e.target.value)}
                             />
 
                         </div>
                         <div>
                             <h1 className="TextTravelFormAbajo">Hasta:</h1>
-                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                            <Input type="date" min={fromDate} icon='calendar alternate outline' iconPosition='left' className="InputTravelForm"
                                 onChange={e => setToDate(e.target.value)}
                             />                        </div>
                     </div>
