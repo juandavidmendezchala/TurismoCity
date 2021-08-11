@@ -66,6 +66,16 @@ router.get('/', async(req, res) => {
     return res.send(getActivities)
 })
 
+router.get('/:id', async(req, res) => {
+    let {id} = req.params;
+    const activityDetail = await Activity.findOne({
+        where: {
+            id
+        }
+    })
+    res.send(activityDetail)
+})
+
 router.post('/', async(req, res) => {
     let {
         email,

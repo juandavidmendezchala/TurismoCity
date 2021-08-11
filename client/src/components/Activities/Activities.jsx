@@ -28,6 +28,7 @@ export default function Actities(){
                 
                 {
                     activities?.map(a => <ActivityCard key={a.id}
+                    id={a.id}
                     name={a.name}
                     description={a.description}
                     date={a.date}
