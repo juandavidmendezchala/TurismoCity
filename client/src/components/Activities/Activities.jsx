@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getActivities} from '../../store/actions/activityActions'
-import ActivityCard from '../ActivityCard.js/ActivityCard';
+import ActivityCard from '../ActivityCard/ActivityCard.js'
+import './Activities.css'
+
 
 export default function Actities(){
 
@@ -13,12 +15,33 @@ export default function Actities(){
 
     useEffect(() => {
         dispatch(getActivities())
-    }, [])
+    },[])
 
     return(
         <div>
             <h1>Paquetes de actividades</h1>
-            <ActivityCard activities={activities}></ActivityCard>
+            {
+                loading?
+                <div>Loading</div>
+                :
+                <div className="cards-act">
+                
+                {
+                    activities?.map(a => <ActivityCard key={a.id}
+                    name={a.name}
+                    description={a.description}
+                    date={a.date}
+                    price={a.price}
+                    places={a.places}
+                    duration={a.duration}
+                    initialTime={a.initialTime}
+                    images={a.images}
+                    country={a.country}
+                    city={a.city}
+                    ></ActivityCard>)
+                }
+                </div>          
+            }
         </div>
     )
 }

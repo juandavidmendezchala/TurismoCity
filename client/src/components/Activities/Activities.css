@@ -1,0 +1,5 @@
+.cards-act{
+    display: flex;
+    flex-wrap: wrap;
+}
+
