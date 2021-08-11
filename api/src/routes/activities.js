@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const {Activity, User} = require('../models/index')
+const { Op } = require("sequelize");
 
 const router = Router();
 
@@ -8,12 +9,17 @@ router.get('/', async(req, res) => {
         filter,
         order,
         country,
-        city
+        city,
+        startDate,
+        endDate
     } = req.body;
     if(order) {
         const findBy = city? {
             where: {
-                city 
+                city, 
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             },
             order: [
                 [filter, order]
@@ -22,7 +28,10 @@ router.get('/', async(req, res) => {
         } :  
         {
             where: {
-                country
+                country,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             },
             order: [
                 [filter, order]
@@ -36,12 +45,18 @@ router.get('/', async(req, res) => {
     if(city || country) {
         const findBy = city? {
             where: {
-                city
+                city,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             }      
         } :  
         {
             where: {
-                country
+                country,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             }    
         }
         const getActivities = await Activity.findAll(findBy)
