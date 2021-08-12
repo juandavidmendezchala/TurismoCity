@@ -3,6 +3,7 @@ const { Router } = require('express');
 const flightsRoutes = require('./flights.js');
 const airportsRoutes = require('./airports')
 const usersRoutes = require('./user')
+const activityRoutes = require('./activities')
 
 const router = Router();
 
@@ -17,6 +18,7 @@ router.use(usersRoutes)
 
 router.use('/allAirports', airportsRoutes)
 router.use('/user', usersRoutes)
+router.use('/activity', activityRoutes)
 
 
 module.exports = router;

@@ -10,6 +10,8 @@ import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
 import Nuevo from './components/nuevo/nuevo'
 import FeedBack from "./components/Feedback/FeedBack";
+import Actities from "./components/Activities/Activities";
+import ActivityDetail from "./components/ActivityDetail/ActivityDetail";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/activities" component={Actities}></Route>
+      <Route path="/activity/:id" component={ActivityDetail}></Route>
     </div>
   );
 }
