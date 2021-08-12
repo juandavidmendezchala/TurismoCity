@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import ActivitiesFilter from '../ActivitiesFilter/ActivitiesFilter'
 import {getActivities} from '../../store/actions/activityActions'
 import ActivityCard from '../ActivityCard/ActivityCard.js'
 import './Activities.css'
@@ -25,7 +26,7 @@ export default function Actities(){
                 <div>Loading</div>
                 :
                 <div className="cards-act">
-                
+                <ActivitiesFilter></ActivitiesFilter>                
                 {
                     activities?.map(a => <ActivityCard key={a.id}
                     id={a.id}
