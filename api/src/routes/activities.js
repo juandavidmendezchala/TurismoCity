@@ -2,7 +2,6 @@ const {Router} = require('express');
 const {Activity, User} = require('../models/index')
 const { Op } = require("sequelize");
 
-
 const router = Router();
 
 router.get('/', async(req, res) => {
@@ -11,12 +10,16 @@ router.get('/', async(req, res) => {
         order,
         country,
         city,
-        date
+        startDate,
+        endDate
     } = req.body;
     if(order) {
         const findBy = city? {
             where: {
-                city 
+                city, 
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             },
             order: [
                 [filter, order]
@@ -25,7 +28,10 @@ router.get('/', async(req, res) => {
         } :  
         {
             where: {
-                country
+                country,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
             },
             order: [
                 [filter, order]
@@ -36,75 +42,63 @@ router.get('/', async(req, res) => {
         const getActivities = await Activity.findAll(findBy || findByOrder)
         return res.send(getActivities)
     }
-    /*const Op = Sequelize.Op;{
-    where: {
-        createdAt: {
-          [Op.between]: ["2018-07-08T14:06:48.000Z", "2019-10-08T22:33:54.000Z"]
+    if(city || country) {
+        const findBy = city? {
+            where: {
+                city,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
+            }      
+        } :  
+        {
+            where: {
+                country,
+                date: {
+                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                 }
+            }    
         }
-      }}*/
-     /* if (date.desde != '') {
-      const findByDate = date? {
-        query.push({
-
-            procesador_fecha: { 
-              [Op.between]: [date.desde + ' 00:00', date.hasta + ' 23:59'],
-            },
-
-        })
-    }:*/
-    const dbresp = await Table.findAll({
-        attributes: [date],
-        where: {
-          createdAt: {
-             [Op.between]: [startDate, endDate],
-          },
-        },
-        logging: console.log,
-        raw: true,
-        order: [['createdAt', 'ASC']],
-        // limit: count,
-      });
-    const findBy = city? {
-        where: {
-            city
-        }      
-    } :  
-    {
-        where: {
-            country
-        }    
-    }
-    const getActivities = await Activity.findAll(findBy || {})
+        const getActivities = await Activity.findAll(findBy)
+        return res.send(getActivities)
+    }    
+    const getActivities = await Activity.findAll({})
     return res.send(getActivities)
+})
+
+router.get('/:id', async(req, res) => {
+    let {id} = req.params;
+    const activityDetail = await Activity.findOne({
+        where: {
+            id
+        }
+    })
+    res.send(activityDetail)
 })
 
 router.post('/', async(req, res) => {
     let {
         email,
         name,
-        description,
+       
         date,
         price,
         places,
         duration,
         initialTime,
-        comments,
-        passengers,
-        images,
+        
         country,
         city
     } = req.body;
     const createPack = await Activity.create({
         name,
-        description,
+        
         date,
         price,
         places,
         duration,
         initialTime,
-        comments,
-        passengers,
-        images,
+        
         country,
         city,
         active: true 
