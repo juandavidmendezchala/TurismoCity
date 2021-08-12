@@ -23,5 +23,12 @@ module.exports = {
     Airports
 }
 
+Activity.belongsTo(Package)
+Package.hasMany(Activity)
+
+Package.belongsTo(User)
+User.hasMany(Package)
+
+
 
 
