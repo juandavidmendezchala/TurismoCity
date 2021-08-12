@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  position:absolute;
+  width:100%;
+  height:100vh;
+  background: #2c302d;
+}
+.card {
+  /*width: 60%;*/
+  /*height: 80%;*/
+  width: 600px;
+  height: 570px;
+  /*max-height: 300px;*/
+  padding: auto;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  /*box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f;
+  */
+  
+}
+
+.cardheader {
+    text-transform: uppercase;
+    font-size: 20px;
+    /*margin: 40px auto;*/
+}
+
+.cardbutton {
+    padding: 10px;
+    border-radius: 50px;
+    background: #0F3057;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin: 50px auto;
+    width: 300px;
+    height: 45px;
+  }
+
+.imagenCard{
+    width: 350px;
+  }
+
+  .imgActividad{
+     width: 100px;
+    
+  }
+
+  .labelActividad {
+    margin-block: 10px;
+    margin-left: 20px;
+  }
+
+.cardcontainer {
+    display: grid;
+    width:300%;
+    height:300%;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    color: white;
+}
+
+.divActividad{
+        /* margin-right: 200px; */
+        display: flex;
+        margin-left: 50px;
+        /* justify-content: center; */
+        margin-bottom: 10px;
+}
+
+.cardcontent {
+    width: 90%;
+    height: 95%;
+    background: #191a19;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+/*box-shadow:  16px 16px 44px #0a0a0a, 
+             -16px -16px 44px #282a28*;*/
+    transition: 0.3s all ease-in-out;
+    
+  }
+
+.cardcontent:hover{
+    margin-top:-10px;
+}
+
+img {
+    width: 200px;
+}
+
+.cardinfo{
+    margin-bottom: 25px;
+}

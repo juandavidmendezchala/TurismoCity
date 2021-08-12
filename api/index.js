@@ -21,7 +21,7 @@ app.use(setHeaders)
 
 app.use("/", routes);
 
-conn.sync({ force: true }).then(() => {
+conn.sync().then(() => {
     console.log("Connect");
 });
 
