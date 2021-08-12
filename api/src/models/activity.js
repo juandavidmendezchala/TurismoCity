@@ -16,7 +16,7 @@ module.exports = function(sequelize) {
             allowNull: false
         },
         initialTime: {
-            type: DataTypes.STRING,
+            type: DataTypes.TIME,
             allowNull: false
         }
     })

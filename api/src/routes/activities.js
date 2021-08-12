@@ -51,4 +51,25 @@ router.post('/', async(req, res) => {
     return res.send(createPack)
 })
 
+router.post('/activity', async(req, res) => {
+    let{
+        id,
+        activity,
+        description,
+        initialTime
+    } = req.body
+    const createActivity = await Activity.create({
+        activity,
+        description,
+        initialTime
+    })
+    const findPackage = await Package.findOne({
+        where: {
+            id
+        }
+    })
+    await findPackage.addActivity(createActivity)
+    return res.send(createActivity)
+})
+
 module.exports = router;
