@@ -1,12 +1,13 @@
 const {DataTypes,  Sequelize} = require('sequelize')
 
 module.exports = function(sequelize) {
-    return sequelize.define('activity'), {
+    return sequelize.define('activity', {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        activity: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -18,5 +19,5 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         }
-    }
+    })
 }

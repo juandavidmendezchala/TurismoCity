@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {Package, User} = require('../models/index')
+const {Package, Activity, User} = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -25,13 +25,11 @@ router.post('/', async(req, res) => {
         places,
         duration,
         initialTime,
-        comments,
-        passengers,
         images,
         country,
         city
     } = req.body;
-    const createPack = await Activity.create({
+    const createPack = await Package.create({
         name,
         description,
         date,
@@ -39,8 +37,6 @@ router.post('/', async(req, res) => {
         places,
         duration,
         initialTime,
-        comments,
-        passengers,
         images,
         country,
         city,
@@ -51,7 +47,7 @@ router.post('/', async(req, res) => {
             email
         }
     })
-    await findUser.addActivity(createPack)
+    await findUser.addPackage(createPack)
     return res.send(createPack)
 })
 
