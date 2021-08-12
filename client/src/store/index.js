@@ -18,7 +18,7 @@ const reducer = combineReducers({
   listFlights: reducerFlights,
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
-  activity: reducerActivities,
+  userActivities: reducerActivities,
   getActivities: activityReducer
 })
 

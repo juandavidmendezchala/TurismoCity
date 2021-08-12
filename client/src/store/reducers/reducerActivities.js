@@ -1,3 +1,4 @@
+import { GET_USER_ACTIVITIES } from "../actions/userActivitiesAction"
 import { NEW_ACTIVITY } from "../Consts/Consts"
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
         images: "",
         city: "",
         country: ""
-    }
+    },
+    activities: []
 }
 const reducerActivities = (state = initialState, action) => {
     switch (action.type) {
@@ -23,6 +25,12 @@ const reducerActivities = (state = initialState, action) => {
                 ...state,
                 //Modificacion de los estados
             }
+        case GET_USER_ACTIVITIES: {
+            return {
+                ...state,
+                activities: action.payload
+            }
+        }
         default:
             return state
     }
