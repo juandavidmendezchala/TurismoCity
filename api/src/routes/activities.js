@@ -4,6 +4,13 @@ const { Op } = require("sequelize");
 
 const router = Router();
 
+router.get('/', async(req, res) => {
+    const getPackages = await Package.findAll({
+        include: [Activity]
+    })
+    res.send(getPackages)
+})
+
 
 router.get('/:id', async(req, res) => {
     let {id} = req.params;
