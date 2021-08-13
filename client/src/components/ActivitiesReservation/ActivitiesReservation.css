@@ -1,0 +1,6 @@
+.reservation-label{
+    display: flex;
+    flex-direction: column;
+    opacity: 100%;
+}
+
