@@ -39,6 +39,10 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        images: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false
+        },
         city: {
             type: DataTypes.STRING,
             allowNull: false

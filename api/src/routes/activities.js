@@ -14,21 +14,19 @@ router.get('/', async(req, res) => {
         duration,
         initialTime
     } = req.body;
-    const getPackages = await Package.findAll({
-        include: [Activity]
-    })
-    res.send(getPackages)
+    const getActivities = await Activity.findAll({})
+    res.send(getActivities)
 })
 
 
 router.get('/:id', async(req, res) => {
     let {id} = req.params;
-    const activityDetail = await Package.findOne({
+    const activityDetail = await Activity.findOne({
         where: {
             id
         }
     })
-    res.send(PackageDetail)
+    res.send(activityDetail)
 })
 
 router.post('/', async(req, res) => {
@@ -36,20 +34,24 @@ router.post('/', async(req, res) => {
         email,
         name,
         date,
+        description,
         price,
         places,
         duration,
         initialTime,
+        images,
         country,
         city
     } = req.body;
-    const createPack = await Package.create({
+    const createPack = await Activity.create({
         name,
         date,
+        description,
         price,
         places,
         duration,
         initialTime,
+        images,
         country,
         city,
         active: true 
@@ -59,31 +61,8 @@ router.post('/', async(req, res) => {
             email
         }
     })
-    await findUser.addPackage(createPack)
+    await findUser.addActivity(createPack)
     return res.send(createPack)
-})
-
-router.post('/activity', async(req, res) => {
-    let{
-        id,
-        activity,
-        description,
-        image,
-        initialTime
-    } = req.body
-    const createActivity = await Activity.create({
-        activity,
-        description,
-        image,
-        initialTime
-    })
-    const findPackage = await Package.findOne({
-        where: {
-            id
-        }
-    })
-    await findPackage.addActivity(createActivity)
-    return res.send(createActivity)
 })
 
 module.exports = router;
