@@ -36,7 +36,7 @@ router.post('/', async(req, res) => {
     let {
         email,
         name,
-        description,
+       
         date,
         price,
         places,
@@ -48,7 +48,7 @@ router.post('/', async(req, res) => {
     } = req.body;
     const createPack = await Package.create({
         name,
-        description,
+        
         date,
         price,
         places,
