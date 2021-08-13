@@ -7,21 +7,47 @@ module.exports = function(sequelize) {
             autoIncrement: true,
             primaryKey: true
         },
-        activity: {
+        name: {
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        date: {
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         description: {
             type: DataTypes.STRING,
+            allowNull: true
+        },
+        price: {
+            type: DataTypes.DECIMAL,
             allowNull: false
         },
-        image: {
-            type: DataTypes.STRING,
-            allowNull: true
+        places: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         initialTime: {
             type: DataTypes.TIME,
             allowNull: false
+        },
+        country: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
+    }, {
+        timestamps: false
     })
 }

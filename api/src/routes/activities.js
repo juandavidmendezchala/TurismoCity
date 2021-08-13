@@ -14,7 +14,6 @@ router.get('/', async(req, res) => {
         duration,
         initialTime
     } = req.body;
-    Filter(country, city, date, price, places, duration, initialTime)
     const getPackages = await Package.findAll({
         include: [Activity]
     })
@@ -24,37 +23,33 @@ router.get('/', async(req, res) => {
 
 router.get('/:id', async(req, res) => {
     let {id} = req.params;
-    const activityDetail = await Activity.findOne({
+    const activityDetail = await Package.findOne({
         where: {
             id
         }
     })
-    res.send(activityDetail)
+    res.send(PackageDetail)
 })
 
 router.post('/', async(req, res) => {
     let {
         email,
         name,
-       
         date,
         price,
         places,
         duration,
         initialTime,
-        images,
         country,
         city
     } = req.body;
     const createPack = await Package.create({
         name,
-        
         date,
         price,
         places,
         duration,
         initialTime,
-        images,
         country,
         city,
         active: true 
