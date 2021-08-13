@@ -35,7 +35,8 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href: 'profile' },
+        { key: 'profile', text: 'Your Profile', href: '/profile' },
+        { key: 'experiences', text: 'Ofrecé experiencias', href: '/experiences' },
         { key: 'sign-out', text: 'Sign Out', onClick: singout, href: '/' },
     ]
 

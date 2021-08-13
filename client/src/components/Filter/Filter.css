@@ -40,14 +40,15 @@ h4{
     letter-spacing: normal;
     text-align: left;
     color: #fff;
-    padding: 0 5px 0 14px;
+    /* padding: 0 5px 0 14px; */
+    /* padding-left:20px; */
     display: inline-block;
-    border-radius: 12px;
+    border-radius: 30px;
     margin-left: 20px;
    /* background-color: #b9c6d3;*/
    /*background-color: #dde7f1;*/
    background-color: rgb(0 0 0 / 20%);
-    margin: 3px 7px 3px 0;
+    /* margin: 3px 7px 3px 0; */
     cursor: pointer;
    /* border: solid #8987ff;*/
 }
@@ -63,6 +64,7 @@ h4{
     float: left;
     width: 350px;
     margin-left: 10px;
+    
 }
 
 h4 {

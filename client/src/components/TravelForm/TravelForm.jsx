@@ -14,7 +14,6 @@ import logoBritish from "./Imagenes/British.png"
 import { detailFlight } from "../../store/actions/datailFlight";
 import { getFlights } from "../../store/actions/getFlights"
 import { resetFlights } from "../../store/actions/resetFlights";
-// import 'semantic-ui-css/semantic.min.css'
 
 
 export default function TravelForm(props) {
@@ -69,26 +68,28 @@ export default function TravelForm(props) {
                             <DinamicSearch id="1" />
                         </div>
                     </div>
+                    
+                    <div className="DesdeHastaContainer">
+                        <div>
+                            <h1 className="TextTravelFormAbajo">Desde:</h1>
+                            <input type="date" placeholder='Indique fecha' className="InputTravelForm"
+                                onChange={e => setFromDate(e.target.value)}
+                            />
+
+                        </div>
+                        <div>
+                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
+                            <input type="date" placeholder='Indique fecha' className="InputTravelForm"
+                                onChange={e => setToDate(e.target.value)}
+                            />                        </div>
+                    </div>
                     <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm">Ida</label>
                         <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
                         <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                     </form>
-                    <div className="DesdeHastaContainer">
-                        <div>
-                            <h1 className="TextTravelFormAbajo">Desde:</h1>
-                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
-                                nChange={e => setFromDate(e.target.value)}
-                            />
-
-                        </div>
-                        <div>
-                            <h1 className="TextTravelFormAbajo">Hasta:</h1>
-                            <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
-                                nChange={e => setToDate(e.target.value)}
-                            />                        </div>
-                    </div>
+                   
                     <div className="selectPassengers">
                         <label className="LabelSelectPassengers">Adultos</label>
                         <input className="InputSelectPassengers" type="number" min="1" max="10" onChange={e => setAdults(e.target.value)} />

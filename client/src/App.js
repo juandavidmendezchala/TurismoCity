@@ -8,10 +8,14 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
+import UserNav from "./components/UserNav/UserNav.jsx";
+import LandingExperiences from "./components/LandingExperiences/LandingExperiences";
 
 function App() {
+
   return (
     <div className="App">
+      <Route exact path="/experiences" component={LandingExperiences} />
       <Route path="/" component={Banner} />
       {/* <Route path="/" component={Navbar}></Route> */}
       <Route exact path="/" component={Home}></Route>
@@ -19,6 +23,8 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/PRUEBA" component={UserNav}></Route>
+      
     </div>
   );
 }
