@@ -29,7 +29,24 @@ export const getActivity = (id) => async(dispatch) => {
             type: GET_ACTIVITYDETAIL_FAIL,
             payload:
             err.response && err.response.data.message
-            ? err.response.data.messsage
+            ? err.response.data.message
+            : err.message
+        })
+    }
+}
+
+export const getFilterActivities = (filter) =>  async(dispatch) => {
+    dispatch({type: GET_ACTIVITY_REQUEST})
+    try{
+        const {data} = await axios.get(`http://localhost:3001/activity`, {filter})
+        dispatch({type: GET_ACTIVITY_SUCCESS, payload: data})
+
+    }catch(err) {
+        dispatch({
+            type: GET_ACTIVITY_FAIL,
+            payload: 
+            err.response && err.response.data.message
+            ? err.response.data.message
             : err.message
         })
     }
