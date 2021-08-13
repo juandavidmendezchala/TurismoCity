@@ -15,6 +15,10 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         initialTime: {
             type: DataTypes.TIME,
             allowNull: false

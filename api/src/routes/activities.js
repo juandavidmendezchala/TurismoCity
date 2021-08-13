@@ -14,6 +14,7 @@ router.get('/', async(req, res) => {
         duration,
         initialTime
     } = req.body;
+    Filter(country, city, date, price, places, duration, initialTime)
     const getPackages = await Package.findAll({
         include: [Activity]
     })
@@ -71,12 +72,14 @@ router.post('/activity', async(req, res) => {
     let{
         id,
         activity,
-        description, //image
+        description,
+        image,
         initialTime
     } = req.body
     const createActivity = await Activity.create({
         activity,
         description,
+        image,
         initialTime
     })
     const findPackage = await Package.findOne({
