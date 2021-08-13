@@ -5,6 +5,15 @@ const { Op } = require("sequelize");
 const router = Router();
 
 router.get('/', async(req, res) => {
+    let {
+        country,
+        city,
+        date,
+        price,
+        places,
+        duration,
+        initialTime
+    } = req.body;
     const getPackages = await Package.findAll({
         include: [Activity]
     })
@@ -62,7 +71,7 @@ router.post('/activity', async(req, res) => {
     let{
         id,
         activity,
-        description,
+        description, //image
         initialTime
     } = req.body
     const createActivity = await Activity.create({
