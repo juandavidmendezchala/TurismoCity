@@ -11,6 +11,7 @@ import Profile from "./components/Profile/Profile";
 import Actities from "./components/Activities/Activities";
 import Suppliers from "./components/Suppliers/Suppliers";
 import ActivityDetail from "./components/ActivityDetail/ActivityDetail";
+import { ContainerUserAct } from "./components/Suppliers/containerUserAct/ContainerUserAct";
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
       <Route path="/activities" component={Actities}></Route>
-      <Route exact path="/suppliers" component={Suppliers} />
+      <Route path="/suppliers" component={Suppliers} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
+      <Route path="/suppliers/posts" component={ContainerUserAct} />
     </div>
   );
 }

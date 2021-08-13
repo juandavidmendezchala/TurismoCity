@@ -12,11 +12,20 @@ router.get('/:id', async (req, res) => {
     })
     res.send(userActivities)
 })
-router.put("/:idUser/:idPost", async (req, res) => {
-    const [idUser, idPost] = req.params
-    console.log(idUser, idPost)
+router.put("/:idUser/:idPost/:status", async (req, res) => {
+    const { idUser, idPost } = req.params
+    const status = req.params.status
+    console.log(idUser, idPost, status)
+    await Activity.update({
+        active: status
+    }, {
+        where: {
+            userId: idUser,
+            id: idPost
+        }
+    })
 
-    res.send()
+    res.send(console.log("Estado de la publicacions cambiado con exito"))
 })
 
 module.exports = router;
