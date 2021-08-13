@@ -12,5 +12,12 @@ router.get('/:id', async (req, res) => {
     })
     res.send(userActivities)
 })
+router.put("/:idUser/:idPost", async (req, res) => {
+    const [idUser, idPost] = req.params
+    console.log(idUser, idPost)
+
+    res.send()
+})
 
 module.exports = router;
+

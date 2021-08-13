@@ -1,7 +1,33 @@
+.adminPanel{
+    background-color: #f7f8fd;
+    height: 100%;
+}
 .userActivitiesInfo{
-    background-color: grey;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    border: solid 1px lightgrey;
+    height: 100px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
+}
+.detailActivities{
+    display: flex;
+    justify-content: space-between;
+}
+.detailActivities span{
+    font-weight: 700;
+}
+.postActive{
+    background-color: #e2f9e7;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #57b464;
+}
+.postDisabled{
+    background-color: #fef3e6;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #ff9017;
 }

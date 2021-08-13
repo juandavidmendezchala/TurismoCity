@@ -11,13 +11,13 @@ export const SidebarData = [
         cName: "nav-text"
     },
     {
-        title: "Reports",
-        path: "#",
+        title: "Publica una nueva actividad",
+        path: "/suppliers/posts",
         icon: <IoIcons.IoIosPaper />,
         cName: "nav-text"
     },
     {
-        title: "Paquetes de actividades",
+        title: "Actividades Publicadas",
         path: "/suppliers/details",
         icon: <FaIcons.FaCartPlus />,
         cName: "nav-text"

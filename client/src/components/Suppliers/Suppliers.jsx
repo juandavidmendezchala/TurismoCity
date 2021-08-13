@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import FormActivities from '../FormActivities/FormActivities'
 import NavBarSupplier from './NavBarSupplier/NavBarSupplier'
@@ -23,12 +24,15 @@ const Suppliers = () => {
     }
     data.map(e => console.log(e))
     return (
-        <>
+        <div className="adminPanel">
             <NavBarSupplier />
-            {data.map(e =>
-                <UserActivities activity={e.name} active={e.active} city={e.city} />
-            )}
-        </>
+            <h2>Actividades publicadas</h2>
+            {
+                data.map(e =>
+                    <UserActivities activity={e.name} active={e.active} city={e.city} price={e.price} />
+                )
+            }
+        </div >
     )
 }
 
