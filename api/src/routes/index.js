@@ -8,10 +8,8 @@ const suppliersRoutes = require('./suppliers')
 
 const router = Router();
 
-
 // router.use('/flights', flightsRoutes.getAll)
 //const apiRecipe = axios.get(`https://api.flightapi.io/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${fechaRegreso}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
-
 
 // router.use('/flights', flightsRoutes)
 

@@ -27,6 +27,7 @@ function App() {
       <Route path="/suppliers" component={Suppliers} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" component={ContainerUserAct} />
+      <Route path="/suppliers/load" component={Suppliers} />
     </div>
   );
 }
