@@ -28,10 +28,7 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
-
       <Route path="/politics" component={Politics} ></Route>
-    </div >
-
       <Route path="/activities" component={Actities}></Route>
       <Route path="/suppliers" component={Suppliers} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
