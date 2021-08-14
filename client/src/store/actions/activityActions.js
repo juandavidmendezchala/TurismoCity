@@ -47,7 +47,7 @@ export const getFilterActivities = (
     ) => async(dispatch) => {
     dispatch({type: GET_ACTIVITY_REQUEST})
     try{
-        const {data} = await axios.post(`http://localhost:3001/activity/get`, {
+        const {data} = await axios.post(`http://localhost:3001/activity/filter`, {
         country,
         city,
         startDate,

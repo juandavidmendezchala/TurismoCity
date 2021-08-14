@@ -3,3 +3,16 @@
     flex-wrap: wrap;
 }
 
+.filter-component{
+    position: absolute;
+   
+}
+
+.filter-cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.space-cards-act{
+    margin-left: 350px;
+}
