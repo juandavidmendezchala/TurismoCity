@@ -5,12 +5,15 @@ import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
 
 import 'semantic-ui-css/semantic.min.css';
+import { useAuth0 } from "@auth0/auth0-react"
 
 
 export const Banner = () => {
 
-    const userSingin = useSelector(state => state.userSignin)
-    const { userInfo } = userSingin
+    //const userSingin = useSelector(state => state.userSignin)
+    // const { userInfo } = userSingin
+    const { user, loginWithRedirect } = useAuth0()
+
 
 
     return (
@@ -18,10 +21,11 @@ export const Banner = () => {
             <div className="Banner">
                 <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">LowHenry</NavLink></div>
                 {
-                    userInfo ?
+                    user ?
 
-                        <DropdownTriggerExample userInfo={userInfo} /> :
-                        <NavLink className="LinkToLogin" to="/login">Ingresar</NavLink>
+                        <DropdownTriggerExample /> :
+                        <NavLink onClick={loginWithRedirect} className="LinkToLogin" to="/">Ingresar</NavLink>
+
                 }
 
             </div>
