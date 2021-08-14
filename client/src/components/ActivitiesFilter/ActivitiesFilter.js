@@ -34,11 +34,6 @@ export default function ActivitiesFilter(props) {
             initialTime
             ))
     }
-
-    const formatNumber = (number) => {
-        const numberFormated = number.toFixed(1)
-        setPrice(numberFormated)
-    }
     
     function changeState(e){
     setCountry(e.target.value)
@@ -90,7 +85,7 @@ export default function ActivitiesFilter(props) {
                         type="text"
                         id="price"
                         value={price}
-                        onChange={e => formatNumber(e.target.value)}>
+                        onChange={e => setPrice(e.target.value)}>
                     </Input>
                 </div>
                 <div className="form-label-input">
