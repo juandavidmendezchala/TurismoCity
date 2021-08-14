@@ -25,23 +25,28 @@ export default function Actities() {
                 loading ?
                     <div>Loading</div>
                     :
-                    <div className="cards-act">
-                        <ActivitiesFilter></ActivitiesFilter>
-                        {
-                            activities?.map(a => <ActivityCard key={a.id}
-                                id={a.id}
-                                name={a.name}
-                                description={a.description}
-                                date={a.date}
-                                price={a.price}
-                                places={a.places}
-                                duration={a.duration}
-                                initialTime={a.initialTime}
-                                images={a.images}
-                                country={a.country}
-                                city={a.city}
-                            ></ActivityCard>)
-                        }
+                    <div className="filter-cards">
+                        <div className="filter-component">
+                            <ActivitiesFilter error={error}></ActivitiesFilter>
+                        </div>
+                        <div className="cards-act">
+                            <div className="space-cards-act"></div>
+                            {
+                                activities?.map(a => <ActivityCard key={a.id}
+                                    id={a.id}
+                                    name={a.name}
+                                    description={a.description}
+                                    date={a.date}
+                                    price={a.price}
+                                    places={a.places}
+                                    duration={a.duration}
+                                    initialTime={a.initialTime}
+                                    images={a.images}
+                                    country={a.country}
+                                    city={a.city}
+                                ></ActivityCard>)
+                            }
+                        </div>
                     </div>
             }
         </div>

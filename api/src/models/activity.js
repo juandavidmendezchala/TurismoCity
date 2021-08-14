@@ -1,4 +1,4 @@
-const {DataTypes, Sequelize} = require('sequelize');
+const {DataTypes,  Sequelize} = require('sequelize')
 
 module.exports = function(sequelize) {
     return sequelize.define('activity', {
@@ -11,13 +11,13 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         date: {
             type: DataTypes.DATEONLY,
             allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         price: {
             type: DataTypes.DECIMAL,
@@ -35,20 +35,12 @@ module.exports = function(sequelize) {
             type: DataTypes.TIME,
             allowNull: false
         },
-        comments: {
-            type: DataTypes.ARRAY(DataTypes.JSON),
-            allowNull: true
-        },
-        passengers: {
-            type: DataTypes.ARRAY(DataTypes.JSON),
-            allowNull: true
+        country: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         images: {
             type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false
-        },
-        country: {
-            type: DataTypes.STRING,
             allowNull: false
         },
         city: {

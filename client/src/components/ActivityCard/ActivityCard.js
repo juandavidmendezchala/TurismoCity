@@ -25,11 +25,11 @@ export default function ActivityCard({id, name, description, date, price, places
                     <div className="type">Cupos</div>
                 </div>
                 <div className="stat">
-                    <div className="value">{places}</div>
+                    <div className="value"><sup>$</sup>{price}</div>
                     <div className="type">Precio</div>
                 </div>
                 <div className="stat">
-                    <div className="value">{duration}</div>
+                    <div className="value">{duration}<sup>H</sup></div>
                     <div className="type">Duración</div>
                 </div>
             </div>
