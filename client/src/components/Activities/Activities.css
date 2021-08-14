@@ -5,6 +5,7 @@
 
 .filter-component{
     position: absolute;
+    margin-left: 25px;
    
 }
 
@@ -14,5 +15,5 @@
 }
 
 .space-cards-act{
-    margin-left: 350px;
+    margin-left: 400px;
 }

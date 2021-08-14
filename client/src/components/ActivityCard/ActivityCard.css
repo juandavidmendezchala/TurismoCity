@@ -1,7 +1,7 @@
 .card{
     display: grid;
     grid-template-columns: 400;
-    grid-template-rows: 210px 170px 55px;
+    grid-template-rows: 260px 170px 55px;
     grid-template-areas: "img" "text" "stats";
 
     font-family: roboto;
@@ -12,10 +12,10 @@
 
     transition: 0.5s ease;
     cursor: pointer;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-left: 35px;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .card-image{
@@ -43,7 +43,9 @@
 
 .card-text h2{
     margin-top: 0px;
-    font-size: 35px;
+    font-size: 20px;
+    font-weight: 1500;
+    
 }
 
 .card-stats{
@@ -53,6 +55,7 @@
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    opacity: 90%;
     background: rgb(255,7,110);
 }
 

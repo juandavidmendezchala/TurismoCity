@@ -27,7 +27,7 @@ export default function Actities(){
                 :
                 <div className="filter-cards">
                 <div className="filter-component">
-                <ActivitiesFilter></ActivitiesFilter>   
+                <ActivitiesFilter error={error}></ActivitiesFilter>   
                 </div> 
                 <div className="cards-act">  
                 <div className="space-cards-act"></div>         

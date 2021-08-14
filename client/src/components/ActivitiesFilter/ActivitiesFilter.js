@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { getFilterActivities } from '../../store/actions/activityActions';
 import { Input } from 'semantic-ui-react'
 import countries from './countries+states.json'
+import MessageBox from '../Boxes/MessageBox'
+import './ActivitiesFilter.css'
 
 
-export default function ActivitiesFilter() {
+export default function ActivitiesFilter(props) {
 
     const [country, setCountry] = useState('');
     const [city, setCity] = useState('');
@@ -32,6 +34,11 @@ export default function ActivitiesFilter() {
             initialTime
             ))
     }
+
+    const formatNumber = (number) => {
+        const numberFormated = number.toFixed(1)
+        setPrice(numberFormated)
+    }
     
     function changeState(e){
     setCountry(e.target.value)
@@ -40,25 +47,26 @@ export default function ActivitiesFilter() {
     }
 
     return (
-        <div>
+        <div className="form-form-body">
             <form onSubmit={e => onHandleSubmit(e)}>
-                <div>
+                <div className="form-title">
+                    {props.error ? <MessageBox>{props.error}</MessageBox> : <div></div>}
                     <h1>Busqueda</h1>
                 </div>
-                <div>
-                    <label>País:</label>
+                <div className="form-label-input">
+                    <label className="form-label">País:</label>
                     <select onChange ={e => changeState(e)} >
                         {countries.map(el =><option key={el.id} value = {el.id} >{el.name}</option>)}
                     </select>
                 </div>
-                <div>
-                    <label>Ciudad:</label>
+                <div className="form-label-input">
+                    <label className="form-label">Ciudad:</label>
                     <select onChange={e => setCity(e.target.value)}>
                     {state===''?(<option>-</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
                     </select>
                 </div>
-                <div>
-                    <label>Desde:</label>
+                <div className="form-label-input">
+                    <label className="form-label">Desde:</label>
                     <Input
                         type="date"
                         icon='calendar alternate outline'
@@ -66,8 +74,8 @@ export default function ActivitiesFilter() {
                         onChange={e => setStartDate(e.target.value)}>
                     </Input>
                 </div>
-                <div>
-                    <label>Hasta:</label>
+                <div className="form-label-input">
+                    <label className="form-label">Hasta:</label>
                     <Input
                         type="date"
                         icon='calendar alternate outline'
@@ -75,17 +83,18 @@ export default function ActivitiesFilter() {
                         onChange={e => setEndDate(e.target.value)}>
                     </Input>
                 </div>
-                <div>
-                    <label>Desde(USD):</label>
+                <div className="form-label-input">
+                    <label className="form-label">Desde(USD):</label>
                     <Input
                         class="ui input"
-                        type="number"
+                        type="text"
                         id="price"
-                        onChange={e => setPrice(e.target.value)}>
+                        value={price}
+                        onChange={e => formatNumber(e.target.value)}>
                     </Input>
                 </div>
-                <div>
-                    <label>Cupos:</label>
+                <div className="form-label-input">
+                    <label className="form-label">Cupos:</label>
                     <Input
                         class="ui input"
                         type="number"
@@ -93,8 +102,8 @@ export default function ActivitiesFilter() {
                         onChange={e => setPlaces(e.target.value)}>
                     </Input>
                 </div>
-                <div>
-                    <label>Duración(Max):</label>
+                <div className="form-label-input">
+                    <label className="form-label">Duración(Max):</label>
                     <Input
                         class="ui input"
                         type="integer"
@@ -102,8 +111,8 @@ export default function ActivitiesFilter() {
                         onChange={e => setDuration(e.target.value)}>
                     </Input>
                 </div>
-                <div>
-                    <label>Tiempo de inicio:</label>
+                <div className="form-label-input">
+                    <label className="form-label">Tiempo de inicio:</label>
                     <Input
                         class="ui input"
                         type="time"
