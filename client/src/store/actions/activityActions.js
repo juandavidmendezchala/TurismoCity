@@ -35,12 +35,29 @@ export const getActivity = (id) => async(dispatch) => {
     }
 }
 
-export const getFilterActivities = (filter) =>  async(dispatch) => {
+export const getFilterActivities = ( 
+    country,
+    city,
+    startDate,
+    endDate,
+    price,
+    places,
+    duration,
+    initialTime
+    ) => async(dispatch) => {
     dispatch({type: GET_ACTIVITY_REQUEST})
     try{
-        const {data} = await axios.get(`http://localhost:3001/activity`, {filter})
+        const {data} = await axios.post(`http://localhost:3001/activity/get`, {
+        country,
+        city,
+        startDate,
+        endDate,
+        price,
+        places,
+        duration,
+        initialTime
+        })
         dispatch({type: GET_ACTIVITY_SUCCESS, payload: data})
-
     }catch(err) {
         dispatch({
             type: GET_ACTIVITY_FAIL,

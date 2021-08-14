@@ -9,53 +9,74 @@ export default function ActivitiesFilter() {
 
     const [country, setCountry] = useState('');
     const [city, setCity] = useState('');
-    const [date, setDate] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
     const [price, setPrice] = useState('');
     const [places, setPlaces] = useState('');
     const [duration, setDuration] = useState('');
     const [initialTime, setInitialTime] = useState('');
     const [state, setState] = useState('')
+
     const dispatch = useDispatch()
 
-    const onHandleSubmit = () => {
-        dispatch(getFilterActivities({ country, city, date, price, places, duration, initialTime }))
+    const onHandleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(getFilterActivities(
+            country,
+            city,
+            startDate,
+            endDate,
+            price,
+            places,
+            duration,
+            initialTime
+            ))
     }
     
     function changeState(e){
-        var countrie = countries.find(el => el.name === e.target.value)
-       setState(countrie.states)
-       console.log(countries, countrie, e.target.value)
+    setCountry(e.target.value)
+    var countrie = countries.find(el => el.name === e.target.value);
+    setState(countrie.states);
     }
-    console.log(state)
+
     return (
         <div>
-            <form onSubmit={onHandleSubmit}>
+            <form onSubmit={e => onHandleSubmit(e)}>
                 <div>
                     <h1>Busqueda</h1>
                 </div>
                 <div>
                     <label>País:</label>
-                    <select onChange ={e => changeState(e)}>
+                    <select onChange ={e => changeState(e)} >
                         {countries.map(el =><option key={el.id} value = {el.id} >{el.name}</option>)}
                     </select>
                 </div>
                 <div>
                     <label>Ciudad:</label>
-                    <select>
+                    <select onChange={e => setCity(e.target.value)}>
                     {state===''?(<option>-</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
                     </select>
                 </div>
                 <div>
-                    <label>Fecha:</label>
+                    <label>Desde:</label>
                     <Input
                         type="date"
                         icon='calendar alternate outline'
                         iconPosition='left'
-                        onChange={e => setDate(e.target.value)}>
+                        onChange={e => setStartDate(e.target.value)}>
                     </Input>
                 </div>
                 <div>
-                    <label>Precio(USD):</label>
+                    <label>Hasta:</label>
+                    <Input
+                        type="date"
+                        icon='calendar alternate outline'
+                        iconPosition='left'
+                        onChange={e => setEndDate(e.target.value)}>
+                    </Input>
+                </div>
+                <div>
+                    <label>Desde(USD):</label>
                     <Input
                         class="ui input"
                         type="number"
@@ -76,9 +97,9 @@ export default function ActivitiesFilter() {
                     <label>Duración(Max):</label>
                     <Input
                         class="ui input"
-                        type="time"
+                        type="integer"
                         id="duration"
-                        onChange={e => setCountry(e.target.value)}>
+                        onChange={e => setDuration(e.target.value)}>
                     </Input>
                 </div>
                 <div>
@@ -87,7 +108,7 @@ export default function ActivitiesFilter() {
                         class="ui input"
                         type="time"
                         id="initialTime"
-                        onChange={e => setCountry(e.target.value)}
+                        onChange={e => setInitialTime(e.target.value)}
                     ></Input>
                 </div>
                 <button type="submit">Crear actividad</button>
