@@ -5,7 +5,8 @@ const apiKey2 = "610ecfda747a9a053255e81e"//USADA
 const apiKey3 = "610ed044747a9a053255e820"//USADA
 const apiKey4 = "61106959747a9a053255eb0a"//USADA
 const apiKey5 = "61106983747a9a053255eb0b"//USADA
-const apiKey6 = "6110c29b747a9a053255edf3"
+const apiKey6 = "6110c29b747a9a053255edf3" //USADA
+const apiKey7 = "6116cda1747a9a053255f9da"
 
 export function getFlights(p, index = 1) {
   
@@ -14,7 +15,7 @@ export function getFlights(p, index = 1) {
   if (p.way === 'roundtrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+      return fetch(`https://api.flightapi.io/roundtrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.json())
         .then(json => {
           if (json.message){
@@ -50,7 +51,7 @@ export function getFlights(p, index = 1) {
   else if (p.way === 'onewaytrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`https://api.flightapi.io/onewaytrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+      return fetch(`https://api.flightapi.io/onewaytrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.json())
         .then(json => {
           if (json.message) {

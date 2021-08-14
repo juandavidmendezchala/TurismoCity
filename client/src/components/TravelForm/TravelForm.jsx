@@ -20,16 +20,16 @@ export default function TravelForm(props) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [way, setWay] = useState('');
+    const [way, setWay] = useState('roundtrip');
     const [fromPlace, setFromPlace] = useState('');
     const [toPlace, setToPlace] = useState('');
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
-    const [classFlight, setClassFlight] = useState('');
+    const [classFlight, setClassFlight] = useState('Economy');
     const [adults, setAdults] = useState('')
-    const [kids, setKids] = useState('')
-    const [babies, setBabies] = useState('')
-    const [currency, setCurrency] = useState('');
+    const [kids, setKids] = useState('0')
+    const [babies, setBabies] = useState('0')
+    const [currency, setCurrency] = useState('USD');
     const airports0 = useSelector(state => state.listFlights.from)
     const airports1 = useSelector(state => state.listFlights.to)
     useEffect(() => {
@@ -81,13 +81,14 @@ export default function TravelForm(props) {
                             <h1 className="TextTravelFormAbajo">Hasta:</h1>
                             <input type="date" placeholder='Indique fecha' className="InputTravelForm"
                                 onChange={e => setToDate(e.target.value)}
-                            />                        </div>
+                            />                        
+                        </div>
                     </div>
                     <form className="RadioTravelForm" action="">
-                        <label className="LabelRadioTravelForm">Ida</label>
-                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
                         <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <label className="LabelRadioTravelForm">Ida</label>
+                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                     </form>
                    
                     <div className="selectPassengers">

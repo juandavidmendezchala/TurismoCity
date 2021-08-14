@@ -10,8 +10,15 @@ import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
 import UserNav from "./components/UserNav/UserNav.jsx";
 import LandingExperiences from "./components/LandingExperiences/LandingExperiences";
+import NavBarSupplier from "./components/UserNav/NavBarSupplier";
+import FavoritesActivities from "./components/FavoritesActivities/FavoritesActivities";
+import { useState } from "react";
 
 function App() {
+  const [sidebar, setSidebar] = useState(true)
+  function showSidebar(){
+    setSidebar(!sidebar)
+  }
 
   return (
     <div className="App">
@@ -23,7 +30,8 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
-      <Route path="/PRUEBA" component={UserNav}></Route>
+      <Route path="/yourActivities" render={()=><NavBarSupplier showSidebar={showSidebar} sidebar={sidebar}/>}></Route>
+      <Route exact path="/yourActivities/favorites" render={()=> <FavoritesActivities sidebar={sidebar}/>}></Route>
       
     </div>
   );

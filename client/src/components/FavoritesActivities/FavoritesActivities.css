@@ -1,0 +1,84 @@
+.FavoriteCardSmall{
+    margin-left: 320px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}
+.FavoriteCardLarge{
+    margin-left: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}
+.FavoriteCardConteiner{
+    margin: 10px;
+    width: 300px;
+    border:none;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+    padding-bottom:20px;
+    transition: 1s;
+}
+.FavoriteCardConteiner:hover{
+    transition: 0.5s;
+    box-shadow: 11px 11px 20px 0.1px rgb(34, 34, 34);
+}
+.FavoriteCardFront{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: rgb(70, 70, 70);
+}
+.FavoriteImage{
+    height: 200px;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+}
+.FavoriteTitle{
+    font-size: 17px;
+    color: rgb(43, 43, 43);
+    
+}
+.FavoriteRemove{
+    display: flex;
+    align-self: flex-end;
+    
+    background-color: rgba(218, 40, 49, 0.911);
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position:absolute;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    top:0px;
+    right: 0px;
+}
+.FavoriteRemove:hover{
+    background-color: transparent;
+    transition: 0.5s;
+}
+.LinkGetIt{
+    width: 250px;
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 10px;
+    background-color: rgb(51, 126, 161);
+    color: rgb(255, 255, 255);
+    cursor:pointer;
+    transition: 0.2s;
+}
+.LinkGetIt:hover{
+    background-color: rgb(0, 70, 102);
+    border:none;
+    color: rgb(255, 255, 255);
+    cursor:pointer;
+    box-shadow: 5px 5px 10px 1px rgb(92, 92, 92);
+    transition: 0.2s;
+}

@@ -35,13 +35,14 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href: '/profile' },
+        { key: 'profile', text: 'Tu Perfil', href: '/profile' },
+        { key: 'experiences', text: 'Tus actividades', href: '/yourActivities' },
         { key: 'experiences', text: 'Ofrecé experiencias', href: '/experiences' },
         { key: 'sign-out', text: 'Sign Out', onClick: singout, href: '/' },
     ]
 
     return (
-        <div>
+        <div className='triggerClass'>
             <Dropdown trigger={trigger} options={options} />
         </div>
     )

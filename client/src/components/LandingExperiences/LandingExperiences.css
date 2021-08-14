@@ -62,6 +62,49 @@
     background-color: transparent;
     border: 1px solid rgb(58, 58, 58);
     color: white;
-    
     transition: 0.5s;
+}
+.ExperiencesSecondBack{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    top:109vh;
+    height: 800px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ExperiencesExplanationDiv{
+    margin: 55px;
+    margin-left: 70px;
+}
+.ExperiencesQuestion{
+    font-size: 40px;
+    text-align: left;
+}
+.ExperiencesExplanation{
+    font-size: 20px;
+    text-align: left;
+    
+}
+.ExperienceImage{
+    height: 400px;
+    margin:20px;
+    margin-right: 70px;
+    transition: 0.5s;
+}
+.ExperienceImage:hover{
+    height: 420px;
+    transition: 0.5s;
+    margin-right: 60px;
+}
+.ExperiencesThirdBack{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    top:233vh;
+    height: 650px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
