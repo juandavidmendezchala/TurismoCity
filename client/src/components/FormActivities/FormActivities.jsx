@@ -38,17 +38,25 @@ const FormActivities = () => {
 
 
     const submitForm = (post) => {
+        const form = {
+            ...post,
+            Country: country,
+            City: city,
+        }
 
-        console.log(post)
+        console.log(form)
     }
     var today = new Date().toISOString().split('T')[0];
 
 
     function changeState(e) {
+        setCountry(e.target.value);
         var countrie = countryList.find(el => el.name === e.target.value)
         setState(countrie.states)
         console.log(countryList, countrie, e.target.value)
     }
+
+    console.log(country);
 
     return (
         <div className="containerActForm">
@@ -74,7 +82,7 @@ const FormActivities = () => {
                     {/* <div > */}
 
                     <input type="hidden" className="inputBasic" onChange={e => setCountry(e.target.value)}></input>
-                    <select placeholder="Your Coutry name..." {...register("Country")} onChange={e => changeState(e)} className="inputBasic" name="country" >
+                    <select placeholder="Your Coutry name..." {...register("Country")} onChange={e => changeState(e)} className="inputBasic" name="country">
 
                         {countryList.map(el => <option className="inputBasic" key={el.id} value={el.id} >{el.name}</option>)}
                     </select>
@@ -84,7 +92,7 @@ const FormActivities = () => {
                     {/* <select name="country" {...register("Country")} placeholder="Your Country..." className="inputSelect" onChange={e => changeC(e)} > */}
                     {/* </select> */}
                     <input type="hidden" className="inputBasic" onChange={e => setCity(e.target.value)} ></input>
-                    <select className="inputBasic" placeholder="Your City name..."{...register("City")} >
+                    <select className="inputBasic" placeholder="Your City name..."{...register("City")} onChange={e => setCity(e.target.value)}>
                         {state === '' ? (<option>-</option>) : state.map(el => <option name="city" key={el.id}>{el.name}</option>)}
                     </select>
                     <p className="errorYup">{errors.City?.message}</p>
