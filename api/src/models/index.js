@@ -4,8 +4,9 @@ const userModel = require('./user.js')
 const packageModel = require('./package.js')
 const activityModel = require('./activity.js')
 const airportsModel = require('./airports')
+const feedback = require('./feedback')
 
-const userActivity = require('./activitie.js')
+//const userActivity = require('./activitie.js')
 const package = require('./package')
 const photo = require ('./photo')
 
@@ -18,9 +19,9 @@ const User = userModel(sequelize)
 const Package = packageModel(sequelize)
 const Activity = activityModel(sequelize)
 const Airports = airportsModel(sequelize)
+const FeedBack = feedback(sequelize)
 //const Package = userModel(sequelize)
-const Photo = photo(sequelize)
-const Package = package(sequelize)
+
 
 
 
@@ -31,20 +32,25 @@ const Package = package(sequelize)
 //City.belongsTo(Country, {foreignKey: 'countryCode', targetKey: 'isoCode'});
 //Package.hasMany(Activitie, {foreignKey: 'idPackete'});
 
+
+FeedBack.belongsTo(Activity)
+Activity.hasMany(FeedBack)
+
+FeedBack.belongsTo(User)
+User.hasMany(FeedBack)
+
 module.exports = {
     conn: sequelize,
     User,
     Package,
     Activity,
-    Airports
+    Airports,
+    FeedBack
 }
 
-Activity.belongsTo(Package)
+/*Activity.belongsTo(Package)
 Package.hasMany(Activity)
 
 Package.belongsTo(User)
-User.hasMany(Package)
-
-
-
+User.hasMany(Package)*/
 

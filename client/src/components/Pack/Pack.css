@@ -7,13 +7,13 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-.container {
+.containernadia {
   position:absolute;
   width:100%;
   height:100vh;
   background: #2c302d;
 }
-.card {
+.cardnadia {
   /*width: 60%;*/
   /*height: 80%;*/
   width: 600px;
@@ -28,13 +28,13 @@
   
 }
 
-.cardheader {
+.cardNadiaheader {
     text-transform: uppercase;
     font-size: 20px;
     /*margin: 40px auto;*/
 }
 
-.cardbutton {
+.cardNadiabutton {
     padding: 10px;
     border-radius: 50px;
     background: #0F3057;
@@ -47,21 +47,21 @@
     height: 45px;
   }
 
-.imagenCard{
+.imagenCardNadia{
     width: 350px;
   }
 
-  .imgActividad{
+  .imgActividadNadia{
      width: 100px;
     
   }
 
-  .labelActividad {
+  .labelActividadNadia {
     margin-block: 10px;
     margin-left: 20px;
   }
 
-.cardcontainer {
+.cardcontainerNadia {
     display: grid;
     width:300%;
     height:300%;
@@ -71,7 +71,7 @@
     color: white;
 }
 
-.divActividad{
+.divActividadNadia{
         /* margin-right: 200px; */
         display: flex;
         margin-left: 50px;
@@ -79,7 +79,11 @@
         margin-bottom: 10px;
 }
 
-.cardcontent {
+.cardImagenNadia {
+   width: 30px;
+}
+
+.cardcontentNadia {
     width: 90%;
     height: 95%;
     background: #191a19;
@@ -93,7 +97,7 @@
     
   }
 
-.cardcontent:hover{
+.cardcontentNadia:hover{
     margin-top:-10px;
 }
 
@@ -101,6 +105,10 @@ img {
     width: 200px;
 }
 
-.cardinfo{
+.cardNadiainfo{
     margin-bottom: 25px;
+}
+
+.imagenActividadNadia {
+  width: 110px;
 }

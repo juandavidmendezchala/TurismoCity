@@ -21,31 +21,31 @@ module.exports = function(sequelize) {
         },
         price: {
             type: DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: true
         },
         places: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         duration: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         initialTime: {
             type: DataTypes.TIME,
-            allowNull: false
+            allowNull: true
         },
         country: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         active: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
         }
     }, {
         timestamps: false
