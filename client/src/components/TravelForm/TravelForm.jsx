@@ -63,14 +63,14 @@ export default function TravelForm(props) {
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
                             <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
-                                nChange={e => setFromDate(e.target.value)}
+                                onChange={e => setFromDate(e.target.value)}
                             />
 
                         </div>
                         <div>
                             <h1 className="TextTravelFormAbajo">Hasta:</h1>
                             <Input type="date" icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
-                                nChange={e => setToDate(e.target.value)}
+                                onChange={e => setToDate(e.target.value)}
                             />                        </div>
                     </div>
                     <form className="RadioTravelForm" action="">

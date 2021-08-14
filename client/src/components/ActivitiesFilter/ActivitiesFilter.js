@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getFilterActivities } from '../../store/actions/activityActions';
 import { Input } from 'semantic-ui-react'
 import countries from './countries+states.json'
+import './ActivitiesFilter.css'
 
 /*import axios from 'axios';
 import { Component } from 'react';
@@ -52,31 +53,34 @@ export default function ActivitiesFilter() {
     }
     console.log(state)
     return (
-        <div>
-            <form onSubmit={onHandleSubmit}>
+        <div id="boxbusqueda">
+                <div className="ContainerBusqueda"><h3 className="TextoBusqueda">Busqueda</h3></div>
+        
+                <div className= "PaisCiudadContainer">
                 <div>
-                    <h1>Busqueda</h1>
-                </div>
-                <div>
-                    <label>País:</label>
-                    <Input onChange={e => setCountry(e.target.value)}></Input>
+                <h1 className="TextPaisCiudad" >Pais:</h1>
+                    <Input onChange={e => setCountry(e.target.value)}>
                     <select onChange ={e => changeState(e)}>
                         {countries.map(el =><option key={el.id} value = {el.id} >{el.name}</option>)}
                     </select>
+                    </Input>
                 </div>
                 <div>
-                    <label>Ciudad:</label>
-                    <Input onChange={e => setCity(e.target.value)}></Input>
+                <h1 className="TextPaisCiudad" >Ciudad:</h1>
+                    <Input onChange={e => setCity(e.target.value)}>
                     <select>
-                    {state===''?(<option>-</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
+                    {state===''?(<option>Selecciona una ciudad</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
                     </select>
+                    </Input>
                 </div>
-                <div>
-                    <label>Fecha:</label>
+                </div>
+                <div className="Contenedoresvarios">
+                    <label className="Textleyendbox">Fecha:</label>
                     <Input
                         type="date"
                         icon='calendar alternate outline'
                         iconPosition='left'
+                        id= "dateimput"
                         onChange={e => setDate(e.target.value)}>
                     </Input>
                 </div>
@@ -116,8 +120,9 @@ export default function ActivitiesFilter() {
                         onChange={e => setCountry(e.target.value)}
                     ></Input>
                 </div>
+                
                 <button type="submit">Crear actividad</button>
-            </form>
+
         </div>
     )
 }

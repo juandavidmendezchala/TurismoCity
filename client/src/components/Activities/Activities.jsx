@@ -20,11 +20,12 @@ export default function Actities(){
 
     return(
         <div>
-            <h1>Paquetes de actividades</h1>
+            <h2>Paquetes de actividades</h2>
             {
                 loading?
                 <div>Loading</div>
                 :
+                //className="cards-act"
                 <div className="cards-act">
                 <ActivitiesFilter></ActivitiesFilter>                
                 {

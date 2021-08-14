@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const { APIKEY } = require('../utils/config/index')
 
 const router = Router();
-const KEY_API = '6108ab9e1c7bef42b2e7580e'
+const KEY_API = '6116cf25747a9a053255f9db'
 
 function getAll(req, res, next) {
 
