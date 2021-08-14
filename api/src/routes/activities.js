@@ -1,73 +1,63 @@
-const {Router} = require('express');
-const {Activity, User} = require('../models/index')
+const { Router } = require('express');
+const { Package, Activity, User } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
 
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
+        try {
+            const getAllActivities = await Activity.findAll({})
+            return res.send(getAllActivities)
+        } catch(err) {
+            return res.send({message: "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!"})            
+        }
+})
+
+router.post('/filter', async (req, res) => {
     let {
-        filter,
-        order,
         country,
         city,
+        price,
+        places,
+        duration,
+        initialTime,
         startDate,
         endDate
     } = req.body;
-    if(order) {
-        const findBy = city? {
-            where: {
-                city, 
-                date: {
-                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
-                 }
-            },
-            order: [
-                [filter, order]
-            ]            
-        
-        } :  
-        {
-            where: {
-                country,
-                date: {
-                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
-                 }
-            },
-            order: [
-                [filter, order]
-            ]            
-        
+    if (country || city || price || places || duration || initialTime || startDate || endDate) {
+        try {
+            const getCountries = await Activity.findAll({
+                where: {
+                    country,
+                    city,
+                    date: {
+                        [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
+                    },
+                    price: {
+                        [Op.between]: [price || "1.0", "9.999"],
+                    },
+                    places: {
+                        [Op.between]: [places || "1", "999"],
+                    },
+                    duration: {
+                        [Op.between]: [0, duration || 99],
+                    },
+                    initialTime: {
+                        [Op.between]: [initialTime || "00:00", "24:00"],
+                    }
+                },
+            })
+            return res.send(getCountries)
+        } catch (err) {
+            console.log(err)
+            return res.send({ message: "Por favor, rellene todos los campos" })
         }
-        const findByOrder = {order: [[filter, order]]}
-        const getActivities = await Activity.findAll(findBy || findByOrder)
-        return res.send(getActivities)
     }
-    if(city || country) {
-        const findBy = city? {
-            where: {
-                city,
-                date: {
-                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
-                 }
-            }      
-        } :  
-        {
-            where: {
-                country,
-                date: {
-                    [Op.between]: [startDate || "1999-01-01", endDate || "2025-01-01"],
-                 }
-            }    
-        }
-        const getActivities = await Activity.findAll(findBy)
-        return res.send(getActivities)
-    }    
-    const getActivities = await Activity.findAll({})
-    return res.send(getActivities)
 })
 
-router.get('/:id', async(req, res) => {
-    let {id} = req.params;
+
+router.get('/:id', async (req, res) => {
+    let { id } = req.params;
     const activityDetail = await Activity.findOne({
         where: {
             id
@@ -76,32 +66,32 @@ router.get('/:id', async(req, res) => {
     res.send(activityDetail)
 })
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     let {
         email,
         name,
-       
         date,
+        description,
         price,
         places,
         duration,
         initialTime,
-        
+        images,
         country,
         city
     } = req.body;
     const createPack = await Activity.create({
         name,
-        
         date,
+        description,
         price,
         places,
         duration,
         initialTime,
-        
+        images,
         country,
         city,
-        active: true 
+        active: true
     })
     const findUser = await User.findOne({
         where: {

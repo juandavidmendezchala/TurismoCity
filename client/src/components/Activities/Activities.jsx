@@ -25,9 +25,12 @@ export default function Actities(){
                 loading?
                 <div>Loading</div>
                 :
-                //className="cards-act"
-                <div className="cards-act">
-                <ActivitiesFilter></ActivitiesFilter>                
+                <div className="filter-cards">
+                <div className="filter-component">
+                <ActivitiesFilter error={error}></ActivitiesFilter>   
+                </div> 
+                <div className="cards-act">  
+                <div className="space-cards-act"></div>         
                 {
                     activities?.map(a => <ActivityCard key={a.id}
                     id={a.id}
@@ -43,6 +46,7 @@ export default function Actities(){
                     city={a.city}
                     ></ActivityCard>)
                 }
+                </div>
                 </div>          
             }
         </div>
