@@ -1,0 +1,56 @@
+.adminPanel{
+    background-color: #f7f8fd;
+    height: 100%;
+}
+.userActivitiesInfo{
+    background-color: #fff;
+    border-radius: 20px;
+    border: solid 1px lightgrey;
+    height: 100px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+.namePicture{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+}
+
+.detailActivities{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.detailActivities span{
+    font-weight: 700;
+}
+.postActive{
+    background-color: #e2f9e7;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #57b464;
+}
+.postDisabled{
+    background-color: #fef3e6;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #ff9017;
+}
+.uploadStatus button{
+    color: #c06866;
+    border:none;
+    border-radius: 100%;
+    padding: 5px 10px;
+    background-color:#f5bdbe;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.uploadStatus button:hover{
+    cursor: pointer;
+}

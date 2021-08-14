@@ -1,0 +1,19 @@
+.cards-act{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-component{
+    position: absolute;
+    margin-left: 25px;
+   
+}
+
+.filter-cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.space-cards-act{
+    margin-left: 400px;
+}

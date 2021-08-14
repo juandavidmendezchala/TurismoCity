@@ -1,0 +1,25 @@
+.form-form-body{
+    margin-top: 45px;
+
+    font-family: roboto;
+    border-radius: 18px;
+    padding: 30px;
+    background: rgba(204, 38, 149, 0.897);
+    opacity: 95%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+
+    transition: 0.5s ease;
+}
+
+.form-label-input{
+    margin-top: 12px;
+}
+
+.form-label{
+    font-family: roboto;
+    font-weight: 700;
+}
+
+.form-label-input > select{
+    cursor: pointer;
+}

@@ -8,7 +8,7 @@ const apiKey5 = "61106983747a9a053255eb0b"//USADA
 const apiKey6 = "6110c29b747a9a053255edf3"
 
 export function getFlights(p, index = 1) {
-  
+
   console.log('ESTO LLEGA A GETFLIGHTS: ' + p)
   index = index + 1;
   if (p.way === 'roundtrip') {
@@ -17,34 +17,34 @@ export function getFlights(p, index = 1) {
       return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.json())
         .then(json => {
-          if (json.message){
+          if (json.message) {
             var arregloFlights = [json];
-          }else{
+          } else {
             var airlinesLogosIda = '';
-          var airlinesLogosVuelta = '';
-          var arregloFlights = json.trips?.map(combinacion => {
-            var vueloIda = json.legs?.find(vuelo => combinacion.legIds[0] == vuelo.id)
-            var vueloVuelta = json.legs?.find(vuelo => combinacion.legIds[1] == vuelo.id)
-            var linkRedireccion = json.fares?.find(fare => combinacion.id === fare.tripId)
-            var airlineIda = airlinesLogo?.find(air => air.id === vueloIda.airlineCodes[0])
-            var airlineVuelta = airlinesLogo?.find(air => air.id === vueloVuelta.airlineCodes[0])
-            var airport1 = json.airports?.find(airport => airport.code === vueloIda.departureAirportCode)
-            var airport2 = json.airports?.find(airport => airport.code === vueloIda.arrivalAirportCode)
-            var city1 = json.cities?.find(city => city.code === airport1.cityCode)
-            var city2 = json.cities?.find(city => city.code === airport2.cityCode)
-            vueloIda.stopoverCode !== 'DIRECT' ? (airlinesLogosIda = vueloIda.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosIda = null)
-            vueloVuelta.stopoverCode !== 'DIRECT' ? (airlinesLogosVuelta = vueloVuelta.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosVuelta = null)
+            var airlinesLogosVuelta = '';
+            var arregloFlights = json.trips?.map(combinacion => {
+              var vueloIda = json.legs?.find(vuelo => combinacion.legIds[0] == vuelo.id)
+              var vueloVuelta = json.legs?.find(vuelo => combinacion.legIds[1] == vuelo.id)
+              var linkRedireccion = json.fares?.find(fare => combinacion.id === fare.tripId)
+              var airlineIda = airlinesLogo?.find(air => air.id === vueloIda.airlineCodes[0])
+              var airlineVuelta = airlinesLogo?.find(air => air.id === vueloVuelta.airlineCodes[0])
+              var airport1 = json.airports?.find(airport => airport.code === vueloIda.departureAirportCode)
+              var airport2 = json.airports?.find(airport => airport.code === vueloIda.arrivalAirportCode)
+              var city1 = json.cities?.find(city => city.code === airport1.cityCode)
+              var city2 = json.cities?.find(city => city.code === airport2.cityCode)
+              vueloIda.stopoverCode !== 'DIRECT' ? (airlinesLogosIda = vueloIda.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosIda = null)
+              vueloVuelta.stopoverCode !== 'DIRECT' ? (airlinesLogosVuelta = vueloVuelta.segments.map(segmento => airlinesLogo?.find(air => air.id === segmento.airlineCode))) : (airlinesLogosVuelta = null)
 
 
-            return ({ "moneda": json.search.currencyCode, city1, city2, airlineIda, airlineVuelta, linkRedireccion, vueloIda, vueloVuelta, "cities": json.cities, "airports": json.airports, airlinesLogosIda, airlinesLogosVuelta })
+              return ({ "moneda": json.search.currencyCode, city1, city2, airlineIda, airlineVuelta, linkRedireccion, vueloIda, vueloVuelta, "cities": json.cities, "airports": json.airports, airlinesLogosIda, airlinesLogosVuelta })
+            }
+            )
           }
-          )
-          }
-          
+
           console.log(arregloFlights)
           dispatch({ type: GET_FLIGHTS, payload: arregloFlights });
         })
-        .catch(error=>dispatch({ type: GET_FLIGHTS, payload: [{message:'Campos invalidos'}] }));
+        .catch(error => dispatch({ type: GET_FLIGHTS, payload: [{ message: 'Campos invalidos' }] }));
     };
   }
   else if (p.way === 'onewaytrip') {
@@ -73,12 +73,12 @@ export function getFlights(p, index = 1) {
           }
           console.log(arregloFlights)
           dispatch({ type: GET_FLIGHTS, payload: arregloFlights });
-          
+
         })
-        .catch(error=>dispatch({ type: GET_FLIGHTS, payload: [{message:'Campos invalidos'}] }));
-        
+        .catch(error => dispatch({ type: GET_FLIGHTS, payload: [{ message: 'Campos invalidos' }] }));
+
     };
-    
+
   }
-  
+
 };
