@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
 import Activities from "./components/Activities/Activities";
+import Suppliers from "./components/Suppliers/Suppliers";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
       <Route path="/Actividades" component={Activities}></Route>
+      <Route path="/suppliers/load" component={Suppliers} />
     </div>
   );
 }
