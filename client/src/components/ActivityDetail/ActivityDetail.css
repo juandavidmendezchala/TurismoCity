@@ -37,3 +37,7 @@
     margin-left: 25%;    
 }
 
+.card-image > img {
+    max-width: 30%;
+}
+

@@ -46,11 +46,11 @@ export default function ActivityDetail(props){
                             <div className="type">Cupos</div>
                         </div>
                         <div className="stat">
-                            <div className="value">{activity.price}</div>
+                            <div className="value"><sup>$</sup>{activity.price}</div>
                             <div className="type">Precio</div>
                         </div>
                         <div className="stat">
-                            <div className="value">{activity.duration}</div>
+                            <div className="value">{activity.duration}<sup>H</sup></div>
                             <div className="type">Duración</div>
                         </div>
                     </div>
