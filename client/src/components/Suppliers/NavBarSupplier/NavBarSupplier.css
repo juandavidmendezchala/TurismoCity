@@ -2,8 +2,8 @@
     background-color: #0F3057 !important;
     height: 80px !important;
     display: flex!important;
-    justify-content: start!important;
-    align-items: centers!important;
+    justify-content: space-between;
+    align-items: center!important;
 }
 .menu-bars{
     margin-left: 2rem!important;

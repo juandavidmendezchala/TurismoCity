@@ -4,7 +4,6 @@ import "./userActivities.css"
 import { useState } from 'react'
 const UserActivities = ({ activity, active, price, idPost, idUser, images }) => {
     const [status, setStatus] = useState(active)
-    console.log(typeof status)
     const handleOnClick = async (e) => {
         setStatus(!status)
         await axios.put(`http://localhost:3001/suppliers/${idUser}/${idPost}/${!status}`)

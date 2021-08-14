@@ -6,6 +6,7 @@ import * as IoIcons from "react-icons/io"
 import { SidebarData } from './SidebarData'
 import './NavBarSupplier.css'
 import { IconContext } from 'react-icons'
+import TriggerLogin from '../../TriggerLogin/TriggerLogin'
 
 const NavBarSupplier = () => {
     const [sidebar, setSidebar] = useState(true)
@@ -17,6 +18,7 @@ const NavBarSupplier = () => {
                     <Link to="#" className="menu-bars">
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
+                    <TriggerLogin />
                 </div>
                 <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
                     <ul className="nav-menu-items" onClick={showSidebar}>
