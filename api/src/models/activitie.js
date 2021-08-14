@@ -1,6 +1,6 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
-module.exports = function(sequelize) {
+module.exports = function (sequelize) {
     return sequelize.define('activitie', {
         id: {
             type: DataTypes.INTEGER,
