@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Package, Activity, User } = require('../models/index')
+const { Package, Activity, User, favorite } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -100,6 +100,32 @@ router.post('/', async (req, res) => {
     })
     await findUser.addActivity(createPack)
     return res.send(createPack)
+})
+
+
+router.post('/favorites', async(req, res) => {
+    let {id, idUser} = req.body;
+
+    const findActivity = await Activity.findOne({
+        where: {
+            id
+        }
+    })
+
+    const findUser = await User.findOne({
+        where:{
+            id: idUser
+        }
+    })
+
+/*     await findActivity.setUser(findUser) */
+
+
+
+    const cosa2 = await findUser.setActivity(findActivity)
+
+    res.send(cosa2)
+
 })
 
 module.exports = router;
