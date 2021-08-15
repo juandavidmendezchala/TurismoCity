@@ -33,22 +33,23 @@ const FeedBack = feedback(sequelize)
 
 
 
-module.exports = {
-    conn: sequelize,
-    User,
-    Activity,
-    Airports,
-    FeedBack
-}
-
 Activity.belongsTo(User)
 User.hasMany(Activity)
 
 Activity.belongsToMany(User, {through: 'purchase'});
 User.belongsToMany(Activity, {through: 'purchase'})
 
-Activity.belongsToMany(User, {through: 'favorites'});
-User.belongsToMany(Activity, {through: 'favorites'})
+Activity.belongsToMany(User, {through: 'favorite'});
+User.belongsToMany(Activity, {through: 'favorite'})
+
+module.exports = {
+    conn: sequelize,
+    User,
+    Activity,
+    Airports,
+    FeedBack,
+}
+
 
 FeedBack.belongsTo(Activity)
 Activity.hasMany(FeedBack)

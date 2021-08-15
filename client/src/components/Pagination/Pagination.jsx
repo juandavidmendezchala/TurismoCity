@@ -55,12 +55,12 @@ export default function Pagination(props) {
 
         <div>
             {
-                <ul class="pagination">
-                    <li><span className={estado === 1 ? 'inable' : 'active'} onClick={() => indexChangeDown()}>Previous «</span></li>
-                    {state.map(number => <li><a className={estado === number ? 'active' : null} key={number} name={number} href='#' onClick={(e) => numberPage(number, e)}>{number}</a></li>
+                <ul className="pagination">
+                    <li className='PagText'><span className={estado === 1 ? 'inablePag' : 'PagText'} onClick={() => indexChangeDown()}>Previous «</span></li>
+                    {state.map(number => <li className={estado === number ? 'activePag' : 'numeritos'}><a className={estado === number ? 'activePag' : null} key={number} name={number} href='#' onClick={(e) => numberPage(number, e)}>{number}</a></li>
 
                     )}
-                    <li><span className={estado === pageNumbers.length ? 'inableNext' : 'active'} onClick={() => indexChangeUp()}>» Next - {pageNumbers.length} pages</span></li>
+                    <li className='PagText'><span className={estado === pageNumbers.length ? 'inablePag' : 'PagText'} onClick={() => indexChangeUp()}>» Next - {pageNumbers.length} pages</span></li>
                 </ul>
             }
 
