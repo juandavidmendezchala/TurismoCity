@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import reducerFlights from "./reducers/reducerFlights";
 import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
-import { activityDetailReducer, activityReducer } from './reducers/reducerActivity'
+import { activityDetailReducer, activityFavoriteReducer, activityReducer } from './reducers/reducerActivity'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -21,7 +21,8 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userActivities: reducerActivities,
   activities: activityReducer,
-  activity: activityDetailReducer
+  activity: activityDetailReducer,
+  addfavorites: activityFavoriteReducer
 })
 
 const store = createStore(
