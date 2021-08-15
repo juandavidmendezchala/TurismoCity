@@ -2,41 +2,49 @@ import React from 'react'
 import { Dropdown, Icon } from 'semantic-ui-react'
 import "./TriggerLogin.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from '../../store/actions/userActions'
+import { useEffect } from 'react'
+import { logout, signInAuth0, register } from '../../store/actions/userActions'
 import 'semantic-ui-css/semantic.min.css'
-
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const DropdownTriggerExample = () => {
 
+    const { user, logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+
     const userSingin = useSelector(state => state.userSignin)
-    const { userInfo } = userSingin
+    // const { userInfo } = user
 
     const dispatch = useDispatch()
 
-    const singout = () => {
-        dispatch(logout())
-    }
+    // const singout = () => {
+    //     dispatch(logout())
+    // }
+
+    console.log(userSingin)
+
+    useEffect(() => {
+        dispatch(register(user.given_name, user.email, user.family_name, "2021-08-13"))
+    }, [])
 
     const trigger = (
         <span className="SpanNameLogin">
-            <Icon name='user' /> Hola, {userInfo.name}
+            <Icon name='Localuser' /> Hola, {userSingin.userInfo.name}
         </span>
     )
 
     const options = [
         {
-            key: 'user',
+            key: 'Localuser',
             text: (
                 <span>
-                    Perfil de <strong>{userInfo.name}</strong>
+                    Perfil de <strong>{userSingin.userInfo.name}</strong>
                 </span>
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href: 'profile' },
-        { key: 'sign-out', text: 'Sign Out', onClick: singout, href: '/' },
+        { key: 'profile', text: 'Your Profile', href: "profile" },
+        { key: 'sign-out', text: 'Sign Out', onClick: (() => logout()), href: '/' },
     ]
 
     return (
@@ -47,3 +55,5 @@ const DropdownTriggerExample = () => {
 }
 
 export default DropdownTriggerExample
+
+
