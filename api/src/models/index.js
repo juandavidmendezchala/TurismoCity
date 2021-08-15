@@ -6,7 +6,7 @@ const airportsModel = require('./airports')
 const feedback = require('./feedback')
 
 //const userActivity = require('./activitie.js')
-const package = require('./package')
+
 const photo = require ('./photo')
 
 const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`, {
@@ -31,11 +31,7 @@ const FeedBack = feedback(sequelize)
 //Package.hasMany(Activitie, {foreignKey: 'idPackete'});
 
 
-FeedBack.belongsTo(Activity)
-Activity.hasMany(FeedBack)
 
-FeedBack.belongsTo(User)
-User.hasMany(FeedBack)
 
 module.exports = {
     conn: sequelize,
@@ -54,5 +50,12 @@ User.belongsToMany(Activity, {through: 'purchase'})
 Activity.belongsToMany(User, {through: 'favorites'});
 User.belongsToMany(Activity, {through: 'favorites'})
 
+FeedBack.belongsTo(Activity)
+Activity.hasMany(FeedBack)
+FeedBack.belongsTo(User)
+User.hasMany(FeedBack)
 
+/*FeedBack.belongsTo(User)
+User.hasMany(FeedBack)
+*/
 
