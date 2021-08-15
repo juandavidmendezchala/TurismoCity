@@ -1,6 +1,6 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
-module.exports = function(sequelize) {
+module.exports = function (sequelize) {
     return sequelize.define('user', {
         id: {
             type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ module.exports = function(sequelize) {
         },
         birthdate: {
             type: DataTypes.DATEONLY,
-            allowNull:false
+            allowNull: false
         },
         email: {
             type: DataTypes.STRING,
@@ -22,7 +22,7 @@ module.exports = function(sequelize) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
-        }, 
+        },
         isAdmin: {
             type: DataTypes.BOOLEAN,
             allowNull: true

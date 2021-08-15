@@ -5,12 +5,12 @@ const { Op } = require("sequelize");
 const router = Router();
 
 router.get('/', async (req, res) => {
-        try {
-            const getAllActivities = await Activity.findAll({})
-            return res.send(getAllActivities)
-        } catch(err) {
-            return res.send({message: "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!"})            
-        }
+    try {
+        const getAllActivities = await Activity.findAll({})
+        return res.send(getAllActivities)
+    } catch (err) {
+        return res.send({ message: "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!" })
+    }
 })
 
 router.post('/filter', async (req, res) => {
