@@ -9,18 +9,18 @@ export const SidebarData = [
         title: "Mis Actividades",
         path: "/yourActivities/activities",
         icon: <FaIcons.FaCartPlus />,
-        cName: "nav-text"
+        cName: "nav-text2"
     },
     {
         title: "Favoritos",
         path: "/yourActivities/favorites",
         icon: <MdIcons.MdFavorite />,
-        cName: "nav-text"
+        cName: "nav-text2"
     },
     {
         title: "Comentarios",
         path: "/yourActivities/comments",
         icon: <IoIcons.IoIosPaper />,
-        cName: "nav-text"
+        cName: "nav-text2"
     },
 ]

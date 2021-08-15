@@ -33,10 +33,14 @@ padding: 10px;
 
 }
 
-.inputSug:hover{
-    background-color: rgb(95, 141, 160);
-    color: white;
-    box-shadow: 10px 10px 30x 10px black;
+.inputSug:hover {
+  background-color: rgb(95, 141, 160);
+  color: white;
+  box-shadow: 10px 10px 30x 10px black;
+}
+.inputSearch {
+  width: 200px;
+  margin-left: 25px;
 }
 
 .avioncito{

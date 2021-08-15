@@ -83,7 +83,8 @@ export default function Filter(){
   
    function eligeAero(aero) {
       //console.log('selecciono',aero)
-      //dispatch(getFlights(detail))
+      dispatch(getFlights(detail))
+   
       dispatch(filterCardAero(flight,aero))
       document.getElementById("reloj").value = "";
       document.getElementById("reloj1").value = "";
@@ -242,15 +243,15 @@ export default function Filter(){
             }
      
               <p>HORARIO</p>
-              <p>Desde<input type="time" name="horaDesde" step="1" id="reloj" onChange={handlerChangeInput}/></p>
-              <p>Hasta<input type="time" name="horarioHasta" step="1" id="reloj1" onChange={handlerChangeInput}/></p>
+              <p>Desde<input type="time" className="select-css" name="horaDesde" step="1" id="reloj" onChange={handlerChangeInput}/></p>
+              <p>Hasta<input type="time" className="select-css" name="horarioHasta" step="1" id="reloj1" onChange={handlerChangeInput}/></p>
              
-              <button onClick={mostrarHora}>Buscar</button>
+              <button className="btnBuscar" onClick={mostrarHora}>Buscar</button>
             
               <p>PRECIO</p>
-              <p>Desde<input type="text" name="precioDesde" id="precioDesde" onChange={handlerChangeInput}/></p>
-              <p>Hasta<input type="text" name="precioHasta" id="precioHasta" onChange={handlerChangeInput}/></p>
-               <button onClick={mostrarPrecio}>Buscar</button>
+              <p>Desde<input type="text" className="input-css" name="precioDesde" id="precioDesde" onChange={handlerChangeInput}/></p>
+              <p>Hasta<input type="text" className="input-css" name="precioHasta" id="precioHasta" onChange={handlerChangeInput}/></p>
+               <button className="btnBuscar" onClick={mostrarPrecio}>Buscar</button>
             
        </div>
        </div>

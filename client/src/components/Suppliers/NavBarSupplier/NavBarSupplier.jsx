@@ -6,38 +6,31 @@ import * as IoIcons from "react-icons/io"
 import { SidebarData } from './SidebarData'
 import './NavBarSupplier.css'
 import { IconContext } from 'react-icons'
-import { useSelector } from 'react-redux'
+import TriggerLogin from '../../TriggerLogin/TriggerLogin'
 
-const NavBarSupplier = ({showSidebar,sidebar}) => {
-    // const [sidebar, setSidebar] = useState(true)
-    const [estado, setEstado] = useState('HOLA')
-    // const showSidebar = () => setSidebar(!sidebar)
-
-    function stayColor(index){
-        console.log(estado)
-        setEstado(index)
-    }
-
+const NavBarSupplier = () => {
+    const [sidebar, setSidebar] = useState(true)
+    const showSidebar = () => setSidebar(!sidebar)
     return (
         <>
-            <div className={sidebar?'nav-menu-back active':'nav-menu-back'}></div>
             <IconContext.Provider value={{ color: "fff" }}>
                 <div className="navBarSupplier">
                     <Link to="#" className="menu-bars">
-                        <FaIcons.FaBars onClick={()=>showSidebar()} />
+                        <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
+                    <TriggerLogin />
                 </div>
                 <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                    <ul className="nav-menu-items" >
-                        {/* <li className="navbar-toggle">
+                    <ul className="nav-menu-items" onClick={showSidebar}>
+                        <li className="navbar-toggle">
                             <Link to="#" className="menu-bars">
                                 <AiIcons.AiOutlineClose />
                             </Link>
-                        </li> */}
+                        </li>
                         {SidebarData.map((item, index) => {
                             return (
-                                <li className={estado==index?('nav-menu-items-active'):item.cName} key={index} value={index} onClick={()=>stayColor(index)}>
-                                    <Link to={item.path} >
+                                <li key={index} className={item.cName}>
+                                    <Link to={item.path}>
                                         {item.icon}
                                         <span>{item.title}</span>
                                     </Link>

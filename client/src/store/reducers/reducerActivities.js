@@ -1,17 +1,38 @@
-import { CHANGE_STATE } from "../actions/stateComponents"
+import { GET_USER_ACTIVITIES } from "../actions/userActivitiesAction"
+import { NEW_ACTIVITY } from "../Consts/Consts"
 
 const initialState = {
-    stateComponent: true,
+    information: {
+        email: "",
+        name: "",
+        description: "",
+        date: "",
+        price: "",
+        places: "",
+        duration: "",
+        initialTime: "",
+        passengers: "",
+        images: "",
+        city: "",
+        country: ""
+    },
+    activities: []
 }
-
-export const reducerActivities = (state = initialState, action) => {
-    switch(action.type) {
-        case CHANGE_STATE:
+const reducerActivities = (state = initialState, action) => {
+    switch (action.type) {
+        case NEW_ACTIVITY:
             return {
                 ...state,
-                stateComponent: action.payload
+                //Modificacion de los estados
             }
+        case GET_USER_ACTIVITIES: {
+            return {
+                ...state,
+                activities: action.payload
+            }
+        }
         default:
-            return state;
+            return state
     }
 }
+export default reducerActivities

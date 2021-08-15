@@ -10,11 +10,11 @@ export const StyledBall = styled.div`
   padding-top: 50px;
   align-items:center;
 }
-  
+
   .imgLoading {
-    
+
     width: 400px;
-    
+
   }
 body{
   background-image:url('imagen');
@@ -26,7 +26,7 @@ body{
   //   color: blue;
 	//   // text-shadow: 3px 2px 4px black;
 	// 	font-size: 20px;}
-    
+
 
     .p {
       margin: -10px;
@@ -34,10 +34,10 @@ body{
       font-family:sans-serif;
 
     }
-  
 
 
 
-  
+
+
 
 `;

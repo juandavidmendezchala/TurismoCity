@@ -39,7 +39,7 @@ const [Favoritos,setFavoritos]=useState([
                             <button className='FavoriteRemove' onClick={()=>removeFavorites(fav.name)}>&#x2764;</button>
                         </div>
                         <div className='FavoriteCardGet'>
-                            <button className='LinkGetIt'>Quiero saber más...</button>
+                            <button href='#'className='LinkGetIt'>Quiero saber más...</button>
                         </div>
                     </div>
                 )
