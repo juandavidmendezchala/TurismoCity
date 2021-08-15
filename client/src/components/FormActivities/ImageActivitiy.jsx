@@ -16,14 +16,14 @@ const ImageActivitiy = () => {
         formData.append("upload_preset", "kwlcnlpo")
         await axios.post("https://api.cloudinary.com/v1_1/dhqnis6uz/image/upload", formData).then((response) => {
             setPhotoData(response.data.url)
-            console.log(photoData);
+            console.log(response.data.url);
         })
     }
 
     return (
         <div>
 
-            <form className="form" action="/pedidos" method="post" encType="multipart/form-data">
+            <form className="formImagePost" action="/pedidos" method="post" encType="multipart/form-data">
 
                 {/* <input name="image" placeholder="Upload a photo" className="container" type="file" /> */}
                 <input type="file" className="inputBasicPhoto" name="foto" onChange={(event) => { setImgSelected(event.target.files[0]) }} />

@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 export const ContainerUserAct = () => {
     const user = useSelector((state) => state.userSignin.userInfo.id)
-    console.log(user)
+
+    // console.log(user)
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState()
     useEffect(async () => {

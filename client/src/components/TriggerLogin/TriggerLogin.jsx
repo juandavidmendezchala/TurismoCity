@@ -20,14 +20,17 @@ const DropdownTriggerExample = () => {
     // const singout = () => {
     //     dispatch(logout())
     // }
+    const userHarCode = { name: 'Hard', email: 'hard@gmail.com', id: 2 }
 
-    useEffect(() => {
-        dispatch(register(user.given_name, user.email, user.family_name, "2021-08-13"))
-    }, [])
+    console.log("local storage", localStorage.userInfo)
+
+    // useEffect(() => {
+    //     dispatch(register(user.given_name, user.email, user.family_name, "2021-08-13"))
+    // }, [])
 
     const trigger = (
         <span className="SpanNameLogin">
-            <Icon name='Localuser' /> Hola, {user.given_name}
+            <Icon name='Localuser' /> Hola, {userHarCode.name}
         </span>
     )
 
@@ -36,7 +39,7 @@ const DropdownTriggerExample = () => {
             key: 'Localuser',
             text: (
                 <span>
-                    Perfil de <strong>{user.given_name}</strong>
+                    Perfil de <strong>{userHarCode.name}</strong>
                 </span>
             ),
             disabled: true,
