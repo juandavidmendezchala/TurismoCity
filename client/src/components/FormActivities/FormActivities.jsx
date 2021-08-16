@@ -6,7 +6,7 @@ import countryList from "./countries+states.json"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from 'axios'
-import ImageActivity from "./ImageActivitiy";
+
 import { useDispatch, useSelector } from "react-redux";
 import { sendFormActivity } from "../../store/actions/activityActions";
 
@@ -84,7 +84,7 @@ const FormActivities = () => {
     return (
         <div className="containerActForm">
             <div>
-                <ImageActivity />
+               
 
                 <form onSubmit={handleSubmit(submitForm)} className="form">
                     <input name="name" {...register("name")} placeholder="Your activity name (title)..." className="inputBasicName" />

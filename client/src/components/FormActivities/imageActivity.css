@@ -1,22 +1,35 @@
 .loadedPhoto {
-  width: 200px;
+  width: 250px;
+  box-shadow: 3px 3px 10px black;
+  
+}
+.divImagePost{
+  flex-direction: column;
+  justify-content:center;
+align-items: center;
+  display: flex;
+ height:400px;
+ width: 100%;
+   background-color: rgb(238, 238, 238);
 }
 
 .formImagePost {
   flex-direction: column;
+  justify-content:center;
+align-items: center;
   display: flex;
   margin-top: 3%;
   margin-left: 10%;
-  align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(0, 0, 0);
   font-size: 30px;
   background-color: rgb(238, 238, 238);
+  /* box-shadow: 3px 3px 10px black; */
 }
 .inputSmallButton {
   width: 100px;
   height: 40px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   border-radius: 0.5rem;
   box-shadow: 3px 3px 10px black;
@@ -25,4 +38,27 @@
   color: rgb(255, 255, 255);
   padding: 6px 6px;
   background-color: #0f3057;
+}
+.loadingText{
+  font-size: 20px;
+  color: red;
+  
+  
+}
+.inputContinuar
+{
+  width: 100px;
+  height: 40px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 10px black;
+  border: none;
+  padding-left: 5px;
+  color: rgb(255, 255, 255);
+  padding: 6px 6px;
+  background-color: #0f3057;
+  margin-top: 5%;
+
+
 }
