@@ -142,7 +142,7 @@ export default function ActivitiesFilter(props) {
                             onChange={e => setInitialTime(e.target.value)}
                         ></Input>
                     </div>
-                    <button type="submit">Crear actividad</button>
+                    <button type="submit">Buscar actividad</button>
                 </form>
             </div>
         )
