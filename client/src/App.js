@@ -8,17 +8,21 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
-
 import Politics from "./components/Politics/Politics";
-
 import Actities from "./components/Activities/Activities";
 import Suppliers from "./components/Suppliers/Suppliers";
 import ActivityDetail from "./components/ActivityDetail/ActivityDetail";
 import { ContainerUserAct } from "./components/Suppliers/containerUserAct/ContainerUserAct";
 import FormActivities from "./components/FormActivities/FormActivities";
+import Checkout from "./components/Checkout/Checkout";
+import { Elements } from "@stripe/react-stripe-js"
+import { loadStripe } from "@stripe/stripe-js"
+
+const stripePromise = loadStripe("pk_test_51JOlrrFTiOvO1nWfhoO6y7uUxBwyiNwSAiHzKnrM5rkCquiTpFYK9wamrKPMw8CfF5M0BBju63peRYQjBXNwiqJE00Aah2leya")
 
 
 function App() {
+
   return (
     <div className="App">
       <Route path="/" component={Banner} />
@@ -34,6 +38,8 @@ function App() {
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" component={ContainerUserAct} />
       <Route path="/suppliers/load" component={FormActivities} />
+      <Elements stripe={stripePromise}>
+        <Route path="/checkout" component={Checkout}></Route></Elements>
     </div>
 
   );
