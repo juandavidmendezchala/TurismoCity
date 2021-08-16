@@ -5,12 +5,12 @@ import "./NavBarSupplier/userActivities/userActivities.css"
 
 
 
-const Suppliers = () => {
+const Suppliers = ({ sidebar, showSidebar }) => {
 
     return (
         <>
             <div className="adminPanel">
-                <NavBarSupplier />
+                <NavBarSupplier sidebar={sidebar} showSidebar={showSidebar} />
             </div >
         </>
     )

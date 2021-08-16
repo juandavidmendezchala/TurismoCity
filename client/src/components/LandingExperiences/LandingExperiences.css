@@ -1,0 +1,143 @@
+.ExperiencesBack{
+    /* background-color: black; */
+    /* background-clip: url('./video.mp4'); */
+    height: 100vh;
+    /* width: 100vh; */
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.ExperiencesTitle{
+    color:white;
+    height: 120vh;
+    width: 100%;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.644);
+    position: absolute;
+}
+.ExperiencesVideo{
+    position: absolute;
+    background-color: black;
+    width:100vw;
+}
+.ExperienceTitle_p{
+    line-height : 75px;
+    width: 50%;
+    height: 100%;
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ExperiencesButton{
+    margin-top: 300px;
+    position: absolute;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(20, 47, 97);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 0.5;
+}
+.ExperiencesLowHenry{
+    position: absolute;
+    display: flex;
+    font-size: 25px;
+    top:40px;
+    left:30px;
+}
+.ExperiencesButton:hover{
+    background-color: transparent;
+    border: 1px solid rgb(58, 58, 58);
+    color: white;
+    transition: 0.5s;
+}
+.ExperiencesSecondBack{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    top:109vh;
+    height: 800px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ExperiencesExplanationDiv{
+    margin: 55px;
+    margin-left: 70px;
+}
+.ExperiencesQuestion{
+    font-size: 40px;
+    text-align: left;
+}
+.ExperiencesExplanation{
+    font-size: 20px;
+    text-align: left;
+    
+}
+.ExperienceImage{
+    height: 400px;
+    margin:20px;
+    margin-right: 70px;
+    transition: 0.5s;
+}
+.ExperienceImage:hover{
+    height: 420px;
+    transition: 0.5s;
+    margin-right: 60px;
+}
+.ExperiencesThirdBack{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    top:233vh;
+    height: 650px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ThirdMargin{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+.ExperienceImage3{
+    height: 330px;
+    margin:25px;
+    /* margin-right: 70px; */
+    transition: 0.5s;
+    
+}
+.ExperienceImage3:hover{
+    height: 350px;
+    transition: 0.5s;
+    
+}
+.ThirdTitles{
+    color: black;
+    /* margin:40px; */
+    width: 300px;
+    text-align: justify;
+    font-weight: lighter;
+    transition: 0.5s;
+    margin-left: 30px;
+}
+.ExperienceImage3:hover + .ThirdTitles{
+    font-weight: bold;
+    transition: 0.5s;
+    margin-left: 70px;
+}

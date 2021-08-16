@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import Segments from '../Segments/Segments';
 import Pagination from '../Pagination/Pagination';
 import FlightCardVuelta from '../FlightCardVuelta/FlightCardVuelta';
-import image2 from './1315214.png';
-import imageSorry from './sorry2.png';
+import image2 from './images/1315214.png';
+import imageSorry from './images/sorry2.png';
 import { StyledBall } from './Loading';
 
 function FlightCard(props) {
@@ -33,7 +33,6 @@ function FlightCard(props) {
         });
         setLoading(true);
     }, [])
-    console.log(props);
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -43,7 +42,6 @@ function FlightCard(props) {
     const segmentsFunction = function (id) {
         setState(id);
         setState2(!state2);
-        console.log(state);
     }
 
     if (!loading) {
@@ -51,12 +49,9 @@ function FlightCard(props) {
             <StyledBall>
                 <div className="div_loading">
                     <img className="imgLoading" src={'https://media.giphy.com/media/elUMUuePOzH9WndXbc/giphy.gif'} alt="Loading" />
-                    {/* <img className="imgLoading" src={image2} alt="Loading" /> */}
                     <p className="p">Cargando ...</p>
                 </div>
-                {/* 'https://media.giphy.com/media/elUMUuePOzH9WndXbc/giphy.gif' */}
                 <div className="div_p">
-
                 </div>
             </StyledBall>
         );
@@ -89,7 +84,6 @@ function FlightCard(props) {
                                             {flight.vueloIda?.stopoverCode !== 'DIRECT' ? (<p className='escalaTitulop'><a href="javascript:void(0)" className='escalaTitulo'>{flight.vueloIda.segments?.length - 1} Escala{flight.vueloIda.segments?.length > 2 ? ('s') : null}</a></p>) : (<p className='escalaTitulo'>Directo</p>)}
                                             <strong className='horarioIda'> {flight.vueloIda.departureTime}</strong><i className='line'> ------------</i><span className='puntito' onClick={() => segmentsFunction(flight.vueloIda.id)}>{flight.vueloIda.stopoverCode !== 'DIRECT' ? ('◉') : null}</span><i className='line'>------------</i><strong> {flight.vueloIda.arrivalTime}</strong>
                                             <p className='destinoIda'>{flight.city1.name} ({flight.vueloIda.departureAirportCode})  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {flight.city2.name} ({flight.vueloIda.arrivalAirportCode})</p>
-                                            {/* <span className='escalaTitulo'> Duracion: {flight.vueloIda.duration}</span> */}
                                         </div>
                                     </div>
                                     {state === flight.vueloIda.id && state2 === true && flight.vueloIda.stopoverCode !== 'DIRECT' ? (<Segments segmentos={flight.vueloIda.segments} airports={flight.airports} cities={flight.cities} flight={flight.airlinesLogosIda} />) : null}
@@ -102,7 +96,6 @@ function FlightCard(props) {
                                         <p>{flight.moneda}$ {flight.linkRedireccion.price.totalAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                                     </div>
                                     <a href={flight.linkRedireccion.handoffUrl} target="_blank" className='reserve'><button className='reservarVuelo'>RESERVAR</button></a>
-                                    {/* <img className='flightGif'src='https://media.giphy.com/media/IdmhVqdlIvpj3EalKg/giphy.gif' type='gif'width={90} height={90}/> */}
 
                                 </div>
                             </div>
@@ -123,14 +116,11 @@ function FlightCard(props) {
 const mapDispatchToProps = (dispatch) => {
     return {
         getFlights: flights => dispatch(getFlights(flights)),
-        //backupFligth: f => dispatch(backupFligth(f))
-
     }
 }
 const mapStateToProps = state => {
     return {
         flights: state.listFlights.flights,
-        flightsOneway: state.listFlights.flightsOneWay
     }
 }
 

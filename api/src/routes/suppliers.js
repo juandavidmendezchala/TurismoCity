@@ -27,6 +27,15 @@ router.put("/:idUser/:idPost/:status", async (req, res) => {
 
     res.send(console.log("Estado de la publicacions cambiado con exito"))
 })
+router.delete("/:idUser/:idPost", async (req, res) => {
+    const { idUser, idPost } = req.params
+    await Activity.destroy({
+        where: {
+            userId: idUser,
+            id: idPost
+        }
+    })
+})
 
 module.exports = router;
 

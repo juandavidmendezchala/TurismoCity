@@ -9,22 +9,23 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const DropdownTriggerExample = () => {
-
+    const dispatch = useDispatch()
     const { user, logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
 
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo } = userSingin
 
-    const dispatch = useDispatch()
+
 
     // const singout = () => {
     //     dispatch(logout())
     // }
 
-    console.log(userSingin)
+    console.log("local storage", localStorage.userInfo)
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
+        logout()
         dispatch(logoutlocal())
         // vacio el user de auth0
 
@@ -62,8 +63,8 @@ const DropdownTriggerExample = () => {
     ]
 
     return (
-        <div>
-            <Dropdown trigger={trigger} options={options} />
+        <div className='triggerClass'>
+            {/* <Dropdown trigger={trigger} options={options} /> */}
         </div>
     )
 }
