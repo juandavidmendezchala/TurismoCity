@@ -1,19 +1,26 @@
+.FavoriteCardBackComplete{
+    height: 100vw;
+    top:0px;
+    margin-top: 0px;;
+    background-color: rgb(255, 255, 255);
+}
 .FavoriteCardSmall{
     margin-left: 320px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s;
 }
 .FavoriteCardLarge{
     margin-left: 50px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s;
 }
 .FavoriteCardConteiner{
     margin: 10px;
+    margin-top:50px;
     width: 300px;
     border:none;
     border-radius: 10px;
@@ -65,10 +72,16 @@
     transition: 0.5s;
     border: 0.5px solid gray;
 }
+.FavoriteDescription{
+    margin:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
 .LinkGetIt{
-    width: 250px;
+    
     margin-top: 15px;
-    margin-left: 25px;
     padding: 13px;
     border:none;
     border-radius: 10px;
@@ -84,4 +97,9 @@
     cursor:pointer;
     box-shadow: 5px 5px 10px 1px rgb(92, 92, 92);
     transition: 0.2s;
+}
+.FavoriteCardGet{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

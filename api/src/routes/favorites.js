@@ -1,6 +1,5 @@
-
 const {Router} = require('express');
-const {FeedBack, Activity, User, favorite} = require('../models/index')
+const {Activity, User} = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -12,18 +11,30 @@ router.post('/', async(req, res) => {
     const findActivity = await Activity.findByPk(activityId)
     const findUser = await User.findByPk(userId)
     console.log('trae esto', findActivity,'Y ESTO:',findUser)
+    
+    const createFav = await findActivity.addUser(findUser)
+    return res.send(createFav)
+})
+router.get('/fav/:userId',async(req,res)=>{
+    const {userId} = req.params;
 
-    
-    //const findUser = await User.findByPk(idUser)
-    //console.log('trae otro', findUser)
-    //await findActivity.addFeedBack(createFeed)
-    //await findUser.addFeedBack(createFeed)
-    
-    await findActivity.addUser(findUser)
-    return res.send("res")
+    const favoriteGet = await User.findByPk(userId,{include:Activity})
+    return res.send(favoriteGet)
 })
 
-// [idusuario, idactividad, comentario, puntuacion]
+router.delete('/delete/:userId/:activityId',async(req,res)=>{
 
-// una actividad muchos comentarios
+    const {userId, activityId} = req.params
+    
+    const findActivity = await Activity.findByPk(activityId)
+    const findUser = await User.findByPk(userId)
+    console.log('trae esto', findActivity,'Y ESTO:',findUser)
+
+    const removeFav = await findActivity.removeUser(findUser)
+    const favoriteGet = await User.findByPk(userId,{include:Activity})
+    return res.send(favoriteGet)
+    
+    
+})
+
 module.exports = router;
