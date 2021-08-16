@@ -6,7 +6,6 @@ const airportsModel = require('./airports')
 const feedback = require('./feedback')
 
 //const userActivity = require('./activitie.js')
-const package = require('./package')
 const photo = require ('./photo')
 
 const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`, {
@@ -39,9 +38,6 @@ User.hasMany(FeedBack)
 
 Activity.belongsTo(User)
 User.hasMany(Activity)
-
-Activity.belongsToMany(User, {through: 'purchase'});
-User.belongsToMany(Activity, {through: 'purchase'})
 
 Activity.belongsToMany(User, {through: 'favorite'});
 User.belongsToMany(Activity, {through: 'favorite'})
