@@ -36,7 +36,6 @@ export default function ActivityCard({ id, name, description, date, price, place
     useEffect(() => {
         const isThisFavorite = favorites?.activities?.filter(f => f.id === id) || false
         if(isThisFavorite.length) {
-            console.log(isThisFavorite,"cosa")
             setIsFavorite(true)
         } else {
             setIsFavorite(false)

@@ -6,6 +6,7 @@ const favoriteRouter = require('./favorites')
 const feedbackRouter = require('./feedback')
 const activyRoutes = require('./activities')
 const suppliersRoutes = require('./suppliers')
+const checkout = require("./checkout")
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -23,6 +24,7 @@ router.use('/favorites',favoriteRouter)
 router.use('/feedBack', feedbackRouter)
 router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
+router.use("/checkout", checkout)
 
 
 module.exports = router;

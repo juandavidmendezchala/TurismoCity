@@ -7,6 +7,7 @@ export const USER_SIGNIN_SUCCESS = 'USER_SIGNIN_SUCCESS'
 export const USER_SIGNIN_FAIL = 'USER_SIGNIN_FAIL'
 
 export const USER_LOGOUT = 'USER_LOGOUT'
+export const USER_LOGOUT_LOC = "USER_LOGOUT_LOC"
 
 export const SIGN_IN_AUTH0 = "SIGN_IN_AUTH0"
 

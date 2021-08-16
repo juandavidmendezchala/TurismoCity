@@ -21,11 +21,12 @@ export const Banner = () => {
     console.log('ESTE ES EL ESTADO:'+stateComponent2)
     //const userSingin = useSelector(state => state.userSignin)
     // const { userInfo } = userSingin
-    const { user, loginWithRedirect } = useAuth0()
+    const { user, loginWithRedirect, isAuthenticated } = useAuth0()
 
 
 
     return (
+
         <div className="BannerContainer">
             {stateComponent2 === true?(
             <div className="Banner">
@@ -41,6 +42,7 @@ export const Banner = () => {
         </div>):null}
             
         </div>
+
     )
 }
 
