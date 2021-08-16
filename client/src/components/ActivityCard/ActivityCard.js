@@ -1,20 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import './ActivityCard.css'
 import { Link } from 'react-router-dom';
 import favoriteLogo from '../../icons/FavoriteLogo.png'
+import favoriteLogoDone from '../../icons/FavoriteLogoDone.png'
 import {addFavorite} from '../../store/actions/activityActions.js'
-import {deleteFavorite} from '../../store/actions/activityActions.js'
+import {removeMyFavorite} from '../../store/actions/removeMyFavorite'
 
-export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city }) {
+export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites }) {
 
     const dispatch = useDispatch()
-    
-    //const favorites = useSelector(state => state.reducersActivities.favorites)
+
+    const [isFavorite, setIsFavorite] = useState(false) 
 
     const onFavorite = () => {
         dispatch(addFavorite(id, 1))
+        const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
+        if(isThisFavorite) {
+            setIsFavorite(true)
+        } else {
+            setIsFavorite(false)
+        }
     }
+
+    const deleteFavorite = () => {
+        dispatch(removeMyFavorite(1, id))
+        const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
+        if(isThisFavorite) {
+            setIsFavorite(true)
+        } else {
+            setIsFavorite(false)
+        }
+    }
+ 
+    useEffect(() => {
+        const isThisFavorite = favorites?.activities?.filter(f => f.id === id) || false
+        if(isThisFavorite.length) {
+            console.log(isThisFavorite,"cosa")
+            setIsFavorite(true)
+        } else {
+            setIsFavorite(false)
+        }
+    }, [favorites])
+
 
     return (
         <div className="body-activitie">
@@ -29,9 +57,16 @@ export default function ActivityCard({ id, name, description, date, price, place
                     <h2>{name}</h2>
                     <p>{description}</p>
                 <div className="favoritelogo-div" >
-                        <button className="button-favorite" onClick={e => onFavorite()}>
-                        <img src={favoriteLogo} height="25px" width='25px' onClick={console.log("g")}></img>
+                    {
+                        isFavorite?
+                        <button className="button-favorite" onClick={e => deleteFavorite()}>
+                        <img src={favoriteLogoDone} height="25px" width='25px'></img>
                         </button>
+                        :
+                        <button className="button-favorite" onClick={e => onFavorite()}>
+                        <img src={favoriteLogo} height="25px" width='25px'></img>
+                        </button>
+                    }  
                 </div>
                 </div>
                 <div className="card-stats">
