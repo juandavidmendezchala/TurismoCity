@@ -16,9 +16,8 @@ const Navbar = () => {
         <div className="NavBarContainer">
             <Link to="/" className="Links">Inicio</Link>
             <Link to="/Actividades" className="Links">Paquete de actividades</Link>
-
             <Link to="/profile" className="Links">Perfil</Link>
-            <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
+            {/* <button className="ButtonNavBarLogOut" onClick={logout}>log out</button> */}
 
         </div>
     )

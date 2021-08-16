@@ -16,8 +16,15 @@ import { ContainerUserAct } from "./components/Suppliers/containerUserAct/Contai
 import FormActivities from "./components/FormActivities/FormActivities";
 import { DetailPostSupplier } from "./components/Suppliers/detail post supplier/DetailPostSupplier";
 import ImageActivity from "./components/FormActivities/ImageActivity";
+import Checkout from "./components/Checkout/Checkout";
+import { Elements } from "@stripe/react-stripe-js"
+import { loadStripe } from "@stripe/stripe-js"
+
+const stripePromise = loadStripe("pk_test_51JOlrrFTiOvO1nWfhoO6y7uUxBwyiNwSAiHzKnrM5rkCquiTpFYK9wamrKPMw8CfF5M0BBju63peRYQjBXNwiqJE00Aah2leya")
+
 
 function App() {
+
   return (
     <div className="App">
       <Route path="/" component={Banner} />
@@ -35,6 +42,8 @@ function App() {
       <Route path="/suppliers/load" component={FormActivities} />
       <Route path="/suppliers/post/:id" component={DetailPostSupplier} />
       <Route path="/suppliers/image" component={ImageActivity} />
+      <Elements stripe={stripePromise}>
+        <Route path="/checkout" component={Checkout}></Route></Elements>
     </div>
   );
 }
