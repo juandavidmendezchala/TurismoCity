@@ -1,5 +1,5 @@
-const { Router } = require("express");
-const { Package, Activity, User } = require("../models/index");
+const { Router } = require('express');
+const { Package, Activity, User, favorite } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();

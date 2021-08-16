@@ -64,8 +64,8 @@ const DropdownTriggerExample = () => {
     ]
 
     return (
-        <div>
-            <Dropdown trigger={trigger} options={options} />
+        <div className='triggerClass'>
+            {/* <Dropdown trigger={trigger} options={options} /> */}
         </div>
     )
 }
