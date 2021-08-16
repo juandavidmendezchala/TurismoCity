@@ -80,36 +80,36 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   let {
     email,
-    Name,
-    Date,
-    Description,
-    Price,
-    Places,
-    Duration,
-    InitialTime,
-    Images,
-    Country,
-    City,
+    name,
+    date,
+    description,
+    price,
+    places,
+    duration,
+    initialTime,
+    images,
+    country,
+    city,
   } = req.body;
   const createPack = await Activity.create({
-    name: Name,
-    date: Date,
-    description: Description,
-    price: Price,
-    places: Places,
-    duration: Duration,
-    initialTime: InitialTime,
-    images: Images,
-    country: Country,
-    city: City,
+    name,
+    date,
+    description,
+    price,
+    places,
+    duration,
+    initialTime,
+    images,
+    country,
+    city,
     active: true,
   });
-  //     const findUser = await User.findOne({
-  //       where: {
-  //         email,
-  //       },
-  //     });
-  //   await findUser.addActivity(createPack);
+  const findUser = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  await findUser.addActivity(createPack);
   return res.send(createPack);
 });
 
