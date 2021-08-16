@@ -6,23 +6,26 @@ import countryList from "./countries+states.json"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from 'axios'
-import ImageActivity from "./ImageActivitiy";
+
+import { useDispatch, useSelector } from "react-redux";
+import { sendFormActivity } from "../../store/actions/activityActions";
 
 
 
 
 const FormActivities = () => {
+
     const schema = yup.object().shape({
-        Name: yup.string().required(),
-        Date: yup.date().required("A date is requiered"),
-        Description: yup.string().min(50).max(250).required(),
-        Price: yup.number().positive().integer().required(),
-        Places: yup.number().positive().required(),
-        Duration: yup.string().required(),
-        InitialTime: yup.number().positive().required(),
-        Country: yup.string().required(),
-        City: yup.string().required(),
-        // Images: yup.file(),
+
+        name: yup.string().required("Please enter a valid NAME."),
+        date: yup.date().required("A date is requiered."),
+        description: yup.string().min(50).max(250).required(),
+        price: yup.number().typeError("Set a Price in numbers.").positive().integer().required(),
+        places: yup.number().typeError("Set Max Pax.").positive().required(),
+        duration: yup.string().required(),
+        initialTime: yup.number().typeError("Set an Initial Time.").positive().required(),
+        country: yup.string().required(),
+        city: yup.string(),
 
     })
 
@@ -33,70 +36,103 @@ const FormActivities = () => {
     const [visible, setVisible] = useState("");
     const [sug, setSug] = useState([])
     const [state, setState] = useState('')
-    const [country, setCountry] = useState('');
-    const [city, setCity] = useState('');
+    const [countryL, setCountryL] = useState('');
+    const [cityL, setCityL] = useState('');
+
+
+    const dispatch = useDispatch();
+    // const user = useSelector(state => state.userSignin)
+
 
 
     const submitForm = (post) => {
 
-        console.log(post)
+        const form = {
+            ...post,
+            country: countryL,
+            city: cityL,
+
+        }
+
+        if (cityL === '') {
+            setCityL(countryL)
+        }
+        console.log(form)
+        const { name, date, description, price, places, duration, initialTime, country, city } = form
+        dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, country, city }))
+
+
+
+        console.log(name, date, description, price, places, duration, initialTime, country, city)
+
+
+
     }
     var today = new Date().toISOString().split('T')[0];
 
 
     function changeState(e) {
+        setCountryL(e.target.value);
         var countrie = countryList.find(el => el.name === e.target.value)
         setState(countrie.states)
         console.log(countryList, countrie, e.target.value)
+
     }
+
+    // console.log(countryL);
 
     return (
         <div className="containerActForm">
             <div>
-                <ImageActivity />
+               
 
                 <form onSubmit={handleSubmit(submitForm)} className="form">
-                    <input name="name" {...register("Name")} placeholder="Your activity name (title)..." className="inputBasic" />
-                    <p className="errorYup">{errors.Name?.message}</p>
-                    <input name="date" {...register("Date")} type="date" min={today} className="inputDate" placeholder="Select availavle dates" />
-                    <p className="errorYup">{errors.Date && "Set a valid date"}</p>
-                    <textarea name="description" rows="4" cols="40"{...register("Description")} placeholder="Please describe your Activity...(50/250 char)" className="textArea" />
-                    <p className="errorYup">{errors.Description?.message}</p>
-                    <input name="price" {...register("Price")} placeholder="Price in numbers $..." type="number" className="inputSmall" />
-                    <p className="errorYup">{errors.Price?.message}</p>
-                    <input name="places" {...register("Places")} placeholder="Your activity Max number of Passangers..." type="number" min="2" max="990" className="inputSelect" />
-                    <p className="errorYup">{errors.Places?.message}</p>
-                    <input name="duration" {...register("Duration")} placeholder="Last hours" type="time" min="1" max="24" className="inputSmall" />
-                    <p className="errorYup">{errors.Duration?.message}</p>
-                    <input name="initialTime" {...register("InitialTime")} placeholder="Inicial Time..." type="number" min="1" max="24" className="inputSmall" />
-                    <p className="errorYup">{errors.InitialTime?.message}</p>
-                    {/* <input {...register("Country")} placeholder="Your Country..." className="inputSelect" /> */}
-                    {/* <div > */}
+                    <input name="name" {...register("name")} placeholder="Your activity name (title)..." className="inputBasicName" />
+                    <p className="errorYup">{errors.name?.message}</p>
+                    <input name="date" {...register("date")} type="date" min={today} className="inputDate" placeholder="Select availavle dates" />
+                    <p className="errorYup">{errors.date && "Set a valid date"}</p>
+                    <textarea name="description" rows="4" cols="40"{...register("description")} placeholder="Please describe your Activity...(50/250 char)" className="textArea" />
+                    <p className="errorYup">{errors.description?.message}</p>
+                    <div className="divLastSix"> <b className="inputSm"> Precio </b>
+                        <input name="price" {...register("price")} placeholder="Price $..." type="number" className="inputSmall" />
+                        <p className="errorYup">{errors.price?.message}</p> <b className="inputSm"> Vacantes </b>
+                        <input name="places" {...register("places")} placeholder="Max Pax..." type="number" min="2" max="990" className="inputSmall" />
+                        <p className="errorYup">{errors.places?.message}</p><b className="inputSm"> Duracion </b>
+                        <input name="duration" {...register("duration")} placeholder="Duration" type="number" min="1" max="24" className="inputSmall" />
+                        <p className="errorYup">{errors.duration?.message}</p><b className="inputSm"> Hora de Inicio </b>
+                        <input name="initialTime" {...register("initialTime")} placeholder="Inicial Time..." type="number" min="1" max="24" className="inputSmall" />
+                        <p className="errorYup">{errors.initialTime?.message}</p>
 
-                    <input type="hidden" className="inputBasic" onChange={e => setCountry(e.target.value)}></input>
-                    <select placeholder="Your Coutry name..." {...register("Country")} onChange={e => changeState(e)} className="inputBasic" name="country" >
 
-                        {countryList.map(el => <option className="inputBasic" key={el.id} value={el.id} >{el.name}</option>)}
-                    </select>
-                    {/* </div> */}
-                    <p className="errorYup">{errors.Country?.message}</p>
+                        {/* <input {...register("Country")} placeholder="Your Country..." className="inputSelect" /> */}
+                        {/* <div > */}
 
-                    {/* <select name="country" {...register("Country")} placeholder="Your Country..." className="inputSelect" onChange={e => changeC(e)} > */}
-                    {/* </select> */}
-                    <input type="hidden" className="inputBasic" onChange={e => setCity(e.target.value)} ></input>
-                    <select className="inputBasic" placeholder="Your City name..."{...register("City")} >
-                        {state === '' ? (<option>-</option>) : state.map(el => <option name="city" key={el.id}>{el.name}</option>)}
-                    </select>
-                    <p className="errorYup">{errors.City?.message}</p>
+                        <input type="hidden" className="inputBasic" onChange={e => setCountryL(e.target.value)}></input>
+                        <select placeholder="Your Coutry name..." {...register("country")} onChange={e => changeState(e)} className="inputBasic" name="country" >
+                            <option value="" >Pais </option>
 
-                    {/* <input name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" />
+                            {countryList.map(el => <option className="inputBasic" key={el.id} value={el.name}  >{el.name}</option>)}
+                        </select>
+                        {/* </div> */}
+                        <p className="errorYup">{errors.country?.message}</p>
+
+                        {/* <select name="country" {...register("Country")} placeholder="Your Country..." className="inputSelect" onChange={e => changeC(e)} > */}
+                        {/* </select> */}
+                        <input type="hidden" className="inputBasic" onChange={e => setCityL(e.target.value)} ></input>
+                        <select className="inputBasic" placeholder="Your City name..."{...register("city")} onChange={e => setCityL(e.target.value)}>
+                            {state === '' ? (<option>-</option>) : state.map(el => <option name="city" key={el.id}>{el.name}</option>)}
+                        </select>
+
+                        <p className="errorYup">{errors.city?.message}</p>
+
+                        {/* <input name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" />
                     <select name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" >
-                        <option value="">City</option>
+                    <option value="">City</option>
                         {cities.map((i) => { return <SelectDinamico name={i.name} /> })}
                     </select> */}
-                    {/* <textarea name="comments" {...register("Comments")} placeholder="Your Comments..." className="textArea" />
+                        {/* <textarea name="comments" {...register("Comments")} placeholder="Your Comments..." className="textArea" />
                     <p className="errorYup">{errors.Comments?.message}</p> */}
-                    <input type="submit" />
+                        <input className="inputSmallButton" type="submit" /> </div>
                 </form>
 
             </div>

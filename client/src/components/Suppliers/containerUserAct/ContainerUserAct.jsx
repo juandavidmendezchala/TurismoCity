@@ -9,7 +9,8 @@ import { BsThreeDots } from "react-icons/bs";
 export const ContainerUserAct = () => {
     const dispatch = useDispatch
     const user = useSelector((state) => state.userSignin.userInfo.id)
-    console.log(user)
+
+    // console.log(user)
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState()
     useEffect(async () => {

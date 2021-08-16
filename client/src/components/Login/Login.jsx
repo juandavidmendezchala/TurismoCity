@@ -4,35 +4,38 @@ import './Login.css'
 import { signin } from '../../store/actions/userActions';
 import { Link } from 'react-router-dom'
 import { Input } from 'semantic-ui-react'
+import { useAuth0 } from '@auth0/auth0-react';
+import { UserAuth0 } from "../UserAuth0/UserAuth0"
 
 
 export default function Login(props) {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
 
-    const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
+    // const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
 
-    const userSignin = useSelector(state => state.userSignin);
-    const { userInfo, Loading, error } = userSignin
+    // const userSignin = useSelector(state => state.userSignin);
+    // const { userInfo, Loading, error } = userSignin
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(signin(email, password))
-    }
+    // const submitHandler = (e) => {
+    //     e.preventDefault();
+    //     dispatch(signin(email, password))
+    // }
 
-    useEffect(() => {
-        if (userInfo) {
-            props.history.push(redirect);
-        }
-    }, [props.history, userInfo, redirect])
+    // useEffect(() => {
+    //     if (userInfo) {
+    //         props.history.push(redirect);
+    //     }
+    // }, [props.history, userInfo, redirect])
 
     return (
-        <div className="ContainerFormLogin">
-
-            <form className="formLogin" onSubmit={submitHandler}>
+        isAuthenticated && (
+            <div className="ContainerFormLogin">
+                {/* <form className="formLogin" onSubmit={submitHandler}>
                 <div>
                     <h2 className="ColorTextLoginTitle">Iniciar Sesion</h2>
                 </div>
@@ -66,9 +69,13 @@ export default function Login(props) {
                     <button class="ui red inverted button" type="submit" >
                         Ingresar
                     </button>
-                </div>
-                <label className="ColorTextRegister">¿No tienes una cuenta aún? <Link to="/register">¡Registrate acá!</Link></label>
-            </form>
-        </div>
-    )
+                </div> */}
+                <button onClick={() => loginWithRedirect}>Auth0</button>
+
+                <UserAuth0 />
+                {/* <label className="ColorTextRegister">¿No tienes una cuenta aún? <Link to="/register">¡Registrate acá!</Link></label> */}
+                {/* </form> */}
+
+            </div >
+        ))
 }
