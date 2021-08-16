@@ -21,6 +21,7 @@ const DropdownTriggerExample = () => {
     //     dispatch(logout())
     // }
 
+<<<<<<< HEAD
     console.log(userSingin)
 
     useEffect(() => {
@@ -46,10 +47,37 @@ const DropdownTriggerExample = () => {
         { key: 'profile', text: 'Your Profile', href: "profile" },
         { key: 'sign-out', text: 'Sign Out', onClick: (() => logout()), href: '/' },
     ]
+=======
+    // useEffect(() => {
+    //     dispatch(register(user.given_name, user.email, user.family_name, "2021-08-14"))
+    // }, [])
+
+    // const trigger = (
+    //     <span className="SpanNameLogin">
+    //         <Icon name='Localuser' /> Hola, {user.given_name}
+    //     </span>
+    // )
+
+    // const options = [
+    //     {
+    //         key: 'Localuser',
+    //         text: (
+    //             <span>
+    //                 Perfil de <strong>{user.given_name}</strong>
+    //             </span>
+    //         ),
+    //         disabled: true,
+    //     },
+    //     { key: 'profile', text: 'Tu Perfil', href: '/profile' },
+    //     { key: 'experiences', text: 'Tus actividades', href: '/yourActivities' },
+    //     { key: 'experiences', text: 'Ofrecé experiencias', href: '/experiences' },
+    //     { key: 'sign-out', text: 'Sign Out', onClick: (() => logout()), href: '/' },
+    // ]
+>>>>>>> a49c5b504077e68d6c0ee06510b99fd424682fe8
 
     return (
-        <div>
-            <Dropdown trigger={trigger} options={options} />
+        <div className='triggerClass'>
+            {/* <Dropdown trigger={trigger} options={options} /> */}
         </div>
     )
 }
