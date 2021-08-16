@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import reducerFlights from "./reducers/reducerFlights";
+import reducerPhoto from "./reducers/reducerPhoto";
 import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 import { activityDetailReducer, activityReducer } from './reducers/reducerActivity'
@@ -21,7 +22,8 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userActivities: reducerActivities,
   activities: activityReducer,
-  activity: activityDetailReducer
+  activity: activityDetailReducer,
+  urlPhoto : reducerPhoto,
 })
 
 const store = createStore(
