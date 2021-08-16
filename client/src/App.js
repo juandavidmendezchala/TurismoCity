@@ -13,6 +13,7 @@ import Suppliers from "./components/Suppliers/Suppliers";
 import ActivityDetail from "./components/ActivityDetail/ActivityDetail";
 import { ContainerUserAct } from "./components/Suppliers/containerUserAct/ContainerUserAct";
 import FormActivities from "./components/FormActivities/FormActivities";
+import { DetailPostSupplier } from "./components/Suppliers/detail post supplier/DetailPostSupplier";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" component={ContainerUserAct} />
       <Route path="/suppliers/load" component={FormActivities} />
+      <Route path="/suppliers/post/:id" component={DetailPostSupplier} />
     </div>
   );
 }

@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import UserActivities from '../NavBarSupplier/userActivities/userActivities';
 import axios from "axios"
 import { useState } from 'react';
+import "../NavBarSupplier/userActivities/userActivities.css"
+import { BsThreeDots } from "react-icons/bs";
 
 export const ContainerUserAct = () => {
+    const dispatch = useDispatch
     const user = useSelector((state) => state.userSignin.userInfo.id)
     console.log(user)
     const [loading, setLoading] = useState(true)
@@ -23,6 +26,21 @@ export const ContainerUserAct = () => {
     return (
         <>
             <h2>Actividades publicadas</h2>
+            <div className="postsTable">
+                <div className="namePicture">
+                    <p>Titulo</p>
+                    <p>Imagen</p>
+                    <p>Precio</p>
+                </div>
+                <div className="detailActivities">
+                    <p>Estado de la publicacion</p>
+                </div>
+                <div className='uploadStatus'>
+                    <p>Cambiar estado de la publicacion</p>
+                    <p>Eliminar publicacion</p>
+                    <p>Mas detalles</p>
+                </div>
+            </div>
             {
                 data.map(e =>
                     <UserActivities activity={e.name} active={e.active} city={e.city} price={e.price} idPost={e.id} idUser={e.userId} images={e.images} />
