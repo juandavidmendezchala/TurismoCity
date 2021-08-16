@@ -4,9 +4,10 @@ import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
-
 import 'semantic-ui-css/semantic.min.css';
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from "@auth0/auth0-react";
+import {Link} from "react-router-dom";
+
 
 
 export const Banner = () => {
@@ -22,6 +23,7 @@ export const Banner = () => {
     //const userSingin = useSelector(state => state.userSignin)
     // const { userInfo } = userSingin
     const { user, loginWithRedirect } = useAuth0()
+    const { logout } = useAuth0()
 
 
 
@@ -29,7 +31,15 @@ export const Banner = () => {
         <div className="BannerContainer">
             {stateComponent2 === true?(
             <div className="Banner">
-            <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">LowHenry</NavLink></div>
+            <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">LowHenry </NavLink></div>
+            {stateComponent2 === true ? (
+        <div className="NavBarContainer">
+            <Link to="/" className="Links">Inicio</Link>
+            <Link to="/Actividades" className="Links">Paquete de actividades</Link>
+
+            <Link to="/profile" className="Links">Perfil</Link>
+            <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
+           </div> ) : null}
             {
                 user ?
 
