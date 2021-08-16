@@ -5,7 +5,9 @@ import Banner from "../Banner/Banner"
 import 'semantic-ui-css/semantic.min.css'
 import { logoutlocal } from "../../store/actions/userActions"
 import { useAuth0 } from "@auth0/auth0-react"
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
+import { useDispatch } from "react-redux"
+
 
 
 

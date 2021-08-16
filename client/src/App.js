@@ -8,6 +8,12 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Search from "./components/Search/Search";
 import Profile from "./components/Profile/Profile";
+import UserNav from "./components/UserNav/UserNav.jsx";
+import LandingExperiences from "./components/LandingExperiences/LandingExperiences";
+import FavoritesActivities from "./components/FavoritesActivities/FavoritesActivities";
+import React, { useState } from "react";
+import Nuevo from './components/nuevo/nuevo'
+import FeedBack from "./components/Feedback/FeedBack";
 import Politics from "./components/Politics/Politics";
 import Actities from "./components/Activities/Activities";
 import Suppliers from "./components/Suppliers/Suppliers";
@@ -19,16 +25,17 @@ import Checkout from "./components/Checkout/Checkout";
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 
-
 function App() {
-
   const [sidebar, setSidebar] = useState(true)
-
   function showSidebar(){
     setSidebar(!sidebar)
   }
 
-  const stripePromise = loadStripe("pk_test_51JOlrrFTiOvO1nWfhoO6y7uUxBwyiNwSAiHzKnrM5rkCquiTpFYK9wamrKPMw8CfF5M0BBju63peRYQjBXNwiqJE00Aah2leya")
+
+const stripePromise = loadStripe("pk_test_51JOlrrFTiOvO1nWfhoO6y7uUxBwyiNwSAiHzKnrM5rkCquiTpFYK9wamrKPMw8CfF5M0BBju63peRYQjBXNwiqJE00Aah2leya")
+
+
+
 
   return (
     <div className="App">
