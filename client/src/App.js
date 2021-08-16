@@ -58,9 +58,9 @@ function App() {
       <Route exact path="/yourActivities/activities/next" component={ActivitiesPrev} ></Route>
       <Route path="/politics" component={Politics} ></Route>
       <Route path="/activities" component={Actities}></Route>
-      <Route path="/suppliers" component={Suppliers} />
+      <Route path="/suppliers" render={() => <Suppliers sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
-      <Route path="/suppliers/posts" component={ContainerUserAct} />
+      <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
       <Route path="/suppliers/post/:id" component={DetailPostSupplier} />
       <Route path="/suppliers/image" component={ImageActivity} />

@@ -4,9 +4,10 @@ import UserActivities from '../NavBarSupplier/userActivities/userActivities';
 import axios from "axios"
 import { useState } from 'react';
 import "../NavBarSupplier/userActivities/userActivities.css"
+import "./ContanierUserAct.css"
 import { BsThreeDots } from "react-icons/bs";
 
-export const ContainerUserAct = () => {
+export const ContainerUserAct = ({ sidebar }) => {
     const dispatch = useDispatch
     const user = useSelector((state) => state.userSignin.userInfo.id)
 
@@ -23,9 +24,9 @@ export const ContainerUserAct = () => {
             <p>Cargando ...</p>
         )
     }
-    data.map(e => console.log(e))
+    console.log(sidebar)
     return (
-        <>
+        <div className={sidebar ? "sidebarAbierta" : "sidebarCerrada"}>
             <h2>Actividades publicadas</h2>
             <div className="postsTable">
                 <div className="namePicture">
@@ -47,6 +48,6 @@ export const ContainerUserAct = () => {
                     <UserActivities activity={e.name} active={e.active} city={e.city} price={e.price} idPost={e.id} idUser={e.userId} images={e.images} />
                 )
             }
-        </>
+        </div>
     )
 }
