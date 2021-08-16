@@ -12,11 +12,12 @@ export const Banner = () => {
 
     //const userSingin = useSelector(state => state.userSignin)
     // const { userInfo } = userSingin
-    const { user, loginWithRedirect } = useAuth0()
+    const { user, loginWithRedirect, isAuthenticated } = useAuth0()
 
 
 
     return (
+
         <div className="BannerContainer">
             <div className="Banner">
                 <div class="shake-slow shake-constant shake-constant--hover"><NavLink to="/" className="BannerTitle">LowHenry</NavLink></div>
@@ -30,6 +31,7 @@ export const Banner = () => {
 
             </div>
         </div>
+
     )
 }
 
