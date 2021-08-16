@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon --watch api --exec node --experimental-modules api/index.js",
-        "build": "CI=false && react-scripts build",
+    "start": "nodemon --watch api --exec node --experimental-modules api/index.js"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^1.4.1",
