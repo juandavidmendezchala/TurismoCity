@@ -1,6 +1,6 @@
 
 const {Router} = require('express');
-const {FeedBack, Activity, User} = require('../models/index')
+const {FeedBack, Activity, User, favorite} = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -20,7 +20,7 @@ router.post('/', async(req, res) => {
     //await findUser.addFeedBack(createFeed)
     
     await findActivity.addUser(findUser)
-    return res.send(createFav)
+    return res.send("res")
 })
 
 // [idusuario, idactividad, comentario, puntuacion]

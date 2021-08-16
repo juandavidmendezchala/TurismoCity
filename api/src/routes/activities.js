@@ -102,30 +102,4 @@ router.post('/', async (req, res) => {
     return res.send(createPack)
 })
 
-
-router.post('/favorites', async(req, res) => {
-    let {id, idUser} = req.body;
-
-    const findActivity = await Activity.findOne({
-        where: {
-            id
-        }
-    })
-
-    const findUser = await User.findOne({
-        where:{
-            id: idUser
-        }
-    })
-
-/*     await findActivity.setUser(findUser) */
-
-
-
-    const cosa2 = await findUser.setActivity(findActivity)
-
-    res.send(cosa2)
-
-})
-
 module.exports = router;

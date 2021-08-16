@@ -13,7 +13,7 @@ export default function ActivityCard({ id, name, description, date, price, place
     //const favorites = useSelector(state => state.reducersActivities.favorites)
 
     const onFavorite = () => {
-        dispatch(addFavorite(id, userId))
+        dispatch(addFavorite(id, 1))
     }
 
     return (
@@ -29,7 +29,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                     <h2>{name}</h2>
                     <p>{description}</p>
                 <div className="favoritelogo-div" >
-                        <button className="button-favorite" onClick={e => console.log(e.target.value)}>
+                        <button className="button-favorite" onClick={e => onFavorite()}>
                         <img src={favoriteLogo} height="25px" width='25px' onClick={console.log("g")}></img>
                         </button>
                 </div>

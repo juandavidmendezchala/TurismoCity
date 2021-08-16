@@ -40,8 +40,8 @@ User.hasMany(FeedBack)
 Activity.belongsTo(User)
 User.hasMany(Activity)
 
-Activity.belongsToMany(User, {through: 'purchase'});
-User.belongsToMany(Activity, {through: 'purchase'})
+//Activity.belongsToMany(User, {through: 'purchase'});
+//User.belongsToMany(Activity, {through: 'purchase'})
 
 Activity.belongsToMany(User, {through: 'favorite'});
 User.belongsToMany(Activity, {through: 'favorite'})
