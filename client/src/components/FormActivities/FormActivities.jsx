@@ -1,13 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import "./FormActivities.css"
 import countryList from "./countries+states.json"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from 'axios'
-
-import { useDispatch, useSelector } from "react-redux";
 import { sendFormActivity } from "../../store/actions/activityActions";
 
 
@@ -26,6 +25,7 @@ const FormActivities = () => {
         initialTime: yup.number().typeError("Set an Initial Time.").positive().required(),
         country: yup.string().required(),
         city: yup.string(),
+        url:yup.string(),
 
     })
 
@@ -38,20 +38,24 @@ const FormActivities = () => {
     const [state, setState] = useState('')
     const [countryL, setCountryL] = useState('');
     const [cityL, setCityL] = useState('');
-
+    const [urlPhoto, setUrlPhoto] = useState();
+    const url = useSelector(state => state.urlPhoto.url)
 
     const dispatch = useDispatch();
+
     // const user = useSelector(state => state.userSignin)
-
-
+    useEffect(() => {
+        setUrlPhoto(url)
+        
+    }, [])
+  
 
     const submitForm = (post) => {
-
         const form = {
             ...post,
             country: countryL,
             city: cityL,
-
+            url: urlPhoto,
         }
 
         if (cityL === '') {
@@ -124,6 +128,8 @@ const FormActivities = () => {
                         </select>
 
                         <p className="errorYup">{errors.city?.message}</p>
+                         <input type="hidden" className="inputBasic" {...register("url")} onChange={e => setCityL(e.target.value)} ></input>
+                        
 
                         {/* <input name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" />
                     <select name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" >
