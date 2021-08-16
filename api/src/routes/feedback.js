@@ -22,7 +22,7 @@ router.post('/', async(req, res) => {
     const findUser = await User.findOne(
         {where: {id: idUser}
     })
-    //console.log('trae otro', findUser)
+    console.log('trae otro', findUser)
     //await findActivity.setFeedBack(createFeed)
     await createFeed.setActivity(findActivity)
     await createFeed.setUser(findUser)

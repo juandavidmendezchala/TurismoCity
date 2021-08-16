@@ -7,6 +7,7 @@ const favoriteRouter = require('./favorites')
 const feedbackRouter = require('./feedback')
 const activyRoutes = require('./activities')
 const suppliersRoutes = require('./suppliers')
+const purchaseRoutes = require('./purchase')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -20,10 +21,10 @@ const router = Router();
 
 router.use('/allAirports', airportsRoutes)
 router.use('/user', usersRoutes)
-router.use('favorites',favoriteRouter)
+router.use('/favorites',favoriteRouter)
 router.use('/feedBack', feedbackRouter)
 router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
-
+router.use('/purchase', purchaseRoutes)
 
 module.exports = router;

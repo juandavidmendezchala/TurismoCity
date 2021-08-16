@@ -14,12 +14,7 @@ router.post('/', async(req, res) => {
     console.log('trae esto', findActivity,'Y ESTO:',findUser)
 
     
-    //const findUser = await User.findByPk(idUser)
-    //console.log('trae otro', findUser)
-    //await findActivity.addFeedBack(createFeed)
-    //await findUser.addFeedBack(createFeed)
-    
-    await findActivity.addUser(findUser)
+    const createFav = await findActivity.addUser(findUser)
     return res.send(createFav)
 })
 
