@@ -54,9 +54,9 @@ export default function ActivitiesFilter(props) {
     setState(countrie.states);
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         dateToday()
-    }, [])
+    }, [])*/
 
     return (
         <div className="form-form-body">

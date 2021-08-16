@@ -25,6 +25,9 @@ import Checkout from "./components/Checkout/Checkout";
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import "./App.css";
+import MyActivities from "./components/MyActivities/MyActivities";
+import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+
 
 
 function App() {
@@ -49,9 +52,11 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
-      <Route path="/politics" component={Politics}></Route>
       <Route path="/yourActivities" render={() => <NavBarSupplierUser showSidebar={showSidebar} sidebar={sidebar} />}></Route>
       <Route exact path="/yourActivities/favorites" render={() => <FavoritesActivities sidebar={sidebar} />}></Route>
+      <Route exact path="/yourActivities/activities" render={() => <MyActivities sidebar={sidebar} />}></Route>
+      <Route exact path="/yourActivities/activities/next" component={ActivitiesPrev} ></Route>
+      <Route path="/politics" component={Politics} ></Route>
       <Route path="/activities" component={Actities}></Route>
       <Route path="/suppliers" component={Suppliers} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>

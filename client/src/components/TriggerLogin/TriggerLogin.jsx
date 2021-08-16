@@ -20,7 +20,6 @@ const DropdownTriggerExample = () => {
     // const singout = () => {
     //     dispatch(logout())
     // }
-    const userHarCode = { name: 'Hard', email: 'hard@gmail.com', id: 2 }
 
     console.log("local storage", localStorage.userInfo)
 

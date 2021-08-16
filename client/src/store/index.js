@@ -7,6 +7,9 @@ import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 import { activityDetailReducer, activityReducer, activityFavoriteReducer } from './reducers/reducerActivity'
 import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
+import { reducerMyActivities } from "./reducers/reducerMyActivities"
+import { reducerFeedBack } from "./reducers/reducerFeedBack"
+import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -27,7 +30,10 @@ const reducer = combineReducers({
   activities: activityReducer,
   activity: activityDetailReducer,
   urlPhoto: reducerPhoto,
-  addfavorites: activityFavoriteReducer
+  addfavorites: activityFavoriteReducer,
+  reducerMyActivities: reducerMyActivities,
+  reducerFeedBack: reducerFeedBack,
+  reducerActivitiesPrev: reducerActivitiesPrev
 })
 
 const store = createStore(
