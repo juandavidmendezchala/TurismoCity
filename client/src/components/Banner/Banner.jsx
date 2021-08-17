@@ -39,7 +39,6 @@ export const Banner = () => {
                         <div className="NavBarContainer">
                             <Link to="/" className="Links">Inicio</Link>
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
-
                             <Link to="/experiences" className="Links">Experiencias</Link>
                         </div>) : null}
                     {

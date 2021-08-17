@@ -21,13 +21,87 @@ router.post("/filter", async (req, res) => {
     country,
     city,
     price,
-    places,
-    duration,
-    initialTime,
     startDate,
     endDate,
   } = req.body;
-  if (
+   
+  if (country && !city && !price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (country && city && !price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  
+  if (country && city && price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city,
+        price: {
+          [Op.lte]: price,
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (country && city && price && startDate && endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city,
+        price: {
+          [Op.lte]: price,
+        },
+        date: {
+          [Op.between]: [startDate, endDate]
+        },
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (!country && !city && price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        price: {
+          [Op.lte]: price,
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+  if (!country && !city && !price && startDate && endDate){
+    Activity.findAll({
+      where: {
+       
+        date: {
+          [Op.between]: [startDate, endDate]
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+  /*if (
     country ||
     city ||
     price ||
@@ -65,7 +139,7 @@ router.post("/filter", async (req, res) => {
       console.log(err);
       return res.send({ message: "Por favor, rellene todos los campos" });
     }
-  }
+  }*/
 });
 
 router.get("/:id", async (req, res) => {

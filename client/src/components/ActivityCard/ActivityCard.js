@@ -45,11 +45,9 @@ export default function ActivityCard({ id, name, description, date, price, place
 
     return (
         <div className="body-activitie">
-            <div className="card">
-                <Link to={`/activity/${id}`}>
-                    <div className="card-image">
-                        <img src={images} height="200px" width='200px' className="img" />
-                    </div>
+            <div className="cardActivitiesJ">
+                <Link to={`/activity/${id}`} className='linkJ'>
+                    <img src={images[0]} className="imageActJ" />
                 </Link>
                 <div className="card-text">
                     <span className="date">{date}</span>
