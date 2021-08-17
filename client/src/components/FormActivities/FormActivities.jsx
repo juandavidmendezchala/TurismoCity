@@ -66,13 +66,8 @@ const FormActivities = () => {
         console.log(form)
         const { name, date, description, price, places, duration, initialTime, country, city } = form
         dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, country, city }))
-
-
-
         console.log(name, date, description, price, places, duration, initialTime, country, city)
-
-
-
+        alert("Cargaste la actividad con Exito!!!");
     }
     var today = new Date().toISOString().split('T')[0];
 
@@ -83,13 +78,14 @@ const FormActivities = () => {
         setState(countrie.states)
         console.log(countryList, countrie, e.target.value)
 
+
     }
 
     // console.log(countryL);
 
     return (
         <div className="containerActForm">
-            <div>
+            <div className="baseForm">
 
 
                 <form onSubmit={handleSubmit(submitForm)} className="form">
@@ -97,15 +93,15 @@ const FormActivities = () => {
                     <p className="errorYup">{errors.name?.message}</p>
                     <input name="date" {...register("date")} type="date" min={today} className="inputDate" placeholder="Select availavle dates" />
                     <p className="errorYup">{errors.date && "Set a valid date"}</p>
-                    <textarea name="description" rows="4" cols="40"{...register("description")} placeholder="Please describe your Activity...(50/250 char)" className="textArea" />
+                    <textarea name="description" rows="4" cols="40"{...register("description")} placeholder="Please describe your Activity...(10/250 char)" className="textArea" />
                     <p className="errorYup">{errors.description?.message}</p>
-                    <div className="divLastSix"> <b className="inputSm"> Precio </b>
+                    <div className="divLastSix"> <b className="inputSm"> Precio</b>
                         <input name="price" {...register("price")} placeholder="Price $..." type="number" className="inputSmall" />
                         <p className="errorYup">{errors.price?.message}</p> <b className="inputSm"> Vacantes </b>
                         <input name="places" {...register("places")} placeholder="Max Pax..." type="number" min="2" max="990" className="inputSmall" />
                         <p className="errorYup">{errors.places?.message}</p><b className="inputSm"> Duracion </b>
                         <input name="duration" {...register("duration")} placeholder="Duration" type="number" min="1" max="24" className="inputSmall" />
-                        <p className="errorYup">{errors.duration?.message}</p><b className="inputSm"> Hora de Inicio </b>
+                        <p className="errorYup">{errors.duration?.message}</p><b className="inputSm"> Hora Inicio </b>
                         <input name="initialTime" {...register("initialTime")} placeholder="Inicial Time..." type="number" min="1" max="24" className="inputSmall" />
                         <p className="errorYup">{errors.initialTime?.message}</p>
 
