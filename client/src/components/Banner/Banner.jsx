@@ -42,12 +42,10 @@ export const Banner = () => {
                             <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
                         </div>) : null}
                     {
-                        isLoading?
-                        <div>Loading</div>:
                         user ?
 
                             <DropdownTriggerExample /> :
-                            <NavLink onClick={() => loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
+                            <NavLink onClick={()=>loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
 
                     }
 
