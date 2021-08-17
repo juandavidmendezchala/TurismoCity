@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
+
 const DropdownTriggerExample = () => {
     const dispatch = useDispatch()
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
