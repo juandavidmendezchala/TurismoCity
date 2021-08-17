@@ -2,6 +2,10 @@
     background-color: #f7f8fd;
     height: 100%;
 }
+.postsTable{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 .userActivitiesInfo{
     background-color: #fff;
     border-radius: 20px;
@@ -17,6 +21,12 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     text-align: center;
+}
+.namePicture img{
+    margin: 0 auto;
+}
+.namePicture p{
+    margin: 0;
 }
 
 .detailActivities{
@@ -40,12 +50,19 @@
     border-radius: 10px;
     color: #ff9017;
 }
+.uploadStatus{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+}
+.uploadStatus p{
+    margin: 0;
+}
 .uploadStatus button{
-    color: #c06866;
+    color: #0F3057;
     border:none;
-    border-radius: 100%;
-    padding: 5px 10px;
-    background-color:#f5bdbe;
+    background-color: transparent;
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
@@ -53,4 +70,7 @@
 }
 .uploadStatus button:hover{
     cursor: pointer;
+}
+.returnDelete{
+    display: none;
 }

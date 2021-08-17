@@ -33,9 +33,9 @@ export default function Login(props) {
     // }, [props.history, userInfo, redirect])
 
     return (
-        isAuthenticated && (
-            <div className="ContainerFormLogin">
-                {/* <form className="formLogin" onSubmit={submitHandler}>
+
+        <div className="ContainerFormLogin">
+            {/* <form className="formLogin" onSubmit={submitHandler}>
                 <div>
                     <h2 className="ColorTextLoginTitle">Iniciar Sesion</h2>
                 </div>
@@ -70,12 +70,12 @@ export default function Login(props) {
                         Ingresar
                     </button>
                 </div> */}
-                <button onClick={() => loginWithRedirect}>Auth0</button>
+            <button onClick={() => loginWithRedirect}>Auth0</button>
 
-                <UserAuth0 />
-                {/* <label className="ColorTextRegister">¿No tienes una cuenta aún? <Link to="/register">¡Registrate acá!</Link></label> */}
-                {/* </form> */}
+            <UserAuth0 />
+            {/* <label className="ColorTextRegister">¿No tienes una cuenta aún? <Link to="/register">¡Registrate acá!</Link></label> */}
+            {/* </form> */}
 
-            </div >
-        ))
+        </div >
+    )
 }

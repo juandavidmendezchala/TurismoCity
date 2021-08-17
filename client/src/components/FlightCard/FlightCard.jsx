@@ -58,7 +58,7 @@ function FlightCard(props) {
     }
 
     return (
-        <div className='conteinerAllCard'> HOLA
+        <div className='conteinerAllCard'>
             {props.flights === undefined ? (<div className='alert'>Lo sentimos, problemas con el servidor.<br /><br /><img src={imageSorry} height={200} /></div>) : null}
             {props.flights?.length === 1 && props.flights[0].message === "Campos invalidos" ? (<div className='alert'>Alguno de los campos llenados es inválido. Por favor vuelva a intentarlo<br /><br /><img src={image2} height={200} /></div>) : null}
             {props.flights?.length === 0 && props.way === 'roundtrip' ? (<div className='alert'>Se excedió el tiempo de busqueda o no hay vuelos que coincidan con esta búsqueda.<br /> Por favor, inténtalo nuevamente haciendo click aquí: <br /><br /><br /><a className='refresh' href={`http://localhost:3000/flights?way=${props.way}&fromPlace=${props.fromPlace}&toPlace=${props.toPlace}&fromDate=${props.fromDate}&toDate=${props.toDate}&classFlight=${props.classFlight}&adults=${props.adults}&kids=${props.kids}&babies=${props.babies}&currency=${props.currency}`}>&#128257;</a></div>) : null}

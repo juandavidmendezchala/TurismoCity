@@ -7,8 +7,7 @@ const feedback = require('./feedback')
 const purchase = require('./purchase')
 
 //const userActivity = require('./activitie.js')
-
-const photo = require ('./photo')
+const photo = require('./photo')
 
 const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`, {
     logging: false,
@@ -38,11 +37,8 @@ const Purchase = purchase(sequelize)
 Activity.belongsTo(User)
 User.hasMany(Activity)
 
-/*Activity.belongsToMany(User, {through: 'purchase'});
-User.belongsToMany(Activity, {through: 'purchase'})
-*/
-Activity.belongsToMany(User, {through: 'favorite'});
-User.belongsToMany(Activity, {through: 'favorite'})
+Activity.belongsToMany(User, { through: 'favorite' });
+User.belongsToMany(Activity, { through: 'favorite' })
 
 module.exports = {
     conn: sequelize,

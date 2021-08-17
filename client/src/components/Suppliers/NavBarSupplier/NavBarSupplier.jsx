@@ -8,9 +8,7 @@ import './NavBarSupplier.css'
 import { IconContext } from 'react-icons'
 import TriggerLogin from '../../TriggerLogin/TriggerLogin'
 
-const NavBarSupplier = () => {
-    const [sidebar, setSidebar] = useState(true)
-    const showSidebar = () => setSidebar(!sidebar)
+const NavBarSupplier = ({ sidebar, showSidebar }) => {
     return (
         <>
             <IconContext.Provider value={{ color: "fff" }}>
@@ -18,7 +16,7 @@ const NavBarSupplier = () => {
                     <Link to="#" className="menu-bars">
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
-                    <TriggerLogin />
+                    {/* <TriggerLogin /> */}
                 </div>
                 <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
                     <ul className="nav-menu-items" onClick={showSidebar}>

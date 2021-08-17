@@ -57,7 +57,6 @@ export default function TravelForm(props) {
 
     return (
         <div className="TravelFormContainer">
-            <h2 className="TitleHome">Hola, viajeros. ¿A dónde les gustaría ir? </h2>
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
@@ -130,7 +129,7 @@ export default function TravelForm(props) {
                             Buscar
                         </Button></div>
                 </form>
-                <div className="PublicityContainer">
+                {/* <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
                         <div className="PrimerasDos">
@@ -149,7 +148,7 @@ export default function TravelForm(props) {
                     </div>
                     <div className="Subiteaeseavion">
                     </div>
-                </div>
+                </div> */}
             </div >
         </div>
 

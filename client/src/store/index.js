@@ -2,13 +2,14 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 // import { reducerActivities } from "./reducers/reducerActivities";
 import reducerFlights from "./reducers/reducerFlights";
+import reducerPhoto from "./reducers/reducerPhoto";
 import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
-import { activityDetailReducer, activityReducer } from './reducers/reducerActivity'
-import {reducerActivitiesF} from "./reducers/reducerActivitiesF";
-import {reducerMyActivities} from "./reducers/reducerMyActivities"
-import {reducerFeedBack} from "./reducers/reducerFeedBack"
-import {reducerActivitiesPrev} from "./reducers/reducerActivitiesPrev"
+import { activityDetailReducer, activityReducer, activityFavoriteReducer } from './reducers/reducerActivity'
+import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
+import { reducerMyActivities } from "./reducers/reducerMyActivities"
+import { reducerFeedBack } from "./reducers/reducerFeedBack"
+import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -28,6 +29,8 @@ const reducer = combineReducers({
   userActivities: reducerActivities,
   activities: activityReducer,
   activity: activityDetailReducer,
+  urlPhoto: reducerPhoto,
+  addfavorites: activityFavoriteReducer,
   reducerMyActivities: reducerMyActivities,
   reducerFeedBack: reducerFeedBack,
   reducerActivitiesPrev: reducerActivitiesPrev

@@ -1,11 +1,21 @@
 import {
+    DELETE_FAVORITE_REQUEST,
+    DELETE_FAVORITE_SUCCESS,
     GET_ACTIVITYDETAIL_FAIL,
     GET_ACTIVITYDETAIL_REQUEST,
     GET_ACTIVITYDETAIL_SUCCESS,
     GET_ACTIVITY_FAIL,
     GET_ACTIVITY_REQUEST,
-    GET_ACTIVITY_SUCCESS
+    GET_ACTIVITY_SUCCESS,
+    GET_FAVORITE_FAIL,
+    GET_FAVORITE_REQUEST,
+    GET_FAVORITE_SUCCESS
 } from "../Consts/Consts";
+
+const initialState = {
+    loading: false,
+    favorites: []
+}
 
 export const activityReducer = (state = {}, action) => {
     switch (action.type) {
@@ -32,3 +42,26 @@ export const activityDetailReducer = (state = {}, action) => {
             return state;
     }
 }
+
+export const activityFavoriteReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case GET_FAVORITE_REQUEST:
+            return { ...state, loading: true }
+        case GET_FAVORITE_SUCCESS:
+            return { 
+                ...state// favorites: favorites.concat(action.payload) 
+            }
+        case GET_FAVORITE_FAIL:
+            return { ...state, loading: false, error: action.payload }
+        case DELETE_FAVORITE_REQUEST:
+            return { ...state, loading: true}
+        case DELETE_FAVORITE_SUCCESS:
+            return {
+                ...state//, favorites: favorites.filter(activitie => activitie.id !== id) 
+            }
+        default:
+            return state;
+    }
+}
+
+
