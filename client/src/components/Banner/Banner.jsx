@@ -45,7 +45,7 @@ export const Banner = () => {
                         user ?
 
                             <DropdownTriggerExample /> :
-                            <NavLink onClick={loginWithRedirect} className="LinkToLogin" to="/">Ingresar</NavLink>
+                            <NavLink onClick={()=>loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
 
                     }
 
