@@ -7,6 +7,7 @@ import './Activities.css'
 import { getFavorites } from '../../store/actions/getFavorites'
 
 
+
 export default function Actities() {
 
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function Actities() {
 
     const { activities, loading, error } = Activities;
 
-    useEffect(() => {
+    useEffect(() => {      
         dispatch(getFavorites(1))
         dispatch(getActivities())        
     }, [])
