@@ -1,16 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { DetailPostSupplier } from '../../detail post supplier/DetailPostSupplier';
 import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { CgPlayTrackNext } from "react-icons/cg"
 import "./userActivities.css"
 
-const UserActivities = ({ activity, active, price, idPost, idUser, images }) => {
+const UserActivities = ({ activity, active, price, idPost, idUser, images, city, id, userId, country, description }) => {
     const [status, setStatus] = useState(active)
     const [deleted, setDeleted] = useState(false)
+    const [detail, setDetail] = useState(false)
     const handleOnClickStatus = async (e) => {
         setStatus(!status)
         await axios.put(`http://localhost:3001/suppliers/${idUser}/${idPost}/${!status}`)
+    }
+    const handleOnClickDetail = () => {
+        setDetail(!detail)
     }
     const handleDelete = async () => {
         let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
@@ -41,9 +46,12 @@ const UserActivities = ({ activity, active, price, idPost, idUser, images }) => 
                         <button onClick={handleOnClickStatus}><CgPlayTrackNext /></button>
                     </div>
                     <button onClick={handleDelete}><BsFillTrashFill /></button>
-                    <a href={`/suppliers/post/`}><BsThreeDots /></a>
+                    <button onClick={handleOnClickDetail}><BsThreeDots /></button>
                 </div>
             </div >}
+            <div className={detail ? "detailActivo" : "detailInactivo"}>
+                <DetailPostSupplier activity={activity} active={active} city={city} price={price} idPost={idPost} idUser={userId} images={images} country={country} description={description} />
+            </div>
 
         </>
     )

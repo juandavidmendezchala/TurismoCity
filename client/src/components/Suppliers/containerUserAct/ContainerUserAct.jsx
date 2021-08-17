@@ -45,7 +45,7 @@ export const ContainerUserAct = ({ sidebar }) => {
             </div>
             {
                 data.map(e =>
-                    <UserActivities activity={e.name} active={e.active} city={e.city} price={e.price} idPost={e.id} idUser={e.userId} images={e.images} />
+                    <UserActivities activity={e.name} active={e.active} city={e.city} price={e.price} idPost={e.id} idUser={e.userId} images={e.images} country={e.country} description={e.description} />
                 )
             }
         </div>

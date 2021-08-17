@@ -62,7 +62,7 @@ function App() {
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
-      <Route path="/suppliers/post/:id" component={DetailPostSupplier} />
+      <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
