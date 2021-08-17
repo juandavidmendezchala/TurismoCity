@@ -7,13 +7,26 @@ import image from './woman.jpg';
 import image1 from './trail-running-1245982__340.jpg';
 import image2 from './Horse.jpg';
 import image3 from './hot-air-balloons-5630493_1920.jpg';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 export default function LandingExperiences(props) {
+
+
     const dispatch = useDispatch();
+
+    const { loginWithRedirect } = useAuth0();
 
     const user = useSelector(state => state.userSignin)
     const {userInfo} = user;
+
+    const handleClick = () => {
+      if(userInfo) {
+        props.history.push('/suppliers')
+      } else {
+        loginWithRedirect()        
+      }
+    }
 
     useEffect(()=>{
       if(userInfo?.isAdmin === true) {
@@ -28,7 +41,7 @@ export default function LandingExperiences(props) {
         <video src={video} loop autoPlay muted preload='auto' playsinline className='ExperiencesVideo'/>
         <div className='ExperiencesTitle'>
             <p className='ExperienceTitle_p'>Animáte a ofrecer experiencias</p>
-            <a className='ExperiencesButton' href='/suppliers'>VAMOS!</a>
+            <button className='ExperiencesButton' onClick={() => handleClick()} >VAMOS!</button>
         </div>
         <a className='ExperiencesLowHenry' href='/'> {'<< LowHenry'}</a>
         <div className='ExperiencesSecondBack'>
