@@ -1,56 +1,47 @@
-/* 
-ul.pagination {
+.pagination{
+    background-color: rgba(88, 140, 189, 0.384);
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    padding: 8px;
-    margin: 40px;
-    border: 1px solid rgb(116, 116, 116);
-    border-radius: 500px;
-    background: rgba(67, 117, 152, 0.123);
-    background: linear-gradient(337deg, rgba(67, 117, 152, 0.452) 28%, rgba(91, 153, 195, 0.13) 70%, rgba(108, 159, 241, 0.514) 100%);
-}
-
-
-ul.pagination li {display: inline;}
-
-ul.pagination li a {
-    color: rgb(97, 97, 97);
-    float: left;
-    padding: 8px 16px;
     text-decoration: none;
+    border-radius: 200px;
+    padding-left: 10px;
+    padding-right: 20px;
 }
-
-ul.pagination li a.active {
-    border-radius: 100px;
-    background-color: rgb(156, 156, 156);
-    color: white;
+.numeritos {
+    color: rgb(94, 94, 94);
+    float: left;
+    padding: 20px;
+    text-decoration: none;
+    list-style: none;
 }
-
-ul.pagination li a:hover:not(.active) {
-    border-radius: 100px;
-    background-color: rgb(156, 156, 156);
-    color: white;
+.activePag{
+    background-color:rgb(87, 149, 190);
+    padding: 7px 10px;
+    border-radius: 600px;
+    color:white;
+    float: left;
+    text-decoration: none;
+    list-style: none;
+}
+.numeritos:hover{
+    background-color: rgba(111, 150, 177, 0.432);
+    padding: 14px 20px;
+    border-radius: 600px;
+    color:white;
     cursor: pointer;
 }
-ul.pagination li span {
-    color: rgb(97, 97, 97);
+.PagText{
+    color: rgb(78, 78, 78);
     float: left;
-    padding: 8px 16px;
+    padding: 9px 12px;
     text-decoration: none;
-}
-
-.active:hover {
-    border-radius: 100px;
-    background-color: rgb(156, 156, 156);
-    color: white;
+    list-style: none;   
     cursor: pointer;
-}
-.inable:hover{
-    border-radius: 100px;
-    
     
 }
-.inableNext:hover{
-    border-radius: 100px;
-    
-} */
+.inablePag{
+    cursor: text;
+    display: none;
+}

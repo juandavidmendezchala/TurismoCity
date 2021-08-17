@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import "./imageActivity.css"
-
+import {urlPost} from '../../store/actions/urlPost'
+import { useDispatch } from "react-redux"
 
 const ImageActivity = () => {
     const [imgSelected, setImgSelected] = useState()
     const [photoData, setPhotoData] = useState()
     const [loading, setLoading] = useState(false)
+const dispatch = useDispatch();
 
 
 
@@ -22,6 +24,7 @@ const ImageActivity = () => {
             setPhotoData(response.data.url)
             console.log(response.data.url);
             setLoading(false)
+            dispatch(urlPost(response.data.url))
 
             //             var txt;
 

@@ -1,6 +1,6 @@
 .LandingContainer{
-    background-image: url(./img.jpg);
-    background-color: red;
+    /* background-image: url(./img2.png); */
+    /* background-color: red; */
     height: 1000px;
 }
 .LandingBanner{
@@ -16,4 +16,25 @@
     margin-top: 30px;
     padding-top: 30px;
     padding-left: 10px;
+}
+.LandingFirst{
+    position:absolute;
+}
+.TravelForm{
+    position:absolute;
+    transform: scale(0.85);
+    /* left:0px; */
+}
+.Aerolineas{
+    position:absolute;
+    height: 500px;
+    margin-left:80px;
+    margin-top:750px;
+    width: 100%;
+font-size: 40px;
+font-weight: bold;
+text-align: left;
+display: flex;
+align-self: flex-end;
+    
 }

@@ -16,6 +16,8 @@ import { ContainerUserAct } from "./components/Suppliers/containerUserAct/Contai
 import FormActivities from "./components/FormActivities/FormActivities";
 import { DetailPostSupplier } from "./components/Suppliers/detail post supplier/DetailPostSupplier";
 import ImageActivity from "./components/FormActivities/ImageActivity";
+import FavoritesActivities from "./components/FavoritesActivities/FavoritesActivities";
+
 
 function App() {
   return (

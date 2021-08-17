@@ -1,5 +1,5 @@
-const { Router } = require("express");
-const { Package, Activity, User } = require("../models/index");
+const { Router } = require('express');
+const { Package, Activity, User, favorite } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -21,13 +21,91 @@ router.post("/filter", async (req, res) => {
     country,
     city,
     price,
-    places,
-    duration,
-    initialTime,
     startDate,
     endDate,
   } = req.body;
-  if (
+   
+  if (country && !city && !price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (country && city && !price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  
+  if (country && city && price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city,
+        price: {
+          [Op.lte]: price,
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (country && city && price && startDate && endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city,
+        price: {
+          [Op.lte]: price,
+        },
+        date: {
+          [Op.between]: [startDate, endDate]
+        },
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+
+  if (!country && !city && price && !startDate && !endDate){
+    Activity.findAll({
+      where: {
+        price: {
+          [Op.lte]: price,
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+  if (!country && !city && !price && startDate && endDate){
+    Activity.findAll({
+      where: {
+        country: country,
+        city: city,
+        price: {
+          [Op.lte]: price,
+        },
+        date: {
+          [Op.between]: [startDate, endDate]
+        },
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
+  /*if (
     country ||
     city ||
     price ||
@@ -64,7 +142,7 @@ router.post("/filter", async (req, res) => {
       console.log(err);
       return res.send({ message: "Por favor, rellene todos los campos" });
     }
-  }
+  }*/
 });
 
 router.get("/:id", async (req, res) => {
@@ -80,36 +158,36 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   let {
     email,
-    Name,
-    Date,
-    Description,
-    Price,
-    Places,
-    Duration,
-    InitialTime,
-    Images,
-    Country,
-    City,
+    name,
+    date,
+    description,
+    price,
+    places,
+    duration,
+    initialTime,
+    images,
+    country,
+    city,
   } = req.body;
   const createPack = await Activity.create({
-    name: Name,
-    date: Date,
-    description: Description,
-    price: Price,
-    places: Places,
-    duration: Duration,
-    initialTime: InitialTime,
-    images: Images,
-    country: Country,
-    city: City,
+    name,
+    date,
+    description,
+    price,
+    places,
+    duration,
+    initialTime,
+    images,
+    country,
+    city,
     active: true,
   });
-  //     const findUser = await User.findOne({
-  //       where: {
-  //         email,
-  //       },
-  //     });
-  //   await findUser.addActivity(createPack);
+  const findUser = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  await findUser.addActivity(createPack);
   return res.send(createPack);
 });
 
