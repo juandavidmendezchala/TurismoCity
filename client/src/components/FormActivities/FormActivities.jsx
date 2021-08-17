@@ -18,14 +18,14 @@ const FormActivities = () => {
 
         name: yup.string().required("Please enter a valid NAME."),
         date: yup.date().required("A date is requiered."),
-        description: yup.string().min(50).max(250).required(),
+        description: yup.string().min(10).max(250).required(),
         price: yup.number().typeError("Set a Price in numbers.").positive().integer().required(),
         places: yup.number().typeError("Set Max Pax.").positive().required(),
         duration: yup.string().required(),
         initialTime: yup.number().typeError("Set an Initial Time.").positive().required(),
         country: yup.string().required(),
         city: yup.string(),
-        url:yup.string(),
+        images: yup.string(),
 
     })
 
@@ -39,23 +39,25 @@ const FormActivities = () => {
     const [countryL, setCountryL] = useState('');
     const [cityL, setCityL] = useState('');
     const [urlPhoto, setUrlPhoto] = useState();
-    const url = useSelector(state => state.urlPhoto.url)
+
+
+    const urlP = useSelector(state => state.url)
 
     const dispatch = useDispatch();
 
     // const user = useSelector(state => state.userSignin)
     useEffect(() => {
-        setUrlPhoto(url)
-        
+        setUrlPhoto(urlP)
+
     }, [])
-  
+
 
     const submitForm = (post) => {
         const form = {
             ...post,
             country: countryL,
             city: cityL,
-            url: urlPhoto,
+            images: urlPhoto,
         }
 
         if (cityL === '') {
@@ -88,7 +90,7 @@ const FormActivities = () => {
     return (
         <div className="containerActForm">
             <div>
-               
+
 
                 <form onSubmit={handleSubmit(submitForm)} className="form">
                     <input name="name" {...register("name")} placeholder="Your activity name (title)..." className="inputBasicName" />
@@ -128,8 +130,8 @@ const FormActivities = () => {
                         </select>
 
                         <p className="errorYup">{errors.city?.message}</p>
-                         <input type="hidden" className="inputBasic" {...register("url")} onChange={e => setCityL(e.target.value)} ></input>
-                        
+                        <input type="hidden" className="inputBasic" {...register("images")} onChange={e => setCityL(e.target.value)} ></input>
+
 
                         {/* <input name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" />
                     <select name="city" {...register("City")} placeholder="Your City name..." className="inputSelect" >

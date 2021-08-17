@@ -1,7 +1,7 @@
 import { URL_INFO } from '../actions/urlPost'
 
 const initialState = {
-    urlPhoto: [],
+    url: [],
 
 }
 
@@ -11,7 +11,7 @@ const reducerPhoto = (state = initialState, action) => {
         case URL_INFO:
             return {
                 ...state,
-                urlPhoto: action.payload
+                url: action.payload
             }
         
         default:
