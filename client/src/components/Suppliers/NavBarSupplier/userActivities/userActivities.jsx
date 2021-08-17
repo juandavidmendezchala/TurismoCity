@@ -4,19 +4,20 @@ import axios from 'axios'
 import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { CgPlayTrackNext } from "react-icons/cg"
 import "./userActivities.css"
+import { REACT_APP_API } from '../../../../store/Consts/Consts';
 
 const UserActivities = ({ activity, active, price, idPost, idUser, images }) => {
     const [status, setStatus] = useState(active)
     const [deleted, setDeleted] = useState(false)
     const handleOnClickStatus = async (e) => {
         setStatus(!status)
-        await axios.put(`http://localhost:3001/suppliers/${idUser}/${idPost}/${!status}`)
+        await axios.put(`${REACT_APP_API}/suppliers/${idUser}/${idPost}/${!status}`)
     }
     const handleDelete = async () => {
         let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
         if (eliminar) {
             setDeleted(true)
-            await axios.delete(`http://localhost:3001/suppliers/${idUser}/${idPost}`)
+            await axios.delete(`${REACT_APP_API}/suppliers/${idUser}/${idPost}`)
 
         } else {
             return

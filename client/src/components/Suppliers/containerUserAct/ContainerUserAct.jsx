@@ -6,6 +6,7 @@ import { useState } from 'react';
 import "../NavBarSupplier/userActivities/userActivities.css"
 import "./ContanierUserAct.css"
 import { BsThreeDots } from "react-icons/bs";
+import { REACT_APP_API } from '../../../store/Consts/Consts';
 
 export const ContainerUserAct = ({ sidebar }) => {
     const dispatch = useDispatch
@@ -15,7 +16,7 @@ export const ContainerUserAct = ({ sidebar }) => {
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState()
     useEffect(async () => {
-        const actividades = await axios.get(`http://localhost:3001/suppliers/${user}`);
+        const actividades = await axios.get(`${REACT_APP_API}/suppliers/${user}`);
         setData(actividades.data)
         setLoading(false)
     }, [])

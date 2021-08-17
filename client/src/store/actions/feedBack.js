@@ -1,3 +1,5 @@
+import { REACT_APP_API } from "../Consts/Consts";
+
 export const ADD_FEEDBACK = "ADD_FEEDBACK";
 
 
@@ -10,7 +12,7 @@ export function addFeedback(idUser, idAct, commentary, score){
             body: JSON.stringify({idUser, idAct, commentary, score})
             //commentary, score, idUser, idAct
         };
-        return fetch('http://localhost:3001/feedBack', requestOptions)
+        return fetch(`${REACT_APP_API}/feedBack`, requestOptions)
           .then(response => response.json())
           .then(obj => {
            // console.log('devuelve',obj)

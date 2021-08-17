@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import "./DinamicSearch.css"
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
+import { REACT_APP_API } from '../../store/Consts/Consts'
 
 const DinamicSearch = ({ id }) => {
 
@@ -17,7 +18,7 @@ const DinamicSearch = ({ id }) => {
 
     useEffect(() => {
         const loadUsers = async () => {
-            const response = await axios.get('http://localhost:3001/allAirports')
+            const response = await axios.get(`${REACT_APP_API}/allAirports`)
             serUsers(response.data)
         }
         loadUsers()
