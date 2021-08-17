@@ -55,21 +55,21 @@ export const ActivitiesReservation = () => {
             <h2>¡Reserva ahora!</h2>
             <div><>
                 {!success ?
-                    <form onSubmit={handleSubmit}>
-                        <div className="reservation-label">
+                    <form className="PayForm" onSubmit={handleSubmit}>
+                        {/* <div className="reservation-label">
                             <label>¿Cuándo quieres iniciar tu aventura?</label>
                             <input className="reservation-input" type="date" ></input>
                         </div>
                         <div className="reservation-label">
                             <label>¿Cuántas personas irán?</label>
                             <input className="reservation-input" type="number" min="0" max="99" ></input>
-                        </div>
+                        </div> */}
                         <fieldset className="FormGroup">
                             <div className="FormRow">
                                 <CardElement />
                             </div>
                         </fieldset>
-                        <button>Pay</button>
+                        <button className="PayButton">Pagar</button>
                     </form>
                     :
                     <div>
