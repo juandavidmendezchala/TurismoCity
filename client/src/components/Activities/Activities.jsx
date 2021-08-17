@@ -26,7 +26,7 @@ export default function Actities() {
 
     return (
         <div>
-            <h1>Paquetes de actividades</h1>
+            {/* <h1>Paquetes de actividades</h1> */}
             {
                 loading ?
                     <div>Loading</div>

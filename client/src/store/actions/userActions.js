@@ -11,10 +11,10 @@ import {
     USER_LOGOUT_LOC
 } from '../Consts/Consts'
 
-export const register = (name, email, password, birthdate) => async (dispatch) => {
-    dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password, birthdate } })
+export const register = (name, email, birthdate) => async (dispatch) => {
+    dispatch({ type: USER_REGISTER_REQUEST })
     try {
-        const { data } = await axios.post(`http://localhost:3001/user/register`, { name, email, password, birthdate })
+        const { data } = await axios.post(`http://localhost:3001/user/register`, { name, email, birthdate })
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
         localStorage.setItem('userInfo', JSON.stringify(data))

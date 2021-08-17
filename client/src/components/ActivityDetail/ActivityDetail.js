@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getActivity } from '../../store/actions/activityActions';
+import { getActivity, getComments } from '../../store/actions/activityActions';
 import ActivitiesReservation from '../ActivitiesReservation/ActivitiesReservation';
 import ActivitiesComments from '../ActivitiesComments/ActivitiesComments';
 import LoadingBox from '../Boxes/LoadingBox'
@@ -13,10 +13,15 @@ export default function ActivityDetail(props){
 
     const Activity = useSelector(state => state.activity);
 
+    const commentsActivity = useSelector(state => state.comments)
+
+    const {loadingC, comments, errorC} = commentsActivity
+
     const {activity, loading, error} = Activity;
     
     useEffect(() => {
         dispatch(getActivity(props.match.params.id))
+        dispatch(getComments(props.match.params.id))
     },[])
 
     return(
@@ -38,7 +43,7 @@ export default function ActivityDetail(props){
                         </div>
                     </div>
                     <div className="card-image">
-                        <img className="img" src={activity.images[0]}></img>
+                        <img className="img" src={activity.images}></img>
                     </div>
                     <div className="card-stats">
                         <div className="stat">
@@ -56,7 +61,16 @@ export default function ActivityDetail(props){
                     </div>
                     <div className="detail-down">
                     <div className="comments">
-                    <ActivitiesComments></ActivitiesComments>
+                    <h2>Reseñas</h2>
+                    {
+                        comments?.map(c => <ActivitiesComments
+                            key={c.id}
+                            comment={c.commentary}
+                            score={c.score}
+                            update={c.updateAt}
+                            userName={c.user.name}                            
+                            ></ActivitiesComments>)
+                    }
                     </div>
                     <div className="reservation">
                     <ActivitiesReservation></ActivitiesReservation>

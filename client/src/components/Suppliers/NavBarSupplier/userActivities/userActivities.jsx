@@ -30,7 +30,7 @@ const UserActivities = ({ activity, active, price, idPost, idUser, images }) => 
             </div> : < div className="userActivitiesInfo" >
                 <div className="namePicture">
                     <h3>{activity}</h3>
-                    <img src={`${images[0]}`} height="60" alt="img" />
+                    <img src={`${images}`} height="60" alt="img" />
                     <span className="moneyDetail">${price}</span>
                 </div>
                 <div className="detailActivities">

@@ -10,18 +10,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const DropdownTriggerExample = () => {
     const dispatch = useDispatch()
-    const { user, logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+    const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+    const { logout } = useAuth0()
 
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo } = userSingin
 
-
-
     // const singout = () => {
     //     dispatch(logout())
     // }
-
-    console.log("local storage", localStorage.userInfo)
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
@@ -33,12 +30,9 @@ const DropdownTriggerExample = () => {
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
         if (!userInfo) {
-            dispatch(register(user.name, user.email, user.nickname, "2021-08-13"))
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
             // si se registra hay que loguearse
-            console.log(user.nickname, user.email, user.name)
-            dispatch(signin(user.email, user.nickname))
         }
-
     }, [])
 
     const trigger = (
@@ -57,17 +51,19 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href: "profile" },
-        { key: 'sign-out', text: 'Sign Out', onClick: (logoOutWeb) },
+        userInfo?.isAdmin ?
+            { key: 'suppliers', text: 'Administrador', href: "suppliers" } :
+            { disabled: true },
+        { key: 'profile', text: 'Tu Perfil', href: "profile" },
+        { key: 'panel', text: 'Tus Actividades', href: "youractivities" },
+        { key: 'sign-out', text: 'Salir', onClick: (logout, logoOutWeb) },
     ]
 
     return (
-        <div className='triggerClass'>
-            {/* <Dropdown trigger={trigger} options={options} /> */}
+        <div>
+            <Dropdown trigger={trigger} options={options} />
         </div>
     )
 }
 
 export default DropdownTriggerExample
-
-

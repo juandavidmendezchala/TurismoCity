@@ -1,0 +1,25 @@
+.comment-container-card{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 60px auto 15px;
+    border: rgb(184, 176, 228) 2px solid;
+    background-color: mistyrose;
+}
+
+.comment-card-userName{
+    white-space: nowrap;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif, Verdana;    
+    margin: 0;
+    padding: 0px;
+}
+
+.div-user-update{
+    display: flex;
+    
+}
+
+.comment-card-commentScore{
+    margin-top: 15px;
+    margin-left: 10px;
+}

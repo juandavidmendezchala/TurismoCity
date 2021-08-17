@@ -14,7 +14,7 @@ export const Home = () => {
            
             <div className='TravelForm'><TravelForm /></div>
             <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas</div>
-                
+                <div></div>
         </div>
     )
 }

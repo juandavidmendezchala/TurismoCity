@@ -3,6 +3,7 @@
 const {Router} = require('express');
 const {FeedBack, Activity, User, Package} = require('../models/index')
 const { Op, where } = require("sequelize");
+const user = require('../models/user');
 
 const router = Router();
 
@@ -29,6 +30,21 @@ router.post('/', async(req, res) => {
     //console.log('trae',findUser)
 
     return res.send(createFeed)
+})
+
+router.get('/:id', async(req, res) => {
+    let {
+        id
+    } = req.params;
+
+    const findActivity = await FeedBack.findAll({
+        include: [User],
+        where: {
+            activityId: id
+        }
+    })
+
+    res.send(findActivity)
 })
 
 // [idusuario, idactividad, comentario, puntuacion]
