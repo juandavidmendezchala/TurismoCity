@@ -1,6 +1,6 @@
 import './LandingExperiences.css';
 import React, { useEffect } from "react"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeState } from '../../store/actions/stateComponents';
 import video from './Activity1.mp4';
 import image from './woman.jpg';
@@ -9,10 +9,16 @@ import image2 from './Horse.jpg';
 import image3 from './hot-air-balloons-5630493_1920.jpg';
 
 
-export default function LandingExperiences() {
+export default function LandingExperiences(props) {
     const dispatch = useDispatch();
 
+    const user = useSelector(state => state.userSignin)
+    const {userInfo} = user;
+
     useEffect(()=>{
+      if(userInfo?.isAdmin === true) {
+        props.history.push('/suppliers')
+      }
         dispatch(changeState(false));
     return () => dispatch(changeState(true));
     },[])
