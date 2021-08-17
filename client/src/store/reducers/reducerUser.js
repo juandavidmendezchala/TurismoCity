@@ -10,6 +10,8 @@ import {
   USER_LOGOUT_LOC
 } from "../Consts/Consts";
 
+
+
 export const userRegisterReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:
@@ -26,11 +28,11 @@ export const userRegisterReducer = (state = {}, action) => {
 export const userSigninReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_SIGNIN_REQUEST:
-      return { loading: true }
+      return { ...state, loading: true }
     case USER_SIGNIN_SUCCESS:
-      return { loading: false, userInfo: action.payload }
+      return { ...state,loading: false, userInfo: action.payload }
     case USER_SIGNIN_FAIL:
-      return { loading: false, error: action.payload }
+      return {...state, loading: false, error: action.payload }
     // case USER_LOGOUT:
     //     return {}
     case USER_LOGOUT_LOC:

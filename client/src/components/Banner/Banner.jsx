@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useHistory } from "react-router";
 import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export const Banner = () => {
 
     const userSingin = useSelector(state => state.userSignin)
-    const { userInfo } = userSingin
+    const { userInfo, loading } = userSingin
     const stateComponent2 = useSelector(state => state.reducersActivities.stateComponent)
     const history = useHistory();
     const sendHome = function () {
@@ -22,8 +22,10 @@ export const Banner = () => {
     console.log('ESTE ES EL ESTADO:' + stateComponent2)
     //const userSingin = useSelector(state => state.userSignin)
     // const { userInfo } = userSingin
-    const { user, loginWithRedirect, isAuthenticated } = useAuth0()
+    const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0()
     const { logout } = useAuth0()
+
+   
 
 
 
@@ -37,15 +39,15 @@ export const Banner = () => {
                         <div className="NavBarContainer">
                             <Link to="/" className="Links">Inicio</Link>
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
-
-                            <Link to="/profile" className="Links">Perfil</Link>
-                            <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
+                            <Link to="/experiences" className="Links">Experiencias</Link>
                         </div>) : null}
                     {
-                        user ?
+                        isLoading?
+                        <div>Cargando...</div> :
+                        userInfo || user ?
 
                             <DropdownTriggerExample /> :
-                            <NavLink onClick={loginWithRedirect} className="LinkToLogin" to="/">Ingresar</NavLink>
+                            <NavLink onClick={()=>loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
 
                     }
 

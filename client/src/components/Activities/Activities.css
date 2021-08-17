@@ -4,16 +4,16 @@
 }
 
 .filter-component{
-    position: absolute;
+    /* position: absolute; */
     margin-left: 25px;
    
 }
 
 .filter-cards{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .space-cards-act{
-    margin-left: 400px;
+    /* margin-left: 400px; */
 }

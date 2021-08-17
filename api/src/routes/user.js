@@ -13,11 +13,12 @@ router.post('/signin', async (req, res) => {
         }
     })
     if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
+        if (req.body.token === user.token) {
             res.send({
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                isAdmin: user.isAdmin,
                 token: generateToken(user)
             })
             return;
@@ -27,11 +28,9 @@ router.post('/signin', async (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    console.log(req.body)
     let {
         name,
         email,
-        password,
         birthdate
     } = req.body;
 
@@ -45,7 +44,7 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
-            password: bcrypt.hashSync(password, 8)
+            isAdmin: false
         }
         )
     }
@@ -59,7 +58,8 @@ router.post('/register', async (req, res) => {
         id: createdUser.id,
         name: createdUser.name,
         email: createdUser.email,
-        birthdate: user.birthdate,
+        birthdate: createdUser.birthdate,
+        isAdmin: createdUser.isAdmin,
         token: generateToken(createdUser)
     })
 })

@@ -45,16 +45,14 @@ export default function ActivityCard({ id, name, description, date, price, place
 
     return (
         <div className="body-activitie">
-            <div className="card">
-                <Link to={`/activity/${id}`}>
-                    <div className="card-image">
-                        <img src={images[0]} height="200px" width='200px' className="img" />
-                    </div>
+            <div className="cardActivitiesJ">
+                <Link to={`/activity/${id}`} className='linkJ'>
+                    <img src={images} className="imageActJ" />
                 </Link>
                 <div className="card-text">
                     <span className="date">{date}</span>
                     <h2>{name}</h2>
-                    <p>{description}</p>
+                    {/* <p>{description}</p> */}
                     <div className="favoritelogo-div" >
                         {
                             isFavorite ?

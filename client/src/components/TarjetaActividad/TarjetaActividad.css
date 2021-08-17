@@ -119,6 +119,7 @@
   .inside-page__btn--camping { 
     border-color: #00b97d;
     color: #00b97d;
+    padding-top:0px;
   }
   
   .inside-page__btn--camping::before { 
@@ -128,7 +129,7 @@
   .inside-page__btn:hover { 
     color: #fafbfa;
   }
-  
+
   .inside-page__btn:hover::before { 
     transform: scaleY(1);
   }

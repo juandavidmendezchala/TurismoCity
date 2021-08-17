@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import "./DinamicSearch.css"
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
+import { REACT_APP_API } from '../../store/Consts/Consts'
 
 const DinamicSearch = ({ id }) => {
 
@@ -17,7 +18,7 @@ const DinamicSearch = ({ id }) => {
 
     useEffect(() => {
         const loadUsers = async () => {
-            const response = await axios.get('http://localhost:3001/allAirports')
+            const response = await axios.get(`${REACT_APP_API}/allAirports`)
             serUsers(response.data)
         }
         loadUsers()
@@ -56,16 +57,16 @@ const DinamicSearch = ({ id }) => {
         <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
 
-            <input required  type="text" placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
+            <input type="hidden" className="inputSearch"
+
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
-            />
-            {/* <input type="text"
+            /><input type="text"
                 className="inputSearch" placeholder='Buscar por ciudad o aeropuerto' icon='map marker alternate' iconPosition='left'
 
                 onChange={e => onChangeHandle(e.target.value)}
                 value={visible}
-            /> */}
+            />
 
 
             {sug && sug.map((sug, i) => i < 5 &&

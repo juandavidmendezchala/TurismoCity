@@ -14,14 +14,18 @@ import {
   GET_FAVORITE_SUCCESS,
   POST_ACTIVITY_REQUEST,
   POST_ACTIVITY_SUCCESS,
-  POST_ACTIVITY_FAIL
+  POST_ACTIVITY_FAIL,
+  GET_COMMENTS_REQUEST,
+  GET_COMMENTS_FAIL,
+  GET_COMMENTS_SUCCESS,
+  REACT_APP_API
 
 } from "../Consts/Consts"
 
 export const getActivities = () => async (dispatch) => {
   dispatch({ type: GET_ACTIVITY_REQUEST });
   try {
-    const { data } = await axios.get(`http://localhost:3001/activity`);
+    const { data } = await axios.get(`${REACT_APP_API}/activity`);
     dispatch({ type: GET_ACTIVITY_SUCCESS, payload: data });
   } catch (err) {
     dispatch({
@@ -37,7 +41,7 @@ export const getActivities = () => async (dispatch) => {
 export const getActivity = (id) => async (dispatch) => {
   dispatch({ type: GET_ACTIVITYDETAIL_REQUEST });
   try {
-    const { data } = await axios.get(`http://localhost:3001/activity/${id}`);
+    const { data } = await axios.get(`${REACT_APP_API}/activity/${id}`);
     dispatch({ type: GET_ACTIVITYDETAIL_SUCCESS, payload: data });
   } catch (err) {
     dispatch({
@@ -56,7 +60,7 @@ export const getFilterActivities =
       dispatch({ type: GET_ACTIVITY_REQUEST });
       try {
         const { data } = await axios.post(
-          `http://localhost:3001/activity/filter`,
+          `${REACT_APP_API}/activity/filter`,
           {
             country,
             city,
@@ -81,6 +85,7 @@ export const getFilterActivities =
     };
 export const sendFormActivity =
   ({
+    email,
     name,
     date,
     description,
@@ -88,13 +93,15 @@ export const sendFormActivity =
     places,
     duration,
     initialTime,
+    images,
     country,
-    city,
+    city
   }) =>
     async (dispatch) => {
       dispatch({ type: POST_ACTIVITY_REQUEST });
       try {
-        const { data } = await axios.post(`http://localhost:3001/activity`, {
+        const { data } = await axios.post(`${REACT_APP_API}/activity`, {
+          email,
           name,
           date,
           description,
@@ -102,8 +109,9 @@ export const sendFormActivity =
           places,
           duration,
           initialTime,
+          images,
           country,
-          city,
+          city
         });
         dispatch({ type: POST_ACTIVITY_SUCCESS, payload: data });
       } catch (err) {
@@ -121,7 +129,7 @@ export const sendFormActivity =
 export const addFavorite = (activityId, userId) => async (dispatch) => {
   dispatch({ type: GET_FAVORITE_REQUEST })
   try {
-    const { data } = await axios.post(`http://localhost:3001/favorites/`, { activityId, userId })
+    const { data } = await axios.post(`${REACT_APP_API}/favorites/`, { activityId, userId })
     dispatch({ type: GET_FAVORITE_SUCCESS, payload: data })
   } catch (err) {
     dispatch({
@@ -137,7 +145,7 @@ export const addFavorite = (activityId, userId) => async (dispatch) => {
 export const deleteFavorite = (id) => async (dispatch) => {
   dispatch({ type: DELETE_FAVORITE_REQUEST })
   try {
-    const { data } = await axios.get(`http://localhost:3001/activity/${id}`)
+    const { data } = await axios.get(`${REACT_APP_API}/activity/${id}`)
     dispatch({ type: DELETE_FAVORITE_SUCCESS, payload: data })
   } catch (err) {
     dispatch({
@@ -146,6 +154,22 @@ export const deleteFavorite = (id) => async (dispatch) => {
         err.response && err.response.data.message
           ? err.response.data.message
           : err.message
+    })
+  }
+}
+
+export const getComments = (id) => async (dispatch) => {
+  dispatch({type: GET_COMMENTS_REQUEST})
+  try{
+    const { data } = await axios.get(`${REACT_APP_API}/feedBack/${id}`)
+    dispatch({type: GET_COMMENTS_SUCCESS, payload: data})
+  }catch(err) {
+    dispatch({
+      type: GET_COMMENTS_FAIL,
+      payload:
+        err.response && err.response.data.message
+        ? err.response.data.message
+        : err.message
     })
   }
 }
