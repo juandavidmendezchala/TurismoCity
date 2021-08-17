@@ -59,12 +59,12 @@ const DropdownTriggerExample = () => {
             disabled: true,
         },
         { key: 'profile', text: 'Your Profile', href: "profile" },
-        { key: 'sign-out', text: 'Sign Out', onClick: () => logoOutWeb(), href: '/' },
+        { key: 'sign-out', text: 'Sign Out', onClick: () => logoOutWeb()},
     ]
 
     return (
         <div className='triggerClass'>
-            {/* <Dropdown trigger={trigger} options={options} /> */}
+             <Dropdown trigger={trigger} options={options} /> 
         </div>
     )
 }

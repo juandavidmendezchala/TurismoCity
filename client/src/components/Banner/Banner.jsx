@@ -22,7 +22,7 @@ export const Banner = () => {
     console.log('ESTE ES EL ESTADO:' + stateComponent2)
     //const userSingin = useSelector(state => state.userSignin)
     // const { userInfo } = userSingin
-    const { user, loginWithRedirect, isAuthenticated } = useAuth0()
+    const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0()
     const { logout } = useAuth0()
 
 
@@ -42,10 +42,12 @@ export const Banner = () => {
                             <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
                         </div>) : null}
                     {
+                        isLoading?
+                        <div>Loading</div>:
                         user ?
 
                             <DropdownTriggerExample /> :
-                            <NavLink onClick={loginWithRedirect} className="LinkToLogin" to="/">Ingresar</NavLink>
+                            <NavLink onClick={() => loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
 
                     }
 
