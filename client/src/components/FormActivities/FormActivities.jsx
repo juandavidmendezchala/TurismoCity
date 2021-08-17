@@ -29,6 +29,10 @@ const FormActivities = () => {
 
     })
 
+    const user = useSelector(state => state.userSignin)
+    const {userInfo} = user
+    const {email} = userInfo
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
@@ -63,10 +67,9 @@ const FormActivities = () => {
         if (cityL === '') {
             setCityL(countryL)
         }
-        console.log(form)
-        const { name, date, description, price, places, duration, initialTime, country, city } = form
-        dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, country, city }))
-        console.log(name, date, description, price, places, duration, initialTime, country, city)
+        console.log(email)
+        const { name, date, description, price, places, duration, initialTime, images, country, city } = form
+        dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, images, country, city, email}))
         alert("Cargaste la actividad con Exito!!!");
     }
     var today = new Date().toISOString().split('T')[0];

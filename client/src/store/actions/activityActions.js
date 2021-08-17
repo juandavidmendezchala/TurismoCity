@@ -84,6 +84,7 @@ export const getFilterActivities =
     };
 export const sendFormActivity =
   ({
+    email,
     name,
     date,
     description,
@@ -91,13 +92,15 @@ export const sendFormActivity =
     places,
     duration,
     initialTime,
+    images,
     country,
-    city,
+    city
   }) =>
     async (dispatch) => {
       dispatch({ type: POST_ACTIVITY_REQUEST });
       try {
         const { data } = await axios.post(`http://localhost:3001/activity`, {
+          email,
           name,
           date,
           description,
@@ -105,8 +108,9 @@ export const sendFormActivity =
           places,
           duration,
           initialTime,
+          images,
           country,
-          city,
+          city
         });
         dispatch({ type: POST_ACTIVITY_SUCCESS, payload: data });
       } catch (err) {

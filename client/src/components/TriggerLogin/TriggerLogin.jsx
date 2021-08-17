@@ -20,8 +20,6 @@ const DropdownTriggerExample = () => {
     //     dispatch(logout())
     // }
 
-    console.log(userSingin)
-
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
         logout()
@@ -33,10 +31,8 @@ const DropdownTriggerExample = () => {
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
         if (!userInfo) {
-            dispatch(register(user.name, user.email, user.nickname, "2021-08-13"))
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
             // si se registra hay que loguearse
-            console.log(user.nickname, user.email, user.name)
-            dispatch(signin(user.email, user.nickname))
         }
 
     }, [])

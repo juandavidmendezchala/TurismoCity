@@ -43,7 +43,6 @@ router.get('/:id', async(req, res) => {
             activityId: id
         }
     })
-    console.log(findActivity[1].user.name)
 
     res.send(findActivity)
 })

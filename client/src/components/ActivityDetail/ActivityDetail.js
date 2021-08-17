@@ -43,7 +43,7 @@ export default function ActivityDetail(props){
                         </div>
                     </div>
                     <div className="card-image">
-                        <img className="img" src={activity.images[0]}></img>
+                        <img className="img" src={activity.images}></img>
                     </div>
                     <div className="card-stats">
                         <div className="stat">

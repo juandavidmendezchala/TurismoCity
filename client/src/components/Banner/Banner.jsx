@@ -39,9 +39,10 @@ export const Banner = () => {
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
 
                             <Link to="/profile" className="Links">Perfil</Link>
-                            <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
                         </div>) : null}
                     {
+                        isLoading && isLoading?
+                        <div>Cargando...</div> :
                         user ?
 
                             <DropdownTriggerExample /> :

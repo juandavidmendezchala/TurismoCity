@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const getAllActivities = await Activity.findAll({});
+    const getAllActivities = await Activity.findAll({where:{active: true}});
     return res.send(getAllActivities);
   } catch (err) {
     return res.send({
@@ -57,6 +57,7 @@ router.post("/filter", async (req, res) => {
           initialTime: {
             [Op.between]: [initialTime || "00:00", "24:00"],
           },
+          active: true
         },
       });
       return res.send(getCountries);

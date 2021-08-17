@@ -27,11 +27,9 @@ router.post('/signin', async (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    console.log(req.body)
     let {
         name,
         email,
-        password,
         birthdate
     } = req.body;
 
@@ -45,7 +43,6 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
-            password: bcrypt.hashSync(password, 8)
         }
         )
     }
