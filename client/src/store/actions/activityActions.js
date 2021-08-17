@@ -14,7 +14,10 @@ import {
   GET_FAVORITE_SUCCESS,
   POST_ACTIVITY_REQUEST,
   POST_ACTIVITY_SUCCESS,
-  POST_ACTIVITY_FAIL
+  POST_ACTIVITY_FAIL,
+  GET_COMMENTS_REQUEST,
+  GET_COMMENTS_FAIL,
+  GET_COMMENTS_SUCCESS
 
 } from "../Consts/Consts"
 
@@ -146,6 +149,22 @@ export const deleteFavorite = (id) => async (dispatch) => {
         err.response && err.response.data.message
           ? err.response.data.message
           : err.message
+    })
+  }
+}
+
+export const getComments = (id) => async (dispatch) => {
+  dispatch({type: GET_COMMENTS_REQUEST})
+  try{
+    const { data } = await axios.get(`http://localhost:3001/feedBack/${id}`)
+    dispatch({type: GET_COMMENTS_SUCCESS, payload: data})
+  }catch(err) {
+    dispatch({
+      type: GET_COMMENTS_FAIL,
+      payload:
+        err.response && err.response.data.message
+        ? err.response.data.message
+        : err.message
     })
   }
 }

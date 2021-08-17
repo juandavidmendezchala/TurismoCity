@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Package, Activity, User, favorite } = require('../models/index')
+const { Package, Activity, User, favorite, FeedBack } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -72,7 +72,7 @@ router.get("/:id", async (req, res) => {
   const activityDetail = await Activity.findOne({
     where: {
       id,
-    },
+    }
   });
   res.send(activityDetail);
 });

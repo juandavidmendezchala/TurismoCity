@@ -21,16 +21,18 @@ export default function LandingExperiences() {
     <div className='ExperiencesBack'>
         <video src={video} loop autoPlay muted preload='auto' playsinline className='ExperiencesVideo'/>
         <div className='ExperiencesTitle'>
-            <p className='ExperienceTitle_p'>Animate a ofrecer experiencias</p>
+            <p className='ExperienceTitle_p'>Animáte a ofrecer experiencias</p>
             <a className='ExperiencesButton' href='/suppliers'>VAMOS!</a>
         </div>
         <a className='ExperiencesLowHenry' href='/'> {'<< LowHenry'}</a>
         <div className='ExperiencesSecondBack'>
             <div className='ExperiencesExplanationDiv'>
               <p className='ExperiencesQuestion'>¿Qué significa ofrecer experiencias?</p>
-              <p className='ExperiencesExplanation'>Lo que significa es que los vendedores podemos decir que esta es una oracion
-              que no tiene ningun sentido, estoy escribiendo para hacer algo de lugar y poder ver como quedaria un texto, me aburre
-              usar el texto de siempre en Latin por eso estoy haciendo esto jaja</p>
+              <p className='ExperiencesExplanation'>Ofrecer experiencias significa tener la posibilidad 
+              de compartir las pasiones que más te entusiasman con personas alrededor del mundo, ofreciendo
+              emociones que trascienden el espacio y el tiempo, guiando al mundo a vivir las cosas
+              más increíbles, trascendentales, y magníficas. ¡Cambiá el mundo de los demás, mientras
+              cambiás el tuyo! ¿Qué esperás para compartir tu chispa con el mundo? </p>
             </div>
             <img src={image} className='ExperienceImage'/>
         </div>
@@ -43,18 +45,21 @@ export default function LandingExperiences() {
             </div> */}
             <div>
               <img src={image1} className='ExperienceImage3'/>
-              <h3 className='ThirdTitles'>HOLA que tal este es un nuevo texto  que no tiene ningun sentido, estoy escribiendo para hacer algo de lugar y poder ver como quedaria un texto, me aburre
-              usar el texto de siempre en Latin por eso estoy haciendo esto jaj</h3>
+              <h3 className='ThirdTitles'>Encontrá personas que compartan tu misma pasión, comparte con
+              personas de todo el mundo, guiándolas a descubrir cosas nuevas, ¡al mismo
+              tiempo que obtenés un ingreso y nuevas experiencias!</h3>
             </div>
             <div>
               <img src={image2} className='ExperienceImage3'/>
-              <h3 className='ThirdTitles'>HOLA que tal este es un nuevo texto  que no tiene ningun sentido, estoy escribiendo para hacer algo de lugar y poder ver como quedaria un texto, me aburre
-              usar el texto de siempre en Latin por eso estoy haciendo esto jaj</h3>
+              <h3 className='ThirdTitles'>Desde una clase de Yoga, un tour por la ciudad, a un paseo
+              a caballo. Las posibilidades son infinitas. Si existe algo que te apasiona y querés compartir,
+              miles de personas están esperando a encontrarte, ¡Y ambos están en el lugar correcto!</h3>
             </div>
             <div>
               <img src={image3} className='ExperienceImage3'/>
-              <h3 className='ThirdTitles'>HOLA que tal este es un nuevo texto  que no tiene ningun sentido, estoy escribiendo para hacer algo de lugar y poder ver como quedaria un texto, me aburre
-              usar el texto de siempre en Latin por eso estoy haciendo esto jaj</h3>
+              <h3 className='ThirdTitles'>La vida se compone de momentos, ideas, y emociones. Y hoy es
+              el momento de que compartás tu emoción con el resto del mundo. ¡Y eso es una excelente idea!
+              Estamos encantados de hacer parte de tu pasión, ¡Este viaje apenas comienza!</h3>
             </div>
             
            
