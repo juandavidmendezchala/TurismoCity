@@ -21,7 +21,7 @@ const DropdownTriggerExample = () => {
     //     dispatch(logout())
     // }
 
-    console.log(userSingin)
+    console.log("local storage", localStorage.userInfo)
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
@@ -62,8 +62,8 @@ const DropdownTriggerExample = () => {
     ]
 
     return (
-        <div>
-            <Dropdown trigger={trigger} options={options} />
+        <div className='triggerClass'>
+            {/* <Dropdown trigger={trigger} options={options} /> */}
         </div>
     )
 }

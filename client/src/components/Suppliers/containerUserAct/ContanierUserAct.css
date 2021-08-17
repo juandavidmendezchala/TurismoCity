@@ -1,0 +1,14 @@
+.sidebarAbierta{
+    text-align: center;
+    max-width: 100%;
+    margin-left: 270px;
+    margin-right: 20px;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+.sidebarCerrada{
+    text-align: center;
+    max-width: 90%;
+    margin: 30px auto;
+    transition: 0.5s;
+}

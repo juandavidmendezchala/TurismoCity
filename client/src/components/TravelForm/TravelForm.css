@@ -1,9 +1,7 @@
 .TravelFormContainer {
-  background-image: url(../Landing/img.jpg);
-  display: flex;
-  flex-direction: column;
-  height: 600px;
-  width: 1400px; 
+  height: 530px;
+  margin-left: 100px;
+  margin-top:20px;
   align-items: center;
   justify-content: center;
 }
@@ -16,10 +14,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1000px;
-  height: 600px;
-  background-color: #0F3057;
+  height: 530px;
+  background-color: #1a2635;
   opacity: 90%;
+  box-shadow: 10px 10px 30px 1px rgb(0, 0, 0);
+  border-radius: 20px;
 }
 .ContainerForm{
   display: flex;
@@ -31,11 +30,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: -10px;
+  margin-top: -20px;
   justify-content: space-around;
   margin-left: 20px;
   height: 80px; 
   width: 430px;
+  margin-bottom: 30px;
 }
 .DesdeHastaContainer {
   display: flex;
@@ -44,12 +44,13 @@
   justify-content: space-around;
   height: 80px;
   width: 440px;
-  padding-bottom: 10px;
-  padding-top: -10px;
+  /* padding-bottom: 10px;
+  padding-top: -10px; */
 }
 .ContainerSelectAbajo{
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 .TextTravelFormAbajo {
   color: white;
@@ -67,20 +68,18 @@
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
-  padding-top: 30px;
   margin-bottom: 20px;
   width: 400px;
 }
-.LabelSelectPassengers{
+.LabelSelectPassengers2{
   color:white;
   font-size: 15px;
 }
 .InputSelectPassengers{
-  width: 30px;
+  width: 50px;
   height: 20px;
 }
 .selectCurrency{
-  
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -99,10 +98,12 @@
   display: flex;
   flex-direction: column;
 }
-.InputTravelForm {
+.InputTravelForm{
   width: 200px;
-  height: 40px;
-  position:absolute;
+border-radius: 7px;
+padding: 10px;
+color: grey;
+  
 }
 .DesdeInput{
   color: black;
@@ -110,7 +111,7 @@
   height: 40px;
 }
 .PositionButton{
-  padding-top: 30px;
+  padding-top: 8px;
   width: 90px;
   height: 80px;
 }
@@ -225,6 +226,7 @@ padding-left: -5px;
   justify-content: center;
   margin-left: -250px;
   align-items:baseline;
+  margin-top: 20px;
 
 }
 .LabelRadioTravelForm{
@@ -248,6 +250,7 @@ padding-left: -5px;
 }
 .ContainerInfoVuelo{
   background-color: #ff6347;
+  border-radius: 10px;
   width: 300px;
   display: flex;
   justify-content: center;

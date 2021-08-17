@@ -6,7 +6,6 @@ import "./DinamicSearch.css"
 import { infoFligth } from '../../store/actions/infoFlight'
 import { infoFligthTo } from '../../store/actions/infoFlightTo'
 
-
 const DinamicSearch = ({ id }) => {
 
     const dispatch = useDispatch();
@@ -57,20 +56,20 @@ const DinamicSearch = ({ id }) => {
         <div className="ContainerDinamicSearch" id={id}>
             {/* <div>{text}</div> */}
 
-            <input type="hidden" className="inputSearch"
-
+            <input required  type="text" placeholder='Buscar por ciudad o aeropuerto' className="inputSearch"
                 onChange={e => onChangeHandle(e.target.value)}
                 value={text}
-            /><input type="text"
+            />
+            {/* <input type="text"
                 className="inputSearch" placeholder='Buscar por ciudad o aeropuerto' icon='map marker alternate' iconPosition='left'
 
                 onChange={e => onChangeHandle(e.target.value)}
                 value={visible}
-            />
+            /> */}
 
 
             {sug && sug.map((sug, i) => i < 5 &&
-                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code, sug.city)}> {sug.city} {sug.name} {(sug.code)}  </div>
+                <div className="inputSug" key={i} onClick={() => onSugHandle(sug.code, sug.city)}> <span className='avioncito'> &#9992; </span> {sug.city} {sug.name} {(sug.code)}  </div>
             )}
 
         </div>

@@ -12,7 +12,7 @@ export const SidebarData = [
     },
     {
         title: "Publica una nueva actividad",
-        path: "/suppliers/load",
+        path: "/suppliers/image",
         icon: <IoIcons.IoIosPaper />,
         cName: "nav-text"
     },

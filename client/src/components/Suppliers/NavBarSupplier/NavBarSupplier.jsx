@@ -8,9 +8,7 @@ import './NavBarSupplier.css'
 import { IconContext } from 'react-icons'
 import TriggerLogin from '../../TriggerLogin/TriggerLogin'
 
-const NavBarSupplier = () => {
-    const [sidebar, setSidebar] = useState(true)
-    const showSidebar = () => setSidebar(!sidebar)
+const NavBarSupplier = ({ sidebar, showSidebar }) => {
     return (
         <>
             <IconContext.Provider value={{ color: "fff" }}>

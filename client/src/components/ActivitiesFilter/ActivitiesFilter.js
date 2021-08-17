@@ -54,9 +54,9 @@ export default function ActivitiesFilter(props) {
     setState(countrie.states);
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         dateToday()
-    }, [])
+    }, [])*/
 
     return (
         <div className="form-form-body">
@@ -66,13 +66,13 @@ export default function ActivitiesFilter(props) {
                 </div>
                 <div className="form-label-input">
                     <label className="form-label">País:</label>
-                    <select value={country} required onChange ={e => changeState(e)} >
+                    <select required="true"value={country} required onChange ={e => changeState(e)} >
                         {countries.map(el =><option key={el.id} value = {el.id} >{el.name}</option>)}
                     </select>
                 </div>
                 <div className="form-label-input">
                     <label className="form-label">Ciudad:</label>
-                    <select required onChange={e => setCity(e.target.value)}>
+                    <select required="true" onChange={e => setCity(e.target.value)}>
                     {state===''?(<option>-</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
                     </select>
                 </div>
@@ -142,7 +142,7 @@ export default function ActivitiesFilter(props) {
                         onChange={e => setInitialTime(e.target.value)}
                     ></Input>
                 </div>
-                <button type="submit">Crear actividad</button>
+                <button className="submit-button-filter" type="submit">¡Haz mi busqueda!</button>
             </form>
         </div>
     )
