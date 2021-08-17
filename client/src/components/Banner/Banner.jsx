@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useHistory } from "react-router";
 import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export const Banner = () => {
 
     const userSingin = useSelector(state => state.userSignin)
-    const { userInfo } = userSingin
+    const { userInfo, loading } = userSingin
     const stateComponent2 = useSelector(state => state.reducersActivities.stateComponent)
     const history = useHistory();
     const sendHome = function () {
@@ -24,6 +24,8 @@ export const Banner = () => {
     // const { userInfo } = userSingin
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0()
     const { logout } = useAuth0()
+
+   
 
 
 
@@ -41,9 +43,9 @@ export const Banner = () => {
                             <Link to="/profile" className="Links">Perfil</Link>
                         </div>) : null}
                     {
-                        isLoading && isLoading?
+                        isLoading?
                         <div>Cargando...</div> :
-                        user ?
+                        userInfo || user ?
 
                             <DropdownTriggerExample /> :
                             <NavLink onClick={()=>loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
