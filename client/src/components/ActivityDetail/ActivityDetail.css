@@ -1,9 +1,16 @@
 .card-activity-detail{
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .body-activity-detail{
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-down{

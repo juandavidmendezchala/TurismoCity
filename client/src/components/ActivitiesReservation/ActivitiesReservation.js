@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import './ActivitiesReservation.css'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { purchase } from "../../store/actions/purchase"
 //Importo librerias necesarias
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
 
-export default function ActivitiesReservation() {
+
+export const ActivitiesReservation = () => {
+    const dispatch = useDispatch();
     //importo succes y config pagos
-    const [success, setSuccess] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
+    const [success, setSuccess] = useState(false);
+
     //Guardo en una variable los datos que contenga activity en redux
     const data = useSelector(state => state.activity)
+    const idUser = useSelector(state => state.userSignin.userInfo.id)
+    console.log("IdUSER", idUser)
+    console.log(data.activity.price)
 
     //handleSubmit
     const handleSubmit = async (e) => {
@@ -27,25 +34,51 @@ export default function ActivitiesReservation() {
             try {
                 const { id } = paymentMethod
                 const response = await axios.post("http://localhost:3001/checkout", {
-                    amount: data.price,
-                    id
+                    amount: data.activity.price,
+                    id,
                 })
                 if (response.data.success) {
                     console.log("Success Payment")
                     setSuccess(true)
                 }
+                dispatch(purchase(idUser, data.activity.id, "2021-08-17"))
             } catch (error) {
                 console.log(error)
             }
         } else {
             console.log(error.message)
         }
+        alert("Compra Realizada")
     }
     return (
-        <div>
+        <div className="PayContainer">
             <h2>¡Reserva ahora!</h2>
-            <div>
-                <form className="reservation-form" >
+            <div><>
+                {!success ?
+                    <form onSubmit={handleSubmit}>
+                        <div className="reservation-label">
+                            <label>¿Cuándo quieres iniciar tu aventura?</label>
+                            <input className="reservation-input" type="date" ></input>
+                        </div>
+                        <div className="reservation-label">
+                            <label>¿Cuántas personas irán?</label>
+                            <input className="reservation-input" type="number" min="0" max="99" ></input>
+                        </div>
+                        <fieldset className="FormGroup">
+                            <div className="FormRow">
+                                <CardElement />
+                            </div>
+                        </fieldset>
+                        <button>Pay</button>
+                    </form>
+                    :
+                    <div>
+                        <h2>You just bought something
+                        </h2>
+                    </div>
+                }
+            </>
+                {/* <form className="reservation-form" onSubmit={handleSubmit} >
                     <div className="reservation-label">
                         <label>¿Cuándo quieres iniciar tu aventura?</label>
                         <input className="reservation-input" type="date" ></input>
@@ -56,27 +89,13 @@ export default function ActivitiesReservation() {
                     </div>
                     <Link to="/activity/compra">
                         <button className="reservation-button">¡Empezar aventura!</button>
-                    </Link>
-                    <>
-                        {!success ?
-                            <form onSubmit={handleSubmit}>
-                                <fieldset className="FormGroup">
-                                    <div className="FormRow">
-                                        <CardElement />
-                                    </div>
-                                </fieldset>
-                                <button>Pay</button>
-                            </form>
-                            :
-                            <div>
-                                <h2>You just bought something
-                                </h2>
-                            </div>
-                        }
-                    </>
-                </form>
+                    </Link> */}
+
+
             </div>
 
         </div>
     )
 }
+
+
