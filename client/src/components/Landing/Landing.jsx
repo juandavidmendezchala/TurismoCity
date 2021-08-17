@@ -13,8 +13,7 @@ export const Home = () => {
             <img src={image} className='LandingFirst'/>
            
             <div className='TravelForm'><TravelForm /></div>
-            <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas</div>
-                <div></div>
+            {/* <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas</div> */}
         </div>
     )
 }

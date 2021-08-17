@@ -5,7 +5,7 @@ export function searchUserActivitiePrev(idUser){
     return function (dispatch){
        // console.log('esta en el action')
        
-       return fetch(`http://localhost:3001/purchase/next`)
+       return fetch(`http://localhost:3001/purchase/next/${idUser}`)
        .then(response => response.json())
        .then(obj => {
            

@@ -46,7 +46,7 @@ export default function TarjetaPrev(props) {
                             <div class="card-front">
                                 <div class="card-front__tp card-front__tp--beach">
                               
-                                 <img className="imagenFuera" src={props.images[0]} alt="otra imagen" />
+                                 <img className="imagenFuera" src={props.images} alt="otra imagen" />
 
                                 </div>
 
@@ -58,7 +58,7 @@ export default function TarjetaPrev(props) {
                                 </div>
                             </div>
                             <div class="card-back">
-                                <img className="imagenDentro" src={props.images[0]} alt="no esta la imagen" />
+                                <img className="imagenDentro" src={props.images} alt="no esta la imagen" />
                             </div>
                         </div>
                     </div>
