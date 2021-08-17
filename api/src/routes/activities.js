@@ -179,6 +179,13 @@ router.post("/", async (req, res) => {
     city,
     active: true,
   });
+  const updateUser = await User.update({
+    isAdmin: true
+  }, {
+    where: {
+      email
+    }
+  })
   const findUser = await User.findOne({
     where: {
       email,

@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from 'axios'
 import { sendFormActivity } from "../../store/actions/activityActions";
+import { signin } from "../../store/actions/userActions";
 
 
 
@@ -32,6 +33,7 @@ const FormActivities = () => {
     const user = useSelector(state => state.userSignin)
     const {userInfo} = user
     const {email} = userInfo
+    const {token} = userInfo
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -70,6 +72,7 @@ const FormActivities = () => {
         console.log(email)
         const { name, date, description, price, places, duration, initialTime, images, country, city } = form
         dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, images, country, city, email}))
+        dispatch(signin(email, token))
         alert("Cargaste la actividad con Exito!!!");
     }
     var today = new Date().toISOString().split('T')[0];

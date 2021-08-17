@@ -13,11 +13,12 @@ router.post('/signin', async (req, res) => {
         }
     })
     if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
+        if (req.body.token === user.token) {
             res.send({
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                isAdmin: user.isAdmin,
                 token: generateToken(user)
             })
             return;
@@ -57,6 +58,7 @@ router.post('/register', async (req, res) => {
         name: createdUser.name,
         email: createdUser.email,
         birthdate: createdUser.birthdate,
+        isAdmin: false,
         token: generateToken(createdUser)
     })
 })

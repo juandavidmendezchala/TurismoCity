@@ -17,8 +17,7 @@ export const register = (name, email, birthdate) => async (dispatch) => {
         const { data } = await axios.post(`http://localhost:3001/user/register`, { name, email, birthdate })
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
-        const loading =  true
-        localStorage.setItem('userInfo', JSON.stringify(data, loading))
+        localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (err) {
         dispatch({
             type: USER_REGISTER_FAIL,
@@ -35,8 +34,7 @@ export const signin = (email, password) => async (dispatch) => {
     try {
         const { data } = await axios.post('http://localhost:3001/user/signin', { email, password })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
-        const loading =  true
-        localStorage.setItem('userInfo', JSON.stringify(data, loading))
+        localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (err) {
         dispatch({
             type: USER_SIGNIN_FAIL,
