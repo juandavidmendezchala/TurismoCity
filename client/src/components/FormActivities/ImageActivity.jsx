@@ -59,7 +59,7 @@ const dispatch = useDispatch();
                 <button className="inputSmallButton" disabled={loading} type="submit" value="Create" onClick={uploadImage} >  Upload  </button>
                 <br />
                 <Image className='loadedPhoto' cloudName='dhqnis6uz' publicId={photoData} />
-                <div> {photoData && <a href="/suppliers/load" className="inputContinuar " value="Create"> Continuar </a>}</div>
+                <div> {photoData && <a href="/suppliers/load" className="inputContinuar " > Continuar </a>}</div>
             </form>
         </div >
     )

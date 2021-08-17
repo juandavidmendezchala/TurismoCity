@@ -7,19 +7,26 @@ import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 import { activityDetailReducer, activityReducer, activityFavoriteReducer,feedBackReducer } from './reducers/reducerActivity'
 import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
-import { reducerMyActivities } from "./reducers/reducerMyActivities"
-import { reducerFeedBack } from "./reducers/reducerFeedBack"
-import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
+import { reducerMyActivities } from "./reducers/reducerMyActivities";
+import { reducerFeedBack } from "./reducers/reducerFeedBack";
+import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const initialState = {
+  url: localStorage.getItem("urlImage")
+    ? JSON.parse(localStorage.getItem("urlImage"))
+    : null,
   activity: {},
   userSignin: {
-    userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
-    flightInfo: localStorage.getItem('flightInfo') ? JSON.parse(localStorage.getItem('flightInfo')) : null
-  }
-}
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+    flightInfo: localStorage.getItem("flightInfo")
+      ? JSON.parse(localStorage.getItem("flightInfo"))
+      : null,
+  },
+};
 
 const reducer = combineReducers({
   listFlights: reducerFlights,
@@ -29,7 +36,7 @@ const reducer = combineReducers({
   userActivities: reducerActivities,
   activities: activityReducer,
   activity: activityDetailReducer,
-  urlPhoto: reducerPhoto,
+  url: reducerPhoto,
   addfavorites: activityFavoriteReducer,
   reducerMyActivities: reducerMyActivities,
   reducerFeedBack: reducerFeedBack,
@@ -38,7 +45,9 @@ const reducer = combineReducers({
 })
 
 const store = createStore(
-  reducer, initialState, composeEnhancers(applyMiddleware(thunk))
+  reducer,
+  initialState,
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 export default store;
