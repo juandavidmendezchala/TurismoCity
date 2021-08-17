@@ -25,10 +25,9 @@ const DropdownTriggerExample = () => {
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
-        logout()
         dispatch(logoutlocal())
         // vacio el user de auth0
-
+        logout()
     }
 
     useEffect(() => {
@@ -59,7 +58,7 @@ const DropdownTriggerExample = () => {
             disabled: true,
         },
         { key: 'profile', text: 'Your Profile', href: "profile" },
-        { key: 'sign-out', text: 'Sign Out', onClick: () => logoOutWeb(), href: '/' },
+        { key: 'sign-out', text: 'Sign Out', onClick: (logoOutWeb) },
     ]
 
     return (
