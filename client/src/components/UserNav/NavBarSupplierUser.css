@@ -17,7 +17,7 @@
     height:100vh!important;
     display: flex!important;
     justify-content: center!important;
-    position: fixed!important;
+    position: fixed;
     left: -100%!important;
     transition: 850ms!important;
     position: absolute;
