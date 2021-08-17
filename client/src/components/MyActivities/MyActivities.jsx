@@ -14,9 +14,10 @@ import {searchUserActivities} from '../../store/actions/searchUserActivities'
 export default function MyActivities(props){
    const activitie = useSelector(state => state.reducerMyActivities.activityPurchase)
    const dispach = useDispatch();
-
+   const userId = useSelector(state => state.userSignin.userInfo.id)
+   console.log("ESTE ES EL ID DE LA PERSONA",userId)
    useEffect(() => {
-    const dispatchActivitie = () => dispach(searchUserActivities("2"))
+    const dispatchActivitie = () => dispach(searchUserActivities(userId))
     dispatchActivitie();
 }, [])
   

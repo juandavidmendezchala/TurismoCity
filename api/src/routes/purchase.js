@@ -31,8 +31,7 @@ router.post('/', async(req, res) => {
 })
 
 router.get('/', async(req, res) => {
-    const idUser = '2'
-
+    const {idUser} = req.body
     /*Purchase.findAll(
         {where: 
             {userId: 2}
@@ -51,8 +50,8 @@ router.get('/', async(req, res) => {
     
 })
 
-router.get('/next', async(req, res) => {
-    const idUser = '2'
+router.get('/next/:idUser', async(req, res) => {
+    const {idUser} = req.params
 
     Purchase.findAll({
             where: {
@@ -62,7 +61,7 @@ router.get('/next', async(req, res) => {
               model: Activity,    
               where: {
                 date: {
-                    [Op.gte]: '2021-08-16'
+                    [Op.gte]: '2021-08-17'
                     //mayor a la fecha
                 }
               }
@@ -73,9 +72,9 @@ router.get('/next', async(req, res) => {
     
 })
 
-router.get('/previous', async(req, res) => {
-    const idUser = '2'
-
+router.get('/previous/:idUser', async(req, res) => {
+  const {idUser} = req.params
+console.log("ESTO ENTRA A /PREVIUS EN BACK",idUser)
     Purchase.findAll({
             where: {
               userId: idUser
@@ -84,7 +83,7 @@ router.get('/previous', async(req, res) => {
               model: Activity,    
               where: {
                 date: {
-                    [Op.lte]: '2021-08-16'
+                    [Op.lte]: '2021-08-17'
                     //menor a la fecha
                 }
               }

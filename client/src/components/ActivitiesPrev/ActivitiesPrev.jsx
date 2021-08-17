@@ -9,12 +9,14 @@ import {searchUserActivitiePrev} from '../../store/actions/searchActivitiePrev'
 
 export default function ActivitiesPrev() {
     const activitie = useSelector(state => state.reducerActivitiesPrev.activityPurchasePrev)
+    const userId = useSelector(state => state.userSignin.userInfo.id)
    const dispach = useDispatch();
 
    useEffect(() => {
-    const dispatchActivitie = () => dispach(searchUserActivitiePrev("2"))
+    const dispatchActivitie = () => dispach(searchUserActivitiePrev(userId))
     dispatchActivitie();
 }, [])
+console.log(userId)
    return(
        <div>
            <h1>Actividades Previas</h1>
