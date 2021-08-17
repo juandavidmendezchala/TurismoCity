@@ -55,8 +55,9 @@ const DropdownTriggerExample = () => {
         userInfo?.isAdmin?     
         { key: 'suppliers', text: 'Administrador', href: "suppliers"} :
         {disabled: true},
-        { key: 'profile', text: 'Tu Perfil', href: "profile" },
-        { key: 'panel', text: 'Tus Actividades', href: "youractivities" },
+        { key: 'profile', text: 'Tu Perfil', href: "/profile" },
+        { key: 'panel', text: 'Tus Actividades', href: "/youractivities" },
+        { key: 'panel', text: 'Ofrecé experiencias', href: "/experiences" },
         { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
     ]
 
