@@ -63,20 +63,20 @@ export default function ActivitiesFilter(props) {
 
     return (
         <div className="form-form-body">
-            <form onSubmit={e => onHandleSubmit(e)}>
+            <form onSubmit={e => onHandleSubmit(e)} className='form-barra'>
                 <div className="form-title">
-                    <h1>Busqueda</h1>
+                    
                 </div>
                 <div className="form-label-input">
                     <label className="form-label">País:</label>
-                    <select value={country}  onChange ={e => changeState(e)} >
+                    <select value={country}  onChange ={e => changeState(e)} className='SelectPaisJ'>
                         {countries.map(el =><option key={el.id} value = {el.id} >{el.name}</option>)}
                     </select>
                 </div>
                 <div className="form-label-input">
                     <label className="form-label">Ciudad:</label>
-                    <select onChange={e => setCity(e.target.value)}>
-                    {state===''?(<option>-</option>):state.map(el =><option key={el.id}>{el.name}</option>)}
+                    <select onChange={e => setCity(e.target.value)} className='SelectPaisJ' placeholder='ciudad'>
+                    {state===''?(<option className='placeholderCiudad'> Ciudad </option>):state.map(el =><option key={el.id}>{el.name}</option>)}
                     </select>
                 </div>
                 <div className="form-label-input">
