@@ -10,8 +10,11 @@
 }
 
 .filter-cards{
+    /*display: flex;
+    flex-direction: row;*/
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    /*background-image: url('../FlightCard/img.jpg');*/
 }
 
 .space-cards-act{

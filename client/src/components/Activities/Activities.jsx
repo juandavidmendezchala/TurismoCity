@@ -26,11 +26,10 @@ export default function Actities() {
                     <div>Loading</div>
                     :
                     <div className="filter-cards">
-                        <div className="filter-component">
-                            <ActivitiesFilter error={error}></ActivitiesFilter>
+                        <div>
+                           <ActivitiesFilter error={error}></ActivitiesFilter>
                         </div>
-                        <div className="cards-act">
-                            <div className="space-cards-act"></div>
+                        <div>
                             {
                                 activities?.map(a => <ActivityCard key={a.id}
                                     id={a.id}
