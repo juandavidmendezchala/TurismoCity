@@ -64,13 +64,15 @@ export default function ActivityDetail(props) {
                                         <div className="comments">
                                             <h2>Reseñas</h2>
                                             {
+                                                comments?.length !== 0?
                                                 comments?.map(c => <ActivitiesComments
                                                     key={c.id}
                                                     comment={c.commentary}
                                                     score={c.score}
                                                     update={c.updateAt}
                                                     userName={c.user.name}
-                                                ></ActivitiesComments>)
+                                                ></ActivitiesComments>) :
+                                                <div>No hay comentarios</div>
                                             }
                                         </div>
                                         <div className="reservation">
