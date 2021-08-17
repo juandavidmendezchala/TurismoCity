@@ -23,10 +23,9 @@ const DropdownTriggerExample = () => {
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
-        logout()
         dispatch(logoutlocal())
         // vacio el user de auth0
-
+        logout()
     }
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const DropdownTriggerExample = () => {
         if (!userInfo) {
             dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
             // si se registra hay que loguearse
-        } 
+        }
     }, [])
 
     const trigger = (
@@ -53,12 +52,12 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        userInfo?.isAdmin?     
-        { key: 'suppliers', text: 'Administrador', href: "suppliers"} :
-        {disabled: true},
+        userInfo?.isAdmin ?
+            { key: 'suppliers', text: 'Administrador', href: "suppliers" } :
+            { disabled: true },
         { key: 'profile', text: 'Tu Perfil', href: "profile" },
         { key: 'panel', text: 'Tus Actividades', href: "youractivities" },
-        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
+        { key: 'sign-out', text: 'Salir', onClick: (logout, logoOutWeb) },
     ]
 
     return (
