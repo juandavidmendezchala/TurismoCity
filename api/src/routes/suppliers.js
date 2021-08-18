@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Activity } = require('../models');
+const { Activity, Purchase } = require('../models');
 const router = Router();
 
 
@@ -11,6 +11,13 @@ router.get('/:id', async (req, res) => {
         }
     })
     res.send(userActivities)
+})
+
+router.get('/sales/:id/:idAct', async (req, res) => {
+    const idUser = req.params.id
+    const idAct = req.params.idAct
+    const userSales = await Purchase.findAll()
+    res.send(userSales)
 })
 router.get('/specific/:id/:idPost', async (req, res) => {
     const id = req.params.id

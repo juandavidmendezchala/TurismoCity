@@ -22,4 +22,10 @@ export const SidebarData = [
         icon: <FaIcons.FaCartPlus />,
         cName: "nav-text"
     },
+    {
+        title: "Tus ventas",
+        path: "/suppliers/sales",
+        icon: <FaIcons.FaCashRegister />,
+        cName: "nav-text"
+    },
 ]

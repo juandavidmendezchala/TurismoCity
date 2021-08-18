@@ -27,6 +27,7 @@ import { loadStripe } from "@stripe/stripe-js"
 import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+import Sales from "./components/Suppliers/Sales/Sales";
 
 
 
@@ -62,6 +63,7 @@ function App() {
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
+      <Route path="/suppliers/sales" render={() => <Sales sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
       <Elements stripe={stripePromise}>
