@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-// const cors = require("cors"); // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
+const cors = require("cors"); // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
 const { conn } = require("./src/models/index.js");
 const routes = require("./src/routes/index");
 
@@ -9,15 +9,17 @@ const { PORT } = require("./src/utils/config/index.js");
 const errorHandler = require("./src/utils/middelwares/errorHandler.js");
 const setHeaders = require("./src/utils/middelwares/setHeaders.js");
 
-// app.use(cors()); // uso de cors definido anteriormente
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // For legacy browser support
+    methods: "GET, PUT,POST, DELETE"
+}
+
+app.use(cors(corsOptions)); // uso de cors definido anteriormente
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(express.json({ limit: "50mb" }));
 app.use(morgan("dev"));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
 app.use(errorHandler);
 app.use(setHeaders);
 
