@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 app.use("/", routes);
 
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   console.log("Connect");
 });
 
