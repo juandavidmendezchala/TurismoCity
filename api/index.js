@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors')
 const { conn } = require('./src/models/index.js');
 const routes  = require('./src/routes/index')
 
