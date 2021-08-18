@@ -4,6 +4,8 @@ import ActivitiesFilter from '../ActivitiesFilter/ActivitiesFilter'
 import { getActivities } from '../../store/actions/activityActions'
 import ActivityCard from '../ActivityCard/ActivityCard.js'
 import './Activities.css'
+import { getFavorites } from '../../store/actions/getFavorites'
+
 
 
 export default function Actities() {
@@ -12,15 +14,19 @@ export default function Actities() {
 
     const Activities = useSelector(store => store.activities);
 
+    const favorite = useSelector(state => state.reducersActivities)
+
+    const { favorites } = favorite
+
     const { activities, loading, error } = Activities;
 
-    useEffect(() => {
+    useEffect(() => {      
+        dispatch(getFavorites(1))
         dispatch(getActivities())
     }, [])
-
     return (
         <div>
-            <h1>Paquetes de actividades</h1>
+            {/* <h1>Paquetes de actividades</h1> */}
             {
                 loading ?
                     <div>Loading</div>
@@ -44,6 +50,7 @@ export default function Actities() {
                                     images={a.images}
                                     country={a.country}
                                     city={a.city}
+                                    favorites={favorites}
                                 ></ActivityCard>)
                             }
                         </div>

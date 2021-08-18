@@ -1,32 +1,36 @@
-.ContainerDinamicSearch {
-  position: absolute;
-  align-items: center;
-  top: 350px;
-  padding-right: -2px;
-  height: 40px;
-  width: 250px;
-  margin-top: 120px;
-  margin-left: -50px;
+.ContainerDinamicSearch{
+    position: absolute;
+    align-items: center;
+    /* top: 350px; */
+    /* padding-right: -2px; */
+    height: 40px;
+    width: 250px;
+    /* margin-top: 120px; */
+    margin-left: -50px;
 }
+
 .inputSearch {
-  width: 200px;
+width: 200px;
+border-radius: 7px;
+padding: 10px;
 }
 .inputSug {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  background-color: white;
-  left: 25px;
-  height: auto;
-  word-wrap: word-break;
-  cursor: pointer;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  border-bottom: 1px solid black;
-  color: black;
-  font-weight: 500;
-  width: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position:relative;
+    background-color: white;
+    left:25px;
+    height: auto;
+    word-wrap: word-break;
+    cursor: pointer;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid rgb(100, 100, 100);
+    color: rgb(26, 26, 26);
+    font-weight: 500;
+    width: 200px;
+
 }
 
 .inputSug:hover {
@@ -36,8 +40,9 @@
 }
 .inputSearch {
   width: 200px;
-  background-color: tomato;
+  margin-left: 25px;
 }
-.avioncito {
-  color: rgb(49, 92, 133);
+
+.avioncito{
+    color: rgb(49, 92, 133)
 }

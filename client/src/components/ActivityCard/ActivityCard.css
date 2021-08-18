@@ -1,8 +1,9 @@
-.card{
-    display: grid;
-    grid-template-columns: 400;
+.cardActivitiesJ{
+    /* display: grid; */
+    /* grid-template-columns: 400;
     grid-template-rows: 260px 170px 55px;
-    grid-template-areas: "img" "text" "stats";
+    grid-template-areas: "img" "text" "stats"; */
+    height: 387px;
 
     font-family: roboto;
     border-radius: 18px;
@@ -14,21 +15,18 @@
     cursor: pointer;
     margin-left: 35px;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
-
-.card-image{
-    grid-area: image;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
+.body-activitie{
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    width: 250px;
+    margin:20px;
 }
 
-.card-text{
-    grid-area: text;
-    margin: 25px
-}
 
 .card-text .date{
     color: rgb(0, 0, 0);
@@ -49,14 +47,14 @@
 }
 
 .card-stats{
-    grid-area: stats;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+
+    display: flex;
+    justify-content: center;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     opacity: 90%;
-    background: rgb(255,7,110);
+    background: rgb(133, 150, 197);
+    margin-top:33px;
 }
 
 .card-stats .stat {
@@ -84,7 +82,25 @@
     font-size: 12px;
 }
 
-.card:hover {
-    transform: scale(1.2);
+.cardActivitiesJ:hover {
+    transform: scale(1.04);
     box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.favoritelogo-div{
+    margin-top: 40px;
+}
+
+.button-favorite{
+    border-color: transparent;
+    background-color: transparent;
+}
+.imageActJ{
+    width:250px;
+    height: 170px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.date{
+    margin-top:50px;
 }

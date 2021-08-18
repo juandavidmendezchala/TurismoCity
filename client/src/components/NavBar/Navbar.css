@@ -1,16 +1,21 @@
 .NavBarContainer {
-  background-color: red;
+  background-color:#0F3057;
   height: 40px;
+  color:black;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  position:absolute;
+  left:195px
 }
 .Links {
   text-decoration: none;
-  color: white;
+  color: rgb(255, 255, 255);
   padding-left: 30px;
-  font-size: 25px;
+  font-size: 15px;
 }
 .ButtonNavBarLogOut{
   width: 100px;
+  margin-left:20px;
   height: 30px;
 }

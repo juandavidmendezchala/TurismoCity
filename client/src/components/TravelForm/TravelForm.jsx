@@ -58,14 +58,24 @@ export default function TravelForm(props) {
 
     return (
         <div className="TravelFormContainer">
-            <h2 className="TitleHome">Hola, viajeros. ¿A dónde les gustaría ir? </h2>
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
+                    <div className="DesdeHaciaContainer">
+                        <div>
+                            <h1 className="TextTravelFormArriba">De:</h1>
+                            <DinamicSearch id="0" />
+                        </div>
+                        <div>
+                            <h1 className="TextTravelFormArriba" >A:</h1>
+                            <DinamicSearch id="1" />
+                        </div>
+                    </div>
+
                     <div className="DesdeHastaContainer">
                         <div>
                             <h1 className="TextTravelFormAbajo">Desde:</h1>
-                            <Input type="date" name={today} min={today} icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                            <input type="date" name={today} min={today} placeholder='Indique fecha' className="InputTravelForm"
                                 onChange={e => setFromDate(e.target.value)}
                             />
 
@@ -73,9 +83,10 @@ export default function TravelForm(props) {
                         </div>
                         <div>
                             <h1 className="TextTravelFormAbajo">Hasta:</h1>
-                            <Input type="date" min={fromDate} icon='calendar alternate outline' iconPosition='left' placeholder='Indique fecha' className="InputTravelForm"
+                            <input type="date" min={fromDate} placeholder='Indique fecha' className="InputTravelForm"
                                 onChange={e => setToDate(e.target.value)}
-                            />                        </div>
+                            />
+                        </div>
                     </div>
 
 
@@ -85,32 +96,21 @@ export default function TravelForm(props) {
                         <label className="LabelRadioTravelForm">Ida</label>
                         <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                     </form>
-                    <div className="DesdeHaciaContainer">
-                        <div>
 
-
-                            <h1 className="TextTravelFormArriba">De:</h1>
-                            <DinamicSearch id="0" />
-                        </div>
-                        <div>
-                            <h1 className="TextTravelFormArriba" >A:</h1>
-                            <DinamicSearch id="1" />
-                        </div>
-                    </div>
                     <div className="selectPassengers">
-                        <label className="LabelSelectPassengers">Adultos</label>
+                        <label className="LabelSelectPassengers2">Adultos</label>
                         <input className="InputSelectPassengers" type="number" selected="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
-                        <label className="LabelSelectPassengers">Niños</label>
+                        <label className="LabelSelectPassengers2">Niños</label>
                         <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
 
-                        <label className="LabelSelectPassengers">Bebes</label>
+                        <label className="LabelSelectPassengers2">Bebes</label>
                         <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
-
                     </div>
                     <div className="SelectTravelFormContainer">
                         <label className="LabelSelectCurrency">Seleccione clase</label>
                         <select className="SelectTravelForm" onChange={e => setClassFlight(e.target.value)}>
+
 
                             <option selected value="Economy">Economy</option>
                             <option value="Business">Business</option>
@@ -131,7 +131,7 @@ export default function TravelForm(props) {
                             Buscar
                         </Button></div>
                 </form>
-                <div className="PublicityContainer">
+                {/* <div className="PublicityContainer">
                     <h3 className="TextAirlines">Trabajamos con más de 300 socios para ofrecerte las mejores ofertas de viaje</h3>
                     <div className="AcomodoImg">
                         <div className="PrimerasDos">
@@ -150,7 +150,7 @@ export default function TravelForm(props) {
                     </div>
                     <div className="Subiteaeseavion">
                     </div>
-                </div>
+                </div> */}
             </div >
         </div>
 

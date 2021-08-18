@@ -8,37 +8,32 @@ import 'semantic-ui-css/semantic.min.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-const DropdownTriggerExample = () => {
 
-    const { user, logout, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+const DropdownTriggerExample = () => {
+    const dispatch = useDispatch()
+    const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+    const { logout } = useAuth0()
 
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo } = userSingin
-
-    const dispatch = useDispatch()
 
     // const singout = () => {
     //     dispatch(logout())
     // }
 
-    console.log(userSingin)
-
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
         dispatch(logoutlocal())
         // vacio el user de auth0
-
+        logout()
     }
 
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
         if (!userInfo) {
-            dispatch(register(user.name, user.email, user.nickname, "2021-08-13"))
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
             // si se registra hay que loguearse
-            console.log(user.nickname, user.email, user.name)
-            dispatch(signin(user.email, user.nickname))
         }
-
     }, [])
 
     const trigger = (
@@ -57,8 +52,10 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        { key: 'profile', text: 'Your Profile', href: "profile" },
-        { key: 'sign-out', text: 'Sign Out', onClick: () => logoOutWeb(), href: '/' },
+        //{ key: 'profile', text: 'Tu Perfil', href: "/profile" },
+        { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
+        { key: 'experiences', text: 'Ofrecé experiencias', href: "/experiences" },
+        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
     ]
 
     return (
@@ -69,5 +66,3 @@ const DropdownTriggerExample = () => {
 }
 
 export default DropdownTriggerExample
-
-

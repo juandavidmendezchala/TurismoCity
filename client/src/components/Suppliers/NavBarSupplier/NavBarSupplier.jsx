@@ -8,29 +8,33 @@ import './NavBarSupplier.css'
 import { IconContext } from 'react-icons'
 import TriggerLogin from '../../TriggerLogin/TriggerLogin'
 
-const NavBarSupplier = () => {
-    const [sidebar, setSidebar] = useState(true)
-    const showSidebar = () => setSidebar(!sidebar)
+const NavBarSupplier = ({ sidebar, showSidebar }) => {
+    const [estado, setEstado] = useState('HOLA')
+
+    function stayColor(index){
+        console.log(estado)
+        setEstado(index)
+    }
+
     return (
         <>
             <IconContext.Provider value={{ color: "fff" }}>
-                <div className="navBarSupplier">
-                    <Link to="#" className="menu-bars">
-                        <FaIcons.FaBars onClick={showSidebar} />
+                <div className="navBarSuppliers">
+                    <Link to="#" className="menus-bars">
+                        <FaIcons.FaBars onClick={()=>showSidebar()} />
                     </Link>
-                    {/* <TriggerLogin /> */}
                 </div>
-                <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                    <ul className="nav-menu-items" onClick={showSidebar}>
-                        <li className="navbar-toggle">
+                <nav className={sidebar ? "nav-menus active" : "nav-menus"}>
+                    <ul className="nav-menus-items" >
+                        {/* <li className="navbar-toggle">
                             <Link to="#" className="menu-bars">
                                 <AiIcons.AiOutlineClose />
                             </Link>
-                        </li>
+                        </li> */}
                         {SidebarData.map((item, index) => {
                             return (
-                                <li key={index} className={item.cName}>
-                                    <Link to={item.path}>
+                                <li className={estado==index?('nav-menus-items-active'):item.cName} key={index} value={index} onClick={()=>stayColor(index)}>
+                                    <Link to={item.path} >
                                         {item.icon}
                                         <span>{item.title}</span>
                                     </Link>
@@ -43,5 +47,6 @@ const NavBarSupplier = () => {
         </>
     )
 }
+
 
 export default NavBarSupplier
