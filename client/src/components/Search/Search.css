@@ -1,0 +1,7 @@
+.orderFilterFight{
+    
+    display: flex;
+    flex-direction: column;
+    background-image: url('../FlightCard/img.jpg');
+    
+}

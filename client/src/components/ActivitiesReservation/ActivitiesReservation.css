@@ -1,0 +1,38 @@
+.reservation-label{
+    display: flex;
+    flex-direction: column;
+    opacity: 100%;
+    font-family: roboto;
+    margin-top: 15px;
+}
+
+.reservation-input{
+    margin-top: 10px;
+}
+
+.reservation-button{
+    margin-top: 15px;
+    background-color: rgb(255,7,110);
+    border-radius: 10px;
+    font-family: roboto;
+    color: bisque;
+    padding: 6px;
+}
+
+.reservation-form{
+    font-family: roboto;
+    font-weight: 800;
+   background-color: rgb(133, 150, 197);
+}
+.PayContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    
+}
+.FormGroup{
+    margin-top: 10px;
+    
+}
+

@@ -1,0 +1,60 @@
+.form-form-body{
+    margin-top: 25px;
+
+    font-family: roboto;
+    border-radius: 18px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.897);
+    opacity: 95%;
+    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); */
+height: 70px;
+    transition: 0.5s ease;
+    margin-bottom:50px;
+}
+.filter-cards{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.form-barra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.placeholderCiudad{
+    color: gray;
+    width: 150px;
+}
+.SelectPaisJ{
+    border: 1px solid black;
+    border-radius: 40px;
+    padding: 7px;
+    width:200px;
+}
+
+.form-label-input{
+    margin-top: 12px;
+}
+
+.form-label{
+    font-family: roboto;
+    font-weight: 700;
+}
+
+.form-label-input > select{
+    cursor: pointer;
+}
+
+.submit-button-filter{
+    margin-top: 25px;
+    
+
+    border-radius: 12px;
+    
+    padding: 5px;
+    background: rgba(46, 100, 151, 0.897);
+    opacity: 95%;
+    color: honeydew;
+  
+
+}

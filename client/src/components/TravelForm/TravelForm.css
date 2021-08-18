@@ -1,63 +1,252 @@
 .TravelFormContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  height: 530px;
+  margin-left: 100px;
+  margin-top: 20px;
   align-items: center;
-  padding-top: 20px;
+  justify-content: center;
+}
+.TitleHome {
+  font-size: 40px;
+  padding-top: 150px;
+  padding-bottom: 20px;
 }
 .FormContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 530px;
+  background-color: #1a2635;
+  opacity: 90%;
+  box-shadow: 10px 10px 30px 1px rgb(0, 0, 0);
+  border-radius: 20px;
+}
+.ContainerForm {
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  background-color: #0f3057;
-  padding-top: 30px;
-  height: 500px;
-  width: 900px;
-  border-radius: 10%;
-  opacity: 80%;
+  width: 550px;
 }
 .DesdeHaciaContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: -20px;
   justify-content: space-around;
-  height: 130px;
-}
-.TextTravelForm {
-  color: white;
-  font-size: 30px;
+  margin-left: 20px;
+  height: 80px;
+  width: 430px;
+  margin-bottom: 30px;
 }
 .DesdeHastaContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  height: 130px;
+  height: 80px;
+  width: 440px;
+  /* padding-bottom: 10px;
+  padding-top: -10px; */
 }
-.FormTravelButton {
-  width: 100px;
-  height: 40px;
-  background-color: red;
+.ContainerSelectAbajo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.TextTravelFormAbajo {
   color: white;
+  font-size: 20px;
+  margin-right: 140px;
+}
+.TextTravelFormArriba {
+  color: white;
+  font-size: 20px;
+  margin-left: -25px;
+  margin-right: 170px;
+}
+.selectPassengers {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 400px;
+}
+.LabelSelectPassengers2 {
+  color: white;
+  font-size: 15px;
+}
+.InputSelectPassengers {
+  width: 50px;
+  height: 20px;
+}
+.selectCurrency {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.LabelSelectCurrency {
+  color: white;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 .SelectTravelForm {
-  width: 130px;
-  height: 30px;
+  width: 235px;
+  height: 40px;
+}
+.SelectTravelFormContainer {
+  display: flex;
+  flex-direction: column;
 }
 .InputTravelForm {
-  height: 30px;
-  border-radius: 10%;
   width: 200px;
+  border-radius: 7px;
+  padding: 10px;
+  color: grey;
+}
+.DesdeInput {
+  color: black;
+  width: 200px;
+  height: 40px;
+}
+.PositionButton {
+  padding-top: 8px;
+  width: 90px;
+  height: 80px;
+}
+.TextAirlines {
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 380px;
+  height: 140px;
+  margin-top: -10px;
+  font-size: 25px;
+}
+.PublicityContainer {
+  height: 600px;
+  width: 480px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding-top: 10px;
+}
+.PrimerasDos {
+  width: 400px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-left: -50px;
+}
+.Subiteaeseavionletra {
+  color: white;
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.Subiteaeseavion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  padding-top: 20px;
+  background-image: url(./Imagenes/TICKETBARATO.png);
+  width: 481px;
+  height: 140px;
+}
+.LogoAerolineas {
+  width: 160px;
+  margin-top: -40px;
+}
+.AcomodoImg {
+  margin-top: -50px;
+  width: 465px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.LogoAerolineasAmerican {
+  width: 150px;
+  height: 70px;
+  padding-left: -15px;
+  margin-left: -13px;
+}
+.LogoAerolineasArgentina {
+  width: 120px;
 }
 
-.Form select {
-  margin-top: 2rem;
-  align-items: center;
-  /* width: 100px; */
-  height: 25px;
-  border: none;
-  border-radius: 4px;
-  font-size: 20px;
-  padding-left: 15px;
-  color: rgb(17, 17, 17);
-  margin-bottom: 9%;
+.LogoAerolineasNew {
+  width: 130px;
+  height: 50px;
+  margin-left: 10px;
+  margin-top: 0px;
+}
+.LogoAerolineasFrance {
+  position: relative;
+  width: 130px;
+  height: 54px;
+  margin-top: 20px;
+  padding-left: -5px;
+}
+.LogoAerolineasUnited {
+  width: 150px;
+  height: 70px;
+  margin-left: -3px;
+}
+.PrimerasDos {
+  margin-left: 0px;
+  display: flex;
+  width: 460px;
+}
+.LogoAerolineasUnited {
+  width: 160px;
+  height: 70px;
+  margin-left: -20px;
+}
+.LogoAerolineasBritish {
+  width: 160px;
+  height: 30px;
+  margin-top: 18px;
+  margin-left: 15px;
+  margin-right: -28px;
+}
+.RadioTravelForm {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -250px;
+  align-items: baseline;
+  margin-top: 20px;
+}
+.LabelRadioTravelForm {
+  color: white;
+  font-size: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.SelectCurrencySelect {
+  height: 40px;
+  width: 230px;
+  border-color: none;
+}
+.InfoDeVuelo {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: flex-start;
+  background-color: tomato;
+}
+.ContainerInfoVuelo {
+  background-color: #ff6347;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

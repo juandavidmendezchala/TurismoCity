@@ -1,0 +1,79 @@
+.adminPanel{
+    background-color: #f7f8fd;
+    height: 100%;
+}
+.postsTable{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.userActivitiesInfo{
+    background-color: #fff;
+    border-radius: 20px;
+    border: solid 1px lightgrey;
+    height: 100px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+.namePicture{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+}
+.namePicture img{
+    margin: 0 auto;
+}
+.namePicture p{
+    margin: 0;
+}
+
+.detailActivities{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.detailActivities span{
+    font-weight: 700;
+}
+.postActive{
+    background-color: #e2f9e7;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #57b464;
+}
+.postDisabled{
+    background-color: #fef3e6;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #ff9017;
+}
+.uploadStatus{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+}
+.uploadStatus p{
+    margin: 0;
+}
+.uploadStatus button{
+    color: #0F3057;
+    border:none;
+    background-color: transparent;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.uploadStatus button:hover{
+    cursor: pointer;
+}
+.returnDelete{
+    display: none;
+}
+.detailInactivo{
+    display: none;
+}
