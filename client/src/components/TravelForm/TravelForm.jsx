@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { getFrom } from "../../store/actions/searchFlights"
 import "./TravelForm.css"
 
-
 const TravelForm = (props) => {
     const dispatch = useDispatch();
 
