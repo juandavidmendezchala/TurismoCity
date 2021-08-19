@@ -31,9 +31,9 @@ const FormActivities = () => {
     })
 
     const user = useSelector(state => state.userSignin)
-    const {userInfo} = user
-    const {email} = userInfo
-    const {token} = userInfo
+    const { userInfo } = user
+    const { email } = userInfo
+    const { token } = userInfo
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -70,8 +70,9 @@ const FormActivities = () => {
             setCityL(countryL)
         }
         console.log(email)
+        console.log(form)
         const { name, date, description, price, places, duration, initialTime, images, country, city } = form
-        dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, images, country, city, email}))
+        dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, images, country, city, email }))
         dispatch(signin(email, token))
         alert("Cargaste la actividad con Exito!!!");
     }
