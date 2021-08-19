@@ -5,6 +5,7 @@ import Navbar from "../NavBar/Navbar"
 import TravelForm from "../TravelForm/TravelForm"
 import image from './img3.png';
 import axios from 'axios';
+import News from '../News/News'
 
 export const Home = () => {
 
@@ -13,6 +14,7 @@ export const Home = () => {
             <img src={image} className='LandingFirst'/>
            
             <div className='TravelForm'><TravelForm /></div>
+            <News></News>
             {/* <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas</div> */}
         </div>
     )
