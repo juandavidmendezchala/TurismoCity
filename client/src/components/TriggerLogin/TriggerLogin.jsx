@@ -27,8 +27,7 @@ const DropdownTriggerExample = () => {
         // vacio el user de auth0
         logout()
         // llevo a principal
-           window.location.assign('/');
-        console.log("yendo a principal")
+           window.location.origin();
     }
 
     useEffect(() => {
