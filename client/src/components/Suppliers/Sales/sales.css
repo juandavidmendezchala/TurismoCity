@@ -1,0 +1,7 @@
+.containerSales{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: left;
+    margin: 10px 0;
+}
