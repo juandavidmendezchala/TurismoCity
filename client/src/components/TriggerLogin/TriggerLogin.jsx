@@ -27,6 +27,7 @@ const DropdownTriggerExample = () => {
         // vacio el user de auth0
         logout()
         // llevo a principal
+        console.log("Saliendo...")
         window.location.origin();
     }
 
