@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Activity, Purchase } = require('../models');
+const { Activity, Purchase, User } = require('../models');
 const { Op } = require("sequelize")
 const router = Router();
 
@@ -22,7 +22,24 @@ router.get('/sales/:id', async (req, res) => {
             userId: id
         },
         include: [{
-            model: Purchase
+            model: Purchase,
+            include: [{
+                model: User
+            }]
+        }],
+
+    })
+    res.send(result)
+})
+router.get('/salesInfo/:id', async (req, res) => {
+    const id = req.params.id
+
+    const result = await User.findAll({
+        where: {
+            id: id
+        },
+        include: [{
+            model: Purchase,
         }]
     })
 
