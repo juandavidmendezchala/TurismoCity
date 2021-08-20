@@ -26,7 +26,9 @@ export default function MyActivities(props){
         My Activities 
         <SubMenuActivities/>
         <div className="contenCardSub">
-           {activitie.map((c) => 
+           {
+           activitie?.length !== 0?
+           activitie.map((c) => 
                      <TarjetaActividad 
                         key={c.id}
                         id = {c.id}
@@ -36,7 +38,10 @@ export default function MyActivities(props){
                         images={c.activity.images}
                         
                      />
-                  )}
+                  ) :
+                  <div>No hay compras realizadas</div>
+                  
+                  }
             
         </div>
         
