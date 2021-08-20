@@ -14,7 +14,9 @@ export function getFlights(p, index = 1) {
   if (p.way === 'roundtrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+      return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
+    'Access-Control-Allow-Origin': '*'
+  }})
         .then(response => response.json())
         .then(json => {
           if (json.message) {
