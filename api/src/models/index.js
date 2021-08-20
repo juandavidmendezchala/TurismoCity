@@ -5,6 +5,8 @@ const activityModel = require('./activity.js')
 const airportsModel = require('./airports')
 const feedback = require('./feedback')
 const purchase = require('./purchase')
+const schedModel = require('./scheduler')
+const whishModel = require('./whishes')
 
 //const userActivity = require('./activitie.js')
 const photo = require('./photo')
@@ -35,20 +37,17 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+        `postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`,
         { logging: false, native: false }
       );
-
-// const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`, {
-//  logging: false,
-//    native: false
-// })
 
 const User = userModel(sequelize)
 const Activity = activityModel(sequelize)
 const Airports = airportsModel(sequelize)
 const FeedBack = feedback(sequelize)
 const Purchase = purchase(sequelize)
+const Scheduler = schedModel(sequelize)
+const Whishes = whishModel(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -61,24 +60,17 @@ const Purchase = purchase(sequelize)
 //City.belongsTo(Country, {foreignKey: 'countryCode', targetKey: 'isoCode'});
 //Package.hasMany(Activitie, {foreignKey: 'idPackete'});
 
+Scheduler.belongsTo(User)
+User.hasMany(Scheduler)
 
-
+Whishes.belongsTo(User)
+User.hasMany(Whishes)
 
 Activity.belongsTo(User)
 User.hasMany(Activity)
 
 Activity.belongsToMany(User, { through: 'favorite' });
 User.belongsToMany(Activity, { through: 'favorite' })
-
-module.exports = {
-    conn: sequelize,
-    User,
-    Activity,
-    Airports,
-    FeedBack,
-    Purchase
-}
-
 
 FeedBack.belongsTo(Activity)
 Activity.hasMany(FeedBack)
@@ -92,4 +84,15 @@ User.hasMany(Purchase)
 /*FeedBack.belongsTo(User)
 User.hasMany(FeedBack)
 */
+
+module.exports = {
+  conn: sequelize,
+  User,
+  Activity,
+  Airports,
+  FeedBack,
+  Purchase,
+  Scheduler,
+  Whishes
+}
 
