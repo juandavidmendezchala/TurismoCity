@@ -1,4 +1,5 @@
 import React from "react";
+import {useSelector, useDispatch} from 'react-redux'
 import { useState } from "react";
 import Slider from 'react-slick'
 import stone from './S.png'
@@ -9,6 +10,8 @@ import wars from './W.png'
 import hom from './H.png'
 
 import './carouselNews.css'
+import { useEffect } from "react/cjs/react.development";
+import { getNews } from "../../store/actions/newsActions";
 
 const images = [stone, ast, rick, brain, wars, hom]
 
@@ -16,6 +19,17 @@ const images = [stone, ast, rick, brain, wars, hom]
 
 
 const CarouselNews = () => {
+
+    const News = useSelector(state => state.news)
+
+    const dispatch = useDispatch()
+
+    const {loading, news} = News
+
+    useEffect(() => {
+        dispatch(getNews())
+    }, [])
+
     const NextArrow = ({ onClick }) => {
         return (
             <div className='arrow next' onClick={onClick}>
@@ -56,9 +70,13 @@ const CarouselNews = () => {
 
         <div className='carrouselFirst'>
             <Slider {...settings}>
-                {images.map((img, id) => (
+                {news?.map((news, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlide' : 'slide'}>
-                        <img className='imagCarusel' src={img} alt={img} />
+                        <div className="container-carousel">
+                        <h1>{news.title}</h1>
+                        <img className='imagCarusel' height="150px" src={news.image} alt={news.title} />
+
+                        </div>
                     </div>
                 ))}
             </Slider>
