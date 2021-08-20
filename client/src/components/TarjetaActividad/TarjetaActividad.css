@@ -121,7 +121,10 @@
     color: #00b97d;
     padding-top:0px;
   }
-  
+  .commentaryStyle{
+    font-size: 12px;
+    font-style: italic;
+  }
   .inside-page__btn--camping::before { 
     background-color: #00b97d;
   }

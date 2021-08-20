@@ -31,6 +31,13 @@ router.post('/', async(req, res) => {
 
     return res.send(createFeed)
 })
+router.get('/user/:idUser', async(req,res) =>{
+    let {idUser} = req.params
+    const allComments = await FeedBack.findAll({
+        where: {userId: idUser}
+    })
+    res.send(allComments)
+})
 
 router.get('/:id', async(req, res) => {
     let {

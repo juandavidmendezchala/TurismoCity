@@ -6,6 +6,7 @@ import swal from 'sweetalert'
 
 
 export default function FeedBack(){
+
    const mostrarAlerta = () => {
      swal({
        title: "Registrado!",

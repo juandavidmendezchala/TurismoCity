@@ -1,7 +1,7 @@
 import './TarjetaActividad.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addFeedback } from '../../store/actions/feedBack'
+import { addFeedback, getAllCommentsOfUser } from '../../store/actions/feedBack'
 import swal from 'sweetalert'
 
 export default function TarjetaActividad(props) {
@@ -9,9 +9,18 @@ export default function TarjetaActividad(props) {
         commentary: '',
         score: ''
     })
+    const[comment, setComment] = useState({})
+    
     const userId = useSelector(state => state.userSignin.userInfo.id)
-
+    const commentsOfUser = useSelector(state => state.reducerFeedBack.commentsOfUser)
     const dispatch = useDispatch()
+
+  
+   
+    useEffect(async() => {
+        await dispatch(getAllCommentsOfUser(userId))
+        console.log('ESTE ES EL VALOR QUE BUSCO',commentsOfUser)
+    }, [])
 
     const mostrarAlerta = () => {
         swal({
@@ -21,7 +30,8 @@ export default function TarjetaActividad(props) {
             button: "Aceptar"
         })
     }
-
+    
+    
     function handlerChange(e) { //se encarga de actualizar el estado
         //crea nuevo estado
         //setea el estado previo
@@ -70,16 +80,28 @@ export default function TarjetaActividad(props) {
                         <h3 class="inside-page__heading inside-page__heading--camping">
                             FeedBack
                         </h3>
-
+                        {commentsOfUser?.find(comment => comment.activityId === props.idAct) ?
+                        <div>
+                            <strong>Tu comentario sobre esta actividad:</strong>
+                            <div className='commentaryStyle'>{commentsOfUser[0].commentary}</div>
+                            <div className='commentaryStyle'><strong>Puntuación: </strong>{ commentsOfUser[0].score}&#11088;</div>
+                        </div>
+                        
+                        : <div>
                         <p class="inside-page__text">
 
                             Comentario:
-                            <textarea name="commentary" onChange={handlerChange} id="" rows="1"></textarea>
+                            <textarea name="commentary" value={state.commentary} onChange={handlerChange} id="" rows="1"></textarea>
                             Puntuacion:
-                            <input name="score" onChange={handlerChange} type="number" />
+                            <input name="score" value={state.score} onChange={handlerChange} type="number" />
                         </p>
 
                         <button class="inside-page__btn inside-page__btn--camping" onClick={() => addFeed(userId, props.idAct)}>Aceptar</button>
+                    </div>}
+                            
+
+                        
+
                     </div>
                 </div>
             </div>

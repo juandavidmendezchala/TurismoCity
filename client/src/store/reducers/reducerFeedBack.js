@@ -1,7 +1,8 @@
-import {ADD_FEEDBACK} from "../actions/feedBack"
+import {ADD_FEEDBACK, GET_ALLCOMMENTS_OF_USER} from "../actions/feedBack"
 
 const initialState = {
     FeedBackLoad: [],
+    commentsOfUser: []
 }
 
 export const reducerFeedBack = (state = initialState, action) => {
@@ -12,6 +13,11 @@ export const reducerFeedBack = (state = initialState, action) => {
                 ...state,
                 FeedBackLoad: action.payload
                 
+            }
+        case GET_ALLCOMMENTS_OF_USER:
+            return{
+                ...state,
+                commentsOfUser: action.payload
             }
         default:
             return state;
