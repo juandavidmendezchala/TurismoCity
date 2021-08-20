@@ -15,7 +15,10 @@ export function getFlights(p, index = 1) {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
       return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-with, Content-Type'
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
   }})
         .then(response => response.json())
         .then(json => {
