@@ -52,7 +52,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                 <div className="card-text">
                     <span className="date">{date}</span>
                     <h2>{name}</h2>
-                    <p>{description}</p>
+                    {/* <p>{description}</p> */}
                     <div className="favoritelogo-div" >
                         {
                             isFavorite ?

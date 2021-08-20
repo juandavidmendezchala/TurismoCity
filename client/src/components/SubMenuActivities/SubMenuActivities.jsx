@@ -19,8 +19,8 @@ export default function SubMenuActivities(props){
      <div>
       <nav className="navSubMenu">
      
-	   <a className={stateButton === 'anteriores'?('anteriores'):null} onClick={()=>buttonMenu('anteriores')} href="/activities">Anteriores</a>
-	   <a className={stateButton === 'proximos'?('proximos'):null} onClick={()=>buttonMenu('proximos')} href="activities/next">Proximos</a>
+	    <a className={stateButton === 'anteriores'?('anteriores'):null} onClick={()=>buttonMenu('anteriores')}><Link to='/yourActivities/activities'>Anterior</Link></a>
+	   <a className={stateButton === 'proximos'?('proximos'):null} onClick={()=>buttonMenu('proximos')}><Link to='/yourActivities/activities/next'>Proximo</Link></a>
 	 
 	  <div class="animation start-home"></div>
        </nav>

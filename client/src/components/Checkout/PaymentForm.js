@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
+import { REACT_APP_API } from '../../store/Consts/Consts'
 
 const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -27,7 +28,7 @@ export const PaymentForm = () => {
         if (!error) {
             try {
                 const { id } = paymentMethod
-                const response = await axios.post("http://localhost:3001/checkout", {
+                const response = await axios.post(`${REACT_APP_API}/checkout`, {
                     amount: 500000,
                     id
                 })

@@ -8,13 +8,14 @@ import {
     USER_SIGNIN_SUCCESS,
     USER_LOGOUT,
     SIGN_IN_AUTH0,
-    USER_LOGOUT_LOC
+    USER_LOGOUT_LOC,
+    REACT_APP_API
 } from '../Consts/Consts'
 
 export const register = (name, email, birthdate) => async (dispatch) => {
     dispatch({ type: USER_REGISTER_REQUEST })
     try {
-        const { data } = await axios.post(`http://localhost:3001/user/register`, { name, email, birthdate })
+        const { data } = await axios.post(`${REACT_APP_API}/user/register`, { name, email, birthdate })
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
         localStorage.setItem('userInfo', JSON.stringify(data))
@@ -32,7 +33,7 @@ export const register = (name, email, birthdate) => async (dispatch) => {
 export const signin = (email, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } })
     try {
-        const { data } = await axios.post('http://localhost:3001/user/signin', { email, password })
+        const { data } = await axios.post(`${REACT_APP_API}/user/signin`, { email, password })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
         localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (err) {

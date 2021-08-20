@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { purchase } from "../../store/actions/purchase"
 //Importo librerias necesarias
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import {REACT_APP_API} from '../../store/Consts/Consts'
 import axios from 'axios'
 
 
@@ -33,7 +34,7 @@ export const ActivitiesReservation = () => {
         if (!error) {
             try {
                 const { id } = paymentMethod
-                const response = await axios.post("http://localhost:3001/checkout", {
+                const response = await axios.post(`${REACT_APP_API}/checkout`, {
                     amount: data.activity.price,
                     id,
                 })

@@ -30,16 +30,16 @@ export default function ActivitiesFilter(props) {
         setStartDate(dateToday)
         setEndDate(dateToday)
 
-        setCountry('Argentina')   
+        setCountry('Argentina')
         var countrie = countries.find(el => el.name === 'Argentina');
-        setState(countrie.states);  
-        
-        
+        setState(countrie.states);
+
+
     }
 
-    const onHandleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(getFilterActivities(
+    const onHandleSubmit = async (e) => {
+        e.preventDefault()
+        await dispatch(getFilterActivities(
             country,
             city,
             startDate,
@@ -50,11 +50,11 @@ export default function ActivitiesFilter(props) {
             // initialTime
             ))
     }
-    
-    function changeState(e){
-    setCountry(e.target.value)
-    var countrie = countries.find(el => el.name === e.target.value);
-    setState(countrie.states);
+
+    function changeState(e) {
+        setCountry(e.target.value)
+        var countrie = countries.find(el => el.name === e.target.value);
+        setState(countrie.states);
     }
 
     /*useEffect(() => {
@@ -81,7 +81,7 @@ export default function ActivitiesFilter(props) {
                 </div>
                 <div className="form-label-input">
                     <label className="form-label">Desde:</label>
-                    <Input 
+                    <Input
                         type="date"
                         
                         icon='calendar alternate outline'
@@ -94,8 +94,7 @@ export default function ActivitiesFilter(props) {
                     <label className="form-label">Hasta:</label>
                     <Input
                         type="date"
-                        
-                        icon='calendar alternate outline'
+                    icon='calendar alternate outline'
                         iconPosition='left'
                         value={endDate}
                         onChange={e => setEndDate(e.target.value)}>
@@ -105,7 +104,6 @@ export default function ActivitiesFilter(props) {
                     <label className="form-label">Hasta(USD):</label>
                     <Input
                         class="ui input"
-                        
                         type="text"
                         id="price"
                         value={price}
@@ -116,7 +114,6 @@ export default function ActivitiesFilter(props) {
                     {/* <label className="form-label">Cupos:</label>
                     <Input
                         class="ui input"
-                        
                         type="number"
                         id="places"
                         value={places}
@@ -126,8 +123,7 @@ export default function ActivitiesFilter(props) {
                 <div className="form-label-input">
                     <label className="form-label">Duración(Max):</label>
                     <Input
-                        class="ui input"
-                        
+                        class="ui input"        
                         type="number"
                         id="duration"
                         value={duration}
@@ -138,7 +134,6 @@ export default function ActivitiesFilter(props) {
                     <label className="form-label">Tiempo de inicio:</label>
                     <Input
                         class="ui input"
-                        
                         type="time"
                         id="initialTime"
                         value={initialTime}

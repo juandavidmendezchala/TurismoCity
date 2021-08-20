@@ -15,7 +15,7 @@
     cursor: pointer;
     margin-left: 35px;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 .body-activitie{
@@ -23,6 +23,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    width: 250px;
+    margin:20px;
 }
 
 
@@ -52,6 +54,7 @@
     border-bottom-right-radius: 15px;
     opacity: 90%;
     background: rgb(133, 150, 197);
+    margin-top:33px;
 }
 
 .card-stats .stat {
@@ -97,4 +100,7 @@
     height: 170px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+.date{
+    margin-top:50px;
 }

@@ -1,3 +1,6 @@
+require('dotenv').config()
+export const REACT_APP_API = process.env.REACT_APP_API
+
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
 export const USER_REGISTER_FAIL = "USER_REGISTER_FAIL";

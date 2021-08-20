@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
+
 const DropdownTriggerExample = () => {
     const dispatch = useDispatch()
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
@@ -51,12 +52,13 @@ const DropdownTriggerExample = () => {
             ),
             disabled: true,
         },
-        userInfo?.isAdmin ?
-            { key: 'suppliers', text: 'Administrador', href: "suppliers" } :
-            { disabled: true },
-        { key: 'profile', text: 'Tu Perfil', href: "profile" },
-        { key: 'panel', text: 'Tus Actividades', href: "youractivities" },
-        { key: 'sign-out', text: 'Salir', onClick: (logout, logoOutWeb) },
+        userInfo?.isAdmin?     
+        { key: 'suppliers', text: 'Administrador', href: "suppliers"} :
+        {disabled: true},
+        { key: 'profile', text: 'Tu Perfil', href: "/profile" },
+        { key: 'panel', text: 'Tus Actividades', href: "/youractivities" },
+        { key: 'panel', text: 'Ofrecé experiencias', href: "/experiences" },
+        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
     ]
 
     return (
