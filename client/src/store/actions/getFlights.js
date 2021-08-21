@@ -60,7 +60,7 @@ export function getFlights(p, index = 1) {
     'Access-Control-Allow-Credentials': true,
     'Access-Control-Allow-Headers': 'Origin, X-Requested-with, Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
-  })
+      }})
         .then(response => response.json())
         .then(json => {
           if (json.message) {
