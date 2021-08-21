@@ -16,9 +16,8 @@ export function getFlights(p, index = 1) {
     return function (dispatch) {
       return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Headers': 'Origin, X-Requested-with, Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    'Access-Control-Allow-Headers': 'access-control-allow-credentials,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
   }})
         .then(response => response.json())
         .then(json => {
@@ -57,9 +56,8 @@ export function getFlights(p, index = 1) {
     return function (dispatch) {
       return fetch(`https://api.flightapi.io/onewaytrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Headers': 'Origin, X-Requested-with, Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    'Access-Control-Allow-Headers': 'access-control-allow-credentials,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
       }})
         .then(response => response.json())
         .then(json => {
