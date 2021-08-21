@@ -13,16 +13,16 @@ const promos = [
 
 const CarouselPromos = () => {
 
-    const News = useSelector(state => state.news)
+    // const News = useSelector(state => state.news)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    const { loading, news } = News
+    // const { loading, news } = News
 
-    useEffect(() => {
-        dispatch(getNews())
-        // console.log('ahora', news)
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getNews())
+    //     // console.log('ahora', news)
+    // }, [])
 
     const NextArrow = ({ onClick }) => {
         return (
