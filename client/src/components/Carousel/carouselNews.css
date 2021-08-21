@@ -53,6 +53,8 @@
   border-radius: 0.5rem;
   padding: 8%;
   box-shadow: 6px 6px 15px rgb(151, 150, 150);
+  margin-bottom: 6%;
+  margin-top: 6%;
 }
 .newstitle {
   font-family: "Guardian Headline", "Futura", "Helvetica", Arial, sans-serif;
