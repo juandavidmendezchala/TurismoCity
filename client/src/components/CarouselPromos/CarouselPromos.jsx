@@ -1,24 +1,17 @@
-import React from "react";
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
 import Slider from 'react-slick'
-import stone from './S.png'
-import ast from './A.png'
-import rick from './R.png'
-import brain from './B.png'
-import wars from './W.png'
-import hom from './H.png'
-
-import './carouselNews.css'
 import { useEffect } from "react/cjs/react.development";
+// import { getPromos } from "../../store/actions/promosActions";
 import { getNews } from "../../store/actions/newsActions";
+import './carouselPromos.css'
 
-const images = [stone, ast, rick, brain, wars, hom]
+const promos = [
+    { title: '12 CUOTAS SIN INTERES CON TODOS LOS BANCOS', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '20% CON BANCO GALICIA', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '2X1 PAGA UNO DISFRUTAN 2', description: 'EN TODAS LA ACTIVIDADES EN LA NIEVE' }, { title: '24 CUOTAS CON INTERES CON TARJETA', description: 'EN TODAS LA ACTIVIDADES EN AFRICA' },
+]
 
-
-
-
-const CarouselNews = () => {
+const CarouselPromos = () => {
 
     const News = useSelector(state => state.news)
 
@@ -33,14 +26,14 @@ const CarouselNews = () => {
 
     const NextArrow = ({ onClick }) => {
         return (
-            <div className='arrow next' onClick={onClick}>
+            <div className='arrow nextP' onClick={onClick}>
                 ▶
             </div>
         )
     }
     const PrevArrow = ({ onClick }) => {
         return (
-            <div className='arrow prev' onClick={onClick}>
+            <div className='arrow prevP' onClick={onClick}>
                 ◀
             </div>
         )
@@ -50,7 +43,7 @@ const CarouselNews = () => {
 
 
     const settings = {
-        dots: true,
+        dots: false,
         // fade: true,
         infinite: true,
         lazyload: true,
@@ -62,21 +55,21 @@ const CarouselNews = () => {
         // slidesToScroll: 1,
         autoplay: true,
         // speed: 15000,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 2000,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         beforeChange: (current, next) => SetImageIdx(next),
     };
     return (
 
-        <div className='carrouselFirst'>
+        <div className='carrouselFirstPromos'>
             <Slider {...settings}>
-                {news?.map((news, id) => (
-                    <div className={id === imageIdx ? 'imageActiveSlide' : 'slide'}>
-                        <div className="container-carousel">
-                            <h2 className="newstitle">{news.title}</h2>
+                {promos?.map((news, id) => (
+                    <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
+                        <div className="container-carouselPromos">
+                            <h2 className="newstitlePromos">{news.title}</h2>
                             {/* <img className='imagCarusel' height="150px" src={news.image} alt={news.title} /> */}
-                            <p className="newstext">{news.description}</p>
+                            <p className="newstextPromos">{news.description}</p>
 
                         </div>
                     </div>
@@ -86,4 +79,4 @@ const CarouselNews = () => {
     )
 }
 
-export default CarouselNews
+export default CarouselPromos

@@ -3,9 +3,9 @@
 
 .carrouselFirst {
   /* margin-top: 300px; */
-  width: 80%;
-  margin: 8rem auto;
-  height: 670px;
+  width: 90%;
+  margin: 5rem auto;
+  /* height: 450px; */
   /* font-size: medium; */
 }
 .slide img {
@@ -37,12 +37,34 @@
 .next {
   right: 0%;
   top: 50%;
+  color: rgba(0, 0, 255, 0.377);
 }
 .prev {
   left: 0%;
   top: 50%;
+  color: rgba(0, 0, 255, 0.377);
 }
 
-.container-carousel{
-  margin-top: 10px;
+.container-carousel {
+  /* margin-top: 10px; */
+  background-color: rgb(236, 236, 236);
+  height: 350px;
+  width: 450px;
+  border-radius: 0.5rem;
+  padding: 8%;
+  box-shadow: 6px 6px 15px rgb(151, 150, 150);
+}
+.newstitle {
+  font-family: "Guardian Headline", "Futura", "Helvetica", Arial, sans-serif;
+  font-size: x-large;
+  text-shadow: 5px 5px 9px rgba(87, 125, 221, 0.801);
+}
+
+.newstext {
+  font-family: "Guardian Headline", "Futura", "Helvetica", Arial, sans-serif;
+  margin-top: 1rem;
+  max-width: 400px;
+  font-size: small;
+  font-weight: bold;
+  text-shadow: 6px 6px 10px rgba(43, 41, 41, 0.568);
 }
