@@ -6,6 +6,7 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { REACT_APP_API } from '../../../store/Consts/Consts'
 import axios from 'axios'
 import './sales.css'
+import { InfoSale } from './InfoSale';
 
 const Sales = ({ sidebar }) => {
     const [sales, setSales] = useState()
@@ -30,12 +31,11 @@ const Sales = ({ sidebar }) => {
             </>
         )
     }
-    console.log(sales)
-    console.log(sales[0].id)
+
     return (
         <div className={sidebar ? "sidebarAbierta" : "sidebarCerrada"}>
             <h2>Resumen de ventas</h2>
-            <div className="containerSales">
+            <div className="containerSales  description">
                 <span><p>Actividad</p></span>
                 <div className="infoSales">
                     <span><p>Ingresos Totales</p></span>
@@ -48,19 +48,24 @@ const Sales = ({ sidebar }) => {
                 sales.map((e, i) =>
                     <>
                         <div className="containerSales">
-                            <p>{i + 1} {e.name}</p>
+                            <p><span id="numVenta">{i + 1}</span> {e.name}</p>
                             <div className="infoSales">
                                 <p>${e.price * e.purchases.length}</p>
                                 <p>{e.purchases.length}</p>
                             </div>
                             <button onClick={handleClickInfo}><BsThreeDots /></button>
                         </div>
-                        {active ? <div className={`containerDetailSales`}>
-                            <div className="containerInfoSales">
-                                <p><span>Fecha</span></p>
-                                <p><span>Consumidor</span></p>
-                                <p><span>Informacion de contacto</span></p>
-                            </div>
+                        <div className={active ? "detailActivo containerInfoSales" : "detailInactivo"}>
+                            <p><span>Fecha</span></p>
+                            <p><span>Consumidor</span></p>
+                            <p><span>Informacion de contacto</span></p>
+                        </div>
+                        {
+                            e.purchases.map(e =>
+                                <InfoSale active={active} name={e.user.name} mail={e.user.email} fecha={e.fecha} />
+                            )}
+                        {/* <div className={`${active ? "" : "disabled"}`}>
+                            
                             {e.purchases.map(e =>
                                 <>
                                     <div className="containerInfoSales">
@@ -69,8 +74,8 @@ const Sales = ({ sidebar }) => {
                                         <a href={`mailto:${e.user.email}`}><HiOutlineMail /></a>
                                     </div>
                                 </>
-                            )}
-                        </div> : <></>}
+                            )
+                            }</div> */}
 
                     </>
                 )

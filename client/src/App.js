@@ -28,6 +28,7 @@ import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
 import Sales from "./components/Suppliers/Sales/Sales";
+import HomeAdminPanel from "./components/Suppliers/HomeAdminPanel/HomeAdminPanel";
 
 
 
@@ -62,6 +63,7 @@ function App() {
       <Route path="/suppliers" render={() => <Suppliers sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
+      <Route path="/suppliers/info" render={() => <HomeAdminPanel sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
       <Route path="/suppliers/sales" render={() => <Sales sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />

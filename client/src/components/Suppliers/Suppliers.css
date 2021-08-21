@@ -1,0 +1,67 @@
+.datosHomeAdmin{
+    background-color: #f4f4f4 !important;
+}
+.threeColumsInfo{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.cardInfoSupplier{
+    background-color: #fff;
+    margin: 15px;
+    height: 100px;
+    border: solid 2px #e5e5f4;
+    border-radius: 10px;
+    align-items: center;
+}
+.barritaInfoSupplier{
+    margin:0 auto;
+    padding: 3px;
+    max-width: 80%;
+}
+.datosCantidadesSup{
+    margin: 0 auto;
+    max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.containerBarritaSup{
+    display: grid;
+    grid-template-columns: 65% 35%
+}
+.blueColorBack{
+    background-color: #008cff;
+    width: 100%;
+    margin-right:0 ;
+    
+}
+.blueColor{
+    color: #008cff;
+    font-size: 20px;
+    font-weight: bolder;
+    align-items: center;
+}
+.greenColor{
+    color: #17a00e;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.greenColorBack{
+    background-color: #17a00e;
+    width: 100%;
+    margin-right:0 ;
+}
+.yellowColor{
+    color: #ffcb2f;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.yellowColorBack{
+    background-color: #ffcb2f;
+    width: 100%;
+    margin-right:0 ;
+}
+.greyColor{
+    background-color: #e9ecef;
+    width: 100%;
+    margin-left: 0;
+}
