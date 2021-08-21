@@ -55,7 +55,12 @@ export function getFlights(p, index = 1) {
   else if (p.way === 'onewaytrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`https://api.flightapi.io/onewaytrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+      return fetch(`https://api.flightapi.io/onewaytrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-with, Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+  })
         .then(response => response.json())
         .then(json => {
           if (json.message) {
