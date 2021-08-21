@@ -73,6 +73,22 @@ router.get('/next', async(req, res) => {
     
 })
 
+router.get('/hola', async(req, res) => {
+  const idUser = ''
+
+   Purchase.findAll({
+          include: [{
+            model: Activity,    
+            where: {
+              userId: '1'
+            }
+          }]
+        })
+      .then((resut) => 
+      res.send(resut));
+  
+})
+
 router.get('/previous', async(req, res) => {
     const idUser = '2'
 

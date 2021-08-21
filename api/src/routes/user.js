@@ -26,13 +26,57 @@ router.post('/signin', async (req, res) => {
     res.status(401).send({ message: 'Invalid email or password' })
 })
 
+router.get('/seller', async (req, res) => {
+
+    //const {id} = req.params
+
+    const user = await User.findAll({
+        where: {
+            type: 'SELLER'
+        }
+    })
+    
+    return res.send(user)
+})
+
+router.get('/email/:id', async (req, res) => {
+
+    const {id} = req.params
+
+    const user = await User.findOne({
+        where: {
+            id: id
+        }
+    })
+    
+    return res.send(user)
+})
+
+router.put("/:idUser/:status", async (req, res) => {
+    
+    const { idUser} = req.params
+    const status = req.params.status
+    console.log(idUser, status)
+    await User.update({
+        state: status
+    }, {
+        where: {
+            id: idUser
+        }
+    })
+
+    res.send(console.log("Estado de la publicacions cambiado con exito"))
+})
+
 router.post('/register', async (req, res) => {
     console.log(req.body)
     let {
         name,
         email,
         password,
-        birthdate
+        birthdate,
+        state,
+        type
     } = req.body;
 
     const user = await User.findOne({
@@ -45,7 +89,9 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
-            password: bcrypt.hashSync(password, 8)
+            password: bcrypt.hashSync(password, 8),
+            state,
+            type
         }
         )
     }
@@ -60,7 +106,9 @@ router.post('/register', async (req, res) => {
         name: createdUser.name,
         email: createdUser.email,
         birthdate: user.birthdate,
-        token: generateToken(createdUser)
+        token: generateToken(createdUser),
+        type: createdUser.type,
+        state: createdUser.state
     })
 })
 

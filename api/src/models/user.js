@@ -23,16 +23,12 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        isAdmin: {
+        type: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        state: {
             type: DataTypes.BOOLEAN,
-            allowNull: true
-        },
-        votes: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        rating: {
-            type: DataTypes.DECIMAL,
             allowNull: true
         }
     })

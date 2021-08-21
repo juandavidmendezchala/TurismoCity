@@ -1,12 +1,13 @@
 const { Router } = require('express');
-const { Package, Activity, User, favorite } = require('../models/index')
+const { Purchase, Activity, User, favorite } = require('../models/index')
 const { Op } = require("sequelize");
 
 const router = Router();
 
+
 router.get("/", async (req, res) => {
   try {
-    const getAllActivities = await Activity.findAll({});
+    const getAllActivities = await Activity.findAll();
     return res.send(getAllActivities);
   } catch (err) {
     return res.send({
@@ -15,6 +16,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
 
 router.post("/filter", async (req, res) => {
   let {

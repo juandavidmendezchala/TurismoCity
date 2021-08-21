@@ -27,6 +27,11 @@ import { loadStripe } from "@stripe/stripe-js"
 import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+import NavBarUserAdmin from "./components/NavBarUserAdmin/NavBarUserAdmin";
+import { ContainerUserAdmin } from "./components/ConteinerUserAdmin/ConteinerUserAdmin";
+import { ContainerActivity } from "./components/ConteinerActivity/ConteinerActivity";
+import ContactUs from "./components/ContactUs/ContactUs";
+
 
 
 
@@ -52,7 +57,11 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/email" component={ContactUs}></Route>
       <Route path="/yourActivities" render={() => <NavBarSupplierUser showSidebar={showSidebar} sidebar={sidebar} />}></Route>
+      <Route path="/admin" render={() => <NavBarUserAdmin showSidebar={showSidebar} sidebar={sidebar} />}></Route>
+      <Route path="/admin/userList" render={() => <ContainerUserAdmin sidebar={sidebar} />} />
+      <Route path="/admin/activityList" render={() => <ContainerActivity sidebar={sidebar} />} />
       <Route exact path="/yourActivities/favorites" render={() => <FavoritesActivities sidebar={sidebar} />}></Route>
       <Route exact path="/yourActivities/activities" render={() => <MyActivities sidebar={sidebar} />}></Route>
       <Route exact path="/yourActivities/activities/next" component={ActivitiesPrev} ></Route>
@@ -66,6 +75,7 @@ function App() {
       <Route path="/suppliers/image" component={ImageActivity} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
+      
     </div >
   );
 }
