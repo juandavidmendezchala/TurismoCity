@@ -4,7 +4,7 @@ import { useState } from "react";
 import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
 // import { getPromos } from "../../store/actions/promosActions";
-import { getNews } from "../../store/actions/newsActions";
+import { getPromo } from '../../store/actions/promoActions';
 import './carouselPromos.css'
 
 const promos = [
@@ -13,16 +13,15 @@ const promos = [
 
 const CarouselPromos = () => {
 
-    // const News = useSelector(state => state.news)
+    const Promotions = useSelector(state => state.promotions)
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    // const { loading, news } = News
+    const { loading, promotions } = Promotions
 
-    // useEffect(() => {
-    //     dispatch(getNews())
-    //     // console.log('ahora', news)
-    // }, [])
+    useEffect(() => {
+        dispatch(getPromo())
+    }, [])
 
     const NextArrow = ({ onClick }) => {
         return (
@@ -64,12 +63,12 @@ const CarouselPromos = () => {
 
         <div className='carrouselFirstPromos'>
             <Slider {...settings}>
-                {promos?.map((news, id) => (
+                {promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
-                            <h2 className="newstitlePromos">{news.title}</h2>
+                            <h2 className="newstitlePromos">{promo.title}</h2>
                             {/* <img className='imagCarusel' height="150px" src={news.image} alt={news.title} /> */}
-                            <p className="newstextPromos">{news.description}</p>
+                            <p className="newstextPromos">{promo.description}</p>
 
                         </div>
                     </div>

@@ -42,6 +42,10 @@ export const GET_NEWS_REQUEST = 'GET_NEWS_REQUEST'
 export const GET_NEWS_SUCCESS = 'GET_NEWS_SUCCESS'
 export const GET_NEWS_FAIL = 'GET_NEWS_FAIL'
 
+export const GET_PROMO_REQUEST = 'GET_PROMO_REQUEST'
+export const GET_PROMO_SUCCESS = 'GET_PROMO_SUCCESS'
+export const GET_PROMO_FAIL = 'GET_PROMO_FAIL'
+
 export const API_KEY_NEWS = '33cc29d953d22d880f4ca804c1c9dc6a'
 
 
