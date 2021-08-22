@@ -28,6 +28,7 @@ import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
 import CarouselNews from "./components/Carousel/CarouselNews";
+import CarouselAdminPost from "./components/CarouselAdminPost/CarouselAdminPost";
 
 function App() {
   const [sidebar, setSidebar] = useState(true);
@@ -85,9 +86,18 @@ function App() {
         render={() => <ContainerUserAct sidebar={sidebar} />}
       />
       <Route path="/suppliers/load" component={FormActivities} />
-      <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
+      <Route
+        path="/suppliers/post/:id"
+        render={({ match }) => (
+          <DetailPostSupplier
+            match={match}
+            sidebar={sidebar}
+            showSidebar={showSidebar}
+          />
+        )}
+      />
       <Route path="/suppliers/image" component={ImageActivity} />
-      <Route path="/newscarousel" component={CarouselNews} />
+      <Route path="/admin/post" component={CarouselAdminPost} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>

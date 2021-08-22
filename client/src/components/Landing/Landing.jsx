@@ -7,6 +7,7 @@ import image from './img3.png';
 import axios from 'axios';
 import News from '../News/News'
 import CarouselPromos from "../CarouselPromos/CarouselPromos"
+import CarouselNews from "../Carousel/CarouselNews"
 
 export const Home = () => {
 
@@ -24,7 +25,8 @@ export const Home = () => {
 
             </div>
             <footer className='carouselPromos'><CarouselPromos /> </footer>
-            <div ></div>
+            <div className='pruebarender' ><h1>PROPUESTA DE TRES ACTIVIDADES ALEATORIAS QUE SE LE SUGIEREN AL USUARIO PARA COMPRAR </h1></div>
+            <div> <CarouselNews /> </div>
 
         </>
     )

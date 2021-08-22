@@ -63,7 +63,7 @@ const CarouselPromos = () => {
 
         <div className='carrouselFirstPromos'>
             <Slider {...settings}>
-                {promotions?.map((promo, id) => (
+                {promos?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
                             <h2 className="newstitlePromos">{promo.title}</h2>
