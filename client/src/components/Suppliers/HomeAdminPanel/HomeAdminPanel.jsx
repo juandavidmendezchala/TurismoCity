@@ -4,11 +4,12 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { FaShoppingCart } from "react-icons/fa"
-import { MdAttachMoney } from "react-icons/md"
+import { MdAspectRatio, MdAttachMoney } from "react-icons/md"
 import { BsFillStarFill } from "react-icons/bs"
 import { REACT_APP_API } from '../../../store/Consts/Consts';
 import { getSalesSup } from '../../../store/actions/actionSupplier/getSalesSupplier'
 import { Doughnut } from 'react-chartjs-2';
+import { mostSaled } from '../../../store/actions/actionSupplier/mostSaled'
 
 const HomeAdminPanel = ({ sidebar }) => {
 
@@ -26,6 +27,16 @@ const HomeAdminPanel = ({ sidebar }) => {
         await axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)
             .then(async (response) => {
                 dispatch(getSalesSup(response.data))
+                //Para ordenar las actividades mas vendidas en el store
+                dispatch(mostSaled(response.data.sort((a, b) => {
+                    if (a.purchases.length < b.purchases.length) {
+                        return 1;
+                    }
+                    if (a.purchases.length > b.purchases.length) {
+                        return -1;
+                    }
+                    return 0;
+                })))
             })
             .then(setLoading(false))
         // .catch(error => console.log(error))
@@ -38,13 +49,16 @@ const HomeAdminPanel = ({ sidebar }) => {
     let ingresoUnit = []
     data.map(e => ingresoUnit.push(e.price * e.purchases.length))
 
-    console.log(data)
+    const masVendido = useSelector(state => state.infoSales.mostSaled)
+    console.log(masVendido)
     if (loading) {
         return (
             <p>Cargando ...</p>
         )
     }
     // Informacion para el grafico 
+
+
     const grafico = {
         // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         labels: nameUnit,
@@ -76,8 +90,8 @@ const HomeAdminPanel = ({ sidebar }) => {
                         <div className="barritaInfoSupplier blueColorBack"></div>
                         <div className="barritaInfoSupplier greyColor"></div>
                     </div>
+                    <span><p>Actividades Vendidas</p></span>
 
-                    <p>Actividades Vendidas</p>
                 </div>
                 <div className="cardInfoSupplier">
                     <div className="datosCantidadesSup greenColor">
@@ -89,7 +103,7 @@ const HomeAdminPanel = ({ sidebar }) => {
                         <div className="barritaInfoSupplier greyColor"></div>
                     </div>
 
-                    <p>Ingresos Generados</p>
+                    <span><p>Ingresos Generados</p></span>
                 </div>
                 <div className="cardInfoSupplier">
                     <div className="datosCantidadesSup yellowColor">
@@ -101,15 +115,29 @@ const HomeAdminPanel = ({ sidebar }) => {
                         <div className="barritaInfoSupplier greyColor"></div>
                     </div>
 
-                    <p>Puntuacion General</p>
+                    <span><p>Puntuacion General</p></span>
                 </div>
             </div>
             <div className="graficosSupplier">
                 <div className="topSalesUser">
-                    Top actividades
+                    <p><span>Actividades Más vendidas</span></p>
+                    <div className="mostSaledSupplier">
+                        <h5>Pos</h5>
+                        <h5>Actividad</h5>
+                        <h5>ventas</h5>
+                    </div>
+                    {
+                        masVendido.map((e, i) => i < 5 &&
+                            <div className="mostSaledSupplier">
+                                <p>{i + 1}º</p>
+                                <p>{e.name}</p>
+                                <p>{e.purchases.length}</p>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="graficoSupplier">
-                    <p>Ingresos por actividad</p>
+                    <p><span>Ingresos por actividad</span></p>
                     <Doughnut data={grafico} />
                 </div>
             </div>

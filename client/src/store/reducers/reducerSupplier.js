@@ -1,7 +1,8 @@
-import { GET_SALES_SUPPLIER } from "../Consts/Consts"
+import { GET_MOST_SALED, GET_SALES_SUPPLIER } from "../Consts/Consts"
 
 const initialState = {
-    salesUser: []
+    salesUser: [],
+    mostSaled: []
 }
 export const reducerSuppliers = (state = initialState, action) => {
     switch (action.type) {
@@ -9,6 +10,11 @@ export const reducerSuppliers = (state = initialState, action) => {
             return {
                 ...state,
                 salesUser: action.payload
+            }
+        case GET_MOST_SALED:
+            return {
+                ...state,
+                mostSaled: action.payload
             }
         default:
             return state
