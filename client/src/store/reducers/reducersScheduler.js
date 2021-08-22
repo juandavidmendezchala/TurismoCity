@@ -13,9 +13,9 @@ const initialState = {
 export const reducerScheduler = (state = initialState, action) => {
   switch (action.type) {
     case SCHED_GET:
-      return { ...state, sched_activities: action.payload };
+      return { ...state, sched_activity: action.payload };
     case SCHED_ADD:
-      return { sched_activities: state.sched_activities.concat(action.payload) };
+      return { ...state, sched_activities: state.sched_activities.concat(action.payload) };
     case SCHED_REMOVE:
       return {
         sched_activities: state.sched_activities.filter(

@@ -6,12 +6,10 @@ import {
   SCHED_REMOVE,
   SCHED_FAIL,
   REACT_APP_API,
-  DEV_TOOLS
 } from "../Consts/Consts"
 
 export const getSchedAll = (userid) => async (dispatch) => {
     console.log("obteniendo")
-    dispatch({ type: SCHED_GET_ALL });
     try {
       const { data } = await axios.get(`${REACT_APP_API}/scheduler/${userid}`);
       dispatch({ type: SCHED_GET_ALL, payload: data });
@@ -44,7 +42,6 @@ export const getSchedAll = (userid) => async (dispatch) => {
 
   export const schedRemove = (idsched) => async (dispatch) => {
     console.log("borrando")
-  dispatch({ type: SCHED_REMOVE });
   try {
     const { data } = await axios.delete(`${REACT_APP_API}/scheduler/${idsched}`);
     dispatch({ type: SCHED_REMOVE, payload: idsched });

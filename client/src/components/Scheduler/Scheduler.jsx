@@ -1,7 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, connect } from "react-redux";
-import { REACT_APP_API } from "../../store/Consts/Consts";
+import { DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
 import style from "../../styles/AddSched.module.css";
 import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
 
@@ -16,8 +15,6 @@ const Scheduler = (props) => {
     notas: "",
   });
   const [errors, setErrors] = useState({});
-
-
 
   function validate(input) {
     let errors = {};
@@ -38,8 +35,11 @@ const Scheduler = (props) => {
   const userSingin = useSelector((state) => state.userSignin);
   const { userInfo } = userSingin;
 
-  useEffect( async () => {
-    await props.getSchedAll(userInfo.id);
+  useEffect(() => {
+    if (userInfo) {
+      props.getSchedAll(userInfo.id);
+      console.log("dev", DEV_TOOLS, "api", REACT_APP_API);
+    }
   }, []);
 
   function handleChange(e) {
@@ -80,8 +80,6 @@ const Scheduler = (props) => {
     //    window.location.href="/scheduler"
     /*     console.log(objGuardar, "    ", input, "    ", resultado.data); */
   }
-
-
 
   if (userInfo) {
     return (
