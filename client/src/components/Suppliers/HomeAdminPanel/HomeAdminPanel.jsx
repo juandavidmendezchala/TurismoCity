@@ -1,30 +1,38 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { FaShoppingCart } from "react-icons/fa"
 import { MdAttachMoney } from "react-icons/md"
 import { BsFillStarFill } from "react-icons/bs"
 import { REACT_APP_API } from '../../../store/Consts/Consts';
+import { getSalesSup } from '../../../store/actions/actionSupplier/getSalesSupplier'
 
 const HomeAdminPanel = ({ sidebar }) => {
 
+    const dispatch = useDispatch()
+
     const [loading, setLoading] = useState(true)
-    const [data, setData] = useState("")
     const user = useSelector((state) => state.userSignin.userInfo.id)
+    const data = useSelector(state => state.infoSales.salesUser)
     let ventas = 0;
     let ingresos = 0;
 
 
     useEffect(async () => {
         await axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)
-            .then(response => setData(response.data))
+            .then(async (response) => {
+                dispatch(getSalesSup(response.data))
+            })
             .then(setLoading(false))
+        // .catch(error => console.log(error))
     }, [])
-    // data.map(e => ventas = ventas + e.purchases.length)
-    // data?.map(e => ingresos = ingresos + (e.purchases.length * e.price))
+    data?.map(e => ventas = ventas + e.purchases.length)
+    data?.map(e => ingresos = ingresos + (e.purchases.length * e.price))
 
+
+    console.log(data)
 
     if (loading) {
         return (
@@ -32,7 +40,7 @@ const HomeAdminPanel = ({ sidebar }) => {
         )
     }
     console.log(ingresos)
-    console.log(data)
+
     return (
         <div className={`datosHomeAdmin ${sidebar ? "sidebarAbierta" : "sidebarCerrada"}`}>
             <div className="threeColumsInfo">
@@ -72,7 +80,14 @@ const HomeAdminPanel = ({ sidebar }) => {
 
                     <p>Puntuacion General</p>
                 </div>
-
+            </div>
+            <div className="graficosSupplier">
+                <div className="topSalesUser">
+                    Top actividades
+                </div>
+                <div>
+                    Donnut grafico
+                </div>
             </div>
         </div>
     )

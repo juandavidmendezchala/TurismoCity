@@ -65,3 +65,7 @@
     width: 100%;
     margin-left: 0;
 }
+.graficosSupplier{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
