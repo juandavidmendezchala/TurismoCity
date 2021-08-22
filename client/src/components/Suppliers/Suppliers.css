@@ -68,4 +68,19 @@
 .graficosSupplier{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    
+}
+.graficoSupplier{
+    background-color: #fff;
+    margin: 15px;
+    border: solid 2px #e5e5f4;
+    border-radius: 10px;
+    align-items: center;
+}
+.topSalesUser{
+    background-color: #fff;
+    margin: 15px;
+    border: solid 2px #e5e5f4;
+    border-radius: 10px;
+    align-items: center;
 }
