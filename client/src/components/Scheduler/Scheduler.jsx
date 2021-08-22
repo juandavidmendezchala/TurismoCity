@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, connect } from "react-redux";
-import { DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
+import { REACT_APP_DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
 import style from "../../styles/AddSched.module.css";
 import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
 
@@ -38,8 +38,8 @@ const Scheduler = (props) => {
   useEffect(() => {
     if (userInfo) {
       props.getSchedAll(userInfo.id);
-      console.log("dev", DEV_TOOLS, "api", REACT_APP_API);
     }
+    console.log("dev", REACT_APP_DEV_TOOLS, "api", REACT_APP_API);
   }, []);
 
   function handleChange(e) {

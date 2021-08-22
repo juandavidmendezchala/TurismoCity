@@ -1,6 +1,6 @@
 require('dotenv').config()
 export const REACT_APP_API = process.env.REACT_APP_API
-export const DEV_TOOLS = process.env.DEV_TOOLS
+export const REACT_APP_DEV_TOOLS = process.env.REACT_APP_DEV_TOOLS
 
 // Constantes para Agenda
 
