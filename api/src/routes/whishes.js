@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const { Whishes, Activity } = require('../models/index');
 const { Op } = require("sequelize");
-
 const router = Router();
 
 //obtener la agenda del usurio logueado

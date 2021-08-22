@@ -15,7 +15,7 @@
     height: 2em;
     background-color: rgb(43, 11, 160);
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     color: white;
     font-weight: bold;
     margin-bottom: 1em;
@@ -30,4 +30,13 @@
     height: 150px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.butclose {
+    display: flex;
+    background-color: red;
+    color: white;
+    right: auto;
+    border-radius: 0.5em;
+    align-items: center;
 }
