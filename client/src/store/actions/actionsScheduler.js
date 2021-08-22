@@ -27,8 +27,7 @@ export const getSchedAll = (userid) => async (dispatch) => {
   };
 
   export const schedAdd = (schedactiv) => async (dispatch) => {
-      console.log("agregando","Entorno: "+`${DEV_TOOLS} aparte y ademas ${REACT_APP_API}`)
-    dispatch({ type: SCHED_ADD });
+       console.log("agregando")
     try {
       const { data } = await axios.post(`${REACT_APP_API}/scheduler`,schedactiv);
       dispatch({ type: SCHED_ADD, payload: data });

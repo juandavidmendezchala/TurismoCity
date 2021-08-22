@@ -26,6 +26,7 @@ const ListSchedulers = (props) => {
       {console.log(props)}
       {props.scheduled &&
         props.scheduled.map((sched) => {
+          if (sched !== undefined) {
           return (
             <div key={sched.id}>
               <DetailSched
@@ -36,8 +37,8 @@ const ListSchedulers = (props) => {
                 tiempo={sched.tiempo}
                 notas={sched.notas}
               />
-            </div>
-          );
+            </div>      
+          )}
         })}
     </div>
   );

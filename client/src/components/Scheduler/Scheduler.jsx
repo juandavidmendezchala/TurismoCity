@@ -17,10 +17,7 @@ const Scheduler = (props) => {
   });
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    props.getSchedAll(userInfo.id);
-    console.log("refresh", userInfo.id);
-  }, [agregado]);
+
 
   function validate(input) {
     let errors = {};
@@ -40,6 +37,10 @@ const Scheduler = (props) => {
 
   const userSingin = useSelector((state) => state.userSignin);
   const { userInfo } = userSingin;
+
+  useEffect( async () => {
+    await props.getSchedAll(userInfo.id);
+  }, []);
 
   function handleChange(e) {
     setInput({
@@ -66,7 +67,7 @@ const Scheduler = (props) => {
     };
     props.schedAdd(objGuardar);
 
-    document.getElementById("form").reset();
+    // document.getElementById("form").reset();
     setInput({
       fechaini: "",
       fecharec: "",
@@ -79,6 +80,8 @@ const Scheduler = (props) => {
     //    window.location.href="/scheduler"
     /*     console.log(objGuardar, "    ", input, "    ", resultado.data); */
   }
+
+
 
   if (userInfo) {
     return (
