@@ -3,6 +3,7 @@ const { dbUser, dbPassword, dbHost, dbName } = require('../utils/config/index.js
 const userModel = require('./user.js')
 const activityModel = require('./activity.js')
 const airportsModel = require('./airports')
+const promoModel = require('./promo')
 const feedback = require('./feedback')
 const purchase = require('./purchase')
 
@@ -49,6 +50,7 @@ const Activity = activityModel(sequelize)
 const Airports = airportsModel(sequelize)
 const FeedBack = feedback(sequelize)
 const Purchase = purchase(sequelize)
+const Promo = promoModel(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -76,7 +78,8 @@ module.exports = {
   Activity,
   Airports,
   FeedBack,
-  Purchase
+  Purchase,
+  Promo
 }
 
 
