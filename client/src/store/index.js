@@ -12,10 +12,14 @@ import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 import { newsReducer } from "./reducers/reduceNews";
 import { promoReducer } from './reducers/reducerPromo'
+import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const initialState = {
+  userCountry: localStorage.getItem("userCountry") 
+  ? JSON.parse(localStorage.getItem("userCountry")) 
+  : "",
   url: localStorage.getItem("urlImage")
     ? JSON.parse(localStorage.getItem("urlImage"))
     : null,
@@ -45,7 +49,9 @@ const reducer = combineReducers({
   reducerActivitiesPrev: reducerActivitiesPrev,
   comments: feedBackReducer,
   news: newsReducer,
-  promotions: promoReducer
+  promotions: promoReducer,
+  countries: countriesReducer,
+  userCountry: userCountryReducer
 })
 
 const store = createStore(
