@@ -26,14 +26,14 @@ const CarouselPromos = () => {
     const NextArrow = ({ onClick }) => {
         return (
             <div className='arrow nextP' onClick={onClick}>
-                🔶
+                ↪
             </div>
         )
     }
     const PrevArrow = ({ onClick }) => {
         return (
             <div className='arrow prevP' onClick={onClick}>
-                🔶
+                ↩
             </div>
         )
     }
