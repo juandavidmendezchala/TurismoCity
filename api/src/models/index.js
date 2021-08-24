@@ -6,6 +6,7 @@ const airportsModel = require('./airports')
 const promoModel = require('./promo')
 const feedback = require('./feedback')
 const purchase = require('./purchase')
+const typeModel = require('./typeactivity')
 
 //const userActivity = require('./activitie.js')
 const photo = require('./photo')
@@ -51,6 +52,7 @@ const Airports = airportsModel(sequelize)
 const FeedBack = feedback(sequelize)
 const Purchase = purchase(sequelize)
 const Promo = promoModel(sequelize)
+const Type = typeModel(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -70,7 +72,10 @@ Activity.belongsTo(User)
 User.hasMany(Activity)
 
 Activity.belongsToMany(User, { through: 'favorite' });
-User.belongsToMany(Activity, { through: 'favorite' })
+User.belongsToMany(Activity, { through: 'favorite' });
+
+Activity.belongsToMany(Type, {through: 'type_activity'});
+Type.belongsToMany(Activity, {through: 'type_activity'});
 
 module.exports = {
     conn: sequelize,
@@ -79,7 +84,8 @@ module.exports = {
     Airports,
     FeedBack,
     Purchase,
-    Promo
+    Promo,
+    Type
 }
 
 

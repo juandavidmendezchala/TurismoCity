@@ -9,6 +9,7 @@ const suppliersRoutes = require('./suppliers')
 const checkout = require("./checkout")
 const purchaseRoutes = require('./purchase')
 const promoRoutes = require('./promo')
+const typesRoutes = require('./type')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -28,6 +29,7 @@ router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
 router.use("/checkout", checkout)
 router.use('/promo', promoRoutes)
+router.use('/types', typesRoutes)
 
 router.use('/purchase', purchaseRoutes)
 
