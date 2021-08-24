@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import NavBarSupplier from './NavBarSupplier/NavBarSupplier'
-import FormActivities from '../FormActivities/FormActivities'
 import "./NavBarSupplier/userActivities/userActivities.css"
-
+import "./Suppliers.css"
 
 
 const Suppliers = ({ sidebar, showSidebar }) => {

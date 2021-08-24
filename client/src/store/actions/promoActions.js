@@ -9,7 +9,7 @@ import { GET_PROMO_FAIL,
 export const getPromo = () => async(dispatch) => {
     dispatch({type: GET_PROMO_REQUEST})
     try{
-        const {data} = axios.get(`${REACT_APP_API}/promo`)
+        const {data} = await axios.get(`${REACT_APP_API}/promo`)
         dispatch({type: GET_PROMO_SUCCESS, payload: data})
 
     } catch(err) {

@@ -102,6 +102,7 @@ const FormActivities = () => {
                     <p className="errorYup">{errors.date && "Set a valid date"}</p>
                     <textarea name="description" rows="4" cols="40"{...register("description")} placeholder="Please describe your Activity...(10/250 char)" className="textArea" />
                     <p className="errorYup">{errors.description?.message}</p>
+
                     <div className="divLastSix"> <b className="inputSm"> Precio</b>
                         <input name="price" {...register("price")} placeholder="Price $..." type="number" className="inputSmall" />
                         <p className="errorYup">{errors.price?.message}</p> <b className="inputSm"> Vacantes </b>
