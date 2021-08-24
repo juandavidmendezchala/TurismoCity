@@ -16,6 +16,7 @@ import { getFlights } from "../../store/actions/getFlights"
 import { resetFlights } from "../../store/actions/resetFlights";
 
 
+
 export default function TravelForm(props) {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -91,9 +92,9 @@ export default function TravelForm(props) {
 
                     <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input className= 'radioTF' required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm">Ida</label>
-                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <input className='radioTF' required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                     </form>
 
                     <div className="selectPassengers">

@@ -7,6 +7,7 @@ import './Activities.css'
 import { getFavorites } from '../../store/actions/getFavorites'
 
 
+
 export default function Actities() {
 
     const dispatch = useDispatch();
@@ -14,16 +15,18 @@ export default function Actities() {
     const Activities = useSelector(store => store.activities);
 
     const favorite = useSelector(state => state.reducersActivities)
+    const userSignin = useSelector(state => state.userSignin)
 
-    const {favorites} = favorite
+    const { favorites } = favorite
 
     const { activities, loading, error } = Activities;
 
-    useEffect(() => {
-        dispatch(getFavorites(1))
-        dispatch(getActivities())        
+    useEffect(() => {     
+        if (userSignin.userInfo){
+            dispatch(getFavorites(userSignin.userInfo.id))
+        } 
+        dispatch(getActivities())
     }, [])
-
     return (
         <div>
             {/* <h1>Paquetes de actividades</h1> */}

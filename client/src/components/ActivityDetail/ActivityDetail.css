@@ -1,16 +1,75 @@
+
+.ConteinerActivityDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    /* background-color: rgb(26, 26, 26); */
+}
+.conteiner-stats-detail{
+    position: relative;
+    top: -110px;
+    left: -18px;
+    
+}
 .card-activity-detail{
-    margin-top: 10px;
+    margin-top: 70px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(31, 39, 48);
+    width: 900px;
+    height: 450px;
+    left:50%;
 }
-
-.body-activity-detail{
-    background-color: transparent;
+.First-Block{
+    display: flex;
+    flex-direction: column;
+    
 }
-
+.dayDetail{
+    position : absolute;
+	left : 250px;
+	bottom :  70px;
+	font-size : 6rem;
+	color : #979797;
+}
+.monthDetail{
+    position : absolute;
+	left : 260px;
+	bottom :  10px;
+	font-size : 2rem;
+	color: #979797;
+    width: 300px;
+    
+}
+.Second-Block{
+    position: relative;
+    height: 400px;
+    width: 300px;
+    right: -20px;
+}
+.card-image-detail{
+    position: relative;
+    top:-60px;
+    left:-18px;
+    box-shadow: 5px 5px 25px 1px black;
+    height: 300px;
+    width: 500px;
+}
+.card-text-detail{
+    width: 300px;
+}
 .detail-down{
     display: flex;
     flex-direction: row;
 }
-
+.card-stats-detail{
+    position: relative;
+    left:-50px;
+    opacity: 1%;;
+}
 .detail-down .reservation{
     padding: 40px;
     margin-left: 35%;  

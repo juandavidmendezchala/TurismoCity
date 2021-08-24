@@ -6,40 +6,69 @@ import favoriteLogo from '../../icons/FavoriteLogo.png'
 import favoriteLogoDone from '../../icons/FavoriteLogoDone.png'
 import { addFavorite } from '../../store/actions/activityActions.js'
 import { removeMyFavorite } from '../../store/actions/removeMyFavorite'
+import { useAuth0 } from '@auth0/auth0-react';
+import swal from 'sweetalert';
 
 export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites }) {
 
     const dispatch = useDispatch()
-
+    const userSignin = useSelector(state => state.userSignin)
+    const { loginWithRedirect } = useAuth0()
     const [isFavorite, setIsFavorite] = useState(false)
 
     const onFavorite = () => {
-        dispatch(addFavorite(id, 1))
-        const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
-        if (isThisFavorite) {
-            setIsFavorite(true)
-        } else {
-            setIsFavorite(false)
+        if (userSignin.userInfo) {
+            dispatch(addFavorite(id, userSignin.userInfo.id))
+            const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
+            if (isThisFavorite) {
+                setIsFavorite(true)
+            } else {
+                setIsFavorite(false)
+            }
+        }else{
+            swal({
+                title: "Loguearse",
+                text: "Para guardar esta actividad en favoritos debes loguearte a tu cuenta!",
+                icon: "info",
+                buttons: true,
+                dangerMode: false,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                    loginWithRedirect()
+                }
+              });
         }
     }
 
     const deleteFavorite = () => {
-        dispatch(removeMyFavorite(1, id))
-        const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
-        if (isThisFavorite) {
-            setIsFavorite(true)
-        } else {
-            setIsFavorite(false)
-        }
+        
+            if(userSignin.userInfo) {
+                dispatch(removeMyFavorite(userSignin.userInfo.id, id))
+                const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
+                if (isThisFavorite) {
+                    setIsFavorite(true)
+                } else {
+                    setIsFavorite(false)
+                }
+            } else {
+              loginWithRedirect()        
+            }
+    }
+    const takesOutProvince = function(city){
+        return city.split(' ').filter(word => word !== 'Province').join(' ')
     }
 
     useEffect(() => {
+        if(userSignin.userInfo) {
         const isThisFavorite = favorites?.activities?.filter(f => f.id === id) || false
+        console.log('ESTO ES LO QUE ESTAMOS VIENDO AHORA:', isThisFavorite)
         if (isThisFavorite.length) {
             setIsFavorite(true)
         } else {
             setIsFavorite(false)
         }
+    }
     }, [favorites])
 
 
@@ -52,16 +81,17 @@ export default function ActivityCard({ id, name, description, date, price, place
                 <div className="card-text">
                     <span className="date">{date}</span>
                     <h2>{name}</h2>
-                    {/* <p>{description}</p> */}
+                    <span className='country-city'>{country} - {city.includes('Province')?takesOutProvince(city):city}</span>
+                    
                     <div className="favoritelogo-div" >
                         {
                             isFavorite ?
-                                <button className="button-favorite" onClick={e => deleteFavorite()}>
-                                    <img src={favoriteLogoDone} height="25px" width='25px'></img>
+                                <button className="button-favorite-done" onClick={e => deleteFavorite()}>
+                                   ❤ 
                                 </button>
                                 :
                                 <button className="button-favorite" onClick={e => onFavorite()}>
-                                    <img src={favoriteLogo} height="25px" width='25px'></img>
+                                    ❤ 
                                 </button>
                         }
                     </div>
@@ -72,11 +102,11 @@ export default function ActivityCard({ id, name, description, date, price, place
                         <div className="type">Cupos</div>
                     </div>
                     <div className="stat">
-                        <div className="value"><sup>$</sup>{price}</div>
+                        <div className="value"><sup>USD$</sup>{price}</div>
                         <div className="type">Precio</div>
                     </div>
                     <div className="stat">
-                        <div className="value">{duration}<sup>H</sup></div>
+                        <div className="value">{duration}<sup>hs</sup></div>
                         <div className="type">Duración</div>
                     </div>
                 </div>

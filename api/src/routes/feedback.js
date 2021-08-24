@@ -31,6 +31,17 @@ router.post('/', async(req, res) => {
 
     return res.send(createFeed)
 })
+
+router.delete('/remove/:idComment',async(req,res)=>{
+    let {idComment} = req.params
+
+    await FeedBack.destroy({
+        where: {id: idComment}
+    })
+    return res.send(FeedBack.findAll())
+
+})
+
 router.get('/user/:idUser', async(req,res) =>{
     let {idUser} = req.params
     const allComments = await FeedBack.findAll({

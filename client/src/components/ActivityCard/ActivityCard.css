@@ -6,9 +6,9 @@
     height: 387px;
 
     font-family: roboto;
-    border-radius: 18px;
-    background: white;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    border-radius: 12px;
+    background-color: rgb(221, 221, 221);
+    
     text-align: center;
 
     transition: 0.5s ease;
@@ -27,10 +27,15 @@
     margin:20px;
 }
 
-
 .card-text .date{
-    color: rgb(0, 0, 0);
+    color: rgb(70, 70, 70);
     font-size: 14px;
+    font-family:sans-serif
+}
+.country-city{
+    color: rgb(70, 70, 70);
+    font-size: 14px;
+    font-family:sans-serif
 }
 
 .card-text p{
@@ -40,9 +45,9 @@
 }
 
 .card-text h2{
-    margin-top: 0px;
-    font-size: 20px;
-    font-weight: 1500;
+    margin-top: 10px;
+    font-size: 17px;
+    color: rgb(43, 43, 43);
     
 }
 
@@ -50,10 +55,10 @@
 
     display: flex;
     justify-content: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    opacity: 90%;
-    background: rgb(133, 150, 197);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: relative;
+    background-color: rgb(64, 99, 133);
     margin-top:33px;
 }
 
@@ -68,14 +73,16 @@
 
 .card-stats .type{
     font-size: 11px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: black;
+    color: rgb(27, 27, 27);
 }
 
 .card-stats .value{
     font-size: 22px;
     font-weight: 500;
+    font-family:sans-serif
 }
 
 .card-stats .value sup {
@@ -84,22 +91,46 @@
 
 .cardActivitiesJ:hover {
     transform: scale(1.04);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    transition: 0.5s;
+    box-shadow: 11px 11px 20px 0.1px rgb(34, 34, 34);
+    
 }
 
 .favoritelogo-div{
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
-.button-favorite{
+/* .button-favorite{
     border-color: transparent;
     background-color: transparent;
+    cursor:pointer;
+    color:red;
+} */
+.button-favorite{
+    color: rgb(163, 163, 163);
+    background-color: transparent;
+    cursor:pointer;
+    border-color: transparent;
+    font-size: 30px;
 }
+/* .button-favorite:hover{
+    font-size: 35px;
+} */
+.button-favorite-done{
+    color:rgb(206, 50, 50);
+    border-color: transparent;
+    font-size: 30px;
+    cursor:pointer;
+    background-color: transparent;
+}
+/* .button-favorite-done:hover{
+    color: rgb(163, 163, 163);
+} */
 .imageActJ{
     width:250px;
     height: 170px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 .date{
     margin-top:50px;
