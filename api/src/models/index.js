@@ -3,10 +3,12 @@ const { dbUser, dbPassword, dbHost, dbName } = require('../utils/config/index.js
 const userModel = require('./user.js')
 const activityModel = require('./activity.js')
 const airportsModel = require('./airports')
+const promoModel = require('./promo')
 const feedback = require('./feedback')
 const purchase = require('./purchase')
 const schedModel = require('./scheduler')
 const whishModel = require('./whishes')
+const typeModel = require('./typeactivity')
 
 //const userActivity = require('./activitie.js')
 const photo = require('./photo')
@@ -48,6 +50,8 @@ const FeedBack = feedback(sequelize)
 const Purchase = purchase(sequelize)
 const Scheduler = schedModel(sequelize)
 const Whishes = whishModel(sequelize)
+const Promo = promoModel(sequelize)
+const Type = typeModel(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -70,7 +74,11 @@ Activity.belongsTo(User)
 User.hasMany(Activity)
 
 Activity.belongsToMany(User, { through: 'favorite' });
-User.belongsToMany(Activity, { through: 'favorite' })
+User.belongsToMany(Activity, { through: 'favorite' });
+
+Activity.belongsToMany(Type, {through: 'type_activity'});
+Type.belongsToMany(Activity, {through: 'type_activity'});
+
 
 FeedBack.belongsTo(Activity)
 Activity.hasMany(FeedBack)
@@ -93,6 +101,8 @@ module.exports = {
   FeedBack,
   Purchase,
   Scheduler,
-  Whishes
+  Whishes,
+  Promo,
+  Type
 }
 

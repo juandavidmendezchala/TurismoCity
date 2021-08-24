@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import "./imageActivity.css"
-import {urlPost} from '../../store/actions/urlPost'
+import { urlPost } from '../../store/actions/urlPost'
 import { useDispatch } from "react-redux"
 
 const ImageActivity = () => {
     const [imgSelected, setImgSelected] = useState()
     const [photoData, setPhotoData] = useState()
     const [loading, setLoading] = useState(false)
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 
 

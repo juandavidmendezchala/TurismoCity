@@ -12,6 +12,8 @@ const purchaseRoutes = require('./purchase')
 const schedulerRoutes = require('./scheduler')
 //Agrego lista de deseos
 const whishesRoutes = require('./whishes')
+const promoRoutes = require('./promo')
+const typesRoutes = require('./type')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -30,6 +32,9 @@ router.use('/feedBack', feedbackRouter)
 router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
 router.use("/checkout", checkout)
+router.use('/promo', promoRoutes)
+router.use('/types', typesRoutes)
+
 router.use('/purchase', purchaseRoutes)
 // Rutas de scheduler
 router.use(schedulerRoutes)

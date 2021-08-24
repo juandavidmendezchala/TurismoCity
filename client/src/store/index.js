@@ -11,11 +11,17 @@ import { reducerMyActivities } from "./reducers/reducerMyActivities";
 import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 import { reducerScheduler } from "./reducers/reducersScheduler"
+import { newsReducer } from "./reducers/reduceNews";
+import { promoReducer } from './reducers/reducerPromo'
+import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
 
 // const composeEnhancers = process.env.DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 
 const initialState = {
+  userCountry: localStorage.getItem("userCountry") 
+  ? JSON.parse(localStorage.getItem("userCountry")) 
+  : "",
   url: localStorage.getItem("urlImage")
     ? JSON.parse(localStorage.getItem("urlImage"))
     : null,
@@ -44,7 +50,11 @@ const reducer = combineReducers({
   reducerFeedBack: reducerFeedBack,
   reducerActivitiesPrev: reducerActivitiesPrev,
   comments: feedBackReducer,
-  scheduled: reducerScheduler
+  scheduled: reducerScheduler,
+  news: newsReducer,
+  promotions: promoReducer,
+  countries: countriesReducer,
+  userCountry: userCountryReducer
 })
 
 const store = createStore(
