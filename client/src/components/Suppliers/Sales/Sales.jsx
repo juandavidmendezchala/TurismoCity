@@ -15,8 +15,8 @@ const Sales = ({ sidebar }) => {
 
     const idUser = useSelector(state => state.userSignin.userInfo.id)
 
-    useEffect(async () => {
-        await axios.get(`${REACT_APP_API}/suppliers/sales/${idUser}`)
+    useEffect(() => {
+        axios.get(`${REACT_APP_API}/suppliers/sales/${idUser}`)
             .then(async (res) => await setSales(res.data))
         setLoading(false)
     }, [])
