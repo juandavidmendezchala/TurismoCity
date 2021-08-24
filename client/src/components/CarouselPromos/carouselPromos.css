@@ -59,11 +59,11 @@
 }
 .newstitlePromos {
   font-family: "Franklin Gothic";
-  font-size: 40px;
+  font-size: 44px;
   color: rgb(245, 229, 0);
   font-weight: bolder;
   text-shadow: 5px 5px 9px rgb(255, 108, 128);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .newstextPromos {
