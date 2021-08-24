@@ -2,9 +2,11 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .carrouselFirstPromos {
-  margin-top: -100px;
-  width: 95%;
+  margin-top: -50px;
+  width: 99%;
   height: 250px;
+  align-content: center;
+  /* margin: 5rem auto; */
 }
 .slide img {
   /* width: 20rem; */
