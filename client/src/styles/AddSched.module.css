@@ -45,13 +45,13 @@ width: 60%;
     background:rgba(20, 20, 20, 0.6);
     background: -webkit-linear-gradient(
       to left,
-      #e9f1d1,
-      #1eff00
+      #fdfdfd,
+      #0F3057
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to left,
-      #eaf5cb,
-      #00ff00
+      #fdfdfd,
+      #0F3057
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: honeydew;
     /* background-position: center center; */
@@ -70,7 +70,7 @@ width: 60%;
   margin-left: auto;
   margin-right: auto;
   color:beige;
-  background: blue;
+  background: #0F3057;
 }
 
 .addbut {
@@ -82,11 +82,20 @@ width: 60%;
   margin-left: auto;
   margin-right: auto;
   color:beige;
-  background: blue;
+  background: #0F3057;
 }
 
 .danger {
     color: orangered;
     font-size: small;
     font-weight: bold;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bold;
+  color: #0F3057 
 }

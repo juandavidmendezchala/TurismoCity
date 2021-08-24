@@ -12,6 +12,7 @@ import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 import { reducerScheduler } from "./reducers/reducersScheduler"
 import { REACT_APP_DEV_TOOLS } from "./Consts/Consts"
+import { reducerWhishes } from "./reducers/reducerWhishes";
 
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -45,7 +46,8 @@ const reducer = combineReducers({
   reducerFeedBack: reducerFeedBack,
   reducerActivitiesPrev: reducerActivitiesPrev,
   comments: feedBackReducer,
-  scheduled: reducerScheduler
+  scheduled: reducerScheduler,
+  whishes: reducerWhishes
 })
 
 const store = createStore(

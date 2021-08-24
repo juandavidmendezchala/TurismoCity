@@ -12,6 +12,8 @@ const purchaseRoutes = require('./purchase')
 const schedulerRoutes = require('./scheduler')
 //Agrego lista de deseos
 const whishesRoutes = require('./whishes')
+//Agrego rutas de emailes
+const emailSendRoutes = require('./sendemails')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -35,5 +37,7 @@ router.use('/purchase', purchaseRoutes)
 router.use(schedulerRoutes)
 // Rutas de deseos
 router.use(whishesRoutes)
+// Rutas de emails
+router.use(emailSendRoutes)
 
 module.exports = router;

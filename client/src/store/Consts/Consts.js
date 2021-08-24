@@ -12,6 +12,18 @@ export const SCHED_FAIL = "SCHED_FAIL"
 
 // Constantes para Agenda
 
+// Constantes para Lista de deseos
+
+export const WHISH_ADD = "WHISH_ADD"
+export const WHISH_GET = "WHISH_GET"
+export const WHISH_GET_ALL = "WHISH_GET_ALL"
+export const WHISH_REMOVE = "WHISH_REMOVE"
+export const WHISH_FAIL = "WHISH_FAIL"
+export const WHISH_ACTIV_ALL = "WHISH_ACTIV_ALL"
+export const WHISH_REMOV_ACTIV = "WHISH_REMOV_ACTIV"
+
+// Constantes para Lista de deseos
+
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
 export const USER_REGISTER_FAIL = "USER_REGISTER_FAIL";
