@@ -9,7 +9,7 @@ import axios from 'axios'
 // import { signin } from "../../store/actions/userActions";
 
 
-
+//// ES UNA PRUEBA NO TIENE USO LO RESOLVI DE OTRA FORMA
 
 const DinamicImput = () => {
 

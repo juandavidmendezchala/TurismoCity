@@ -12,6 +12,7 @@ import PromoList from "./PromoList";
 import FormPromo from "./FormPromo";
 // import { signin } from "../../store/actions/userActions";
 
+// ESTE ESL EL ARRAY HARDCODEADO QUE HAY QUE TRAER DEL BACK
 const list = [
     {
         promoText: "test #1",
