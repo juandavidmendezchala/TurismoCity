@@ -27,6 +27,10 @@ import { loadStripe } from "@stripe/stripe-js"
 import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+import Scheduler from "./components/Scheduler/Scheduler"
+import ListSchedulers from "./components/Scheduler/ListShedulers";
+import DetailSched from "./components/Scheduler/DetailSched";
+
 
 
 
@@ -64,6 +68,10 @@ function App() {
       <Route path="/suppliers/load" component={FormActivities} />
       <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
+      <Route path="/scheduler"><Scheduler /></Route>
+      <Route path="/scheduler"><ListSchedulers /></Route>
+
+
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
     </div >

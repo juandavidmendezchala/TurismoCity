@@ -1,5 +1,16 @@
 require('dotenv').config()
 export const REACT_APP_API = process.env.REACT_APP_API
+export const DEV_TOOLS = process.env.DEV_TOOLS
+
+// Constantes para Agenda
+
+export const SCHED_ADD = "SCHED_ADD"
+export const SCHED_GET = "SCHED_GET"
+export const SCHED_GET_ALL = "SCHED_GET_ALL"
+export const SCHED_REMOVE = "SCHED_REMOVE"
+export const SCHED_FAIL = "SCHED_FAIL"
+
+// Constantes para Agenda
 
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
@@ -37,7 +48,3 @@ export const DELETE_FAVORITE_FAIL = 'DELETE_FAVORITE_FAIL'
 export const GET_COMMENTS_REQUEST = 'GET_COMMENTS_REQUEST'
 export const GET_COMMENTS_SUCCESS = 'GET_COMMENTS_SUCCESS'
 export const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL'
-
-
-
-
