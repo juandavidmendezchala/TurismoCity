@@ -3,7 +3,7 @@
 
 .carrouselFirstPromos {
   margin-top: -100px;
-  /* width: 95%; */
+  width: 95%;
   height: 250px;
 }
 .slide img {
@@ -47,7 +47,7 @@
   width: 650px;
   border-radius: 0.5rem;
   padding: 1%;
-  box-shadow: 6px 6px 15px rgb(223, 27, 27);
+  box-shadow: 6px 6px 15px rgb(119, 98, 98);
   /* display: table-cell; */
   text-align: center;
   border: 0.1px double rgba(36, 35, 3, 0.342);
