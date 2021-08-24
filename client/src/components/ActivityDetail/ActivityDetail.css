@@ -1,9 +1,16 @@
 .card-activity-detail{
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .body-activity-detail{
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-down{
@@ -34,10 +41,17 @@
 
 .detail-down .comments{
     padding: 40px;
-    margin-left: 25%;    
+    margin-left: 10px;    
 }
 
-.card-image > img {
-    max-width: 30%;
-}
+.containerComment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    background: linear-gradient(45deg, #209cff, #68e0cf);
+    padding: 3rem 0;
+  }
+
+
 

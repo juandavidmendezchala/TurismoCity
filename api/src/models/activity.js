@@ -22,7 +22,7 @@ module.exports = function (sequelize) {
         allowNull: true,
       },
       price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       places: {
@@ -42,7 +42,7 @@ module.exports = function (sequelize) {
         allowNull: false,
       },
       images: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: true,
       },
       city: {
@@ -50,6 +50,10 @@ module.exports = function (sequelize) {
         allowNull: false,
       },
       active: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+       estadoAdmin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },

@@ -4,7 +4,7 @@
 }
 
 .filter-component{
-    position: absolute;
+    /* position: absolute; */
     margin-left: 25px;
    
 }
@@ -17,6 +17,12 @@
     /*background-image: url('../FlightCard/img.jpg');*/
 }
 
-.space-cards-act{
-    margin-left: 400px;
+.divSupremo {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.pag{
+    height: 30px;
+}
+

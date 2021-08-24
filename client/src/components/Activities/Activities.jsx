@@ -1,34 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import ActivitiesFilter from '../ActivitiesFilter/ActivitiesFilter'
 import { getActivities } from '../../store/actions/activityActions'
 import ActivityCard from '../ActivityCard/ActivityCard.js'
 import './Activities.css'
 import { getFavorites } from '../../store/actions/getFavorites'
+import Pagination from '../Pagination/Pagination'
+import PaginationActivity from '../paginationActivity/paginationActivity';
+
 
 
 export default function Actities() {
 
     const dispatch = useDispatch();
-
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(8);
     const Activities = useSelector(store => store.activities);
 
     const favorite = useSelector(state => state.reducersActivities)
 
-    const {favorites} = favorite
+    const { favorites } = favorite
 
     const { activities, loading, error } = Activities;
 
-    // state.activities.activities
-    // const activities = useSelector(state => state.activities.activities);
-    useEffect(() => {
+    useEffect(() => {      
         dispatch(getFavorites(1))
-        dispatch(getActivities())        
+        dispatch(getActivities())
     }, [])
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = activities?.slice(indexOfFirstPost, indexOfLastPost)
+    const pagination = (pageNumber) => setCurrentPage(pageNumber)
+
     return (
-        <div>
-            <h1>Paquetes de actividades</h1>
+        <div className="divSupremo">
+            {/* <h1>Paquetes de actividades</h1> */}
             {
                 loading ?
                     <div>Loading</div>
@@ -37,9 +44,9 @@ export default function Actities() {
                         <div>
                            <ActivitiesFilter error={error}></ActivitiesFilter>
                         </div>
-                        <div>
+                        <div className="divSupremo">
                             {
-                                activities?.map(a => <ActivityCard key={a.id}
+                                currentPosts?.map(a => <ActivityCard key={a.id}
                                     id={a.id}
                                     name={a.name}
                                     description={a.description}
@@ -52,9 +59,14 @@ export default function Actities() {
                                     country={a.country}
                                     city={a.city}
                                     favorites={favorites}
+                                    purchases={a.purchases}
                                 ></ActivityCard>)
                             }
                         </div>
+                         <div className ="pag"> 
+                         <PaginationActivity postsPerPage={postsPerPage} totalPosts={activities?.length} paginate={pagination}/>
+                         </div>
+                        
                     </div>
             }
         </div>

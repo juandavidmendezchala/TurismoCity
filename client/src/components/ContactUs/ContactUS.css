@@ -9,6 +9,7 @@
 border-radius: 7px;
 padding: 10px;
 color: grey;
+margin-top: 15px
 }
 
 .inputLinea {
@@ -19,16 +20,17 @@ color: grey;
   height: 80px;
   width: 440px;
 */
-  display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 55px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+/* height: 55px; */
     width: 269px;
+    margin-left: 300px;
 }
 
 .posicionBtn{
     padding-top: 8px;
-    margin-left: 195px;
+    margin-left: 493px;
     width: 90px;
     height: 80px;
 }

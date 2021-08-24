@@ -47,7 +47,7 @@ const [Favoritos,setFavoritos]=useState([
                 return (
                     <div className='FavoriteCardConteiner'>
                         <div className='FavoriteCardFront'>
-                            <img src={fav.images[0]} className='FavoriteImage' />
+                            <img src={fav.images} className='FavoriteImage' />
                             <strong className='FavoriteTitle'>{fav.name}</strong>
                             <div className='FavoriteDescription'>{fav.description}</div>
                     

@@ -13,11 +13,12 @@ router.post('/signin', async (req, res) => {
         }
     })
     if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
+        if (req.body.token === user.token) {
             res.send({
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                isAdmin: user.isAdmin,
                 token: generateToken(user)
             })
             return;
@@ -69,7 +70,6 @@ router.put("/:idUser/:status", async (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    console.log(req.body)
     let {
         name,
         email,
@@ -78,7 +78,7 @@ router.post('/register', async (req, res) => {
         state,
         type
     } = req.body;
-
+    console.log('pas',password)
     const user = await User.findOne({
         where: {
             email: email
@@ -89,9 +89,10 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
-            password: bcrypt.hashSync(password, 8),
-            state,
-            type
+            password: '123',
+            //state,
+            type:'CLI'
+            //isAdmin: false
         }
         )
     }
@@ -105,10 +106,12 @@ router.post('/register', async (req, res) => {
         id: createdUser.id,
         name: createdUser.name,
         email: createdUser.email,
-        birthdate: user.birthdate,
         token: generateToken(createdUser),
         type: createdUser.type,
-        state: createdUser.state
+        state: createdUser.state,
+        birthdate: createdUser.birthdate,
+        isAdmin: createdUser.isAdmin,
+       
     })
 })
 

@@ -24,12 +24,21 @@ module.exports = function (sequelize) {
             allowNull: false
         },
         type: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING, //cliente / proveedor
+            allowNull: false      
+        },
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        votes: {
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         state: {
             type: DataTypes.BOOLEAN,
             allowNull: true
         }
+       
     })
 }

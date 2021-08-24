@@ -1,5 +1,6 @@
 const { Router } = require('express');
-const { Purchase, Activity, User, favorite } = require('../models/index')
+const { Purchase, Activity, User, favorite, FeedBack } = require('../models/index')
+
 const { Op } = require("sequelize");
 
 const router = Router();
@@ -7,7 +8,14 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const getAllActivities = await Activity.findAll();
+    const getAllActivities = await Activity.findAll(
+       {where:
+         {active: true}
+       ,
+       include: [{
+        model: Purchase
+       }]
+      });
     return res.send(getAllActivities);
   } catch (err) {
     return res.send({
@@ -91,6 +99,18 @@ router.post("/filter", async (req, res) => {
     .then((resut) => 
     res.send(resut));
   }
+  if (!country && !city && !price && startDate && endDate){
+    Activity.findAll({
+      where: {
+       
+        date: {
+          [Op.between]: [startDate, endDate]
+        }
+      },
+    })
+    .then((resut) => 
+    res.send(resut));
+  }
   /*if (
     country ||
     city ||
@@ -121,6 +141,7 @@ router.post("/filter", async (req, res) => {
           initialTime: {
             [Op.between]: [initialTime || "00:00", "24:00"],
           },
+          active: true
         },
       });
       return res.send(getCountries);
@@ -136,7 +157,7 @@ router.get("/:id", async (req, res) => {
   const activityDetail = await Activity.findOne({
     where: {
       id,
-    },
+    }
   });
   res.send(activityDetail);
 });
@@ -167,7 +188,15 @@ router.post("/", async (req, res) => {
     country,
     city,
     active: true,
+    estadoAdmin: false
   });
+  const updateUser = await User.update({
+    isAdmin: true
+  }, {
+    where: {
+      email
+    }
+  })
   const findUser = await User.findOne({
     where: {
       email,
@@ -176,5 +205,7 @@ router.post("/", async (req, res) => {
   await findUser.addActivity(createPack);
   return res.send(createPack);
 });
+
+
 
 module.exports = router;

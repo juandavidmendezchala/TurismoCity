@@ -19,13 +19,12 @@ router.get("/scheduler/:iduser", async (req, res) => {
 
 router.post("/scheduler", async (req, res) => {
   try {
-    let { fechaini, fecharec, tiempo, notas, horario, userid } = req.body;
+    let { fechaini, fecharec, tiempo, notas, userid } = req.body;
     let objGuardar = {
       fechaini,
       fecharec,
       tiempo,
       notas,
-      horario,
       userId: userid,
     };
     let Guardado = await Scheduler.create(objGuardar);

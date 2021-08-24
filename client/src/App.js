@@ -31,7 +31,10 @@ import NavBarUserAdmin from "./components/NavBarUserAdmin/NavBarUserAdmin";
 import { ContainerUserAdmin } from "./components/ConteinerUserAdmin/ConteinerUserAdmin";
 import { ContainerActivity } from "./components/ConteinerActivity/ConteinerActivity";
 import ContactUs from "./components/ContactUs/ContactUs";
-
+import Scheduler from "./components/Scheduler/Scheduler"
+import ListSchedulers from "./components/Scheduler/ListShedulers";
+import DetailSched from "./components/Scheduler/DetailSched";
+import Comment from "./components/Comment/Comment";
 
 
 
@@ -65,14 +68,20 @@ function App() {
       <Route exact path="/yourActivities/favorites" render={() => <FavoritesActivities sidebar={sidebar} />}></Route>
       <Route exact path="/yourActivities/activities" render={() => <MyActivities sidebar={sidebar} />}></Route>
       <Route exact path="/yourActivities/activities/next" component={ActivitiesPrev} ></Route>
+      <Route exact path="/comment" component={Comment} ></Route>
       <Route path="/politics" component={Politics} ></Route>
       <Route path="/activities" component={Actities}></Route>
       <Route path="/suppliers" render={() => <Suppliers sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
-      <Route path="/suppliers/post/:id" component={DetailPostSupplier} />
+      <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
+      <Route path="/scheduler"><Scheduler /></Route>
+      
+      <Route path="/scheduler"><ListSchedulers /></Route>
+
+
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
       

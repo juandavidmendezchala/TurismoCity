@@ -18,10 +18,11 @@ app.use(setHeaders);
 
 app.use("/", routes);
 
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: false}).then(() => {
   console.log("Connect");
+  app.listen(PORT, () => {
+    console.log(`Listen on port ${PORT}`);
+  });
 });
 
-app.listen(PORT, () => {
-  console.log(`Listen on port ${PORT}`);
-});
+

@@ -9,6 +9,8 @@ export default function TarjetaActividad(props) {
         commentary: '',
         score: ''
     })
+    const userId = useSelector(state => state.userSignin.userInfo.id)
+
     const dispatch = useDispatch()
 
     const mostrarAlerta = () => {
@@ -47,7 +49,7 @@ export default function TarjetaActividad(props) {
                             <div class="card-front__tp card-front__tp--camping">
 
 
-                                <img className="imagenFuera" src={props.images[0]} alt="otra imagen" />
+                                <img className="imagenFuera" src={props.images} alt="otra imagen" />
 
                             </div>
 
@@ -58,7 +60,7 @@ export default function TarjetaActividad(props) {
                             </div>
                         </div>
                         <div class="card-back">
-                            <img className="imagenDentro" src={props.images[0]} alt="no esta la imagen" />
+                            <img className="imagenDentro" src={props.images} alt="no esta la imagen" />
                         </div>
                     </div>
                 </div>
@@ -72,12 +74,12 @@ export default function TarjetaActividad(props) {
                         <p class="inside-page__text">
 
                             Comentario:
-                            <textarea name="commentary" onChange={handlerChange} id="" rows="2"></textarea>
+                            <textarea name="commentary" onChange={handlerChange} id="" rows="1"></textarea>
                             Puntuacion:
                             <input name="score" onChange={handlerChange} type="number" />
                         </p>
 
-                        <button class="inside-page__btn inside-page__btn--camping" onClick={() => addFeed(2, props.idAct)}>Aceptar</button>
+                        <button class="inside-page__btn inside-page__btn--camping" onClick={() => addFeed(userId, props.idAct)}>Aceptar</button>
                     </div>
                 </div>
             </div>

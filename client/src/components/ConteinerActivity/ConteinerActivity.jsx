@@ -19,7 +19,7 @@ export const ContainerActivity = ({ sidebar }) => {
     //console.log('lista NUEVA ACTIVIDADES',activity[0].id)
     const Activities = useSelector(store => store.activities);
     const { activities, loading, error } = Activities;
-    // console.log(user)
+    console.log('esto trae',activities)
     //const [loading, setLoading] = useState(true)
     //const [data, setData] = useState()
 

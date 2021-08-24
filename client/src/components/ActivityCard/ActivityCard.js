@@ -7,11 +7,13 @@ import favoriteLogoDone from '../../icons/FavoriteLogoDone.png'
 import { addFavorite } from '../../store/actions/activityActions.js'
 import { removeMyFavorite } from '../../store/actions/removeMyFavorite'
 
-export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites }) {
+export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases }) {
 
     const dispatch = useDispatch()
 
     const [isFavorite, setIsFavorite] = useState(false)
+    const [isSoulOut, setisSoulOut] = useState(false)
+    const [isLastPlace, setisLastPlace] = useState(false)
 
     const onFavorite = () => {
         dispatch(addFavorite(id, 1))
@@ -40,21 +42,44 @@ export default function ActivityCard({ id, name, description, date, price, place
         } else {
             setIsFavorite(false)
         }
+        
+        if (purchases.length >= places ){
+            setisSoulOut(true)
+        }
+
+        if((places -purchases.length) < 5 && (places -purchases.length) > 1 ){
+            setisLastPlace(true)
+        }
+
     }, [favorites])
 
 
     return (
         <div className="body-activitie">
-            <div className="card">
-                <Link to={`/activity/${id}`}>
-                    <div className="card-image">
-                        <img src={images[0]} height="200px" width='200px' className="img" />
-                    </div>
+            
+            <div className="cardActivitiesJ box">
+            {
+                      (isSoulOut ? 
+                      <div class="ribbon ribbon-top-left"><span>Cupos Agotados</span></div> :
+                      null)
+            }
+
+            {
+                 (isLastPlace?
+                    <div class="ribbon ribbon-top-left celeste"><span>Ultimos Cupos</span></div> :
+                    null)
+            }
+            
+                  
+                <Link to={`/activity/${id}`} className='linkJ'>
+                    <img src={images} className="imageActJ" />
                 </Link>
                 <div className="card-text">
+                
                     <span className="date">{date}</span>
                     <h2>{name}</h2>
-                    <p>{description}</p>
+                  
+                    {/* <p>{description}</p> */}
                     <div className="favoritelogo-div" >
                         {
                             isFavorite ?
@@ -70,7 +95,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                 </div>
                 <div className="card-stats">
                     <div className="stat">
-                        <div className="value">{places}</div>
+                        <div className="value">{places - purchases.length}</div>
                         <div className="type">Cupos</div>
                     </div>
                     <div className="stat">
