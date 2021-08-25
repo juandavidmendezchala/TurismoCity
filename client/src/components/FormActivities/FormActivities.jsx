@@ -20,6 +20,7 @@ const FormActivities = () => {
         name: yup.string().required("Please enter a valid NAME."),
         date: yup.date().required("A date is requiered."),
         description: yup.string().min(10).max(250).required(),
+        type: yup.array(),
         price: yup.number().typeError("Set a Price in numbers.").positive().integer().required(),
         places: yup.number().typeError("Set Max Pax.").positive().required(),
         duration: yup.string().required(),
@@ -45,11 +46,14 @@ const FormActivities = () => {
     const [countryL, setCountryL] = useState('');
     const [cityL, setCityL] = useState('');
     const [urlPhoto, setUrlPhoto] = useState();
+    const [type, setType] = useState([]);
 
 
     const urlP = useSelector(state => state.url)
 
     const dispatch = useDispatch();
+    const tipos = { '1': 'Playa', '2': 'Selva', '3': 'Montaña', '4': 'Aventura', '5': 'Familia', '6': 'Excursión', '7': 'Nieve', '8': 'Animales', '9': 'Gastronomía', '10': 'Música' }
+
 
     // const user = useSelector(state => state.userSignin)
     useEffect(() => {
@@ -57,18 +61,24 @@ const FormActivities = () => {
 
     }, [])
 
-
+    const changeType = (event) => {
+        event.preventDefault();
+        setType([...type, event.target.value])
+    };
     const submitForm = (post) => {
         const form = {
             ...post,
             country: countryL,
             city: cityL,
             images: urlPhoto,
+            type: type,
+
         }
 
         if (cityL === '') {
             setCityL(countryL)
         }
+
         console.log(email)
         console.log(form)
         const { name, date, description, price, places, duration, initialTime, images, country, city } = form
@@ -95,6 +105,8 @@ const FormActivities = () => {
             <div className="baseForm">
 
 
+
+
                 <form onSubmit={handleSubmit(submitForm)} className="form">
                     <input name="name" {...register("name")} placeholder="Your activity name (title)..." className="inputBasicName" />
                     <p className="errorYup">{errors.name?.message}</p>
@@ -102,6 +114,31 @@ const FormActivities = () => {
                     <p className="errorYup">{errors.date && "Set a valid date"}</p>
                     <textarea name="description" rows="4" cols="40"{...register("description")} placeholder="Please describe your Activity...(10/250 char)" className="textArea" />
                     <p className="errorYup">{errors.description?.message}</p>
+                    <div>
+
+                        <div>
+                            <select className="inputBasicName" name="type" onChange={e => changeType(e)}>
+                                <option selected>Type of Activity</option>
+                                <option value="1">Playa </option>
+                                <option value="2">Selva </option>
+                                <option value="3" >Montaña </option>
+                                <option value="4">Aventura </option>
+                                <option value="5">Familiar</option>
+                                <option value="6">Excursión</option>
+                                <option value="7">7Nieve</option>
+                                <option value="8">Animales</option>
+                                <option value="9">Gastronomía</option>
+                                <option value="10">Música</option>
+
+                            </select></div>
+                        <div>
+                            <ul className="typesSelected"> Selected: {type.map(i => `${tipos[i]} *`)}</ul></div>
+                        <p className="errorYup">{errors.type?.message}</p>
+
+                        {/* <button className="botonSubmitType" type="submit" value="Create" onClick={(e) => handleOnClick(e)}> Create  </button> */}
+                    </div>
+
+
 
                     <div className="divLastSix"> <b className="inputSm"> Precio</b>
                         <input name="price" {...register("price")} placeholder="Price $..." type="number" className="inputSmall" />
@@ -144,10 +181,11 @@ const FormActivities = () => {
                     </select> */}
                         {/* <textarea name="comments" {...register("Comments")} placeholder="Your Comments..." className="textArea" />
                     <p className="errorYup">{errors.Comments?.message}</p> */}
+
                         <input className="inputSmallButton" type="submit" /> </div>
                 </form>
 
-            </div>
+            </div >
         </div >
     );
 }

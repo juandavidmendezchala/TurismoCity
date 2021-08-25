@@ -19,6 +19,7 @@
 }
 .LandingFirst {
   position: absolute;
+  width: 100%;
 }
 .TravelForm {
   position: absolute;

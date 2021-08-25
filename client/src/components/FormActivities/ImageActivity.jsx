@@ -5,6 +5,7 @@ import "./imageActivity.css"
 import { urlPost } from '../../store/actions/urlPost'
 import { useDispatch } from "react-redux"
 
+
 const ImageActivity = () => {
     const [imgSelected, setImgSelected] = useState()
     const [photoData, setPhotoData] = useState()
@@ -37,17 +38,20 @@ const ImageActivity = () => {
             // }
         })
     }
-    const formulario = async (e) => {
+    // const formulario = async (e) => {
 
-    }
+    // }
 
 
 
     return (
         <div className="divImagePost">
 
+
+            {/* <div> <Checkbox /> </div> */}
             <form className="formImagePost" action="/pedidos" method="post" encType="multipart/form-data">
-                <h1>Comienza cargando una imagen </h1>
+
+                <h1>Ahora carga una imagen </h1>
                 <br />
 
                 {/* <input name="image" placeholder="Upload a photo" className="container" type="file" /> */}
