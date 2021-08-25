@@ -8,7 +8,17 @@ const activyRoutes = require('./activities')
 const suppliersRoutes = require('./suppliers')
 const checkout = require("./checkout")
 const purchaseRoutes = require('./purchase')
+//Agrego de constante para Agenda
+const schedulerRoutes = require('./scheduler')
+//Agrego lista de deseos
+const whishesRoutes = require('./whishes')
+const questionRoutes = require('./question')
+const answerRoutes = require('./answer')
+
+//Agrego rutas de emailes
+const emailSendRoutes = require('./sendemails')
 const promoRoutes = require('./promo')
+const typesRoutes = require('./type')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -28,7 +38,17 @@ router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
 router.use("/checkout", checkout)
 router.use('/promo', promoRoutes)
+router.use('/types', typesRoutes)
 
 router.use('/purchase', purchaseRoutes)
+router.use('/purchase', purchaseRoutes)
+router.use('/question', questionRoutes)
+router.use('/answer', answerRoutes)
+// Rutas de scheduler
+router.use(schedulerRoutes)
+// Rutas de deseos
+router.use(whishesRoutes)
+// Rutas de emails
+router.use(emailSendRoutes)
 
 module.exports = router;

@@ -52,7 +52,9 @@ router.get('/', async(req, res) => {
 
 router.get('/next/:idUser', async(req, res) => {
     const {idUser} = req.params
-
+const fecha = Date.now();
+const fechaActual = new Date(fecha);
+console.log(fechaActual.toISOString().slice(0,10))
     Purchase.findAll({
             where: {
               userId: idUser
@@ -61,7 +63,7 @@ router.get('/next/:idUser', async(req, res) => {
               model: Activity,    
               where: {
                 date: {
-                    [Op.gte]: '2021-08-17'
+                    [Op.gte]: fechaActual.toISOString().slice(0,10)
                     //mayor a la fecha
                 }
               }
@@ -75,6 +77,8 @@ router.get('/next/:idUser', async(req, res) => {
 router.get('/previous/:idUser', async(req, res) => {
   const {idUser} = req.params
 console.log("ESTO ENTRA A /PREVIUS EN BACK",idUser)
+const fecha = Date.now();
+const fechaActual = new Date(fecha);
     Purchase.findAll({
             where: {
               userId: idUser
@@ -83,7 +87,7 @@ console.log("ESTO ENTRA A /PREVIUS EN BACK",idUser)
               model: Activity,    
               where: {
                 date: {
-                    [Op.lte]: '2021-08-17'
+                    [Op.lte]: fechaActual.toISOString().slice(0,10)
                     //menor a la fecha
                 }
               }

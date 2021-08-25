@@ -1,0 +1,48 @@
+.country{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.country.is-open{
+    display: flex;
+}
+
+.country-container{
+    position: relative;
+    padding: 1rem;
+    min-width: 500px;
+    max-width: 480px;
+    min-height: 200px;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.country-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.countries-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.countries-list:hover{
+    background-color: rgba(247, 232, 232, 0.75);
+}
+
+.countries-name{
+    font-weight: bold;
+}
+

@@ -25,7 +25,7 @@ const HomeAdminPanel = ({ sidebar }) => {
 
     useEffect(() => {
         axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)
-            .then(async (response) => {
+            .then((response) => {
                 dispatch(getSalesSup(response.data))
                 //Para ordenar las actividades mas vendidas en el store
                 dispatch(mostSaled(response.data.sort((a, b) => {

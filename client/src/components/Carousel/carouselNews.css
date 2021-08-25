@@ -4,14 +4,14 @@
 .carrouselFirst {
   /* margin-top: 300px; */
   width: 90%;
-  margin: 5rem auto;
+  margin: 3rem auto;
   /* height: 450px; */
   /* font-size: medium; */
 }
-.slide img {
+/* .slide img {
   width: 20rem;
   margin: 0 auto;
-}
+} */
 
 .slide {
   transform: scale(0.2);
@@ -37,19 +37,19 @@
 .next {
   right: 0%;
   top: 50%;
-  color: rgba(0, 0, 255, 0.377);
+  color: rgba(113, 113, 247, 0.377);
 }
 .prev {
   left: 0%;
   top: 50%;
-  color: rgba(0, 0, 255, 0.377);
+  color: rgba(113, 113, 247, 0.377);
 }
 
 .container-carousel {
   /* margin-top: 10px; */
   background-color: rgb(236, 236, 236);
-  height: 350px;
-  width: 450px;
+  height: 450px;
+  width: 500px;
   border-radius: 0.5rem;
   padding: 8%;
   box-shadow: 6px 6px 15px rgb(151, 150, 150);

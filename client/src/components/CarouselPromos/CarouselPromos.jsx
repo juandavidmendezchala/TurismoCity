@@ -26,14 +26,14 @@ const CarouselPromos = () => {
     const NextArrow = ({ onClick }) => {
         return (
             <div className='arrow nextP' onClick={onClick}>
-                ▶
+                ↪
             </div>
         )
     }
     const PrevArrow = ({ onClick }) => {
         return (
             <div className='arrow prevP' onClick={onClick}>
-                ◀
+                ↩
             </div>
         )
     }
@@ -48,7 +48,7 @@ const CarouselPromos = () => {
         lazyload: true,
         // speed: 300,
         // centerMode: true,
-        slidesToShow: 3,
+        slidesToShow: 1,
         centerMode: true,
         centerPadding: 0,
         // slidesToScroll: 1,
@@ -63,7 +63,7 @@ const CarouselPromos = () => {
 
         <div className='carrouselFirstPromos'>
             <Slider {...settings}>
-                {promos?.map((promo, id) => (
+                {promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
                             <h2 className="newstitlePromos">{promo.title}</h2>

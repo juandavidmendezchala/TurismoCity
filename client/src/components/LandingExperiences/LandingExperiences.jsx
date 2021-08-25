@@ -40,7 +40,7 @@ export default function LandingExperiences(props) {
     <div className='ExperiencesBack'>
         <video src={video} loop autoPlay muted preload='auto' playsinline className='ExperiencesVideo'/>
         <div className='ExperiencesTitle'>
-            <p className='ExperienceTitle_p'>Animáte a ofrecer experiencias</p>
+            <p className='ExperienceTitle_p'>Anímate a ofrecer experiencias</p>
             <button className='ExperiencesButton' onClick={() => handleClick()} >VAMOS!</button>
         </div>
         <a className='ExperiencesLowHenry' href='/'> {'<< LowHenry'}</a>

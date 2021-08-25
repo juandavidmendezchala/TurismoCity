@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { editPromo } from '../../store/actions/promoActions';
 import "./promo.css"
 
-const Promo = ({ promoText, promoInfo }) => {
+const Promo = ({ promoText, promoInfo, removePromo, id }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(promoText);
     const [info, setInfo] = useState(promoInfo);
+
+    const dispatch = useDispatch();
 
     const handleDivDoubleClick = () => {
         setIsEditing(true)
     }
     const handleImputKeyDown = (e) => {
         e.preventDefault()
+        dispatch(editPromo(value, info, id))
         setIsEditing(false)
     }
 
@@ -27,7 +32,9 @@ const Promo = ({ promoText, promoInfo }) => {
 
             <input className="verPromoTexto"
 
+
                 onChange={handleImputChange}
+
                 autoFocus={true}
                 value={value}
             />
@@ -42,13 +49,13 @@ const Promo = ({ promoText, promoInfo }) => {
         </div> <button className="botonPromoEditt" onClick={handleImputKeyDown}> Guardar</button>  </div ></form> :
 
 
-            <div onClick={handleDivDoubleClick} className="containerPromoimput">
+            <div className="containerPromoimput">
                 < div  >
                     <h1 className="verPromoTexto">{value}</h1>
                     <h1 className="verPromoTexto">{info}</h1>
                 </div >
-                <button onClick={handleImputKeyDown} className="botonPromoEditt"> editar</button>
-                <button className="botonPromoDelete"> X </button>
+                <button onClick={handleDivDoubleClick} className="botonPromoEditt"> editar</button>
+                <button className="botonPromoDelete" onClick={() => removePromo(id)}> X </button>
             </div >
 
     )
