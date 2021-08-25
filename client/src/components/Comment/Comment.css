@@ -1,4 +1,4 @@
-@mixin tablet-and-up {
+/* @mixin tablet-and-up {
     @media screen and (min-width: 769px) { @content; }
 }
 @mixin mobile-and-up {
@@ -9,7 +9,7 @@
 }
 @mixin mobile-only {
     @media screen and (max-width: 600px) { @content; }
-}
+} */
 
 
 ul, li{

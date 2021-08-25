@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { REACT_APP_API } from "../../store/Consts/Consts";
+import { useSelector, connect } from "react-redux";
+import { REACT_APP_DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
 import style from "../../styles/AddSched.module.css";
+import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
 
 const Scheduler = (props) => {
   const [input, setInput] = useState({
@@ -20,6 +20,8 @@ const Scheduler = (props) => {
       errors.fechaini = "Elija fecha de agenda";
     } else if (!input.fecharec) {
       errors.fecharec = "Elija fecha de recordatorio";
+    } else if (input.fecharec > input.fechaini) {
+      errors.fecharec = "Fecha de recordatorio debe ser menor o igual";
     } else if (input.initialTime <= 0) {
       errors.initialTime = "Ingrese duracion de agenda";
     } else if (!input.notas || input.notas.length <= 3) {
@@ -30,6 +32,13 @@ const Scheduler = (props) => {
 
   const userSingin = useSelector((state) => state.userSignin);
   const { userInfo } = userSingin;
+
+  useEffect(() => {
+    if (userInfo) {
+      props.getSchedAll(userInfo.id);
+    }
+    console.log("dev", REACT_APP_DEV_TOOLS, "api", REACT_APP_API);
+  }, []);
 
   function handleChange(e) {
     setInput({
@@ -44,7 +53,7 @@ const Scheduler = (props) => {
     );
   }
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const objGuardar = {
       userid: userInfo.id,
@@ -54,21 +63,18 @@ const Scheduler = (props) => {
       tiempo: input.tiempo,
       notas: input.notas,
     };
-    const resultado = await axios.post(
-      `${REACT_APP_API}/scheduler`,
-      objGuardar
-    );
-    alert(resultado.data.message || "Agendado con éxito");
-    document.getElementById("form").reset();
+    props.schedAdd(objGuardar);
+
+    // document.getElementById("form").reset();
     setInput({
       fechaini: "",
       fecharec: "",
-      horario:"",
+      initialTime: "",
       tiempo: 0,
       notas: "",
     });
-//    window.location.href="/scheduler"
-/*     console.log(objGuardar, "    ", input, "    ", resultado.data); */
+    //    window.location.href="/scheduler"
+    /*     console.log(objGuardar, "    ", input, "    ", resultado.data); */
   }
 
   if (userInfo) {
@@ -151,4 +157,17 @@ const Scheduler = (props) => {
   );
 };
 
-export default Scheduler;
+function mapStateToProps(state) {
+  return {
+    sheduledactividad: state.scheduled.sched_activity,
+  };
+}
+
+function mapDispacthToProps(dispatch) {
+  return {
+    schedAdd: (elem) => dispatch(schedAdd(elem)),
+    getSchedAll: (elem) => dispatch(getSchedAll(elem)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispacthToProps)(Scheduler);
