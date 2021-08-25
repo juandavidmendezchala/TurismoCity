@@ -18,6 +18,9 @@ export const ActivitiesReservation = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [success, setSuccess] = useState(false);
+    const fecha = Date.now();
+const fechaActual = new Date(fecha);
+const activity = useSelector(state => state.activity)
     
     //login para redireccionar si aun no es usuario al momento de querer comprar
     const { loginWithRedirect } = useAuth0()
@@ -27,6 +30,56 @@ export const ActivitiesReservation = () => {
     const userSignin = useSelector(state => state.userSignin)
     console.log(data.activity.price)
 
+    const paymentFunction = async function(){
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: "card",
+            card: elements.getElement(CardElement)
+        })
+
+
+        if (!error) {
+            try {
+                const { id } = paymentMethod
+                const response = await axios.post(`${REACT_APP_API}/checkout`, {
+                    amount: data.activity.price,
+                    id,
+                })
+                if (response.data.success) {
+                    console.log("Success Payment")
+                    setSuccess(true)
+                }
+                dispatch(purchase(userSignin.userInfo.id, data.activity.id, fechaActual.toISOString().slice(0,10)))
+                swal({
+                    title: "Felicitaciones!",
+                    text: "Su compra ha sido realizada!",
+                    icon: "success",
+                    button: "Aceptar",
+                    dangerMode: false
+                  })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.reload(false)
+                    }})
+            } catch (error) {
+                    swal({
+                      title: "Atención!",
+                      text: error.message,
+                      icon: "info",
+                      button: "Aceptar",
+                      dangerMode: true
+                    })
+            }
+        } else {
+            
+            swal({
+                title: "Atención!",
+                text: error.message,
+                icon: "info",
+                button: "Aceptar",
+                dangerMode: true
+              })
+        }
+    }
     //handleSubmit
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -45,50 +98,30 @@ export const ActivitiesReservation = () => {
                 }
               });
         } else {
-            const { error, paymentMethod } = await stripe.createPaymentMethod({
-                type: "card",
-                card: elements.getElement(CardElement)
-            })
-
-
-            if (!error) {
-                try {
-                    const { id } = paymentMethod
-                    const response = await axios.post(`${REACT_APP_API}/checkout`, {
-                        amount: data.activity.price,
-                        id,
-                    })
-                    if (response.data.success) {
-                        console.log("Success Payment")
-                        setSuccess(true)
-                    }
-                    dispatch(purchase(userSignin.userInfo.id, data.activity.id, "2021-08-17"))
-                    swal({
-                        title: "Felicitaciones!",
-                        text: "Su compra ha sido realizada!",
-                        icon: "success",
-                        button: "Aceptar",
-                        dangerMode: false
-                      })
-                } catch (error) {
-                        swal({
-                          title: "Atención!",
-                          text: error.message,
-                          icon: "info",
-                          button: "Aceptar",
-                          dangerMode: true
-                        })
-                }
-            } else {
-                
+            if(activity.activity.places - activity.activity.purchases?.length<=0){
                 swal({
                     title: "Atención!",
-                    text: error.message,
+                    text: 'Esta actividad ya no tiene cupos disponibles!',
                     icon: "info",
                     button: "Aceptar",
                     dangerMode: true
                   })
+            } else{
+                swal({
+                    title: "Atención! Estás por adquirir un producto.",
+                    text: `ACTIVIDAD: ${data.activity.name}___________ PRECIO: USD$${data.activity.price}`,
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: false,
+                  })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                        paymentFunction()
+                    }
+                  });
             }
+            
+           
         }
 
     }

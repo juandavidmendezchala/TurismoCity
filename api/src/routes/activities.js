@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Purchase, Activity, User, favorite, FeedBack } = require('../models/index')
+const { Purchase, Activity, User, favorite, FeedBack,Type, type_activity } = require('../models/index')
 
 const { Op } = require("sequelize");
 
@@ -8,13 +8,24 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
+    // const getAllActivities = await Activity.findAll(
+    //    {where:
+    //      {active: true}
+    //    ,
+    //    include: [{
+    //     model: Purchase
+    //    }]
+    //   });
     const getAllActivities = await Activity.findAll(
-       {where:
-         {active: true}
-       ,
-       include: [{
-        model: Purchase
-       }]
+      {where:
+        {active: true}
+      , 
+      include: [{
+        model: Type, through: type_activity
+      },
+      {
+      model: Purchase
+      }]
       });
     return res.send(getAllActivities);
   } catch (err) {
@@ -33,13 +44,35 @@ router.post("/filter", async (req, res) => {
     price,
     startDate,
     endDate,
+    type
   } = req.body;
+
+  if(true) {
+    Activity.findAll({
+      where: {
+        country, 
+        active: true
+      },
+      include: [
+        {
+          model: Type,
+          through: type_activity
+        }
+      ]
+    })
+    .then((result) => 
+    res.send(result))
+  }
    
   if (country && !city && !price && !startDate && !endDate){
     Activity.findAll({
       where: {
-        country: country
+        country: country, 
+        active: true
       },
+      include: [
+        { model: Type, through: type_activity } 
+      ]
     })
     .then((resut) => 
     res.send(resut));
@@ -49,8 +82,12 @@ router.post("/filter", async (req, res) => {
     Activity.findAll({
       where: {
         country: country,
-        city: city
+        city: city, 
+        active: true
       },
+      include: [
+        { model: Type, through: type_activity } 
+      ]
     })
     .then((resut) => 
     res.send(resut));
@@ -64,8 +101,12 @@ router.post("/filter", async (req, res) => {
         city: city,
         price: {
           [Op.lte]: price,
-        }
+        }, 
+        active: true
       },
+      include: [
+        { model: Type, through: type_activity } 
+      ]
     })
     .then((resut) => 
     res.send(resut));
@@ -79,9 +120,13 @@ router.post("/filter", async (req, res) => {
         price: {
           [Op.lte]: price,
         },
+        active: true,
         date: {
           [Op.between]: [startDate, endDate]
         },
+        include: [
+          { model: Type, through: type_activity } 
+        ]
       },
     })
     .then((resut) => 
@@ -93,8 +138,12 @@ router.post("/filter", async (req, res) => {
       where: {
         price: {
           [Op.lte]: price,
-        }
+        },
+        active: true
       },
+      include: [
+        { model: Type, through: type_activity } 
+      ]
     })
     .then((resut) => 
     res.send(resut));
@@ -102,11 +151,14 @@ router.post("/filter", async (req, res) => {
   if (!country && !city && !price && startDate && endDate){
     Activity.findAll({
       where: {
-       
+        active: true,       
         date: {
           [Op.between]: [startDate, endDate]
         }
       },
+      include: [
+        { model: Type, through: type_activity } 
+      ]
     })
     .then((resut) => 
     res.send(resut));
@@ -157,10 +209,18 @@ router.get("/:id", async (req, res) => {
   const activityDetail = await Activity.findOne({
     where: {
       id,
-    }
+    },
+    include: [{
+          model: Purchase
+         }]
   });
   res.send(activityDetail);
 });
+
+router.get("/get/landingGet", async(req, res) => {
+  const LandingActivities = await Activity.findAll({limit: 3})
+  return res.send(LandingActivities)
+})
 
 router.post("/", async (req, res) => {
   let {
@@ -175,6 +235,7 @@ router.post("/", async (req, res) => {
     images,
     country,
     city,
+    type
   } = req.body;
   const createPack = await Activity.create({
     name,
@@ -202,7 +263,8 @@ router.post("/", async (req, res) => {
       email,
     },
   });
-  await findUser.addActivity(createPack);
+  await createPack.addType(type) //Recibe el Id del type
+  //await findUser.addActivity(createPack);
   return res.send(createPack);
 });
 

@@ -17,6 +17,8 @@ const answerRoutes = require('./answer')
 
 //Agrego rutas de emailes
 const emailSendRoutes = require('./sendemails')
+const promoRoutes = require('./promo')
+const typesRoutes = require('./type')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -35,6 +37,9 @@ router.use('/feedBack', feedbackRouter)
 router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
 router.use("/checkout", checkout)
+router.use('/promo', promoRoutes)
+router.use('/types', typesRoutes)
+
 router.use('/purchase', purchaseRoutes)
 router.use('/purchase', purchaseRoutes)
 router.use('/question', questionRoutes)

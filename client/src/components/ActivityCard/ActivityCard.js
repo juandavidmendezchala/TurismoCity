@@ -71,11 +71,11 @@ export default function ActivityCard({ id, name, description, date, price, place
                 setIsFavorite(false)
             }
 
-            if (purchases.length >= places) {
+            if (purchases?.length >= places) {
                 setisSoulOut(true)
             }
 
-            if ((places - purchases.length) < 5 && (places - purchases.length) > 1) {
+            if ((places - purchases?.length) < 5 && (places - purchases?.length) > 1) {
                 setisLastPlace(true)
             }
         }
@@ -124,7 +124,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                 </div>
                 <div className="card-stats">
                     <div className="stat">
-                        <div className="value">{places - purchases.length}</div>
+                        <div className="value">{places - purchases?.length}</div>
                         <div className="type">Cupos</div>
                     </div>
                     <div className="stat">

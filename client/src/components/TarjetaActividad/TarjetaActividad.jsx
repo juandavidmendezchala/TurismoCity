@@ -140,16 +140,16 @@ export default function TarjetaActividad(props) {
                                 </p>
                                 <form className='formEstrellitas'>
                                     <p className="clasificacion">
-                                        <input className='estrellitaTA' id={'F'+props.idAct} type="radio" name="score" onChange={handlerChange} value="5" />
-                                        <label className='labelEstrellitas' for={'F'+props.idAct}>★</label>
-                                        <input className='estrellitaTA' id={'G'+props.idAct} type="radio" name="score" onChange={handlerChange} value="4" />
-                                        <label className='labelEstrellitas' for={'G'+props.idAct}>★</label>
-                                        <input className='estrellitaTA' id={'H'+props.idAct} type="radio" name="score" onChange={handlerChange} value="3" />
-                                        <label className='labelEstrellitas' for={'H'+props.idAct} >★</label>
-                                        <input className='estrellitaTA' id={'I'+props.idAct} type="radio" name="score" onChange={handlerChange} value="2" />
-                                        <label className='labelEstrellitas' for={'I'+props.idAct}>★</label>
-                                        <input className='estrellitaTA' id={'J'+props.idAct} type="radio" name="score" onChange={handlerChange} value="1" />
-                                        <label className='labelEstrellitas' for={'J'+props.idAct}>★</label>
+                                        <input className='estrellitaTA' id={'F'+props.id} type="radio" name="score" onChange={handlerChange} value="5" />
+                                        <label className='labelEstrellitas' for={'F'+props.id}>★</label>
+                                        <input className='estrellitaTA' id={'G'+props.id} type="radio" name="score" onChange={handlerChange} value="4" />
+                                        <label className='labelEstrellitas' for={'G'+props.id}>★</label>
+                                        <input className='estrellitaTA' id={'H'+props.id} type="radio" name="score" onChange={handlerChange} value="3" />
+                                        <label className='labelEstrellitas' for={'H'+props.id} >★</label>
+                                        <input className='estrellitaTA' id={'I'+props.id} type="radio" name="score" onChange={handlerChange} value="2" />
+                                        <label className='labelEstrellitas' for={'I'+props.id}>★</label>
+                                        <input className='estrellitaTA' id={'J'+props.id} type="radio" name="score" onChange={handlerChange} value="1" />
+                                        <label className='labelEstrellitas' for={'J'+props.id}>★</label>
                                     </p>
                                 </form>
 
