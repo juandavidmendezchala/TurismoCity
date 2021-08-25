@@ -22,7 +22,7 @@ export default function LandingExperiences(props) {
 
     const handleClick = () => {
       if(userInfo) {
-        props.history.push('/suppliers')
+        props.history.push('/suppliers/info')
       } else {
         loginWithRedirect()        
       }

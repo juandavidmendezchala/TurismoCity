@@ -9,7 +9,7 @@ import './sales.css'
 import { InfoSale } from './InfoSale';
 
 const Sales = ({ sidebar }) => {
-    const [sales, setSales] = useState()
+    const [sales, setSales] = useState([])
     const [loading, setLoading] = useState(true)
     const [active, setActive] = useState(false)
 

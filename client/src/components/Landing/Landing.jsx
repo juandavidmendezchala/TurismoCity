@@ -72,7 +72,7 @@ export const Home = () => {
 
                 <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   
+                    <div className='citysLanding'>
                     <div className='CardCountry' id='BOG' onClick={(e)=>flights(e)}>BOGOTÁ</div>
                     <div className='CardCountry' id='GIG' onClick={(e)=>flights(e)}>RIO DE JANEIRO</div>
                     <div className='CardCountry'id='FCO' onClick={(e)=>flights(e)}>ROMA</div>
@@ -83,7 +83,7 @@ export const Home = () => {
                     <div className='CardCountry'id='LIM' onClick={(e)=>flights(e)}>LIMA</div>
                     <div className='CardCountry' id= 'EZE' onClick={(e)=>flights(e)}>BUENOS AIRES</div>
                     <div className='CardCountry' id='JFK' onClick={(e)=>flights(e)}>NEW YORK</div>
-                    
+                    </div>
                     
                     
                 </div>
@@ -91,8 +91,8 @@ export const Home = () => {
 
             </div>
             <footer className='carouselPromos'><CarouselPromos /> </footer>
-            {/* <LandingActivities></LandingActivities>
-            <div> <CarouselNews /> </div> */}
+            <LandingActivities></LandingActivities>
+            <div> <CarouselNews /> </div>
 
         </>
     )
