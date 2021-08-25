@@ -28,6 +28,10 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        enviado: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false

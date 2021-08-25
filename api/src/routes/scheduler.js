@@ -27,6 +27,7 @@ router.post("/scheduler", async (req, res) => {
       notas,
       horario,
       userId: userid,
+      enviado: false
     };
     let Guardado = await Scheduler.create(objGuardar);
     return res.send(Guardado);

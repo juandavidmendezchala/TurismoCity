@@ -37,7 +37,6 @@ const Scheduler = (props) => {
     if (userInfo) {
       props.getSchedAll(userInfo.id);
     }
-    console.log("dev", REACT_APP_DEV_TOOLS, "api", REACT_APP_API);
   }, []);
 
   function handleChange(e) {

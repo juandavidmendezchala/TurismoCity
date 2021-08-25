@@ -7,6 +7,7 @@ const feedback = require('./feedback')
 const purchase = require('./purchase')
 const schedModel = require('./scheduler')
 const whishModel = require('./whishes')
+const sendMailModel = require('./mailsends')
 
 //const userActivity = require('./activitie.js')
 const photo = require('./photo')
@@ -48,6 +49,7 @@ const FeedBack = feedback(sequelize)
 const Purchase = purchase(sequelize)
 const Scheduler = schedModel(sequelize)
 const Whishes = whishModel(sequelize)
+const MailSends = sendMailModel(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -93,6 +95,7 @@ module.exports = {
   FeedBack,
   Purchase,
   Scheduler,
-  Whishes
+  Whishes,
+  MailSends
 }
 
