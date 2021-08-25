@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { postPromo } from '../../store/actions/promoActions'
 import "./formPromo.css"
 
 
@@ -16,15 +18,14 @@ const FormPromo = ({ addPromo }) => {
 
         setInfoValue(e.target.value)
     }
+
+    const dispatch = useDispatch();
+
     const handleFormSubmit = (e) => {
 
         e.preventDefault()
         if (inputValue.trim() === '') return
-
-        addPromo({
-            promoText: inputValue,
-            promoInfo: infoValue
-        })
+        dispatch(postPromo(inputValue, infoValue))
         setInputValue('');
         setInfoValue('')
     }

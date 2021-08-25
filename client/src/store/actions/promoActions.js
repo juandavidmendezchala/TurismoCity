@@ -22,3 +22,22 @@ export const getPromo = () => async(dispatch) => {
         })
     }
 }
+
+export const postPromo = (title, description) => async(dispatch) => {
+    dispatch({type: GET_PROMO_REQUEST})
+    try{
+        await axios.post(`${REACT_APP_API}/promo`, {title, description})
+        const {data} = await axios.get(`${REACT_APP_API}/promo`)
+        dispatch({type: GET_PROMO_SUCCESS, payload: data})
+
+    } catch(err) {
+        dispatch({
+            type: GET_PROMO_FAIL,
+            payload: 
+            err.response && err.response.data.message
+            ? err.response.data.message
+            : err.message
+        })
+    }
+}
+

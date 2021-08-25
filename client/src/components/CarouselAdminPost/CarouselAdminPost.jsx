@@ -42,26 +42,22 @@ const CarouselAdminPost = () => {
     const formTitle = "POST PROMOS"
     const [promoList, setPromoList] = useState(promotions)
 
-    const addPromo = (item) => {
-        setPromoList((oldList) => [...oldList, item])
-
-    }
-    const removePromo = (id) => {
+     const removePromo = (id) => {
         setPromoList((oldList) => oldList.filter((item) => item.id !== id))
 
-    }
+    } 
 
     useEffect(() => {
         dispatch(getPromo())
-        console.log(Promotions)
+        console.log(promotions, "carouseladmin")
     }, [])
 
 
     return (
         <div className="formPromo">
             <Section><h1>{formTitle}</h1> </Section>
-            <Section><FormPromo addPromo={addPromo} /></Section>
-            <Section><PromoList removePromo={removePromo} list={promoList} /></Section>
+            <Section><FormPromo/></Section>
+            <Section><PromoList removePromo={removePromo}/></Section>
         </div >
     );
 }
