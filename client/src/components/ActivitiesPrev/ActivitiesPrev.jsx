@@ -18,10 +18,9 @@ export default function ActivitiesPrev() {
 }, [])
 console.log(userId)
    return(
-       <div>
-           <h1>Actividades Previas</h1>
+       <div className='AllDIV'>
            <SubMenuActivities/>
-        <div className="contenCardSub">
+        
            {activitie.map((c) => 
                      <TarjetaPrev
                         key={c.id}
@@ -38,7 +37,7 @@ console.log(userId)
                      />
                   )}
             
-        </div>
+        
        </div>
    )
 }
