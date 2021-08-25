@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
+import { REACT_APP_DEV_TOOLS } from "./Consts/Consts"
 // import { reducerActivities } from "./reducers/reducerActivities";
 import reducerFlights from "./reducers/reducerFlights";
 import reducerPhoto from "./reducers/reducerPhoto";
@@ -21,8 +22,8 @@ import { newsReducer } from "./reducers/reduceNews";
 import { promoReducer } from './reducers/reducerPromo'
 import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
 
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 
 const initialState = {
   userCountry: localStorage.getItem("userCountry") 
