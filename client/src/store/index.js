@@ -10,6 +10,9 @@ import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
 import { reducerMyActivities } from "./reducers/reducerMyActivities";
 import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
+import { reducerPurchase } from "./reducers/reducerPurchase";
+import {reducerUserSeller} from './reducers/reducerUserAdmin'
+import {reducerQuestion} from './reducers/reducerQuestion'
 import { reducerScheduler } from "./reducers/reducersScheduler"
 import { REACT_APP_DEV_TOOLS } from "./Consts/Consts"
 import { reducerWhishes } from "./reducers/reducerWhishes";
@@ -46,6 +49,9 @@ const reducer = combineReducers({
   reducerFeedBack: reducerFeedBack,
   reducerActivitiesPrev: reducerActivitiesPrev,
   comments: feedBackReducer,
+  reducerPurchase,
+  reducerUserSeller: reducerUserSeller,
+  reducerQuestion: reducerQuestion,
   scheduled: reducerScheduler,
   whishes: reducerWhishes
 })

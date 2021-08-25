@@ -27,11 +27,21 @@ import { loadStripe } from "@stripe/stripe-js";
 import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+import NavBarUserAdmin from "./components/NavBarUserAdmin/NavBarUserAdmin";
+import { ContainerUserAdmin } from "./components/ConteinerUserAdmin/ConteinerUserAdmin";
+import { ContainerActivity } from "./components/ConteinerActivity/ConteinerActivity";
+import ContactUs from "./components/ContactUs/ContactUs";
+import DetailSched from "./components/Scheduler/DetailSched";
+import Comment from "./components/Comment/Comment";
 import Scheduler from "./components/Scheduler/Scheduler";
 import ListSchedulers from "./components/Scheduler/ListShedulers";
 import EmailSender from "./components/EmailSender/EmailSender";
 import Whishes from "./components/Whishes/Whishes";
 import ListActivWish from "./components/Whishes/ListActivWish";
+import Newsletter from "./components/Newsletter/Newsletter"
+
+
+
 
 function App() {
   const [sidebar, setSidebar] = useState(true);
@@ -48,6 +58,7 @@ function App() {
     <div className="App">
       <Route exact path="/experiences" component={LandingExperiences} />
       <Route path="/" component={Banner} />
+
       {/* <Route exact path="/nuevo" component={Nuevo}></Route> */}
       <Route exact path="/FeedBack/:id" component={FeedBack}></Route>
       {/* <Route path="/" component={Navbar}></Route> */}
@@ -56,28 +67,16 @@ function App() {
       <Route exact path="/register" component={Register}></Route>
       <Route path="/flights" component={Search}></Route>
       <Route path="/profile" component={Profile}></Route>
-      <Route
-        path="/yourActivities"
-        render={() => (
-          <NavBarSupplierUser showSidebar={showSidebar} sidebar={sidebar} />
-        )}
-      ></Route>
-      <Route
-        exact
-        path="/yourActivities/favorites"
-        render={() => <FavoritesActivities sidebar={sidebar} />}
-      ></Route>
-      <Route
-        exact
-        path="/yourActivities/activities"
-        render={() => <MyActivities sidebar={sidebar} />}
-      ></Route>
-      <Route
-        exact
-        path="/yourActivities/activities/next"
-        component={ActivitiesPrev}
-      ></Route>
-      <Route path="/politics" component={Politics}></Route>
+      <Route path="/email" component={ContactUs}></Route>
+      <Route path="/yourActivities" render={() => <NavBarSupplierUser showSidebar={showSidebar} sidebar={sidebar} />}></Route>
+      <Route path="/admin" render={() => <NavBarUserAdmin showSidebar={showSidebar} sidebar={sidebar} />}></Route>
+      <Route path="/admin/userList" render={() => <ContainerUserAdmin sidebar={sidebar} />} />
+      <Route path="/admin/activityList" render={() => <ContainerActivity sidebar={sidebar} />} />
+      <Route exact path="/yourActivities/favorites" render={() => <FavoritesActivities sidebar={sidebar} />}></Route>
+      <Route exact path="/yourActivities/activities" render={() => <MyActivities sidebar={sidebar} />}></Route>
+      <Route exact path="/yourActivities/activities/next" component={ActivitiesPrev} ></Route>
+      <Route exact path="/comment" component={Comment} ></Route>
+      <Route path="/politics" component={Politics} ></Route>
       <Route path="/activities" component={Actities}></Route>
       <Route
         path="/suppliers"
@@ -116,9 +115,9 @@ function App() {
         <ListActivWish />
       </Route>
       <Elements stripe={stripePromise}>
-        <Route path="/checkout" component={Checkout}></Route>
-      </Elements>
-    </div>
+        <Route path="/checkout" component={Checkout}></Route></Elements>
+      <Route path="/newsletter" component={Newsletter}></Route>
+    </div >
   );
 }
 

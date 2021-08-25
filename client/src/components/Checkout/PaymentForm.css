@@ -1,0 +1,10 @@
+.payButton{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgb(64, 99, 133);
+    color: white;
+    border-radius: 7px;
+    font-weight: bold;
+    border: none;
+    width: 300px;
+}

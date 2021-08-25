@@ -7,6 +7,7 @@ var router = express.Router();
 
 
 var bcryptjs = require ('bcryptjs')
+
 //var bcryptjs = require ('bcryptjs')
 //var bcryptjs = require ('bcryptjs')
 
@@ -14,7 +15,7 @@ router.post ('/login', async (req, res) =>{
   const email= req.body.email;
   const password = req.body.password;
   if(email == "mati" && password == '12345'){ // para prueba en postman
-    var passwordHash = await bcryptjs.hash(password, 8)
+    //ar passwordHash = await bcryptjs.hash(password, 8)
     res.json({
       message:'Se autentico adecuadamente'
     })

@@ -18,7 +18,7 @@ module.exports = function (sequelize) {
         allowNull: false,
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
       },
       price: {
@@ -50,6 +50,10 @@ module.exports = function (sequelize) {
         allowNull: false,
       },
       active: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+       estadoAdmin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },

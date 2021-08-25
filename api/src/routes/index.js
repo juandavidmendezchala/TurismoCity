@@ -12,6 +12,9 @@ const purchaseRoutes = require('./purchase')
 const schedulerRoutes = require('./scheduler')
 //Agrego lista de deseos
 const whishesRoutes = require('./whishes')
+const questionRoutes = require('./question')
+const answerRoutes = require('./answer')
+
 //Agrego rutas de emailes
 const emailSendRoutes = require('./sendemails')
 
@@ -33,6 +36,9 @@ router.use('/activity', activyRoutes)
 router.use('/suppliers', suppliersRoutes)
 router.use("/checkout", checkout)
 router.use('/purchase', purchaseRoutes)
+router.use('/purchase', purchaseRoutes)
+router.use('/question', questionRoutes)
+router.use('/answer', answerRoutes)
 // Rutas de scheduler
 router.use(schedulerRoutes)
 // Rutas de deseos

@@ -8,6 +8,8 @@ const purchase = require('./purchase')
 const schedModel = require('./scheduler')
 const whishModel = require('./whishes')
 const sendMailModel = require('./mailsends')
+const answer = require('./Answer')
+const question = require('./Question')
 
 //const userActivity = require('./activitie.js')
 const photo = require('./photo')
@@ -16,17 +18,17 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
-        dialect: "postgres",
-        host: DB_HOST,
-        port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
-        },
+      database: DB_NAME,
+      dialect: "postgres",
+      host: DB_HOST,
+      port: 5432,
+      username: DB_USER,
+      password: DB_PASSWORD,
+      pool: {
+        max: 3,
+        min: 1,
+        idle: 10000,
+      },
         dialectOptions: {
           ssl: {
             require: true,
@@ -36,8 +38,8 @@ let sequelize =
           keepAlive: true,
         },
         ssl: true,
-      })
-    : new Sequelize(
+      }) :
+     new Sequelize(
         `postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`,
         { logging: false, native: false }
       );
@@ -50,6 +52,8 @@ const Purchase = purchase(sequelize)
 const Scheduler = schedModel(sequelize)
 const Whishes = whishModel(sequelize)
 const MailSends = sendMailModel(sequelize)
+const Answer = answer(sequelize)
+const Question = question(sequelize)
 //const Package = userModel(sequelize)
 
 
@@ -79,6 +83,16 @@ Activity.hasMany(FeedBack)
 FeedBack.belongsTo(User)
 User.hasMany(FeedBack)
 
+Question.belongsTo(Activity)
+Activity.hasMany(Question)
+Question.belongsTo(User)
+User.hasMany(Question)
+
+Answer.belongsTo(Question)
+Question.hasMany(Answer)
+Answer.belongsTo(User)
+User.hasMany(Answer)
+
 Purchase.belongsTo(Activity)
 Activity.hasMany(Purchase)
 Purchase.belongsTo(User)
@@ -96,6 +110,8 @@ module.exports = {
   Purchase,
   Scheduler,
   Whishes,
-  MailSends
+  MailSends,
+  Question,
+  Answer
 }
 

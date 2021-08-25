@@ -1,3 +1,11 @@
+.PayContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    
+}
 .reservation-label{
     display: flex;
     flex-direction: column;
@@ -22,17 +30,34 @@
 .reservation-form{
     font-family: roboto;
     font-weight: 800;
-   background-color: rgb(133, 150, 197);
+   background-color: black;
 }
-.PayContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 300px;
-    
-}
+
 .FormGroup{
-    margin-top: 10px;
-    
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 300px;
 }
+.PayForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PayButton{
+    width: 80px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: red;
+    color: white;
+    border-color: red;
+}
+.PayButton:hover{
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
 
