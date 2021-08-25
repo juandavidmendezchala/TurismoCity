@@ -1,0 +1,32 @@
+.boxform {
+    display: flex;
+    width: 250px;
+    height: 7em;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(82, 76, 76);
+    border-radius: 1em;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #0F3057 
+  }
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+    color: #0F3057 
+  }
+  

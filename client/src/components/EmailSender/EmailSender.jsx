@@ -1,6 +1,7 @@
 import React, { useEffect, useState  } from "react";
 import { useSelector } from "react-redux";
 import { REACT_APP_API } from "../../store/Consts/Consts";
+import style from "../../styles/Emailsend.module.css";
 import axios from 'axios'
 
 const EmailSender = (props) => {
@@ -48,6 +49,7 @@ const EmailSender = (props) => {
     <>
 
     <h1>Enviar los recordatorios (por ahora a mano)</h1>
+    <div className={style.boxform}>
       <form>
         <label>Fecha de recordatorio</label>
         <input
@@ -59,6 +61,7 @@ const EmailSender = (props) => {
         ></input>
         <button onClick={handleEnviar}> Enviar Recordatorios</button>
       </form>
+      </div>
         <h1>{result.data}</h1>
         <h2>Recordatorios enviados: { !resultado.data ? "0" : resultado.data.length }</h2> 
     </>
