@@ -9,12 +9,14 @@ import { removeMyFavorite } from '../../store/actions/removeMyFavorite'
 import { useAuth0 } from '@auth0/auth0-react';
 import swal from 'sweetalert';
 
-export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites }) {
+export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases }) {
 
     const dispatch = useDispatch()
     const userSignin = useSelector(state => state.userSignin)
     const { loginWithRedirect } = useAuth0()
     const [isFavorite, setIsFavorite] = useState(false)
+    const [isSoulOut, setisSoulOut] = useState(false)
+    const [isLastPlace, setisLastPlace] = useState(false)
 
     const onFavorite = () => {
         if (userSignin.userInfo) {
@@ -25,80 +27,104 @@ export default function ActivityCard({ id, name, description, date, price, place
             } else {
                 setIsFavorite(false)
             }
-        }else{
+        } else {
             swal({
                 title: "Loguearse",
                 text: "Para guardar esta actividad en favoritos debes loguearte a tu cuenta!",
                 icon: "info",
                 buttons: true,
                 dangerMode: false,
-              })
-              .then((willDelete) => {
-                if (willDelete) {
-                    loginWithRedirect()
-                }
-              });
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        loginWithRedirect()
+                    }
+                });
         }
     }
 
     const deleteFavorite = () => {
-        
-            if(userSignin.userInfo) {
-                dispatch(removeMyFavorite(userSignin.userInfo.id, id))
-                const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
-                if (isThisFavorite) {
-                    setIsFavorite(true)
-                } else {
-                    setIsFavorite(false)
-                }
+
+        if (userSignin.userInfo) {
+            dispatch(removeMyFavorite(userSignin.userInfo.id, id))
+            const isThisFavorite = favorites?.activities?.filter(f => f.id === id)
+            if (isThisFavorite) {
+                setIsFavorite(true)
             } else {
-              loginWithRedirect()        
+                setIsFavorite(false)
             }
+        } else {
+            loginWithRedirect()
+        }
     }
-    const takesOutProvince = function(city){
+    const takesOutProvince = function (city) {
         return city.split(' ').filter(word => word !== 'Province').join(' ')
     }
 
     useEffect(() => {
-        if(userSignin.userInfo) {
-        const isThisFavorite = favorites?.activities?.filter(f => f.id === id) || false
-        console.log('ESTO ES LO QUE ESTAMOS VIENDO AHORA:', isThisFavorite)
-        if (isThisFavorite.length) {
-            setIsFavorite(true)
-        } else {
-            setIsFavorite(false)
+        if (userSignin.userInfo) {
+            const isThisFavorite = favorites?.activities?.filter(f => f.id === id) || false
+            console.log('ESTO ES LO QUE ESTAMOS VIENDO AHORA:', isThisFavorite)
+            if (isThisFavorite.length) {
+                setIsFavorite(true)
+            } else {
+                setIsFavorite(false)
+            }
+
+            if (purchases.length >= places) {
+                setisSoulOut(true)
+            }
+
+            if ((places - purchases.length) < 5 && (places - purchases.length) > 1) {
+                setisLastPlace(true)
+            }
         }
-    }
+
     }, [favorites])
 
 
     return (
         <div className="body-activitie">
-            <div className="cardActivitiesJ">
+
+            <div className="cardActivitiesJ box">
+                {
+                    (isSoulOut ?
+                        <div class="ribbon ribbon-top-left"><span>Cupos Agotados</span></div> :
+                        null)
+                }
+
+                {
+                    (isLastPlace ?
+                        <div class="ribbon ribbon-top-left celeste"><span>Ultimos Cupos</span></div> :
+                        null)
+                }
+
+
                 <Link to={`/activity/${id}`} className='linkJ'>
                     <img src={images} className="imageActJ" />
                 </Link>
                 <div className="card-text">
+
                     <span className="date">{date}</span>
                     <h2>{name}</h2>
-                    <span className='country-city'>{country} - {city.includes('Province')?takesOutProvince(city):city}</span>
-                    
+                    <span className='country-city'>{country} - {city.includes('Province') ? takesOutProvince(city) : city}</span>
+
                     <div className="favoritelogo-div" >
                         {
                             isFavorite ?
                                 <button className="button-favorite-done" onClick={e => deleteFavorite()}>
-                                   ❤ 
+                                    ❤
                                 </button>
                                 :
                                 <button className="button-favorite" onClick={e => onFavorite()}>
-                                    ❤ 
+                                    ❤
                                 </button>
                         }
                     </div>
                 </div>
                 <div className="card-stats">
                     <div className="stat">
-                        <div className="value">{places}</div>
+                        <div className="value">{places - purchases.length}</div>
                         <div className="type">Cupos</div>
                     </div>
                     <div className="stat">

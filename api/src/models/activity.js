@@ -53,6 +53,10 @@ module.exports = function (sequelize) {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },
+       estadoAdmin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
     },
     {
       timestamps: false,

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(219, 219, 219);
     /* background-color: rgb(26, 26, 26); */
 }
 .conteiner-stats-detail{
@@ -34,6 +34,12 @@
 	bottom :  70px;
 	font-size : 6rem;
 	color : #979797;
+}
+.dateDetail{
+    margin-left:0px;
+}
+.nextDate{
+margin-bottom: 0px;
 }
 .monthDetail{
     position : absolute;
@@ -85,6 +91,10 @@
     margin-top: 35px;
     margin-bottom: 75px;
 }
+.comments{
+    width: 900px;
+    margin:-20px
+}
 
 .detail-down .reservation:hover {
     transform: scale(1.05);
@@ -93,8 +103,32 @@
 
 .detail-down .comments{
     padding: 40px;
-    margin-left: 10px;    
+      
 }
-
-
-
+.comment-container-card{
+    margin:10px;
+}
+.containerComment{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding: 0 1rem;
+    background: linear-gradient(45deg, #209cff, #68e0cf);
+    padding: 3rem 0;
+    position: absolute;
+    width: 100%;
+    margin-left: -225px;
+  }
+  .Reseñas-detail{
+      margin-top:30px;
+      
+  }
+.reservation{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    /* margin-top: 50px; */
+    background-color: white;
+    width: 900px;
+    padding: 30px;
+}

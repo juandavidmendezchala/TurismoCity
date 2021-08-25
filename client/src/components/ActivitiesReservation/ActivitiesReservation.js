@@ -63,7 +63,13 @@ export const ActivitiesReservation = () => {
                         setSuccess(true)
                     }
                     dispatch(purchase(userSignin.userInfo.id, data.activity.id, "2021-08-17"))
-                    alert("Compra Realizada")
+                    swal({
+                        title: "Felicitaciones!",
+                        text: "Su compra ha sido realizada!",
+                        icon: "success",
+                        button: "Aceptar",
+                        dangerMode: false
+                      })
                 } catch (error) {
                         swal({
                           title: "Atención!",
@@ -92,20 +98,20 @@ export const ActivitiesReservation = () => {
             <div><>
                 {!success ?
                     <form onSubmit={handleSubmit}>
-                        <div className="reservation-label">
+                        {/* <div className="reservation-label">
                             <label>¿Cuándo quieres iniciar tu aventura?</label>
                             <input className="reservation-input" type="date" ></input>
-                        </div>
-                        <div className="reservation-label">
+                        </div> */}
+                        {/* <div className="reservation-label">
                             <label>¿Cuántas personas irán?</label>
                             <input className="reservation-input" type="number" min="0" max="99" ></input>
-                        </div>
+                        </div> */}
                         <fieldset className="FormGroup">
                             <div className="FormRow">
                                 <CardElement />
                             </div>
                         </fieldset>
-                        <button>Pay</button>
+                        <button className='payButton'>PAGAR</button>
                     </form>
                     :
                     <div>

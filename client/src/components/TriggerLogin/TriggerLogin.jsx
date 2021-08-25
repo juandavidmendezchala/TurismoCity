@@ -14,6 +14,7 @@ const DropdownTriggerExample = () => {
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
     const { logout } = useAuth0()
 
+    console.log('user',user)
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo } = userSingin
 
@@ -26,16 +27,19 @@ const DropdownTriggerExample = () => {
         dispatch(logoutlocal())
         // vacio el user de auth0
         logout()
+        // probar de ir a inicio
+        console.log("fin de funcion")
+        window.location.origin()
     }
 
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
-        if (!userInfo) {
-            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
-            // si se registra hay que loguearse
-        }
+         if (!userInfo) {
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10",user.picture))
+            console.log("USER DE AUTHO AQUI ESTA LA FOTO",user)
+         }
     }, [])
-
+    
     const trigger = (
         <span className="SpanNameLogin">
             <Icon name='Localuser' /> Hola, {!userInfo ? "LowHenry" : userInfo.name}

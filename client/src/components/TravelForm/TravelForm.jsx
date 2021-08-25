@@ -51,13 +51,16 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights({ way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency }))
+
         if (way === 'roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
         if (way === 'onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        console.log(history) 
     }
     var today = new Date().toISOString().split('T')[0];
 
     return (
         <div className="TravelFormContainer">
+
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
