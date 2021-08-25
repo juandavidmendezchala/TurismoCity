@@ -27,6 +27,8 @@ import { loadStripe } from "@stripe/stripe-js"
 import "./App.css";
 import MyActivities from "./components/MyActivities/MyActivities";
 import ActivitiesPrev from "./components/ActivitiesPrev/ActivitiesPrev";
+import Newsletter from "./components/Newsletter/Newsletter"
+
 
 
 
@@ -44,6 +46,7 @@ function App() {
     <div className="App">
       <Route exact path="/experiences" component={LandingExperiences} />
       <Route path="/" component={Banner} />
+
       {/* <Route exact path="/nuevo" component={Nuevo}></Route> */}
       <Route exact path="/FeedBack/:id" component={FeedBack}></Route>
       {/* <Route path="/" component={Navbar}></Route> */}
@@ -66,6 +69,7 @@ function App() {
       <Route path="/suppliers/image" component={ImageActivity} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
+      <Route path="/newsletter" component={Newsletter}></Route>
     </div >
   );
 }
