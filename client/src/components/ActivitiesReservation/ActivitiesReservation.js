@@ -97,7 +97,7 @@ export const ActivitiesReservation = () => {
             <h2>¡Reserva ahora!</h2>
             <div><>
                 {!success ?
-                    <form onSubmit={handleSubmit}>
+                    <form className="PayForm" onSubmit={handleSubmit}>
                         {/* <div className="reservation-label">
                             <label>¿Cuándo quieres iniciar tu aventura?</label>
                             <input className="reservation-input" type="date" ></input>

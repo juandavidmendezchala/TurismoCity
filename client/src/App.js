@@ -38,6 +38,10 @@ import ListSchedulers from "./components/Scheduler/ListShedulers";
 import EmailSender from "./components/EmailSender/EmailSender";
 import Whishes from "./components/Whishes/Whishes";
 import ListActivWish from "./components/Whishes/ListActivWish";
+import Newsletter from "./components/Newsletter/Newsletter"
+
+
+
 
 function App() {
   const [sidebar, setSidebar] = useState(true);
@@ -54,6 +58,7 @@ function App() {
     <div className="App">
       <Route exact path="/experiences" component={LandingExperiences} />
       <Route path="/" component={Banner} />
+
       {/* <Route exact path="/nuevo" component={Nuevo}></Route> */}
       <Route exact path="/FeedBack/:id" component={FeedBack}></Route>
       {/* <Route path="/" component={Navbar}></Route> */}
@@ -110,9 +115,9 @@ function App() {
         <ListActivWish />
       </Route>
       <Elements stripe={stripePromise}>
-        <Route path="/checkout" component={Checkout}></Route>
-      </Elements>
-    </div>
+        <Route path="/checkout" component={Checkout}></Route></Elements>
+      <Route path="/newsletter" component={Newsletter}></Route>
+    </div >
   );
 }
 

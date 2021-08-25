@@ -6,6 +6,9 @@ import TravelForm from "../TravelForm/TravelForm"
 import image from './img3.png';
 import axios from 'axios';
 import { useHistory } from "react-router-dom"
+import ChatBotLanding from "../Chatbot/ChatBot"
+import ButtonChatBot from "../Chatbot/ButtonChatBot"
+
 
 export const Home = () => {
     // const history = useHistory();
@@ -15,8 +18,9 @@ export const Home = () => {
 
     return (
         <div className="LandingContainer">
-            <img src={image} className='LandingFirst'/>
+            <img src={image} className='LandingFirst' />
             <div className='TravelForm'><TravelForm /></div>
+            <div className="PopUpBot"><ButtonChatBot /></div>
             {/* <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas</div> */}
         </div>
     )
