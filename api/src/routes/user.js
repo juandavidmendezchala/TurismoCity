@@ -18,6 +18,7 @@ router.post('/signin', async (req, res) => {
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                country: user.country,
                 isAdmin: user.isAdmin,
                 token: generateToken(user)
             })
@@ -31,7 +32,8 @@ router.post('/register', async (req, res) => {
     let {
         name,
         email,
-        birthdate
+        birthdate,
+        userCountry
     } = req.body;
 
     const user = await User.findOne({
@@ -44,6 +46,7 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
+            country: userCountry,
             isAdmin: false
         }
         )
@@ -59,6 +62,7 @@ router.post('/register', async (req, res) => {
         name: createdUser.name,
         email: createdUser.email,
         birthdate: createdUser.birthdate,
+        country: createdUser.country? createdUser.country : "",
         isAdmin: createdUser.isAdmin,
         token: generateToken(createdUser)
     })

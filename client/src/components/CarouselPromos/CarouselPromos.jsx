@@ -48,7 +48,7 @@ const CarouselPromos = () => {
         lazyload: true,
         // speed: 300,
         // centerMode: true,
-        slidesToShow: 3,
+        slidesToShow: 1,
         centerMode: true,
         centerPadding: 0,
         // slidesToScroll: 1,

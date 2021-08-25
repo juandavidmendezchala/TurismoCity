@@ -11,15 +11,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const DropdownTriggerExample = () => {
     const dispatch = useDispatch()
+
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+
     const { logout } = useAuth0()
 
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo } = userSingin
 
-    // const singout = () => {
-    //     dispatch(logout())
-    // }
+    const userCountry = useSelector(state => state.userCountry)
 
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
@@ -31,7 +31,7 @@ const DropdownTriggerExample = () => {
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
         if (!userInfo) {
-            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10"))
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10", userCountry))
             // si se registra hay que loguearse
         }
     }, [])

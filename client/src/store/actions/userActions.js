@@ -12,10 +12,10 @@ import {
     REACT_APP_API
 } from '../Consts/Consts'
 
-export const register = (name, email, birthdate) => async (dispatch) => {
+export const register = (name, email, birthdate, userCountry) => async (dispatch) => {
     dispatch({ type: USER_REGISTER_REQUEST })
     try {
-        const { data } = await axios.post(`${REACT_APP_API}/user/register`, { name, email, birthdate })
+        const { data } = await axios.post(`${REACT_APP_API}/user/register`, { name, email, birthdate, userCountry })
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data })
         localStorage.setItem('userInfo', JSON.stringify(data))

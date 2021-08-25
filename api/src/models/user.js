@@ -15,6 +15,10 @@ module.exports = function (sequelize) {
             type: DataTypes.DATEONLY,
             allowNull: false
         },
+        country: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false
