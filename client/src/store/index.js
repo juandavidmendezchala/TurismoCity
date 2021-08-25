@@ -5,7 +5,7 @@ import reducerFlights from "./reducers/reducerFlights";
 import reducerPhoto from "./reducers/reducerPhoto";
 import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
-import { activityDetailReducer, activityReducer, activityFavoriteReducer, feedBackReducer } from './reducers/reducerActivity'
+import { activityDetailReducer, activityReducer, activityFavoriteReducer, feedBackReducer, landingActivityReducer } from './reducers/reducerActivity'
 import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
 import { reducerMyActivities } from "./reducers/reducerMyActivities";
 import { reducerFeedBack } from "./reducers/reducerFeedBack";
@@ -53,7 +53,8 @@ const reducer = combineReducers({
   news: newsReducer,
   promotions: promoReducer,
   countries: countriesReducer,
-  userCountry: userCountryReducer
+  userCountry: userCountryReducer,
+  landingActivities: landingActivityReducer
 })
 
 const store = createStore(

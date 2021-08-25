@@ -194,6 +194,11 @@ router.get("/:id", async (req, res) => {
   res.send(activityDetail);
 });
 
+router.get("/get/landingGet", async(req, res) => {
+  const LandingActivities = await Activity.findAll({limit: 3})
+  return res.send(LandingActivities)
+})
+
 router.post("/", async (req, res) => {
   let {
     email,

@@ -7,6 +7,7 @@ import CarouselPromos from "../CarouselPromos/CarouselPromos"
 import YourCountry from "../YourCountry/YourCountry"
 import { useSelector } from "react-redux"
 import CarouselNews from "../Carousel/CarouselNews"
+import LandingActivities from '../LandingActivities/LandingActivities'
 
 export const Home = () => {
 
@@ -33,7 +34,7 @@ export const Home = () => {
 
             </div>
             <footer className='carouselPromos'><CarouselPromos /> </footer>
-            <div className='pruebarender' ><h1>PROPUESTA DE TRES ACTIVIDADES ALEATORIAS QUE SE LE SUGIEREN AL USUARIO PARA COMPRAR </h1></div>
+            <LandingActivities></LandingActivities>
             <div> <CarouselNews /> </div>
 
         </>
