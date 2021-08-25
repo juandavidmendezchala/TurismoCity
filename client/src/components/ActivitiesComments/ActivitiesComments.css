@@ -3,8 +3,12 @@
     flex-direction: row;
     padding: 0px;
     margin: 60px auto 15px;
-    border: rgb(184, 176, 228) 2px solid;
-    background-color: mistyrose;
+    
+    
+}
+.dateComments{
+    color:gray;
+    margin:0px;
 }
 
 .comment-card-userName{
@@ -12,6 +16,21 @@
     font-family: 'Roboto', Arial, Helvetica, sans-serif, Verdana;    
     margin: 0;
     padding: 0px;
+    width: 1020px;
+}
+
+.avatar-comments{
+    border-radius: 100px;
+    border: 1px solid gray;
+}
+.ParteDerechaComments{
+    margin-left:15px;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 7px 7px 10px 1px rgb(58, 58, 58);
+    width: 800px;
+    color: rgb(27, 27, 27);
 }
 
 .div-user-update{

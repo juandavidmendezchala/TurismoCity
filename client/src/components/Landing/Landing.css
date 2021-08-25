@@ -1,6 +1,6 @@
 .LandingContainer {
-  /* background-image: url(./img2.png); */
-  /* background-color: red; */
+  /* background-image: url(./img2.png);
+  background-color: red; */
   height: 100vh;
 }
 .LandingBanner {
@@ -17,26 +17,124 @@
   padding-top: 30px;
   padding-left: 10px;
 }
+
 .LandingFirst {
   position: absolute;
   width: 100%;
 }
 .TravelForm {
   position: absolute;
+  margin-top: 5px;
   transform: scale(0.85);
   /* left:0px; */
 }
 .Aerolineas {
+  background-color: rgb(0, 0, 0);
+  color: white;
   position: absolute;
-  height: 500px;
-  margin-left: 80px;
-  margin-top: 750px;
+  height: 670px;
+  /* margin-left:80px; */
+  margin-top: 650px;
   width: 100%;
+  /* padding: 20px; */
+  padding-top: 100px;
+  padding-left: 70px;
+  padding-bottom: 40px;
   font-size: 40px;
   font-weight: bold;
-  text-align: left;
   display: flex;
-  align-self: flex-end;
+  flex-wrap: wrap;
+  /* text-align: left; */
+  /* display: flex; */
+  /* align-self: flex-end; */
+}
+.CardCountry {
+  background-color: blanchedalmond;
+  /* background-image: url("./img9.png"); */
+  color: white;
+  font-weight: bold;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#BOG {
+  background-image: url("./ciudades/BOGOTA.jpg");
+}
+#BOG:hover {
+  background-size: 320px;
+}
+#GIG {
+  background-image: url("./ciudades/RIO.png");
+}
+#GIG:hover {
+  background-size: 210px;
+}
+#FCO {
+  background-image: url("./ciudades/ROMA.png");
+}
+#FCO:hover {
+  background-size: 210px;
+}
+#CDG {
+  background-image: url("./ciudades/PARIS.png");
+}
+#CDG:hover {
+  background-size: 210px;
+}
+#MIA {
+  background-image: url("./ciudades/MIAMI.png");
+}
+#MIA:hover {
+  background-size: 210px;
+}
+#BCN {
+  background-image: url("./ciudades/BARCELONA.png");
+}
+#BCN:hover {
+  background-size: 210px;
+}
+#MAD {
+  background-image: url("./ciudades/MADRID.png");
+}
+#MAD:hover {
+  background-size: 210px;
+}
+#LIM {
+  background-image: url("./ciudades/LIMA.png");
+}
+#LIM:hover {
+  background-size: 210px;
+}
+#EZE {
+  background-image: url("./ciudades/BUENOSAIRES.png");
+}
+#EZE:hover {
+  background-size: 210px;
+}
+#JFK {
+  background-image: url("./ciudades/NEWYORK.png");
+}
+#JFK:hover {
+  background-size: 210px;
+}
+
+/* .CardCountry:hover{
+ background-image: url("./img.jpg");
+} */
+
+.PopUpBot {
+  position: fixed;
+  top: 600px;
+  left: 1250px;
 }
 
 .pruebarender {
@@ -46,4 +144,11 @@
   background-color: blue;
   text-align: center;
   font-size: 70px;
+}
+.carouselPromos {
+  /* position: absolute; */
+  background-color: white;
+  height: 600px;
+  margin-top: 800px;
+  margin-left: 350px;
 }

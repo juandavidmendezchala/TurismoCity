@@ -1,13 +1,32 @@
 const { Router } = require('express');
-const { Package, Activity, User, favorite, FeedBack, Type, type_activity } = require('../models/index')
+const { Purchase, Activity, User, favorite, FeedBack,Type, type_activity } = require('../models/index')
+
 const { Op } = require("sequelize");
 
 const router = Router();
 
+
 router.get("/", async (req, res) => {
   try {
-    const getAllActivities = await Activity.findAll({where:{active: true}, 
-    include: [{model: Type, through: type_activity}]});
+    // const getAllActivities = await Activity.findAll(
+    //    {where:
+    //      {active: true}
+    //    ,
+    //    include: [{
+    //     model: Purchase
+    //    }]
+    //   });
+    const getAllActivities = await Activity.findAll(
+      {where:
+        {active: true}
+      , 
+      include: [{
+        model: Type, through: type_activity
+      },
+      {
+      model: Purchase
+      }]
+      });
     return res.send(getAllActivities);
   } catch (err) {
     return res.send({
@@ -16,6 +35,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
 
 router.post("/filter", async (req, res) => {
   let {
@@ -189,10 +209,18 @@ router.get("/:id", async (req, res) => {
   const activityDetail = await Activity.findOne({
     where: {
       id,
-    }
+    },
+    include: [{
+          model: Purchase
+         }]
   });
   res.send(activityDetail);
 });
+
+router.get("/get/landingGet", async(req, res) => {
+  const LandingActivities = await Activity.findAll({limit: 3})
+  return res.send(LandingActivities)
+})
 
 router.post("/", async (req, res) => {
   let {
@@ -221,6 +249,7 @@ router.post("/", async (req, res) => {
     country,
     city,
     active: true,
+    estadoAdmin: false
   });
   const updateUser = await User.update({
     isAdmin: true
@@ -238,5 +267,7 @@ router.post("/", async (req, res) => {
   //await findUser.addActivity(createPack);
   return res.send(createPack);
 });
+
+
 
 module.exports = router;

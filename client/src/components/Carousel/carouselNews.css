@@ -8,10 +8,10 @@
   /* height: 450px; */
   /* font-size: medium; */
 }
-.slide img {
+/* .slide img {
   width: 20rem;
   margin: 0 auto;
-}
+} */
 
 .slide {
   transform: scale(0.2);

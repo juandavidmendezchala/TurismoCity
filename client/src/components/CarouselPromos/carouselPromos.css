@@ -2,16 +2,16 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .carrouselFirstPromos {
-  margin-top: -50px;
+  /* margin-top: -50px; */
   width: 99%;
   height: 250px;
   align-content: center;
   /* margin: 5rem auto; */
 }
-.slide img {
-  /* width: 20rem; */
-  /* margin: 0 auto; */
-}
+/* .slide img {
+  width: 20rem; */
+  /* margin: 0 auto;
+} */
 
 .slidePromos {
   transform: scale(0.2);

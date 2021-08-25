@@ -1,5 +1,5 @@
 var express = require('express');
-
+var revmd5 = require('reverse-md5')
 // Defino el modelo user para utilizarlo en las rutas correspondientes
 const { User } = require('../models/index')
 
@@ -7,6 +7,7 @@ var router = express.Router();
 
 
 var bcryptjs = require ('bcryptjs')
+
 //var bcryptjs = require ('bcryptjs')
 //var bcryptjs = require ('bcryptjs')
 
@@ -14,7 +15,7 @@ router.post ('/login', async (req, res) =>{
   const email= req.body.email;
   const password = req.body.password;
   if(email == "mati" && password == '12345'){ // para prueba en postman
-    var passwordHash = await bcryptjs.hash(password, 8)
+    //ar passwordHash = await bcryptjs.hash(password, 8)
     res.json({
       message:'Se autentico adecuadamente'
     })
@@ -30,17 +31,19 @@ router.post ('/login', async (req, res) =>{
 router.get('/users', async (req, res) => {
     // tomo del form de login el mail y la contraseña (aquí en query pero probaremos por body)
     const {email, password} = req.query
+    var clave = revmd5(password)
+    console.log(clave,password)
     // reviso que lleguen bien
     if (!email || email === "") {
       return res.status(400).json({"error":"el mail no existe"})
     }
-    if (!password || password === "") {
+    if (!clave || clave === "") {
       return res.status(400).json({"error":"la clave no existe"})
     }
     await User.findAll({
       where: {
         email: email,
-        password: password
+        password: clave
       }
     })
     .then(result => {

@@ -1,0 +1,14 @@
+.payButton{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgb(64, 99, 133);
+    color: white;
+    border-radius: 7px;
+    font-weight: bold;
+    border: none;
+    width: 300px;
+    cursor: pointer
+}
+.payButton:hover{
+    box-shadow: 3px 3px 5px 1px rgb(27, 27, 27);
+}

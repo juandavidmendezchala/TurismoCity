@@ -1,5 +1,28 @@
 require('dotenv').config()
 export const REACT_APP_API = process.env.REACT_APP_API
+export const REACT_APP_DEV_TOOLS = process.env.REACT_APP_DEV_TOOLS
+
+// Constantes para Agenda
+
+export const SCHED_ADD = "SCHED_ADD"
+export const SCHED_GET = "SCHED_GET"
+export const SCHED_GET_ALL = "SCHED_GET_ALL"
+export const SCHED_REMOVE = "SCHED_REMOVE"
+export const SCHED_FAIL = "SCHED_FAIL"
+
+// Constantes para Agenda
+
+// Constantes para Lista de deseos
+
+export const WHISH_ADD = "WHISH_ADD"
+export const WHISH_GET = "WHISH_GET"
+export const WHISH_GET_ALL = "WHISH_GET_ALL"
+export const WHISH_REMOVE = "WHISH_REMOVE"
+export const WHISH_FAIL = "WHISH_FAIL"
+export const WHISH_ACTIV_ALL = "WHISH_ACTIV_ALL"
+export const WHISH_REMOV_ACTIV = "WHISH_REMOV_ACTIV"
+
+// Constantes para Lista de deseos
 
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
@@ -18,6 +41,10 @@ export const NEW_ACTIVITY = 'NEW_ACTIVITY'
 export const GET_ACTIVITY_REQUEST = 'GET_ACTIVITY_REQUEST'
 export const GET_ACTIVITY_SUCCESS = 'GET_ACTIVITY_SUCCESS'
 export const GET_ACTIVITY_FAIL = 'GET_ACTIVITY_FAIL'
+
+export const GET_LANDINGACTIVITY_REQUEST = 'GET_ACTIVITY_REQUEST'
+export const GET_LANDINGACTIVITY_SUCCESS = 'GET_ACTIVITY_SUCCESS'
+export const GET_LANDINGACTIVITY_FAIL = 'GET_ACTIVITY_FAIL'
 
 export const GET_ACTIVITYDETAIL_REQUEST = 'GET_ACTIVITYDETAIL_REQUEST'
 export const GET_ACTIVITYDETAIL_SUCCESS = 'GET_ACTIVITYDETAIL_SUCCESS'
@@ -56,9 +83,13 @@ export const SET_COUNTRY_REQUEST = 'SET_COUNTRY_REQUEST'
 export const SET_COUNTRY_SUCCESS = 'SET_COUNTRY_SUCCESS'
 export const SET_COUNTRY_FAIL = 'SET_COUNTRY_FAIL'
 
+export const POST_PROMO_REQUEST = 'POST_PROMO_REQUEST'
+export const POST_PROMO_SUCCESS = 'POST_PROMO_SUCCESS'
+export const POST_PROMO_FAIL = 'POST_PROMO_FAIL'
 
 
-export const API_KEY_NEWS = '33cc29d953d22d880f4ca804c1c9dc6a'
+export const API_KEY_NEWS = '32c9a70ccfc2ab691669a85dd44b3703'
+
 
 
 
