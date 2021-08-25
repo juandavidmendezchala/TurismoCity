@@ -40,7 +40,7 @@ function DetailActivWhish(props) {
         <button className={styles.LinkGetIt} onClick={handleClicFav}>Favoritos!</button>
         <button className={styles.LinkGetIt} onClick={handleClicBuy}>Comprar!</button>
       </div>
-      <p>Ofrece: {offers}</p>
+      <p className='p_Fede'>Ofrece: {offers}</p>
     </div>
   );
 }
