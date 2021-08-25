@@ -9,7 +9,7 @@ const PromoList = ({ list, removePromo }) => {
 
     const {promotions, loading} = Promotions
 
-    const renderedList = promotions?.map((item, id) => <Promo promoText={item.title} promoInfo={item.description} key={item.id} removePromo={(e) => removePromo(item.id)} />);
+    const renderedList = promotions?.map((item) => <Promo id={item.id} promoText={item.title} promoInfo={item.description} key={item.id} removePromo={() => removePromo(item.id)} />);
 
     console.log(renderedList, "sdas")
     return (

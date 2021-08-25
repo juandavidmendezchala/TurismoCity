@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { editPromo } from '../../store/actions/promoActions';
 import "./promo.css"
 
-const Promo = ({ promoText, promoInfo, removePromo }) => {
+const Promo = ({ promoText, promoInfo, removePromo, id }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(promoText);
     const [info, setInfo] = useState(promoInfo);
+
+    const dispatch = useDispatch();
 
     const handleDivDoubleClick = () => {
         setIsEditing(true)
     }
     const handleImputKeyDown = (e) => {
         e.preventDefault()
+        dispatch(editPromo(value, info, id))
         setIsEditing(false)
     }
 
@@ -50,7 +55,7 @@ const Promo = ({ promoText, promoInfo, removePromo }) => {
                     <h1 className="verPromoTexto">{info}</h1>
                 </div >
                 <button onClick={handleDivDoubleClick} className="botonPromoEditt"> editar</button>
-                <button className="botonPromoDelete" onClick={removePromo}> X </button>
+                <button className="botonPromoDelete" onClick={() => removePromo(id)}> X </button>
             </div >
 
     )
