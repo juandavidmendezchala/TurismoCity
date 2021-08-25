@@ -17,13 +17,18 @@ export default function ActivityDetail(props) {
 
     const Activity = useSelector(state => state.activity);
     const Question = useSelector(state => state.reducerQuestion.question);
-    console.log('reducer quesion', props)
+    //const user = useSelector(state => state.userSignin.userInfo.id);
+    //console.log('reducer quesion', user)
+    const userSingin = useSelector(state => state.userSignin.userInfo.id)
+    //console.log('userAct', userSingin)
 
     const commentsActivity = useSelector(state => state.comments)
 
     const { loadingC, comments, errorC } = commentsActivity
 
     const { activity, loading, error } = Activity;
+
+    console.log('detail act',activity?.userId)
 
     useEffect(() => {
         dispatch(getActivity(props.match.params.id))
@@ -44,6 +49,7 @@ export default function ActivityDetail(props) {
                                     <div className="card-text">
                                     
                                         <h2>{activity.name}</h2>
+                                        <p>{activity.userId}</p>
                                         <p>{activity.description}</p>
                                         <div>
                                             <h3>Proxima Fecha Disponible: </h3>
@@ -89,7 +95,7 @@ export default function ActivityDetail(props) {
                                 </div>
                                 <FormComment 
                                    activityId= {props.match.params.id}
-                                   userId='1'
+                                   userId={userSingin}
                                 />
                                 <h1>Preguntas y Respuestas</h1>
                                 <div class="containerComment">
@@ -98,9 +104,14 @@ export default function ActivityDetail(props) {
                                    Question?.map( m => 
                                     <Comment
                                         key= {m.id}
+                                        idQuestion = {m.id}
                                         query={m.query}
                                         date={m.date}
                                         answers = {m.answers}
+                                        userId = {m.userId}
+                                        userLogeo = {userSingin}
+                                        userActPres = {activity.userId}
+                                        idAct = {props.match.params.id}
                                      />
                                     ) 
                                 }

@@ -7,7 +7,7 @@ import favoriteLogoDone from '../../icons/FavoriteLogoDone.png'
 import { addFavorite } from '../../store/actions/activityActions.js'
 import { removeMyFavorite } from '../../store/actions/removeMyFavorite'
 
-export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases }) {
+export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases, UserId }) {
 
     const dispatch = useDispatch()
 

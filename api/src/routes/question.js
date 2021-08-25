@@ -52,6 +52,39 @@ router.get('/:idAct', async(req, res) => {
     
 })
 
+router.delete('/delete/:idQuestion',async(req,res)=>{
+
+    const {idQuestion} = req.params
+    console.log('HOAAAAAA')
+    
+    /*const findActivity = await Activity.findByPk(activityId)
+    const findUser = await User.findByPk(userId)
+    console.log('trae esto', findActivity,'Y ESTO:',findUser)
+
+    const removeFav = await findActivity.removeUser(findUser)
+    const favoriteGet = await User.findByPk(userId,{include:Activity})
+    return res.send(favoriteGet) */
+    console.log('idque toma', idQuestion)
+
+      const answer = await Answer.destroy({
+        where: {
+          questionId: idQuestion
+        }
+      });
+
+      const question = await Question.destroy({
+        where: {
+          id: idQuestion
+        }
+      });
+    
+    //const removeFav = await findActivity.removeUser(findUser)
+    //const favoriteGet = await User.findByPk(userId,{include:Activity})
+    return res.send('se elimino')
+    
+    
+})
+
 
 
 // [idusuario, idactividad, comentario, puntuacion]

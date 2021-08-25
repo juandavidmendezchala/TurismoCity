@@ -12,6 +12,7 @@ import { reducerFeedBack } from "./reducers/reducerFeedBack"
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
 import {reducerUserSeller} from './reducers/reducerUserAdmin'
 import {reducerQuestion} from './reducers/reducerQuestion'
+import {reducerAnswer} from './reducers/reducerAnswer' 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -45,7 +46,8 @@ const reducer = combineReducers({
   reducerActivitiesPrev: reducerActivitiesPrev,
   reducerUserSeller: reducerUserSeller,
   comments: feedBackReducer,
-  reducerQuestion: reducerQuestion
+  reducerQuestion: reducerQuestion,
+  reducerAnswer: reducerAnswer
 })
 
 const store = createStore(

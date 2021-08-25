@@ -95,3 +95,7 @@ ul, li{
     padding: 2rem;
     border-radius: 15px;
 }
+
+.botonComment{
+  border: none;
+}

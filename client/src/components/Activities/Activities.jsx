@@ -22,6 +22,7 @@ export default function Actities() {
     const { favorites } = favorite
 
     const { activities, loading, error } = Activities;
+    console.log('prueba activities', activities)
 
     useEffect(() => {      
         dispatch(getFavorites(1))
@@ -60,6 +61,7 @@ export default function Actities() {
                                     city={a.city}
                                     favorites={favorites}
                                     purchases={a.purchases}
+                                    UserId = {a.userId}
                                 ></ActivityCard>)
                             }
                         </div>

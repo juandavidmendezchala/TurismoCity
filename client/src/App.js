@@ -35,7 +35,7 @@ import Scheduler from "./components/Scheduler/Scheduler"
 import ListSchedulers from "./components/Scheduler/ListShedulers";
 import DetailSched from "./components/Scheduler/DetailSched";
 import Comment from "./components/Comment/Comment";
-
+import Pop from "./components/PopUpResp/PopUpResp"
 
 
 function App() {
@@ -78,10 +78,9 @@ function App() {
       <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
       <Route path="/scheduler"><Scheduler /></Route>
-      
       <Route path="/scheduler"><ListSchedulers /></Route>
-
-
+      <Route path="/pop" component={Pop} />
+ 
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
       

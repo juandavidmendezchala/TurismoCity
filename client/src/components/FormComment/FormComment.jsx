@@ -2,8 +2,8 @@ import './FormComment.css'
 import React, {useState, useEffect}  from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {postQuestion} from '../../store/actions/questionAction'
-import swal from 'sweetalert'
-
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 export const FormComment = ({activityId, userId}) => {
 
   const [state, setState] = useState({
@@ -25,8 +25,14 @@ export const FormComment = ({activityId, userId}) => {
         query:' '
     })
 
-    swal("Registrado!", "Tu mensaje ha sido registrado correctamente!", "success");
-    
+    //swal("Registrado!", "Tu mensaje ha sido registrado correctamente!", "success");
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
    }
 
    function handlerChange(e){ //se encarga de actualizar el estado

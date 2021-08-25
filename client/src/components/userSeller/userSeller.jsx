@@ -4,7 +4,8 @@ import axios from 'axios'
 import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { CgPlayTrackNext } from "react-icons/cg"
 //import "./userActivities.css"
-import swal from 'sweetalert'
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 
 const UserSeller = ({id, name,date,state,type,email}) => {
     const [status, setStatus] = useState(state)
@@ -15,7 +16,15 @@ const UserSeller = ({id, name,date,state,type,email}) => {
         setStatus(!status)
         await axios.put(`http://localhost:3001/user/${id}/${!status}`)
         //alert('se modficico el estado')
-        swal("Modificado!", "Se modifico correctamente!", "success");
+        //swal.fire("Modificado!", "Se modifico correctamente!", "success");
+        //Swal.fire('Any fool can use a computer')
+        swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
     const handleDelete = () => {
        /* let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
