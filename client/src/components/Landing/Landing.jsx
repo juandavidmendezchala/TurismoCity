@@ -90,9 +90,9 @@ export const Home = () => {
                 <div className="PopUpBot"><ButtonChatBot /></div>
 
             </div>
-            <footer className='carouselPromos'><CarouselPromos /> </footer>
+            //<footer className='carouselPromos'><CarouselPromos /> </footer>
             <LandingActivities></LandingActivities>
-            <div> <CarouselNews /> </div>
+            //<div> <CarouselNews /> </div>
 
         </>
     )
