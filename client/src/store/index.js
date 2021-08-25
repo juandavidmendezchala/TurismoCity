@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
+import { REACT_APP_DEV_TOOLS } from "./Consts/Consts"
 // import { reducerActivities } from "./reducers/reducerActivities";
 import reducerFlights from "./reducers/reducerFlights";
 import reducerPhoto from "./reducers/reducerPhoto";
