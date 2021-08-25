@@ -23,8 +23,8 @@ const HomeAdminPanel = ({ sidebar }) => {
 
 
 
-    useEffect(async () => {
-        await axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)
+    useEffect(() => {
+        axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)
             .then(async (response) => {
                 dispatch(getSalesSup(response.data))
                 //Para ordenar las actividades mas vendidas en el store
