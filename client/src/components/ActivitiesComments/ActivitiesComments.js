@@ -3,10 +3,11 @@ import './ActivitiesComments.css';
 import UserLogo from '../../icons/UserLogo.png'
 
 export default function ActivitiesComments({ comment, score, update, userName, picture }) {
+    const image=picture;
     return (
         <div className="comment-container-card">
             {/* <div className="img-card-userName" > */}
-            <img className='avatar-comments' src={picture} height="50px" width='50px'></img>
+            <img className='avatar-comments' src={image} height="50px" width='50px'></img>
             <div className='ParteDerechaComments'>
                 <h5 className="comment-card-userName">{userName}</h5>
                 <p>{comment}</p>

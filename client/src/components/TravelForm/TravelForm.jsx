@@ -27,7 +27,7 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('Economy');
-    const [adults, setAdults] = useState('0')
+    const [adults, setAdults] = useState('1')
     const [kids, setKids] = useState('0')
     const [babies, setBabies] = useState('0')
     const [currency, setCurrency] = useState('USD');
@@ -102,13 +102,13 @@ export default function TravelForm(props) {
 
                     <div className="selectPassengers">
                         <label className="LabelSelectPassengers2">Adultos</label>
-                        <input className="InputSelectPassengers" type="number" selected="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" selected="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
                         <label className="LabelSelectPassengers2">Niños</label>
-                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" onChange={e => setKids(e.target.value)} />
 
                         <label className="LabelSelectPassengers2">Bebes</label>
-                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
                         <label className="LabelSelectCurrency">Seleccione clase</label>

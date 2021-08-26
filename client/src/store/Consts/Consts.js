@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 export const REACT_APP_API = process.env.REACT_APP_API
 export const REACT_APP_DEV_TOOLS = process.env.REACT_APP_DEV_TOOLS
 
@@ -22,7 +23,6 @@ export const WHISH_FAIL = "WHISH_FAIL"
 export const WHISH_ACTIV_ALL = "WHISH_ACTIV_ALL"
 export const WHISH_REMOV_ACTIV = "WHISH_REMOV_ACTIV"
 
-// Constantes para Lista de deseos
 
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";

@@ -25,6 +25,7 @@ export default function ActivityDetail(props) {
     const { loadingC, comments, errorC } = commentsActivity
 
     const { activity, loading, error } = Activity;
+    
     const fecha = {
         "01": 'ENERO',
         "02": 'FEBRERO',
