@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { async } from 'q';
 import { GET_PROMO_FAIL,
      GET_PROMO_REQUEST, 
      GET_PROMO_SUCCESS, 
@@ -9,6 +8,7 @@ import { GET_PROMO_FAIL,
 export const getPromo = () => async(dispatch) => {
     dispatch({type: GET_PROMO_REQUEST})
     try{
+        console.log(REACT_APP_API, "SERÁ UN VALOR")
         const {data} = await axios.get(`${REACT_APP_API}/promo`)
         dispatch({type: GET_PROMO_SUCCESS, payload: data})
 

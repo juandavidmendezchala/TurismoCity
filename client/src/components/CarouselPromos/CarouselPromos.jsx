@@ -5,11 +5,7 @@ import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
 // import { getPromos } from "../../store/actions/promosActions";
 import { getPromo } from '../../store/actions/promoActions';
-import './carouselPromos.css'
 
-const promos = [
-    { title: '12 CUOTAS SIN INTERES CON TODOS LOS BANCOS', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '20% CON BANCO GALICIA', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '2X1 PAGA UNO DISFRUTAN 2', description: 'EN TODAS LA ACTIVIDADES EN LA NIEVE' }, { title: '24 CUOTAS CON INTERES CON TARJETA', description: 'EN TODAS LA ACTIVIDADES EN AFRICA' },
-]
 
 const CarouselPromos = () => {
 
@@ -20,10 +16,7 @@ const CarouselPromos = () => {
     const { loading, promotions } = Promotions
 
     useEffect(() => {
-        async function fetchData() {
-            await dispatch(getPromo())
-          }
-          fetchData();
+            dispatch(getPromo())
     }, [])
 
     const NextArrow = ({ onClick }) => {
@@ -66,11 +59,7 @@ const CarouselPromos = () => {
 
         <div className='carrouselFirstPromos'>
             <Slider {...settings}>
-                {
-                loading?
-                <div></div>
-                :
-                promotions?.map((promo, id) => (
+                {promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
                             <h2 className="newstitlePromos">{promo.title}</h2>
@@ -79,8 +68,7 @@ const CarouselPromos = () => {
 
                         </div>
                     </div>
-                ))
-                }
+                ))}
             </Slider>
         </div>
     )
