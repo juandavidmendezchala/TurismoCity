@@ -1,5 +1,5 @@
+import axios from 'axios';
 import airlinesLogo from '../../airlines.json';
-import { REACT_APP_FLIGHT_API } from '../Consts/Consts';
 export const GET_FLIGHTS = "GET_FLIGHTS";
 const apiKey = "610ed01e747a9a053255e81f"//USADA
 const apiKey2 = "610ecfda747a9a053255e81e"//USADA
@@ -16,8 +16,8 @@ export function getFlights(p, index = 1) {
   if (p.way === 'roundtrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`${REACT_APP_FLIGHT_API}/roundtrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
-        .then(response => response.json())
+      return axios.get(`https://api.flightapi.io/roundtrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+        .then(response => response.data)
         .then(json => {
           if (json.message) {
             var arregloFlights = [json];
@@ -52,8 +52,8 @@ export function getFlights(p, index = 1) {
   else if (p.way === 'onewaytrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return fetch(`${REACT_APP_FLIGHT_API}/onewaytrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
-        .then(response => response.json())
+      return axios.get(`https://api.flightapi.io/onewaytrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+        .then(response => response.data)
         .then(json => {
           if (json.message) {
             var arregloFlights = [json];
