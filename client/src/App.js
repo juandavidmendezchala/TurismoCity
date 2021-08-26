@@ -95,7 +95,7 @@ function App() {
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>
-      <Route path="/footer" component={Footer}></Route>
+
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/info" render={() => <HomeAdminPanel sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
