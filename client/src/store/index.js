@@ -15,7 +15,6 @@ import { reducerPurchase } from "./reducers/reducerPurchase";
 import {reducerUserSeller} from './reducers/reducerUserAdmin'
 import {reducerQuestion} from './reducers/reducerQuestion'
 import { reducerScheduler } from "./reducers/reducersScheduler"
-import { REACT_APP_DEV_TOOLS } from "./Consts/Consts"
 import { reducerWhishes } from "./reducers/reducerWhishes";
 import { reducerSuppliers } from "./reducers/reducerSupplier";
 import { newsReducer } from "./reducers/reduceNews";

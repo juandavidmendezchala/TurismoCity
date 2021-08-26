@@ -1,13 +1,10 @@
 .cardActivitiesJ{
-    /* display: grid; */
-    /* grid-template-columns: 400;
-    grid-template-rows: 260px 170px 55px;
-    grid-template-areas: "img" "text" "stats"; */
+    
     height: 387px;
 
     font-family: roboto;
     border-radius: 12px;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(187, 187, 187);
     
     text-align: center;
 
@@ -23,8 +20,10 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    width: 250px;
+    /* width: 250px; */
     margin:20px;
+    margin-bottom:60px;
+    margin-top:0px;
 }
 
 .card-text .date{
@@ -100,12 +99,7 @@
     margin-top: 10px;
 }
 
-/* .button-favorite{
-    border-color: transparent;
-    background-color: transparent;
-    cursor:pointer;
-    color:red;
-} */
+
 .button-favorite{
     color: rgb(163, 163, 163);
     background-color: transparent;
@@ -113,9 +107,7 @@
     border-color: transparent;
     font-size: 30px;
 }
-/* .button-favorite:hover{
-    font-size: 35px;
-} */
+
 .button-favorite-done{
     color:rgb(206, 50, 50);
     border-color: transparent;
@@ -123,11 +115,9 @@
     cursor:pointer;
     background-color: transparent;
 }
-/* .button-favorite-done:hover{
-    color: rgb(163, 163, 163);
-} */
+
 .imageActJ{
-    width:226px;
+    width:250px;
     height: 170px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -141,7 +131,7 @@
     max-width: 600px;
     width: 90%;
     height: 400px;
-    background: #fff;
+    background: rgb(216, 216, 216);
     box-shadow: 0 0 15px rgba(0,0,0,.1);
   }
 

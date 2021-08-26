@@ -19,12 +19,7 @@ import countries from '../ActivitiesFilter/countries+states.json'
 
 
 export const Home = () => {
-    // const history = useHistory();
-    // useEffect(()=>{
-    //     history.push('/activity/1')
-    // },[])
 
-    // const fecha = Date.now()
     const fechaActual = new Date();
     fechaActual.setDate(fechaActual.getDate()+3);
     console.log('ESTA ES LA FECHA MAS 3 DIAS',fechaActual)
@@ -37,6 +32,9 @@ export const Home = () => {
         if (countrySelect==='Brazil'){
             return 'GRU';
         }
+        if (countrySelect==='Argentina') return 'EZE'
+        if (countrySelect==='Colombia') return 'BOG'
+        
         var country = countries.find(countri => countri.name === countrySelect)
         console.log('ESTO ES COUNTRIES:',countries)
         console.log('ESTE ES COUNTRY', country)
@@ -91,7 +89,7 @@ export const Home = () => {
 
             </div>
             <footer className='carouselPromos'><CarouselPromos /> </footer>
-            <LandingActivities></LandingActivities>
+            {/* <LandingActivities></LandingActivities> */}
             <div> <CarouselNews /> </div>
 
         </>

@@ -4,8 +4,8 @@ import { useState } from "react";
 import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
 // import { getPromos } from "../../store/actions/promosActions";
-import { getPromo } from '../../store/actions/promoActions';
 import './carouselPromos.css'
+import { getPromo } from '../../store/actions/promoActions';
 
 const promos = [
     { title: '12 CUOTAS SIN INTERES CON TODOS LOS BANCOS', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '20% CON BANCO GALICIA', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '2X1 PAGA UNO DISFRUTAN 2', description: 'EN TODAS LA ACTIVIDADES EN LA NIEVE' }, { title: '24 CUOTAS CON INTERES CON TARJETA', description: 'EN TODAS LA ACTIVIDADES EN AFRICA' },
@@ -14,9 +14,7 @@ const promos = [
 const CarouselPromos = () => {
 
     const Promotions = useSelector(state => state.promotions)
-
     const dispatch = useDispatch()
-
     const { loading, promotions } = Promotions
 
     useEffect(() => {

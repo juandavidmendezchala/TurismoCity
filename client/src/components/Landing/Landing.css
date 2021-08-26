@@ -71,14 +71,15 @@ align-self: center;
 justify-content: center;
 align-items: center;
 cursor: pointer;
+transition: 5s;
 }
 #BOG{
     background-image: url("./ciudades/BOGOTA.jpg");
-    
+    transition: 5s;
    }
    #BOG:hover{
     background-size: 320px;
-    
+    transition: 5s;
    }
 #GIG{
     background-image: url("./ciudades/RIO.png");
