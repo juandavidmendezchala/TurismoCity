@@ -71,13 +71,13 @@ const Whishes = (props) => {
           notas: input.notas,
           cupos: input.cupos
         };
-        await props.whishAdd(objGuardar)
-        alert("su deseo ha sido guardado")
+
         if (!input.destino)
           props.getActivityNoDest(input.fechaini, input.fechafin, input.presupuesto, input.cupos)
           else
          props.getActivityAll(input.destino, input.fechaini, input.fechafin, input.presupuesto, input.cupos)
-    
+         await props.whishAdd(objGuardar)
+         alert("su deseo ha sido guardado")    
         // document.getElementById("form").reset();
         setInput({
           fechaini: "",
