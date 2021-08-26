@@ -3,27 +3,26 @@
 
 .carrouselFirstPromos {
   /* margin-top: -50px; */
-  width: 99%;
-  height: 250px;
-  align-content: center;
-  /* margin: 5rem auto; */
+  width: 100%;
+  margin: 0px auto;
+  text-align: center;
 }
 /* .slide img {
   width: 20rem; */
-  /* margin: 0 auto;
+/* margin: 0 auto;
 } */
 
-.slidePromos {
+/* .slidePromos {
   transform: scale(0.2);
   transition: transForm 300ms;
   opacity: 0.3;
-}
+} */
 .imageActiveSlidePromos {
   transform: scale(1);
 }
 .arrowPromos {
   position: absolute;
-  background-color: rgb(255, 255, 255);
+  /* background-color: transparent; */
   cursor: pointer;
   z-index: 10;
 }
@@ -34,20 +33,23 @@
   color: rgb(255, 255, 255);
 }
 .nextP {
-  right: 0%;
+  right: 3%;
   top: 50%;
 }
 .prevP {
-  left: 0%;
+  left: 3%;
   top: 50%;
 }
 
 .container-carouselPromos {
   /* margin-top: 10px; */
+
+  margin: 0px auto;
   background-color: rgba(252, 9, 62, 0.932);
-  max-height: 200px;
-  width: 650px;
+  height: 400px;
+  width: 100%;
   border-radius: 0.5rem;
+  margin-top: 75px;
   padding: 1%;
   box-shadow: 6px 6px 15px rgb(119, 98, 98);
   /* display: table-cell; */
@@ -55,14 +57,19 @@
   border: 0.1px double rgba(36, 35, 3, 0.342);
   /* vertical-align: middle; */
   margin-bottom: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* margin-top: 2%; */
 }
 .newstitlePromos {
   font-family: "Franklin Gothic";
   font-size: 44px;
   color: rgb(245, 229, 0);
+
+
   font-weight: bolder;
-  text-shadow: 5px 5px 9px rgb(255, 108, 128);
+  text-shadow: 5px 5px 9px rgb(212, 41, 64);
   /* font-weight: bold; */
 }
 

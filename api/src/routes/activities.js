@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
   } catch (err) {
     return res.send({
       message:
-        "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!",
+        "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!" + err,
     });
   }
 });
@@ -47,54 +47,40 @@ router.post("/filter", async (req, res) => {
     type
   } = req.body;
 
-  if(true) {
-    Activity.findAll({
-      where: {
-        country, 
-        active: true
-      },
-      include: [
-        {
-          model: Type,
-          through: type_activity
-        }
-      ]
-    })
-    .then((result) => 
-    res.send(result))
-  }
-   
-  if (country && !city && !price && !startDate && !endDate){
+  if (country && !city && !price && !startDate && !endDate && !type ){
+    /* console.log("country && !city && !price && !startDate && !endDate") */
     Activity.findAll({
       where: {
         country: country, 
         active: true
       },
-      include: [
+      include: 
         { model: Type, through: type_activity } 
-      ]
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-
-  if (country && city && !price && !startDate && !endDate){
+  if (country && city && !price && !startDate && !endDate && !type ){
+    /* console.log("country && city && !price && !startDate && !endDate")
+    console.log(country, city) */
     Activity.findAll({
       where: {
         country: country,
         city: city, 
         active: true
       },
-      include: [
+      include: 
         { model: Type, through: type_activity } 
-      ]
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-
+ 
   
-  if (country && city && price && !startDate && !endDate){
+  if (country && city && price && !startDate && !endDate && !type ){
+   /*  console.log("country && city && price && !startDate && !endDate") */
     Activity.findAll({
       where: {
         country: country,
@@ -104,15 +90,17 @@ router.post("/filter", async (req, res) => {
         }, 
         active: true
       },
-      include: [
+      include: 
         { model: Type, through: type_activity } 
-      ]
+      
     })
     .then((resut) => 
     res.send(resut));
   }
 
-  if (country && city && price && startDate && endDate){
+  if (country && city && startDate && endDate && price && type){
+    /* console.log("country && city && price && startDate && endDate")
+    console.log(country, city, price, startDate, endDate) */
     Activity.findAll({
       where: {
         country: country,
@@ -123,17 +111,21 @@ router.post("/filter", async (req, res) => {
         active: true,
         date: {
           [Op.between]: [startDate, endDate]
+        }},
+          
+        include: 
+        { model: Type,
+          where:{
+          id: type
         },
-        include: [
-          { model: Type, through: type_activity } 
-        ]
-      },
+           through: type_activity } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
 
-  if (!country && !city && price && !startDate && !endDate){
+  if (!country && !city && price && !startDate && !endDate && !type){
     Activity.findAll({
       where: {
         price: {
@@ -141,14 +133,14 @@ router.post("/filter", async (req, res) => {
         },
         active: true
       },
-      include: [
+      include: 
         { model: Type, through: type_activity } 
-      ]
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-  if (!country && !city && !price && startDate && endDate){
+  if (!country && !city && !price && startDate && endDate && !type ){
     Activity.findAll({
       where: {
         active: true,       
@@ -156,13 +148,30 @@ router.post("/filter", async (req, res) => {
           [Op.between]: [startDate, endDate]
         }
       },
-      include: [
+      include: 
         { model: Type, through: type_activity } 
-      ]
+      
     })
     .then((resut) => 
     res.send(resut));
   }
+  if (!country && !city && !price && !startDate && !endDate && type){
+    Activity.findAll({
+     where: {
+        active: true
+      },
+      include: 
+        { model: Type,
+          where:{
+          id: type
+        },
+           through: type_activity } 
+      
+    })
+    .then ((resut) =>
+    res.send(resut));
+  }
+  
   /*if (
     country ||
     city ||
@@ -251,20 +260,21 @@ router.post("/", async (req, res) => {
     active: true,
     estadoAdmin: false
   });
-  const updateUser = await User.update({
-    isAdmin: true
-  }, {
-    where: {
-      email
-    }
-  })
+  // const updateUser = await User.update({
+  //   isAdmin: true
+  // }, {
+  //   where: {
+  //     email
+  //   }
+  // })
   const findUser = await User.findOne({
     where: {
       email,
     },
   });
+  console.log('FINDUSER----->',findUser)
   await createPack.addType(type) //Recibe el Id del type
-  //await findUser.addActivity(createPack);
+  await findUser.addActivity(createPack);
   return res.send(createPack);
 });
 

@@ -20,7 +20,7 @@ import { reducerSuppliers } from "./reducers/reducerSupplier";
 import { newsReducer } from "./reducers/reduceNews";
 import { promoReducer } from './reducers/reducerPromo'
 import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
-
+import {typeReducer} from "./reducers/reducerTypes"
 //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 
@@ -66,7 +66,8 @@ const reducer = combineReducers({
   promotions: promoReducer,
   countries: countriesReducer,
   userCountry: userCountryReducer,
-  landingActivities: landingActivityReducer
+  landingActivities: landingActivityReducer,
+  types: typeReducer
 })
 
 const store = createStore(
