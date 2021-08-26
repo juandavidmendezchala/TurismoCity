@@ -1,5 +1,5 @@
 .FooterContainer{
-    margin-bottom:-80px;
+    
     background-color: black;
     width: 1480px;
     height: 180px;
@@ -32,6 +32,7 @@
 .NewsletterFotter{
   background-color: tomato;
   width: 50px;
+  height: 40px;
 }
 .NewsletterFooter{
     position: relative;
@@ -55,6 +56,7 @@
     position: relative;
     top: 80px;
     right: 842px;
+    height: 30px;
     font-size: 30px;
  
 }

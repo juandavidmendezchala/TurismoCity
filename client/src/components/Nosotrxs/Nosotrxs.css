@@ -23,18 +23,19 @@ padding-top: 30px;
     position: absolute;
     z-index: 0;
     width: 1480px;
-    height: 530px;
+    height: 590px;
 }
 .SecondBlockImg{
-width: 1240px;
+
+width: 1352px;
 height: 620px;
 margin-bottom: -5px;
-margin-top: -45px;
+margin-top: 0px;
 }
 .FotoAvioncito{
     position: absolute;
     z-index: 2;
     width:90px;
-    top:510px;
-    left: 550px;
+    top:560px;
+    right: 20px;
 }
