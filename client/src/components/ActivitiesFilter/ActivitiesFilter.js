@@ -61,7 +61,7 @@ export default function ActivitiesFilter(props) {
             // initialTime
             ))      
     }
-
+    var today = new Date().toISOString().split('T')[0];
     function changeState(e) {
         setCountry(e.target.value)
         var countrie = countries.find(el => el.name === e.target.value);
@@ -93,8 +93,8 @@ export default function ActivitiesFilter(props) {
                 <div className="form-label-input">
                     <label className="form-label">Desde:</label>
                     <Input
+                        min={today}
                         type="date"
-                        
                         icon='calendar alternate outline'
                         iconPosition='left'
                         value={startDate}
@@ -104,8 +104,9 @@ export default function ActivitiesFilter(props) {
                 <div className="form-label-input">
                     <label className="form-label">Hasta:</label>
                     <Input
+                        min={startDate}
                         type="date"
-                    icon='calendar alternate outline'
+                        icon='calendar alternate outline'
                         iconPosition='left'
                         value={endDate}
                         onChange={e => setEndDate(e.target.value)}>
@@ -115,7 +116,8 @@ export default function ActivitiesFilter(props) {
                     <label className="form-label">Hasta(USD):</label>
                     <Input
                         class="ui input"
-                        type="text"
+                        type="number"
+                        min="0"
                         id="price"
                         value={price}
                         onChange={e => setPrice(e.target.value)}>
