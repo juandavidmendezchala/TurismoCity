@@ -31,7 +31,7 @@ const router = Router();
 // router.use(usersRoutes)
 
 router.use('/allAirports', airportsRoutes)
-router.use('./getflights', getFlightsRouter)
+router.use('/getflights', getFlightsRouter)
 router.use('/user', usersRoutes)
 router.use('/favorites', favoriteRouter)
 router.use('/feedBack', feedbackRouter)

@@ -1,20 +1,22 @@
-const { axios } = require('axios');
+const axios = require('axios');
 const {Router} = require('express');
 const apiKey2 = "612716d4747a9a05325621c9"
 
 const router = Router();
 
-router.use('/:fromPlace/:toPlace/:fromDate/:adults/:kids/:babies/:classFlight/:currency', async(req, res) => {
-    let {
+router.get('/:fromPlace/:toPlace/:fromDate/:adults/:kids/:babies/:classFlight/:currency', async(req, res) => {
+    const {
         fromPlace,
         toPlace,
         fromDate,
         adults,
         kids,
         babies,
-        classFlight
+        classFlight,
+        currency
     } = req.params
-    const {data} = await axios.get(`https://api.flightapi.io/onewaytrip/${apiKey2}/${fromPlace}/${toPlace}/${fromDate}/${adults}/${kids}/${babies}/${classFlight}/${currency}`)
+    const url = `https://api.flightapi.io/onewaytrip/${apiKey2}/${fromPlace}/${toPlace}/${fromDate}/${adults}/${kids}/${babies}/${classFlight}/${currency}`
+    const {data} = await axios.get(url)
     return res.send(data)
 })
 
