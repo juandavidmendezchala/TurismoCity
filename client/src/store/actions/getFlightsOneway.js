@@ -1,5 +1,5 @@
 import airlinesLogo from '../../airlines.json';
-import { REACT_APP_FLIGHT_API } from '../Consts/Consts';
+import { REACT_APP_API, REACT_APP_FLIGHT_API } from '../Consts/Consts';
 export const GET_FLIGHTS_ONEWAY = "GET_FLIGHTS_ONEWAY";
 const apiKey = "610ed01e747a9a053255e81f"
 const apiKey2 = "610ecfda747a9a053255e81e"
@@ -14,7 +14,8 @@ const apikey3= "610ed044747a9a053255e820"
   
     console.log('ENTRO CON: ',p.way)
     return function (dispatch) {
-    return fetch(`${REACT_APP_FLIGHT_API}/onewaytrip/${apiKey2}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)   
+    return fetch(`${REACT_APP_API}/getflights/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+    //return fetch(`${REACT_APP_FLIGHT_API}/onewaytrip/${apiKey2}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)   
       .then(response => response.json())
       .then(json => {
         if (json.message) console.log(json.message);
