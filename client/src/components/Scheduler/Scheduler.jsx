@@ -1,8 +1,11 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, connect } from "react-redux";
-import { REACT_APP_DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
+import { REACT_APP_API, REACT_APP_DEV_TOOLS } from "../../store/Consts/Consts";
 import style from "../../styles/AddSched.module.css";
 import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
+
+let agregado = 0;
 
 const Scheduler = (props) => {
   const [input, setInput] = useState({

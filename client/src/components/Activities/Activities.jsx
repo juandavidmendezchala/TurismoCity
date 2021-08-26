@@ -5,7 +5,6 @@ import { getActivities } from '../../store/actions/activityActions'
 import ActivityCard from '../ActivityCard/ActivityCard.js'
 import './Activities.css'
 import { getFavorites } from '../../store/actions/getFavorites'
-import Pagination from '../Pagination/Pagination'
 import PaginationActivity from '../paginationActivity/paginationActivity';
 
 
@@ -29,7 +28,7 @@ export default function Actities() {
             dispatch(getFavorites(userSignin.userInfo.id))
         }
         dispatch(getActivities())
-    }, [])
+    }, [userSignin, dispatch])
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;

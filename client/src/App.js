@@ -92,6 +92,7 @@ function App() {
       <Route path="/emailsend"><EmailSender /></Route>
       <Route path="/whishes"><Whishes /></Route>
       <Route path="/whishes"><ListActivWish /></Route>
+<Route path="/newscarousel" component={CarouselNews} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>

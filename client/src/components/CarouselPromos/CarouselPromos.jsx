@@ -20,7 +20,10 @@ const CarouselPromos = () => {
     const { loading, promotions } = Promotions
 
     useEffect(() => {
-        dispatch(getPromo())
+        async function fetchData() {
+            await dispatch(getPromo())
+          }
+          fetchData();
     }, [])
 
     const NextArrow = ({ onClick }) => {
@@ -41,9 +44,11 @@ const CarouselPromos = () => {
 
 
 
+
+
     const settings = {
         dots: false,
-        // fade: true,
+        fade: true,
         infinite: true,
         lazyload: true,
         // speed: 300,
@@ -51,7 +56,7 @@ const CarouselPromos = () => {
         slidesToShow: 1,
         centerMode: true,
         centerPadding: 0,
-        // slidesToScroll: 1,
+        slidesToScroll: 1,
         autoplay: true,
         // speed: 15000,
         autoplaySpeed: 2000,
@@ -64,7 +69,7 @@ const CarouselPromos = () => {
         <div className='carrouselFirstPromos'>
             <Slider {...settings}>
                 {promotions?.map((promo, id) => (
-                    <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
+                    <div className='imageActiveSlidePromos'>
                         <div className="container-carouselPromos">
                             <h2 className="newstitlePromos">{promo.title}</h2>
                             {/* <img className='imagCarusel' height="150px" src={news.image} alt={news.title} /> */}
@@ -72,7 +77,8 @@ const CarouselPromos = () => {
 
                         </div>
                     </div>
-                ))}
+                ))
+                }
             </Slider>
         </div>
     )

@@ -75,6 +75,7 @@ function FlightCard(props) {
 
                                         <div className='IDAyVUELTA'>
                                             <strong>&nbsp;&nbsp;&nbsp;IDA&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                                            <p className='escalaTitulo'> {flight.vueloIda?.departureDateTime.slice(0,10).replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1')}</p>
                                             <p className='escalaTitulo'> Duracion: {flight.vueloIda?.duration}</p>
                                         </div>
                                         <figure id='photo' data-title={flight.airlineIda?.name} tooltip-dir="left">

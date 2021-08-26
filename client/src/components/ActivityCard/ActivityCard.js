@@ -75,7 +75,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                 setisSoulOut(true)
             }
 
-            if ((places - purchases?.length) < 5 && (places - purchases?.length) > 1) {
+            if ((places - purchases?.length) < 5 && (places - purchases?.length) >= 1) {
                 setisLastPlace(true)
             }
         }

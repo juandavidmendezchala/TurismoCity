@@ -38,6 +38,12 @@ export const Home = () => {
         if (countrySelect === 'Brazil') {
             return 'GRU';
         }
+        if (countrySelect === 'Colombia'){
+            return 'BOG'
+        }
+        if (countrySelect === 'Argentina'){
+            return 'EZE'
+        }
         var country = countries.find(countri => countri.name === countrySelect)
         console.log('ESTO ES COUNTRIES:', countries)
         console.log('ESTE ES COUNTRY', country)
@@ -72,6 +78,7 @@ export const Home = () => {
 
                 <News></News>
 
+
                 <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div className='citysLanding'>
@@ -92,8 +99,8 @@ export const Home = () => {
                 <div className="PopUpBot"><ButtonChatBot /></div>
 
             </div>
-            <footer className='carouselPromos'><CarouselPromos /> </footer>
-            <LandingActivities></LandingActivities>
+            <div className='carouselPromos'><CarouselPromos /> </div>
+            {/* <LandingActivities></LandingActivities> */}
             <div> <CarouselNews /> </div>
             <Footer />
 
