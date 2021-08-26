@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 const router = Router()
 
 contentHTML = `
-<h1>Mensaje de Agenda de lowHenry</h1>
+<h2>Mensaje de Agenda de lowHenry</h2>
 `
 const transporter = nodemailer.createTransport({
     host: 'mail.sib-2000.com.ar',
@@ -59,8 +59,8 @@ async function enviandoEmail(correo, texto, name) {
     const info = await transporter.sendMail({
         from: 'Low Henry te recuerda!, <lowhenry@sib-2000.com.ar>',
         to: correo,
-        subject:  'Hola ' + name + " agendaste en nuestro servicio el siguiente recordatorio",
-        text: texto + "<br>" + contentHTML + "<br>Muchas Gracias"
+        subject: "Agendaste en nuestro servicio el siguiente recordatorio",
+        html: "<h1>Hola " + name + "</h1><br>" + contentHTML + "<br><h2>Agendaste</h2><br><h3>" + texto + "<h3><br><h3>Muchas Gracias por elegir nuestros servicios<h3><br><img src='' alt='LowHenry' />"
     })
 } 
 

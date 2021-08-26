@@ -48,7 +48,7 @@ const EmailSender = (props) => {
   return (
     <>
 
-    <h1>Enviar los recordatorios (por ahora a mano)</h1>
+    <h1 className={style.tituno}>Enviar los recordatorios (por ahora a mano)</h1>
     <div className={style.boxform}>
       <form>
         <label>Fecha de recordatorio</label>
@@ -62,14 +62,14 @@ const EmailSender = (props) => {
         <button onClick={handleEnviar}> Enviar Recordatorios</button>
       </form>
       </div>
-        <h1>{result.data}</h1>
-        <h2>Recordatorios enviados: { !resultado.data ? "0" : resultado.data.length }</h2> 
+        <h1 className={style.tituno}>{result.data}</h1>
+        <h2 className={style.titdos}>Recordatorios enviados: { !resultado.data ? "0" : resultado.data.length }</h2> 
     </>
   );}
 
   return (
     <>
-      <h1>Debe estar logueado para como Admin para enviar correos</h1>
+      <h1 className={style.tituno}>Debe estar logueado para como Admin para enviar correos</h1>
     </>
   );
 };
