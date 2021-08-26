@@ -21,7 +21,7 @@ const images = [stone, ast, rick, brain, wars, hom]
 const CarouselNews = () => {
 
     const News = useSelector(state => state.news)
-    
+
     const dispatch = useDispatch()
 
     const { loading, news } = News
@@ -70,7 +70,7 @@ const CarouselNews = () => {
     return (
 
         <div className='carrouselFirst'>
-        
+
             <Slider {...settings}>
                 {news?.map((news, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlide' : 'slide'}>
