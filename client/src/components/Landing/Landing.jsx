@@ -68,7 +68,7 @@ export const Home = () => {
 
 
 
-                <News></News>
+                {/* <News></News> */}
 
                 <div className='Aerolineas'>Visitá los destinos más elegidos por los turistas
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -90,9 +90,9 @@ export const Home = () => {
                 <div className="PopUpBot"><ButtonChatBot /></div>
 
             </div>
-            //<footer className='carouselPromos'><CarouselPromos /> </footer>
+            {/* <footer className='carouselPromos'><CarouselPromos /> </footer> */}
             <LandingActivities></LandingActivities>
-            //<div> <CarouselNews /> </div>
+            {/* <div> <CarouselNews /> </div> */}
 
         </>
     )
