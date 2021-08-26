@@ -55,8 +55,9 @@ export const getActivity = (id) => async (dispatch) => {
 };
 
 export const getFilterActivities =
-  (country, city, startDate, endDate, price, places, duration, initialTime) =>
+  (country, city, startDate, endDate, price, type, places, duration, initialTime ) =>
     async (dispatch) => {
+      console.log("Entrando a GER")
       dispatch({ type: GET_ACTIVITY_REQUEST });
       try {
         const { data } = await axios.post(
@@ -67,11 +68,13 @@ export const getFilterActivities =
             startDate,
             endDate,
             price,
+            type,
             places,
             duration,
             initialTime,
           }
         );
+        //console.log(data, "AQUI ESTA LA DATA")
         dispatch({ type: GET_ACTIVITY_SUCCESS, payload: data });
       } catch (err) {
         dispatch({

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getFilterActivities } from '../../store/actions/activityActions';
+import {getTypes} from "../../store/actions/typesActions"
 import { Input } from 'semantic-ui-react'
 import countries from './countries+states.json'
 import MessageBox from '../Boxes/MessageBox'
@@ -15,11 +16,18 @@ export default function ActivitiesFilter(props) {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [price, setPrice] = useState('');
+    const [type, setType] = useState('');
     // const [places, setPlaces] = useState('1');
     // const [duration, setDuration] = useState('10');
     // const [initialTime, setInitialTime] = useState('08:00');
     const [state, setState] = useState('')
     const activities = useSelector(state => state.activities.activities);
+    const types = useSelector (state => state.types)
+    const {alltypes, loading} = types
+    useEffect (()=> {
+    dispatch(getTypes())
+    }, [])
+    
     console.log('trae activitie',activities)
 
     const dispatch = useDispatch()
@@ -39,16 +47,19 @@ export default function ActivitiesFilter(props) {
 
     const onHandleSubmit = async (e) => {
         e.preventDefault()
+        console.log(country, city, startDate, endDate, price, type, "AQUI ESTA TYPES")
         await dispatch(getFilterActivities(
             country,
             city,
             startDate,
             endDate,
             price,
+            type,
+           
             // places,
             // duration,
             // initialTime
-            ))
+            ))      
     }
 
     function changeState(e) {
@@ -109,6 +120,16 @@ export default function ActivitiesFilter(props) {
                         value={price}
                         onChange={e => setPrice(e.target.value)}>
                     </Input>
+                </div>
+                <div className="form-label-input">
+                    <label className="form-label">Tipo de Actividad:</label>
+                    <select onChange ={e => setType(e.target.value)} className='SelectPaisJ'>
+                    {
+                        alltypes?.map(t =>(
+                            <option value={t.id}>{t.category}</option>
+                            ))
+                    }
+                    </select>
                 </div>
                 <div className="form-label-input">
                     {/* <label className="form-label">Cupos:</label>
