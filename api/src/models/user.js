@@ -19,6 +19,14 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        type: {
+            type: DataTypes.STRING, //cliente / proveedor
+            allowNull: false      
+        },
         isAdmin: {
             type: DataTypes.BOOLEAN,
             allowNull: true
@@ -27,9 +35,14 @@ module.exports = function (sequelize) {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        rating: {
-            type: DataTypes.DECIMAL,
+        state: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        picture:{
+            type: DataTypes.STRING,
             allowNull: true
         }
+       
     })
 }

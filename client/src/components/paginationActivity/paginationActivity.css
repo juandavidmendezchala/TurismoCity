@@ -1,0 +1,47 @@
+.pagination1{
+    background-color: #0F3057;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 20px;
+    height: 55px;
+}
+.numeritos {
+    color: rgb(94, 94, 94);
+    float: left;
+    padding: 20px;
+    text-decoration: none;
+    list-style: none;
+}
+.activePag{
+    background-color:rgb(87, 149, 190);
+    padding: 7px 10px;
+    border-radius: 600px;
+    color:white;
+    float: left;
+    text-decoration: none;
+    list-style: none;
+}
+.numeritos:hover{
+    background-color: rgba(111, 150, 177, 0.432);
+    padding: 14px 20px;
+    border-radius: 600px;
+    color:white;
+    cursor: pointer;
+}
+.PagText{
+    color: rgb(78, 78, 78);
+    float: left;
+    padding: 9px 12px;
+    text-decoration: none;
+    list-style: none;   
+    cursor: pointer;
+    
+}
+.inablePag{
+    cursor: text;
+    display: none;
+}

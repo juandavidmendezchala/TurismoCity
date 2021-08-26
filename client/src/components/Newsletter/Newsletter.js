@@ -6,27 +6,38 @@ const url = "https://gmail.us5.list-manage.com/subscribe/post?u=1ebaeaba3338a561
 // simplest form (only email)
 const SimpleForm = () => <MailchimpSubscribe url={url} />
 
-// use the render prop and your custom form
-const newsletter = () => (
-    <MailchimpSubscribe
-        url={url}
-        render={({ subscribe, status, message }) => (
-            <div style={{
-                background: "#0F3057",
-                borderRadius: 2,
-                padding: 10,
-                display: "inline-block"
-            }}>
-                <SimpleForm onSubmitted={formData => subscribe(formData)} />
-                {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
-                {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
-                {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
-            </div>
-        )}
-    />
+
+
+
+
+
+
+
+
+const Newsletter = () => (
+    <div className="NewsletterPosition">
+        <MailchimpSubscribe
+            url={url}
+            render={({ subscribe, status, message }) => (
+                <div className="NewsletterPosition" style={{
+                    background: "tomato",
+                    borderRadius: 6,
+                    padding: 10,
+                    display: "inline-block",
+
+                }}>
+                    <SimpleForm placeholder="Email" style={{
+
+                    }} onSubmitted={formData => subscribe(formData)} />
+                    {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+                    {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
+                    {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
+                </div>
+            )}
+        /></div>
 )
 
-export default newsletter
+export default Newsletter
 
 
 

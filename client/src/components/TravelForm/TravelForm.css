@@ -4,6 +4,7 @@
   margin-top: 20px;
   align-items: center;
   justify-content: center;
+  
 }
 .TitleHome {
   font-size: 40px;
@@ -248,4 +249,8 @@
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.radioTF{
+  background-color: black;
 }

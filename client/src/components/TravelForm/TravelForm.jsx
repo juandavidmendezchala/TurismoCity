@@ -27,7 +27,7 @@ export default function TravelForm(props) {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [classFlight, setClassFlight] = useState('Economy');
-    const [adults, setAdults] = useState('0')
+    const [adults, setAdults] = useState('1')
     const [kids, setKids] = useState('0')
     const [babies, setBabies] = useState('0')
     const [currency, setCurrency] = useState('USD');
@@ -51,13 +51,16 @@ export default function TravelForm(props) {
         dispatch(detailFlight(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency))
         console.log(way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency)
         dispatch(getFlights({ way, fromPlace, toPlace, fromDate, toDate, classFlight, adults, kids, babies, currency }))
+
         if (way === 'roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
         if (way === 'onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
+        console.log(history) 
     }
     var today = new Date().toISOString().split('T')[0];
 
     return (
         <div className="TravelFormContainer">
+
             <div className="FormContainer">
                 <form className="ContainerForm" noValidate autoComplete="off" onSubmit={onSubmitFrom}>
                     <div className="ContainerInfoVuelo"><h3 className="InfoDeVuelo">Info de vuelo</h3></div>
@@ -92,20 +95,20 @@ export default function TravelForm(props) {
 
                     <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input className= 'radioTF' required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm">Ida</label>
-                        <input required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
+                        <input className='radioTF' required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                     </form>
 
                     <div className="selectPassengers">
                         <label className="LabelSelectPassengers2">Adultos</label>
-                        <input className="InputSelectPassengers" type="number" selected="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" selected="0" min="1" max="10" onChange={e => setAdults(e.target.value)} />
 
                         <label className="LabelSelectPassengers2">Niños</label>
-                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setKids(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" onChange={e => setKids(e.target.value)} />
 
                         <label className="LabelSelectPassengers2">Bebes</label>
-                        <input className="InputSelectPassengers" type="number" min="0" max="10" onChange={e => setBabies(e.target.value)} />
+                        <input className="InputSelectPassengers" type="number" min="0" max="10" placeholder="0" onChange={e => setBabies(e.target.value)} />
                     </div>
                     <div className="SelectTravelFormContainer">
                         <label className="LabelSelectCurrency">Seleccione clase</label>

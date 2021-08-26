@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
+
 import { getFilterActivities } from '../../store/actions/activityActions';
 import { Input } from 'semantic-ui-react'
 import countries from './countries+states.json'
 import MessageBox from '../Boxes/MessageBox'
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import './ActivitiesFilter.css'
 
 
@@ -36,6 +37,9 @@ export default function ActivitiesFilter(props) {
 
 
     }
+
+   // const activities = useSelector(state => state.activities.activities);
+    console.log('trae activitie',activities)
 
     const onHandleSubmit = async (e) => {
         e.preventDefault()
@@ -145,3 +149,5 @@ export default function ActivitiesFilter(props) {
         </div>
     )
 }
+
+

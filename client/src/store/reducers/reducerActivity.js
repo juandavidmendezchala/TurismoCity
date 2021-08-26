@@ -12,7 +12,10 @@ import {
     GET_COMMENTS_SUCCESS,
     GET_FAVORITE_FAIL,
     GET_FAVORITE_REQUEST,
-    GET_FAVORITE_SUCCESS
+    GET_FAVORITE_SUCCESS,
+    GET_LANDINGACTIVITY_FAIL,
+    GET_LANDINGACTIVITY_REQUEST,
+    GET_LANDINGACTIVITY_SUCCESS
 } from "../Consts/Consts";
 
 const initialState = {
@@ -27,6 +30,19 @@ export const activityReducer = (state = {}, action) => {
         case GET_ACTIVITY_SUCCESS:
             return { loading: false, activities: action.payload }
         case GET_ACTIVITY_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state;
+    }
+}
+
+export const landingActivityReducer = (state = {}, action) => {
+    switch (action.type) {
+        case GET_LANDINGACTIVITY_REQUEST:
+            return { loading: true }
+        case GET_LANDINGACTIVITY_SUCCESS:
+            return { loading: false, landingActivities: action.payload }
+        case GET_LANDINGACTIVITY_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state;

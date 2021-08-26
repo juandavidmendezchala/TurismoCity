@@ -1,0 +1,60 @@
+.FooterContainer{
+    margin-bottom:-80px;
+    background-color: black;
+    width: 1480px;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+}
+.FooterHead{
+    position: relative;
+    top:40px;
+    left: 40px;
+    color:white;
+    font-size: 70px;
+}
+.NavlinkNosotrxs{
+    height: 50px;
+    text-decoration: none;
+    color: tomato;
+    position: relative;
+    top:113px;
+    right: -2px;
+    font-size: 30px;
+}
+.NewsletterHead{
+    position: relative;
+    top:35px;
+    left: 200px;
+    color:white;
+    font-size: 40px;
+}
+.NewsletterFotter{
+  background-color: tomato;
+  width: 50px;
+}
+.NewsletterFooter{
+    position: relative;
+    left: 30px;
+    top: 102px;
+}
+.PosicionNewsletter{
+    position: relative;
+    top: 60px;
+    right: 68px;
+}
+.SeparadorFooter{
+    position: relative;
+    right: 460px;
+    width: 3px;
+    background-color: tomato;
+    height: 180px;
+}
+.ConocenosMas{
+    color: white;
+    position: relative;
+    top: 80px;
+    right: 600px;
+    font-size: 30px;
+ 
+}

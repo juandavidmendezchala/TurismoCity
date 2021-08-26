@@ -1,7 +1,9 @@
+import { PENDING_PURCHASE } from "../actions/pendingPurchase";
 import { PURCHASE } from "../actions/purchase"
 
 const initialState = {
     purchase: [],
+    pendingPurchase: null,
 }
 
 export const reducerPurchase = (state = initialState, action) => {
@@ -13,6 +15,12 @@ export const reducerPurchase = (state = initialState, action) => {
                 purchase: action.payload
 
             }
+        case PENDING_PURCHASE:
+            return {
+                ...state,
+                pendingPurchase: action.payload
+            }
+
         default:
             return state;
     }
