@@ -29,11 +29,7 @@ const NavBarSupplierUser = ({showSidebar,sidebar}) => {
                 </div>
                 <nav className={sidebar ? "nav-menus active" : "nav-menus"}>
                     <ul className="nav-menus-items" >
-                        {/* <li className="navbar-toggle">
-                            <Link to="#" className="menu-bars">
-                                <AiIcons.AiOutlineClose />
-                            </Link>
-                        </li> */}
+                        
                         {SidebarData.map((item, index) => {
                             return (
                                 <li className={estado==index?('nav-menus-items-active'):item.cName} key={index} value={index} onClick={()=>stayColor(index)}>

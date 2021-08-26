@@ -5,7 +5,8 @@ const apiKey2 = "610ecfda747a9a053255e81e"//USADA
 const apiKey3 = "610ed044747a9a053255e820"//USADA
 const apiKey4 = "61106959747a9a053255eb0a"//USADA
 const apiKey5 = "61106983747a9a053255eb0b"//USADA
-const apiKey6 = "61200571747a9a0532560f12"
+const apiKey7 = "61200571747a9a0532560f12"//usabada
+const apiKey6 = "6126c2aa747a9a0532561ea2"
 
 export function getFlights(p, index = 1) {
 

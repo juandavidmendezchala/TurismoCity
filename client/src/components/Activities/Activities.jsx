@@ -18,14 +18,17 @@ export default function Actities() {
     const Activities = useSelector(store => store.activities);
 
     const favorite = useSelector(state => state.reducersActivities)
+    const userSignin = useSelector(state => state.userSignin)
 
     const { favorites } = favorite
 
     const { activities, loading, error } = Activities;
     console.log('prueba activities', activities)
 
-    useEffect(() => {      
-        dispatch(getFavorites(1))
+    useEffect(() => {     
+        if (userSignin.userInfo){
+            dispatch(getFavorites(userSignin.userInfo.id))
+        } 
         dispatch(getActivities())
     }, [])
 

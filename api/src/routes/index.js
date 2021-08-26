@@ -15,6 +15,8 @@ const whishesRoutes = require('./whishes')
 const questionRoutes = require('./question')
 const answerRoutes = require('./answer')
 
+//Agrego rutas de emailes
+const emailSendRoutes = require('./sendemails')
 
 const router = Router();
 //const {FeedBack} = require('../models/index')
@@ -41,5 +43,7 @@ router.use('/answer', answerRoutes)
 router.use(schedulerRoutes)
 // Rutas de deseos
 router.use(whishesRoutes)
+// Rutas de emails
+router.use(emailSendRoutes)
 
 module.exports = router;

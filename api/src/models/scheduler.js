@@ -16,6 +16,10 @@ module.exports = function(sequelize) {
             type: DataTypes.DATEONLY,
             allowNull: false    
         },
+        horario: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         tiempo: {
             type: DataTypes.INTEGER,
             allowNull: false

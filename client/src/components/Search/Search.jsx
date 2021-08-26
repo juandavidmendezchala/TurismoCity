@@ -5,6 +5,9 @@
 //import {getRecipe} from '../../actions/recipeActions'
 
 import Filter from "../Filter/Filter";
+import FiltroMenu from "../filtroMenu/FiltroMenu";
+//import filtroMenu from "../filtroMenu/filtroMenu";
+
 import FlightCard from "../FlightCard/FlightCard";
 
 export default function Search(props) {
@@ -24,7 +27,8 @@ export default function Search(props) {
 
   return (
     <div className='orderFilterCard'>
-      <div><Filter /></div>  
+      <div><FiltroMenu /></div>   
+      
       
       <div><FlightCard 
         way={way} fromPlace={fromPlace} toPlace={toPlace} fromDate={fromDate} toDate={toDate} classFlight={classFlight}

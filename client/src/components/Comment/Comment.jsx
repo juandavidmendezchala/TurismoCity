@@ -75,12 +75,12 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
             isClient?<button className="botonComment" onClick={() =>eliminar(idQuestion)}><IconName.BsFillTrashFill/></button>:null
           }
           {
-            isClient? <button onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill/></button>
+            isClient? <button className="botonComment" onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill/></button>
              : null
           }
           {
 
-            isProv? <button onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill /> </button>
+            isProv? <button className="botonComment" onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill /> </button>
             : null
           }
 
@@ -93,7 +93,6 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
                         <li className="licomment">
                         <div class="time">{m.date} - {m.user.name}</div>
                           <p className="comentp">{m.query} 🤯🤯</p>
-
                         </li>
                     )
                  }

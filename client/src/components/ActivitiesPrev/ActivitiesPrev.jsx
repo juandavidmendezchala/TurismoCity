@@ -19,7 +19,6 @@ export default function ActivitiesPrev() {
 console.log(userId)
    return(
        <div>
-           <h1>Actividades Previas</h1>
            <SubMenuActivities/>
         <div className="contenCardSub">
            {activitie.map((c) => 

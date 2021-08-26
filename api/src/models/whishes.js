@@ -29,6 +29,10 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        cupos: {
+            type: DataTypes.INTEGER,
+            allowNull: true           
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false

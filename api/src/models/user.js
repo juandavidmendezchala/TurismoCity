@@ -38,6 +38,10 @@ module.exports = function (sequelize) {
         state: {
             type: DataTypes.BOOLEAN,
             allowNull: true
+        },
+        picture:{
+            type: DataTypes.STRING,
+            allowNull: true
         }
        
     })

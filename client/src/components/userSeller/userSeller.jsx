@@ -16,15 +16,7 @@ const UserSeller = ({id, name,date,state,type,email}) => {
         setStatus(!status)
         await axios.put(`http://localhost:3001/user/${id}/${!status}`)
         //alert('se modficico el estado')
-        //swal.fire("Modificado!", "Se modifico correctamente!", "success");
-        //Swal.fire('Any fool can use a computer')
-        swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          })
+        swal("Modificado!", "Se modifico correctamente!", "success");
     }
     const handleDelete = () => {
        /* let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")

@@ -23,7 +23,7 @@ export default function MyActivities(props){
   
    return(
      <div>
-        My Activities 
+        
         <SubMenuActivities/>
         <div className="contenCardSub">
            {

@@ -24,5 +24,3 @@ conn.sync({ force: false}).then(() => {
     console.log(`Listen on port ${PORT}`);
   });
 });
-
-

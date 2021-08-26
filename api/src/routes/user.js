@@ -66,7 +66,7 @@ router.put("/:idUser/:status", async (req, res) => {
         }
     })
 
-    res.send(console.log("Estado de la publicacions cambiado con exito"))
+    res.send(console.log("Estado de la publicacion cambiado con exito"))
 })
 
 router.post('/register', async (req, res) => {
@@ -75,8 +75,7 @@ router.post('/register', async (req, res) => {
         email,
         password,
         birthdate,
-        state,
-        type
+        picture
     } = req.body;
     console.log('pas',password)
     const user = await User.findOne({
@@ -89,10 +88,10 @@ router.post('/register', async (req, res) => {
             name: name,
             email: email,
             birthdate: birthdate,
-            password: '123',
-            //state,
-            type:'CLI'
-            //isAdmin: false
+            password:"1234",
+            picture: picture,
+            isAdmin: false,
+            type:"CLI"
         }
         )
     }

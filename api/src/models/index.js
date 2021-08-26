@@ -17,17 +17,17 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
-        dialect: "postgres",
-        host: DB_HOST,
-        port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
-        },
+      database: DB_NAME,
+      dialect: "postgres",
+      host: DB_HOST,
+      port: 5432,
+      username: DB_USER,
+      password: DB_PASSWORD,
+      pool: {
+        max: 3,
+        min: 1,
+        idle: 10000,
+      },
         dialectOptions: {
           ssl: {
             require: true,
@@ -37,8 +37,8 @@ let sequelize =
           keepAlive: true,
         },
         ssl: true,
-      })
-    : new Sequelize(
+      }) :
+     new Sequelize(
         `postgres://${dbUser}:${dbPassword}@${dbHost}/${dbName}`,
         { logging: false, native: false }
       );
@@ -85,7 +85,6 @@ Question.belongsTo(Activity)
 Activity.hasMany(Question)
 Question.belongsTo(User)
 User.hasMany(Question)
-
 
 Question.hasMany(Answer)
 Answer.belongsTo(Question)
