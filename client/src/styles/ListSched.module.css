@@ -1,7 +1,8 @@
 .boxcontainert {
+    z-index: -1;
     position: relative;
-    top: 4em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #f4f4f4;
 }
