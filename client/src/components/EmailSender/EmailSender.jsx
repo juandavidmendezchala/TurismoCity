@@ -79,7 +79,7 @@ const EmailSender = (props) => {
         </h2>
         <hr />
         <h1 className={style.tituno}>
-          Enviar actividades a usuarios que guardaron deseos
+          Enviar diario de actividades a usuarios que guardaron deseos
         </h1>
 
         <div className={style.boxform}>
