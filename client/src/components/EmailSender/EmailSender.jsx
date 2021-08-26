@@ -90,7 +90,7 @@ const EmailSender = (props) => {
             </button>
           </form>
         </div>
-        <h1 className={style.tituno}>Deseos {!deseados ? "" : deseados.data.message}</h1>
+        <h1 className={style.tituno}>Deseos {!deseados.data ? "" : deseados.data.message}</h1>
               </>
     );
   }
