@@ -5,6 +5,7 @@ import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { CgPlayTrackNext } from "react-icons/cg"
 //import "./userActivities.css"
 import swal from 'sweetalert'
+import { REACT_APP_API } from '../../store/Consts/Consts';
 
 const UserSeller = ({id, name,date,state,type,email}) => {
     const [status, setStatus] = useState(state)
@@ -13,7 +14,7 @@ const UserSeller = ({id, name,date,state,type,email}) => {
 
     const handleOnClickStatus = async (e) => {
         setStatus(!status)
-        await axios.put(`http://localhost:3001/user/${id}/${!status}`)
+        await axios.put(`${REACT_APP_API}/user/${id}/${!status}`)
         //alert('se modficico el estado')
         swal("Modificado!", "Se modifico correctamente!", "success");
     }
@@ -21,7 +22,7 @@ const UserSeller = ({id, name,date,state,type,email}) => {
        /* let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
         if (eliminar) {
             setDeleted(true)
-            await axios.delete(`http://localhost:3001/suppliers/${idUser}/${idPost}`)
+            await axios.delete(`http://local*host:3001/suppliers/${idUser}/${idPost}`)
 
         } else {
             return

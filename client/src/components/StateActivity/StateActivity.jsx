@@ -8,6 +8,7 @@ import {useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 //import "./userActivities.css"
 import {searchUserEmail} from '../../store/actions/searchUserEmail'
+import { REACT_APP_API } from '../../store/Consts/Consts';
 
 const StateActivity = ({id,name,description,date,price,places,duration,initialTime,images,country,city,estado}) => {
     const [status, setStatus] = useState(estado)
@@ -22,18 +23,18 @@ const StateActivity = ({id,name,description,date,price,places,duration,initialTi
     console.log('datos del email', userEmail)
     const handleOnClickStatus = async (e) => {  
         setStatus(!status)
-        //await axios.put(`http://localhost:3001/suppliers/${idUser}/${idPost}/${!status}`)
+        //await axios.put(`http://local*host:3001/suppliers/${idUser}/${idPost}/${!status}`)
     }
 
     const cambiarEstado = async (s) => {
         setStatus(!status)
-        await axios.put(`http://localhost:3001/suppliers/1/${id}/${s}`)
+        await axios.put(`${REACT_APP_API}/suppliers/1/${id}/${s}`)
     }
     const handleDelete = async () => {
         /*let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
         if (eliminar) {
             setDeleted(true)
-            await axios.delete(`http://localhost:3001/suppliers/${idUser}/${idPost}`)
+            await axios.delete(`http://local*host:3001/suppliers/${idUser}/${idPost}`)
 
         } else {
             return
@@ -47,7 +48,7 @@ const StateActivity = ({id,name,description,date,price,places,duration,initialTi
             [e.target.name] : e.target.value //cuando name no es el nombre se usa corchtes
            })
         if (e.target.value === 'TRUE') {
-            //await axios.put(`http://localhost:3001/suppliers/${idUser}/${idPost}/TRUE`)
+            //await axios.put(`http://local*host:3001/suppliers/${idUser}/${idPost}/TRUE`)
             //alert('aprobada')
             setStatus('TRUE')
             cambiarEstado('TRUE')
