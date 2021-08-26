@@ -24,7 +24,7 @@ export const PaymentForm = () => {
             type: "card",
             card: elements.getElement(CardElement)
         })
-
+        
 
         if (!error) {
             try {

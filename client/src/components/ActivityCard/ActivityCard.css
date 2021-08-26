@@ -7,7 +7,7 @@
 
     font-family: roboto;
     border-radius: 12px;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(66, 66, 66);
     
     text-align: center;
 
@@ -164,10 +164,12 @@
     display: block;
     width: 225px;
     padding: 15px 0;
-    background-color: #fd1414;
+    background-color: rgb(255, 66, 32);
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     color: #fff;
-    font: 700 18px/1 'Lato', sans-serif;
+    font: 700 'Lato', sans-serif;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
     text-shadow: 0 1px 1px rgba(0,0,0,.2);
     text-transform: uppercase;
     text-align: center;

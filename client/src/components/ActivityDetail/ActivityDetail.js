@@ -25,6 +25,7 @@ export default function ActivityDetail(props) {
     const { loadingC, comments, errorC } = commentsActivity
 
     const { activity, loading, error } = Activity;
+    
     const fecha = {
         "01": 'ENERO',
         "02": 'FEBRERO',
@@ -94,9 +95,12 @@ export default function ActivityDetail(props) {
                                     </div>
 
                                 </div>
-                                    <div className="reservation">
-                                        <Checkout />
-                                    </div>
+                                {Activity.activity.purchases?.length>=Activity.activity.places?
+                                <div className='reservation'><strong>CUPOS AGOTADOS</strong></div>: <div className="reservation">
+                                <Checkout />
+                            </div>
+                                }
+                                    
 
                                 <div className="detail-down">
                                     <div className="comments">
