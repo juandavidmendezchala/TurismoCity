@@ -37,6 +37,12 @@ export const Home = () => {
         if (countrySelect === 'Brazil') {
             return 'GRU';
         }
+        if (countrySelect === 'Colombia'){
+            return 'BOG'
+        }
+        if (countrySelect === 'Argentina'){
+            return 'EZE'
+        }
         var country = countries.find(countri => countri.name === countrySelect)
         console.log('ESTO ES COUNTRIES:', countries)
         console.log('ESTE ES COUNTRY', country)

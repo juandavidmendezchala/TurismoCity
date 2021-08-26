@@ -20,7 +20,10 @@ const CarouselPromos = () => {
     const { loading, promotions } = Promotions
 
     useEffect(() => {
-        dispatch(getPromo())
+        async function fetchData() {
+            await dispatch(getPromo())
+          }
+          fetchData();
     }, [])
 
     const NextArrow = ({ onClick }) => {
@@ -74,7 +77,8 @@ const CarouselPromos = () => {
 
                         </div>
                     </div>
-                ))}
+                ))
+                }
             </Slider>
         </div>
     )

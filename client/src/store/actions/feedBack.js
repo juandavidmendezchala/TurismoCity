@@ -32,7 +32,7 @@ export function addFeedback(idUser, idAct, commentary, score){
 export function getAllCommentsOfUser(idUser){
         return function(dispatch){
             console.log("ESTE ES EL USUARIO QUE SOLICITA SUS COMENTARIOS",idUser)
-            return fetch(`http://localhost:3001/feedBack/user/${idUser}`)
+            return fetch(`${REACT_APP_API}/feedBack/user/${idUser}`)
             .then(response => response.json())
             .then(json =>{
                 dispatch({type: GET_ALLCOMMENTS_OF_USER, payload: json})
@@ -42,7 +42,7 @@ export function getAllCommentsOfUser(idUser){
 
 export function verifyComment(id){
     return function(dispatch){
-        return fetch(`http://localhost:3001/feedBack/${id}`)
+        return fetch(`${REACT_APP_API}/feedBack/${id}`)
         .then(response => response.json())
         .then(json =>{
 
@@ -53,7 +53,7 @@ export function verifyComment(id){
 
 export function removeFeedback(idComment){
     return function(dispatch){
-        return fetch(`http://localhost:3001/feedBack/remove/${idComment}`,{
+        return fetch(`${REACT_APP_API}/feedBack/remove/${idComment}`,{
             method: 'DELETE'})
         .then(response => response.json())
         .then(json =>{
