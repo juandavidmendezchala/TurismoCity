@@ -88,7 +88,9 @@ const Scheduler = (props) => {
         <div className={`${style.formAgenda}`} >
           <h1>Agenda de {userInfo.name}</h1>
           <div className={style.cajaform}>
-            <BsCaretDownFill onClick={handleClickOcultar} />
+            <div className={style.botonOcultarSched}>
+              <BsCaretDownFill onClick={handleClickOcultar} />
+            </div>
             <form id="form">
               <div className={display ? `` : `${style.ocultarForm}`}>
                 <div  >
