@@ -47,6 +47,7 @@ import Sales from "./components/Suppliers/Sales/Sales";
 import HomeAdminPanel from "./components/Suppliers/HomeAdminPanel/HomeAdminPanel";
 import CarouselNews from "./components/Carousel/CarouselNews";
 import CarouselAdminPost from "./components/CarouselAdminPost/CarouselAdminPost";
+import ListWhishes from "./components/Whishes/ListWhishes";
 
 function App() {
   const [sidebar, setSidebar] = useState(true);
@@ -90,6 +91,7 @@ function App() {
       <Route path="/emailsend"><EmailSender /></Route>
       <Route path="/whishes"><Whishes /></Route>
       <Route path="/whishes"><ListActivWish /></Route>
+      <Route path="/whisheslist"><ListWhishes /></Route>
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>

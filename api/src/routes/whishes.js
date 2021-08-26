@@ -100,5 +100,39 @@ router.get('/whishes/:fechini/:fechfin/:presup/:cupos', async (req,res) => {
     }
 })
 
+router.get('/whish/:iduser', async (req,res) => {
+  try {
+    const { iduser } = req.params 
+    const getAllWhishes = await Whishes.findAll({
+      include: User,
+      where: {
+        userId: iduser,
+      }
+    });
+    return res.send(getAllWhishes);
+  } catch (err) {
+    return res.send({
+      message:
+        "No se pudieron obtener los deseos"+err,
+    });
+  }
+})
+
+router.delete("/whish/:idWhish", async (req,res) => {
+  try {
+      let { idWhish } = req.params
+      const eliminado = Whishes.destroy({
+          where: {
+              id: idWhish
+          }
+      })
+      return res.send(eliminado)
+  } catch (err) {
+      return res.send({
+        message: "No se pudo eliminar el deseo" + err,
+      });
+    }
+})
+
 
 module.exports = router;

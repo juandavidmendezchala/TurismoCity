@@ -11,11 +11,11 @@ const { Op } = require("sequelize");
 const router = Router();
 
 contentHTML = `
-<h2>Mensaje de Agenda de lowHenry</h2>
+Mensaje de Agenda de lowHenry
 `;
 
 contentHTML2 = `
-<h2>Mensaje de Deseos Guardados en lowHenry</h2>
+Mensaje de Deseos Guardados en lowHenry
 `;
 
 const transporter = nodemailer.createTransport({
@@ -75,11 +75,11 @@ async function enviandoEmail(correo, texto, name) {
     to: correo,
     subject: "Agendaste en nuestro servicio el siguiente recordatorio",
     html:
-      "<h1>Hola " +
+      "<h1 style='background-color:#0F3057;'>Hola " +
       name +
-      "</h1><br>" +
+      "</h1><br><p style='background-color:#0F3057;'>" +
       contentHTML +
-      "<br><h2>Agendaste</h2><br><h3>" +
+      "</p><br><h2>Agendaste</h2><br><h3>" +
       texto +
       "<h3><br><h3>Muchas Gracias por elegir nuestros servicios<h3><br><img src='' alt='LowHenry' />",
   });
@@ -246,7 +246,7 @@ const enviarWhishDestino = async (
 
       if (arraycondestino.length > 0) {
         var linea1 =
-          "Se encontraron las siguientes actividades correspondientes a tu deseo<br <br/>";
+          "<p style='color:white'>Se encontraron las siguientes actividades correspondientes a tu deseo</p><br><br/>";
         var texto2 = "";
         arraycondestino.map((acti) => {
            let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
@@ -282,13 +282,13 @@ async function enviandoEmailWhish(correo, texto, name) {
     to: correo,
     subject: "Segun tus deseos guardados, aquí te mostramos actividades",
     html:
-      "<h1>Hola " +
+      "<body style='background-color:#0F3057;'>"+
+      "<h1 style='color:#c2cf12'>Hola " +
       name +
-      "</h1><br>" +
-      contentHTML +
-      "<br><h2>Deseo de actividades</h2><br><h3>" +
-      texto +
-      "<h3><br><h3>Muchas Gracias por elegir nuestros servicios<h3><br><img src='' alt='LowHenry' />",
+      "</h1><br><p style='color:#FFCCFF'>" +
+      contentHTML2 +
+      "</p><br><h2 style='color:#FFCCFF'>Deseo de actividades</h2><br><h3><div style='color:#FFFFFF'>" + texto + "</div>"+
+      "<h3><br><h3 style='color:#fdfdfd'>Muchas Gracias por elegir nuestros servicios<h3><br><div style='color:#fdfdfd'><img width='100px' heigth='100px' src='https://previews.123rf.com/images/vecstock/vecstock2003/vecstock200310774/142248085-airplane-fill-block-style-icon-design-plane-vehicle-transportation-fly-air-travel-aircraft-flight-av.jpg' alt='LowHenry' />LowHenry... vivir viajando!<div></body>",
   });
 }
 
