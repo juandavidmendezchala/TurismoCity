@@ -19,13 +19,13 @@
     color: tomato;
     position: relative;
     top:113px;
-    right: -2px;
+    right: 235px;
     font-size: 30px;
 }
 .NewsletterHead{
     position: relative;
-    top:35px;
-    left: 200px;
+    top:25px;
+    left: 150px;
     color:white;
     font-size: 40px;
 }
@@ -35,13 +35,13 @@
 }
 .NewsletterFooter{
     position: relative;
-    left: 30px;
-    top: 102px;
+    left: 0px;
+    top: 72px;
 }
 .PosicionNewsletter{
     position: relative;
     top: 60px;
-    right: 68px;
+    right: 100px;
 }
 .SeparadorFooter{
     position: relative;
@@ -54,7 +54,7 @@
     color: white;
     position: relative;
     top: 80px;
-    right: 600px;
+    right: 842px;
     font-size: 30px;
  
 }
