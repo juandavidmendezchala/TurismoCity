@@ -2,7 +2,8 @@ const { Router } = require('express');
 const axios = require('axios')
 const fetch = require('node-fetch');
 
-const { APIKEY } = require('../utils/config/index')
+const { APIKEY } = require('../utils/config/index');
+const { REACT_APP_FLIGHT_API } = require('../../../client/src/store/Consts/Consts');
 
 const router = Router();
 const KEY_API = '6108ab9e1c7bef42b2e7580e'
@@ -38,7 +39,7 @@ function getAll(req, res, next) {
     //solo ida
     if (!fechaRegreso) {
         //https://api.flightapi.io/onewaytrip/YOURAPIKEY/LHR/LAX/2019-10-11/2/0/1/Economy/USD
-        axios.get(`https://api.flightapi.io/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
+        axios.get(`${REACT_APP_FLIGHT_API}/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
             .then(response => {
 
                 res.send(response.data)
@@ -46,7 +47,7 @@ function getAll(req, res, next) {
 
     }
 
-    axios.get(`https://api.flightapi.io/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${fechaRegreso}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
+    axios.get(`${REACT_APP_FLIGHT_API}/roundtrip/${KEY_API}/${salida}/${llegada}/${fechaSalida}/${fechaRegreso}/${numAdultos}/${numNinios}/${numBebes}/${claseCabina}/${moneda}`)
         .then(response => {
 
             res.send(response.data)
@@ -63,8 +64,8 @@ router.get('/', async (req, res, next) => {
         currency
     } = req.body
     const request = roundTrip ?
-        `https://api.flightapi.io/roundtrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/${toDate}/2/0/1/${classFlight}/${currency}` :
-        `https://api.flightapi.io/onewaytrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/2/0/1/${classFlight}/${currency}`
+        `${REACT_APP_FLIGHT_API}/roundtrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/${toDate}/2/0/1/${classFlight}/${currency}` :
+        `${REACT_APP_FLIGHT_API}/onewaytrip/${APIKEY}/${fromCountry}/${toCountry}/${fromDate}/2/0/1/${classFlight}/${currency}`
     const { data } = await axios.get(request)
     res.send(data)
 })
