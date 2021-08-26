@@ -9,17 +9,17 @@ import style from "../../styles/ListSched.module.css";
 const ListSchedulers = (props) => {
   const userSingin = useSelector((state) => state.userSignin);
   const { userInfo } = userSingin;
- const [isLoad, setIsLoad] = useState(false)
+  const [isLoad, setIsLoad] = useState(false)
 
-/*   useEffect(() => {
-    props.getSchedAll(userInfo.id);
-  }, []);  */
+  /*   useEffect(() => {
+      props.getSchedAll(userInfo.id);
+    }, []);  */
 
- if (!props.scheduled) {
+  if (!props.scheduled) {
     return <>
-    Cargando...
+      Cargando...
     </>
-  }  
+  }
 
   return (
     <div className={style.boxcontainert}>
@@ -27,18 +27,19 @@ const ListSchedulers = (props) => {
       {props.scheduled &&
         props.scheduled.map((sched) => {
           if (sched !== undefined) {
-          return (
-            <div key={sched.id}>
-              <DetailSched
-                id={sched.id}
-                fechaini={sched.fechaini}
-                fecharec={sched.fecharec}
-                horario={sched.horario}
-                tiempo={sched.tiempo}
-                notas={sched.notas}
-              />
-            </div>      
-          )}
+            return (
+              <div key={sched.id} className={style.containerReminder}>
+                <DetailSched
+                  id={sched.id}
+                  fechaini={sched.fechaini}
+                  fecharec={sched.fecharec}
+                  horario={sched.horario}
+                  tiempo={sched.tiempo}
+                  notas={sched.notas}
+                />
+              </div>
+            )
+          }
         })}
     </div>
   );
