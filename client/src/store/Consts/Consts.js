@@ -89,7 +89,7 @@ export const POST_PROMO_SUCCESS = 'POST_PROMO_SUCCESS'
 export const POST_PROMO_FAIL = 'POST_PROMO_FAIL'
 
 
-export const API_KEY_NEWS = '32c9a70ccfc2ab691669a85dd44b3703'
+export const API_KEY_NEWS = 'aded1aa076e3330aebb4878c10bb83f1'
 
 
 

@@ -8,6 +8,7 @@ import rick from './R.png'
 import brain from './B.png'
 import wars from './W.png'
 import hom from './H.png'
+import './carouselNews.css'
 
 import './carouselNews.css'
 import { useEffect } from "react/cjs/react.development";
