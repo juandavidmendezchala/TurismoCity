@@ -23,10 +23,10 @@ export default function Actities() {
 
     const { activities, loading, error } = Activities;
 
-    useEffect(() => {     
-        if (userSignin.userInfo){
+    useEffect(() => {
+        if (userSignin.userInfo) {
             dispatch(getFavorites(userSignin.userInfo.id))
-        } 
+        }
         dispatch(getActivities())
     }, [userSignin, dispatch])
 
@@ -44,7 +44,7 @@ export default function Actities() {
                     :
                     <div className="filter-cards">
                         <div>
-                           <ActivitiesFilter error={error}></ActivitiesFilter>
+                            <ActivitiesFilter error={error}></ActivitiesFilter>
                         </div>
                         <div className="divSupremo">
                             {
@@ -65,10 +65,10 @@ export default function Actities() {
                                 ></ActivityCard>)
                             }
                         </div>
-                         <div className ="pag"> 
-                         <PaginationActivity postsPerPage={postsPerPage} totalPosts={activities?.length} paginate={pagination}/>
-                         </div>
-                        
+                        <div className="pag">
+                            <PaginationActivity postsPerPage={postsPerPage} totalPosts={activities?.length} paginate={pagination} />
+                        </div>
+
                     </div>
             }
         </div>

@@ -17,10 +17,10 @@ export const SidebarData = [
         icon: <MdIcons.MdFavorite />,
         cName: "nav-text2"
     },
-/*     {
-        title: "Comentarios",
-        path: "/yourActivities/comments",
+    {
+        title: "Mis deseos",
+        path: "/yourActivities/whishes",
         icon: <IoIcons.IoIosPaper />,
         cName: "nav-text2"
-    }, */
+    }, 
 ]

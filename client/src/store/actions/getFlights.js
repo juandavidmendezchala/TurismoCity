@@ -58,7 +58,7 @@ export function getFlights(p, index = 1) {
   else{
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
-      return axios.get(`https://api.flightapi.io/onewaytrip/${apiKey7}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
+      return axios.get(`${REACT_APP_API}/getflights/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.data)
         .then(json => {
           if (json.message) {

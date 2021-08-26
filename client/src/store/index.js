@@ -12,8 +12,8 @@ import { reducerMyActivities } from "./reducers/reducerMyActivities";
 import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 import { reducerPurchase } from "./reducers/reducerPurchase";
-import {reducerUserSeller} from './reducers/reducerUserAdmin'
-import {reducerQuestion} from './reducers/reducerQuestion'
+import { reducerUserSeller } from './reducers/reducerUserAdmin'
+import { reducerQuestion } from './reducers/reducerQuestion'
 import { reducerScheduler } from "./reducers/reducersScheduler"
 import { reducerWhishes } from "./reducers/reducerWhishes";
 import { reducerSuppliers } from "./reducers/reducerSupplier";
@@ -25,9 +25,9 @@ import {typeReducer} from "./reducers/reducerTypes"
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 
 const initialState = {
-  userCountry: localStorage.getItem("userCountry") 
-  ? JSON.parse(localStorage.getItem("userCountry")) 
-  : "",
+  userCountry: localStorage.getItem("userCountry")
+    ? JSON.parse(localStorage.getItem("userCountry"))
+    : "",
   url: localStorage.getItem("urlImage")
     ? JSON.parse(localStorage.getItem("urlImage"))
     : null,
