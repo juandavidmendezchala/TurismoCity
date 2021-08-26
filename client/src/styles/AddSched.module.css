@@ -78,7 +78,16 @@ width: 60%;
 .cajaform button:hover{
   cursor: pointer;
 }
-
+.botonWhishes{
+  text-align: center;
+}
+.botonWhishes button{
+  display: flex;
+  min-width: 300px;
+  margin-top: 20px;
+  margin: 20px auto;
+  justify-content: center;
+}
 .cajaform input{
   height: 40px;
   font-size: 1.5rem;
