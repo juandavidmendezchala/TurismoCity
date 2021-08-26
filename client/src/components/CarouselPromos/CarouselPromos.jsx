@@ -68,6 +68,8 @@ const CarouselPromos = () => {
             <Slider {...settings}>
                 {
                 loading?
+                <div></div>
+                :
                 promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
@@ -76,11 +78,9 @@ const CarouselPromos = () => {
                             <p className="newstextPromos">{promo.description}</p>
 
                         </div>
-                    </div> 
+                    </div>
                 ))
-                :
-                <div></div>
-            }
+                }
             </Slider>
         </div>
     )
