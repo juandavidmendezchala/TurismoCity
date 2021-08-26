@@ -60,7 +60,7 @@ const Whishes = (props) => {
         );
       }
     
-      function handleSubmit(e) {
+      async function handleSubmit(e) {
         e.preventDefault()
         const objGuardar = {
           userid: userInfo.id,
@@ -71,7 +71,8 @@ const Whishes = (props) => {
           notas: input.notas,
           cupos: input.cupos
         };
-        props.whishAdd(objGuardar)
+        await props.whishAdd(objGuardar)
+        alert("su deseo ha sido guardado")
         if (!input.destino)
           props.getActivityNoDest(input.fechaini, input.fechafin, input.presupuesto, input.cupos)
           else
