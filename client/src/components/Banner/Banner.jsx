@@ -69,7 +69,7 @@ export const Banner = (props) => {
                     {
                         isLoading?
                         <div>Cargando...</div> :
-                        userInfo || user ?
+                        userInfo && userInfo?.name|| user && user?.name ?
 
                             <DropdownTriggerExample /> :
                             <NavLink onClick={()=>loginWithRedirect()} className="LinkToLogin" to="/">Ingresar</NavLink>
