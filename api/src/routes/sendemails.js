@@ -186,7 +186,7 @@ const enviarWhishDestino = async (
         });
       if (arraycondestino.length > 0) {
         var linea1 =
-          "Se encontraron las siguientes actividades correspondientes a tu deseo<br <br/>";
+        "<p style='color:white'>Se encontraron las siguientes actividades correspondientes a tu deseo</p><br><br/>";
         var texto2 = "";
         arraycondestino.map((acti) => {
             let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
