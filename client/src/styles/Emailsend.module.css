@@ -1,7 +1,7 @@
 .boxform {
     display: flex;
     width: 350px;
-    height: 10vw;
+    height: 100px;
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(82, 76, 76);
