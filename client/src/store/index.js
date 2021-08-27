@@ -27,7 +27,7 @@ import { reducerCountryState } from "./reducers/reducerCountryState";
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 
 const initialState = {
-  activities: [],
+  
   userCountry: localStorage.getItem("userCountry")
     ? JSON.parse(localStorage.getItem("userCountry"))
     : "",
