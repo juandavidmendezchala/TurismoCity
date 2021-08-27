@@ -29,7 +29,7 @@ const DropdownTriggerExample = () => {
         logout()
         // probar de ir a inicio
         console.log("fin de funcion")
-        window.location.origin()
+        window.location.reload();
     }
     
     useEffect(() => {
@@ -60,7 +60,7 @@ const DropdownTriggerExample = () => {
         { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
         { key: 'experiences', text: 'Ofrecé experiencias', href: "/suppliers/info" },
         { key: 'scheduler', text: 'Agenda', href: "/scheduler" },
-        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb), href:'/'}, 
+        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)}, 
     ]
     
     
