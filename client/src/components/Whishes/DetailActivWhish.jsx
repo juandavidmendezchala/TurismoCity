@@ -33,12 +33,12 @@ function DetailActivWhish(props) {
         </button>
       </div>
       <div className={`${styles.titleWhishes} ${styles.buttonWhishesCard}`}><p>{name}</p></div>
-      <div className={styles.buttonWhishesCard}>Fecha: {date}</div>
-      <div className={styles.buttonWhishesCard}>Disponible: {places}</div>
       <div className={styles.buttonWhishesCard}>{description}</div>
+      <div className={`${styles.buttonWhishesCard} ${styles.descriptionWhishesCard}`}>Disponible: {places}</div>
       <div className={styles.buttonWhishesCard}>Precio: ${price}</div>
       <div className={styles.buttonWhishesCard}>Ciudad: {city}</div>
       <div className={styles.buttonWhishesCard}>País: {country}</div>
+      <div className={styles.buttonWhishesCard}>Fecha: {date}</div>
       <div className={styles.buttonera}>
         <div className={styles.buttonWhishesCard}><button className={styles.LinkGetIt} onClick={handleClicFav}>Favoritos!</button></div>
         <div className={styles.buttonWhishesCard}><button className={styles.LinkGetIt} onClick={handleClicBuy}>Comprar!</button></div>
