@@ -6,7 +6,7 @@ import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
 import { BsCaretDownFill } from "react-icons/bs"
 
 const Scheduler = (props) => {
-  const [display, setDisplay] = useState(false)
+  const [display, setDisplay] = useState(true)
   const [input, setInput] = useState({
     fechaini: "",
     fecharec: "",

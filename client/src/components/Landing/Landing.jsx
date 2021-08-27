@@ -36,6 +36,7 @@ export const Home = () => {
 
     console.log('AEROPUERTOS', airports)
     const userCountry = useSelector(state => state.userCountry)
+    const adminPromo = useSelector(state => state.promo)
     const history = useHistory();
 
     const getAirport = function (countrySelect) {
@@ -70,8 +71,11 @@ export const Home = () => {
 
     useEffect(() => {
         dispatch(getNews())
-        dispatch(getPromo())
     }, [])
+
+    useEffect(() => {
+        dispatch(getPromo())
+    }, [adminPromo, dispatch]) 
 
     return (
         <>
@@ -110,9 +114,16 @@ export const Home = () => {
                 <div className="PopUpBot"><ButtonChatBot /></div>
 
             </div>
-                <div className='carouselPromos'><CarouselPromos /> </div>
-            {/* <LandingActivities></LandingActivities> */}
-            <div> <CarouselNews /> </div>
+                <div className='carouselPromos'>
+                    <CarouselPromos /> 
+                </div>
+            <div className="div-carousel-inlading"> 
+                <h3>Noticias que te pueden interesar...</h3>
+                
+                
+                <CarouselNews /> 
+            </div>
+
             <Footer />
 
         </>

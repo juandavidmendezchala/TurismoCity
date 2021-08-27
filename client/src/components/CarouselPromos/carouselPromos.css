@@ -89,3 +89,15 @@
 
   /* text-shadow: 6px 6px 10px rgba(43, 41, 41, 0.568); */
 }
+
+.div-img-banner-promo{
+  margin-top: auto;
+  margin-top: 140px;
+  width: 100%;
+  height: auto;
+}
+
+.div-img-banner-promo-img{
+  width: 100%;
+  height: auto;
+}

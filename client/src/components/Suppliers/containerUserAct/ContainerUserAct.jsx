@@ -7,10 +7,22 @@ import "../NavBarSupplier/userActivities/userActivities.css"
 import "./ContanierUserAct.css"
 import { BsThreeDots } from "react-icons/bs";
 import { REACT_APP_API } from '../../../store/Consts/Consts';
+import { useHistory } from 'react-router-dom';
 
 export const ContainerUserAct = ({ sidebar }) => {
     const dispatch = useDispatch
     const user = useSelector((state) => state.userSignin.userInfo.id)
+
+    const userSingin = useSelector(state => state.userSignin)
+    const { userInfo } = userSingin
+
+    const history = useHistory()
+
+    useEffect(() => {
+        if(userInfo?.isAdmin === false) {
+            history.push('/')
+        }
+    }, [])    
 
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])

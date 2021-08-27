@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
 import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
+import banner from '../../assets/images/promotions-banner.png'
 // import { getPromos } from "../../store/actions/promosActions";
 import { getPromo } from '../../store/actions/promoActions';
 import './carouselPromos.css'
@@ -67,7 +68,9 @@ const CarouselPromos = () => {
                 <div>Loading</div>
                 :
                 <Slider {...settings}>
-                {promotions?.map((promo, id) => (
+                {
+                promotions && promotions[0]?
+                promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
                             <img className='imagCarusel' height="150px" src={array[id]} />
@@ -76,7 +79,12 @@ const CarouselPromos = () => {
 
                         </div>
                     </div>
-                ))}
+                ))
+                :
+                <div className="div-img-banner-promo">
+                    <img className="div-img-banner-promo-img" src={banner}></img>
+                </div>
+            }
             </Slider>
             }
         </div>

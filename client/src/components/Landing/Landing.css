@@ -164,3 +164,10 @@
   margin-top: 30px;
   flex-wrap: wrap;
 }
+
+.div-carousel-inlading{
+  margin-top: -4px;
+  border-color:black;
+  border-style: solid;
+  background-color: rgba(101, 10, 10, 9)
+}
