@@ -62,10 +62,6 @@ router.get('/scoreUser/:idUser', async(req, res) => {
         },
         include: [{model: FeedBack}]
     })
-    
-    //console.log("ESTO ES scoreUser:",scoreUser)
-    // if (scores.length===0) return res.send('Sin puntaje')
-    // const prom = scores.reduce((accumulator, currentValue) => accumulator + currentValue) / scores.length
     var scores=[];
     scoreUser.forEach(act =>{
         if(act.feedbacks.length>0){

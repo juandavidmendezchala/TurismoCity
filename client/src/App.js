@@ -40,11 +40,6 @@ import Whishes from "./components/Whishes/Whishes";
 import ListActivWish from "./components/Whishes/ListActivWish";
 import Footer from "./components/Footer/Footer"
 import Newsletter from "./components/Newsletter/Newsletter"
-
-
-
-
-
 import Sales from "./components/Suppliers/Sales/Sales";
 import HomeAdminPanel from "./components/Suppliers/HomeAdminPanel/HomeAdminPanel";
 import CarouselNews from "./components/Carousel/CarouselNews";
