@@ -2,8 +2,8 @@ import './feed.css'
 import React from "react"
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import swal from 'sweetalert'
-
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 
 export default function FeedBack() {
   const mostrarAlerta = () => {

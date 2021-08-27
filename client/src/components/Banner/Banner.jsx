@@ -55,6 +55,7 @@ export const Banner = (props) => {
                             <Link to="/" className="Links">Inicio</Link>
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
                             <Link to="/experiences" className="Links">Experiencias</Link>
+                            <Link to="/nosotrxs" className="Links">Nosotrxs</Link>
                             <div className="div-img-country-banner">
                             {
                                 userCountry && location === '/' && userCountry.length > 1 ?
@@ -62,7 +63,8 @@ export const Banner = (props) => {
                                 :
                                 <Fragment></Fragment>
                             }
-                            </div>                            
+                            </div>                          
+                            
                         </div>) : null}
                     {
                         isLoading?

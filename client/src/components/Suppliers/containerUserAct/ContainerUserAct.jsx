@@ -12,19 +12,21 @@ export const ContainerUserAct = ({ sidebar }) => {
     const dispatch = useDispatch
     const user = useSelector((state) => state.userSignin.userInfo.id)
 
-    // console.log(user)
     const [loading, setLoading] = useState(true)
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
     useEffect(async () => {
         const actividades = await axios.get(`${REACT_APP_API}/suppliers/${user}`);
+        console.log('ACTIVIDADES.DATA ------>',actividades.data)
         setData(actividades.data)
         setLoading(false)
     }, [])
     if (loading) {
         return (
             <p>Cargando ...</p>
-        )
-    }
+            )
+        }
+        
+    console.log('DATA -------> :',data)
     console.log(sidebar)
     return (
         <div className={sidebar ? "sidebarAbierta" : "sidebarCerrada"}>

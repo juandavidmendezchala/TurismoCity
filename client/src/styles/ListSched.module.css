@@ -1,7 +1,14 @@
 .boxcontainert {
-    position: relative;
-    top: 4em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    z-index: -1;
+    background-color: #f4f4f4;
+    display: block;
+    border-top: 50px solid transparent;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.containerReminder{
+    min-width: 80%;
+    max-width: 80%;
+    margin: 0 10px;
+    margin: 0 auto;
 }

@@ -1,0 +1,12 @@
+.NewsletterPosition{
+    position: relative;
+    top: 0px ;
+
+}
+.NewsletterFooter{
+    position: relative;
+    left: 80px;
+}
+.alertaSuscribe{
+    max-width: 30px;
+}

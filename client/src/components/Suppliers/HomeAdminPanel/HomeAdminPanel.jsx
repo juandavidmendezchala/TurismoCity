@@ -17,6 +17,7 @@ const HomeAdminPanel = ({ sidebar }) => {
     const dispatch = useDispatch()
 
     const [loading, setLoading] = useState(true)
+    const [rating, setRating] = useState('')
     const user = useSelector((state) => state.userSignin.userInfo.id)
     const data = useSelector(state => state.infoSales.salesUser)
     let ventas = 0;
@@ -48,8 +49,12 @@ const HomeAdminPanel = ({ sidebar }) => {
                     return 0;
                 })))
             })
+        
+            axios.get(`${REACT_APP_API}/feedBack/scoreUser/${user}`)
+                .then(res => setRating(res.data))
             .then(setLoading(false))
         // .catch(error => console.log(error))
+        
     }, [])
     data?.map(e => ventas = ventas + e.purchases.length)
     data?.map(e => ingresos = ingresos + (e.purchases.length * e.price))
@@ -117,7 +122,7 @@ const HomeAdminPanel = ({ sidebar }) => {
                 </div>
                 <div className="cardInfoSupplier">
                     <div className="datosCantidadesSup yellowColor">
-                        <p>9.86</p>
+                        <p>{rating}</p>
                         <BsFillStarFill />
                     </div>
                     <div className="containerBarritaSup">

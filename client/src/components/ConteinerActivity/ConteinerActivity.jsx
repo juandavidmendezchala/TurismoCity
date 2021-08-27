@@ -5,11 +5,12 @@ import UserActivities from '../Suppliers/NavBarSupplier/userActivities/userActiv
 import axios from "axios"
 import { useState } from 'react';
 //import "../NavBarSupplier/userActivities/userActivities.css"
-//import "./ContanierUserAct.css"
+import "./ConteinerActivity.css"
 import { BsThreeDots } from "react-icons/bs";
 import UserSeller from '../userSeller/userSeller';
 //import {searchUserSeller} from '../../store/actions/searchUserSeller'
 import {getActivities} from '../../store/actions/activityActions'
+import {getActivityAdmin} from '../../store/actions/getActivityAdmin'
 import ActivityCard from '../ActivityCard/ActivityCard';
 import StateActivity from '../StateActivity/StateActivity';
 import { useHistory } from 'react-router-dom';
@@ -19,13 +20,16 @@ export const ContainerActivity = ({ sidebar }) => {
     const dispatch = useDispatch()
     //console.log('lista NUEVA ACTIVIDADES',activity[0].id)
     const Activities = useSelector(store => store.activities);
+    const adminActivity = useSelector(store => store.reducerUserSeller. userActivity);
+    //reducerUserSeller. userActivity
+    console.log('esta es nuea', adminActivity)
     const { activities, loading, error } = Activities;
     console.log('esto trae',activities)
     //const [loading, setLoading] = useState(true)
     //const [data, setData] = useState()
 
     useEffect(() => {
-        const dispatchDiet = () => dispatch(getActivities())
+        const dispatchDiet = () => dispatch(getActivityAdmin())
         dispatchDiet();
       }, [])
 
@@ -46,7 +50,7 @@ export const ContainerActivity = ({ sidebar }) => {
     }*/
     //console.log(sidebar)
     return (
-        <div>
+        <div className="correrMenu">
             <h2>Habilitar Actividades</h2>
             <div className="postsTable">
                 <div className="namePicture">
@@ -65,7 +69,7 @@ export const ContainerActivity = ({ sidebar }) => {
             </div>
             
                  {
-                    activities?.map(a => 
+                    adminActivity?.map(a => 
                         <StateActivity key={a.id}
                     id={a.id}
                     name={a.name}
@@ -79,6 +83,7 @@ export const ContainerActivity = ({ sidebar }) => {
                     country={a.country}
                     city={a.city}
                     estado = {a.active}
+                    estadoAdmin = {a.estadoAdmin}
                     >
                         
                     </StateActivity>

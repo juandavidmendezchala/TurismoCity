@@ -5,10 +5,16 @@ import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
 // import { getPromos } from "../../store/actions/promosActions";
 import { getPromo } from '../../store/actions/promoActions';
+import './carouselPromos.css'
+// import image1 from './LOWHENRY1.png'
+import image2 from './LOWHENRY2.png'
+import image3 from './LOWHENRY3.png'
+import image4 from './LOWHENRY4.png'
+import image5 from './LOWHENRY5.png'
 
 
 const CarouselPromos = () => {
-
+    const array = [image2, image3, image4, image5]
     const Promotions = useSelector(state => state.promotions)
 
     const dispatch = useDispatch()
@@ -33,9 +39,11 @@ const CarouselPromos = () => {
 
 
 
+
+
     const settings = {
         dots: false,
-        // fade: true,
+        fade: true,
         infinite: true,
         lazyload: true,
         // speed: 300,
@@ -43,10 +51,10 @@ const CarouselPromos = () => {
         slidesToShow: 1,
         centerMode: true,
         centerPadding: 0,
-        // slidesToScroll: 1,
+        slidesToScroll: 1,
         autoplay: true,
         // speed: 15000,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 2500,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         beforeChange: (current, next) => SetImageIdx(next),
@@ -62,8 +70,8 @@ const CarouselPromos = () => {
                 {promotions?.map((promo, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
+                            <img className='imagCarusel' height="150px" src={array[id]} />
                             <h2 className="newstitlePromos">{promo.title}</h2>
-                            {/* <img className='imagCarusel' height="150px" src={news.image} alt={news.title} /> */}
                             <p className="newstextPromos">{promo.description}</p>
 
                         </div>

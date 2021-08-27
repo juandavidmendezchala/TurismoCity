@@ -8,24 +8,14 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    // const getAllActivities = await Activity.findAll(
-    //    {where:
-    //      {active: true}
-    //    ,
-    //    include: [{
-    //     model: Purchase
-    //    }]
-    //   });
     const getAllActivities = await Activity.findAll(
-      {where:
-        {active: true}
-      , 
-      include: [{
-        model: Type, through: type_activity
-      },
-      {
-      model: Purchase
-      }]
+       {where:
+         {active: true,
+          estadoAdmin:'ACE'}
+       ,
+       include: [{
+        model: Purchase
+       }]
       });
     return res.send(getAllActivities);
   } catch (err) {
@@ -47,54 +37,42 @@ router.post("/filter", async (req, res) => {
     type
   } = req.body;
 
-  if(true) {
-    Activity.findAll({
-      where: {
-        country, 
-        active: true
-      },
-      include: [
-        {
-          model: Type,
-          through: type_activity
-        }
-      ]
-    })
-    .then((result) => 
-    res.send(result))
-  }
-   
-  if (country && !city && !price && !startDate && !endDate){
+  if (country && !city && !price && !startDate && !endDate && !type ){
+    /* console.log("country && !city && !price && !startDate && !endDate") */
     Activity.findAll({
       where: {
         country: country, 
         active: true
       },
-      include: [
-        { model: Type, through: type_activity } 
-      ]
+      include: 
+        { model: Type, through: type_activity,
+          model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-
-  if (country && city && !price && !startDate && !endDate){
+  if (country && city && !price && !startDate && !endDate && !type ){
+    /* console.log("country && city && !price && !startDate && !endDate")
+    console.log(country, city) */
     Activity.findAll({
       where: {
         country: country,
         city: city, 
         active: true
       },
-      include: [
-        { model: Type, through: type_activity } 
-      ]
+      include: 
+        { model: Type, through: type_activity,
+        model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-
+ 
   
-  if (country && city && price && !startDate && !endDate){
+  if (country && city && price && !startDate && !endDate && !type ){
+   /*  console.log("country && city && price && !startDate && !endDate") */
     Activity.findAll({
       where: {
         country: country,
@@ -104,15 +82,18 @@ router.post("/filter", async (req, res) => {
         }, 
         active: true
       },
-      include: [
-        { model: Type, through: type_activity } 
-      ]
+      include: 
+        { model: Type, through: type_activity,
+          model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
 
-  if (country && city && price && startDate && endDate){
+  if (country && city && startDate && endDate && price && type){
+    /* console.log("country && city && price && startDate && endDate")
+    console.log(country, city, price, startDate, endDate) */
     Activity.findAll({
       where: {
         country: country,
@@ -123,17 +104,22 @@ router.post("/filter", async (req, res) => {
         active: true,
         date: {
           [Op.between]: [startDate, endDate]
+        }},
+          
+        include: 
+        { model: Type,
+          where:{
+          id: type
         },
-        include: [
-          { model: Type, through: type_activity } 
-        ]
-      },
+           through: type_activity,
+           model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
 
-  if (!country && !city && price && !startDate && !endDate){
+  if (!country && !city && price && !startDate && !endDate && !type){
     Activity.findAll({
       where: {
         price: {
@@ -141,14 +127,15 @@ router.post("/filter", async (req, res) => {
         },
         active: true
       },
-      include: [
-        { model: Type, through: type_activity } 
-      ]
+      include: 
+        { model: Type, through: type_activity,
+          model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
-  if (!country && !city && !price && startDate && endDate){
+  if (!country && !city && !price && startDate && endDate && !type ){
     Activity.findAll({
       where: {
         active: true,       
@@ -156,13 +143,32 @@ router.post("/filter", async (req, res) => {
           [Op.between]: [startDate, endDate]
         }
       },
-      include: [
-        { model: Type, through: type_activity } 
-      ]
+      include: 
+        { model: Type, through: type_activity,
+          model: Purchase } 
+      
     })
     .then((resut) => 
     res.send(resut));
   }
+  if (!country && !city && !price && !startDate && !endDate && type){
+    Activity.findAll({
+     where: {
+        active: true
+      },
+      include: 
+        { model: Type,
+          where:{
+          id: type
+        },
+           through: type_activity,
+           model: Purchase } 
+      
+    })
+    .then ((resut) =>
+    res.send(resut));
+  }
+  
   /*if (
     country ||
     city ||
@@ -203,6 +209,27 @@ router.post("/filter", async (req, res) => {
     }
   }*/
 });
+router.get("/adminTodas", async (req, res) => {
+  
+  
+  const todas = await Activity.findAll()
+
+  res.send(todas)
+})
+router.put("/admin/:id/:s", async (req, res) => {
+  const { id, s } = req.params
+
+  console.log(id, s)
+  await Activity.update({
+      estadoAdmin: s
+  }, {
+      where: {
+          id: id
+      }
+  })
+
+  res.send(console.log("Estado de la publicacions cambiado con exito"))
+})
 
 router.get("/:id", async (req, res) => {
   let { id } = req.params;
@@ -249,20 +276,21 @@ router.post("/", async (req, res) => {
     country,
     city,
     active: true,
-    estadoAdmin: false
+    estadoAdmin: 'PEN'
   });
-  const updateUser = await User.update({
-    isAdmin: true
-  }, {
-    where: {
-      email
-    }
-  })
+  // const updateUser = await User.update({
+  //   isAdmin: true
+  // }, {
+  //   where: {
+  //     email
+  //   }
+  // })
   const findUser = await User.findOne({
     where: {
       email,
     },
   });
+  console.log('FINDUSER----->',findUser)
   await createPack.addType(type) //Recibe el Id del type
   await findUser.addActivity(createPack);
   return res.send(createPack);

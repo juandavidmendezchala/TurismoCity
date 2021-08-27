@@ -4,8 +4,9 @@ import axios from 'axios'
 import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { CgPlayTrackNext } from "react-icons/cg"
 //import "./userActivities.css"
-import swal from 'sweetalert'
 import { REACT_APP_API } from '../../store/Consts/Consts';
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 
 const UserSeller = ({id, name,date,state,type,email}) => {
     const [status, setStatus] = useState(state)

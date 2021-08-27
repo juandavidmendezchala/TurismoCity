@@ -1,7 +1,6 @@
 .boxcontainert {
-    position: relative;
-    top: 4em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #f4f4f4;
 }

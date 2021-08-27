@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getActivity, getComments } from '../../store/actions/activityActions';
 import { ActivitiesReservation } from '../ActivitiesReservation/ActivitiesReservation';
-import { getQuestion } from '../../store/actions/questionAction'
+import {getQuestion} from '../../store/actions/questionAction'
+//import { getQuestion } from '../../store/actions/questionAction'
 import ActivitiesComments from '../ActivitiesComments/ActivitiesComments';
 import Checkout from "../Checkout/Checkout"
 import LoadingBox from '../Boxes/LoadingBox'
@@ -18,6 +19,11 @@ export default function ActivityDetail(props) {
 
     const Activity = useSelector(state => state.activity);
     const Question = useSelector(state => state.reducerQuestion.question);
+    //const user = useSelector(state => state.userSignin.userInfo.id);
+    //console.log('reducer quesion', user)
+    const userSingin = useSelector(state => state.userSignin.userInfo.id)
+    //console.log('userAct', userSingin)
+
     console.log('reducer quesion', props)
     
     const commentsActivity = useSelector(state => state.comments)
@@ -40,6 +46,8 @@ export default function ActivityDetail(props) {
         "11": 'NOVIEMBRE',
         "12": 'DICIEMBRE',
     }
+
+    console.log('detail act',activity?.userId)
 
     useEffect(() => {
         dispatch(getActivity(props.match.params.id))
@@ -64,7 +72,8 @@ export default function ActivityDetail(props) {
                                         <div className='conteiner-stats-detail'>
                                             <div className="card-stats">
                                                 <div className="stat">
-                                                    <div className="value">{activity.places}</div>
+
+                                                    <div className="value">{(activity.places - activity.purchases.length) +'/'+ activity.places}</div>
                                                     <div className="type">Cupos</div>
                                                 </div>
                                                 <div className="stat">
@@ -107,14 +116,14 @@ export default function ActivityDetail(props) {
                                         <h2 className='Reseñas-detail'>Reseñas</h2>
                                         {
                                             comments?.length !== 0 ?
-                                                comments?.map(c => <ActivitiesComments
-                                                    key={c.id}
+                                                comments?.map((c) => <ActivitiesComments
+                                                    // key={index+'B'}
                                                     comment={c.commentary}
                                                     score={c.score}
                                                     update={c.updatedAt.slice(8,10)+'-'+c.updatedAt.slice(5,7)+'-'+c.updatedAt.slice(0,4)}
                                                     userName={c.user.name}
                                                     picture={c.user.picture}
-                                                ></ActivitiesComments>) :
+                                                />) :
                                                 <div>No hay comentarios</div>
                                         }
                                     </div>
@@ -123,15 +132,15 @@ export default function ActivityDetail(props) {
                                 </div>
                                 <FormComment
                                     activityId={props.match.params.id}
-                                    userId='1'
+                                    userId={userSingin}
                                 />
-                                {/* <h1>Preguntas y Respuestas</h1> */}
+                                
                                 <div class="containerComment">
 
                                     {
                                         Question?.map(m =>
                                             <Comment
-                                                key={m.id}
+                                                // key={m.id}
                                                 query={m.query}
                                                 date={m.date}
                                                 answers={m.answers}
@@ -139,6 +148,26 @@ export default function ActivityDetail(props) {
                                         )
                                     }
                                 </div>
+                                
+                                <h1>Preguntas y Respuestas</h1>
+                                <div class="containerComment">
+                                
+                                {
+                                   Question?.map( m => 
+                                    <Comment
+                                        // key= {m.id}
+                                        idQuestion = {m.id}
+                                        query={m.query}
+                                        date={m.date}
+                                        answers = {m.answers}
+                                        userId = {m.userId}
+                                        userLogeo = {userSingin}
+                                        userActPres = {activity.userId}
+                                        idAct = {props.match.params.id}
+                                     />
+                                    ) 
+                                }
+                               </div>
                             </div> :
                             <div>Loading</div>
             }

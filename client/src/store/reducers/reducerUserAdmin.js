@@ -1,8 +1,10 @@
 import {SEARCH_USER_SELLER} from "../actions/searchUserSeller"
 import {SEARCH_USER_EMAIL} from '../actions/searchUserEmail'
+import { GET_ACTIVITY_ADMIN } from "../actions/getActivityAdmin"
 const initialState = {
     userSeller: [],
-    userUpdate: {}
+    userUpdate: {},
+    userActivity: []
 }
 
 export const reducerUserSeller = (state = initialState, action) => {
@@ -21,6 +23,11 @@ export const reducerUserSeller = (state = initialState, action) => {
                 userUpdate: action.payload
                 
             }
+        case GET_ACTIVITY_ADMIN:
+        return {
+            ...state,
+            userActivity: action.payload
+        }
         default:
             return state;
     }

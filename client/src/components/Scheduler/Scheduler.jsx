@@ -3,8 +3,10 @@ import { useSelector, connect } from "react-redux";
 import { REACT_APP_DEV_TOOLS, REACT_APP_API } from "../../store/Consts/Consts";
 import style from "../../styles/AddSched.module.css";
 import { schedAdd, getSchedAll } from "../../store/actions/actionsScheduler";
+import { BsCaretDownFill } from "react-icons/bs"
 
 const Scheduler = (props) => {
+  const [display, setDisplay] = useState(false)
   const [input, setInput] = useState({
     fechaini: "",
     fecharec: "",
@@ -76,75 +78,91 @@ const Scheduler = (props) => {
     //    window.location.href="/scheduler"
     /*     console.log(objGuardar, "    ", input, "    ", resultado.data); */
   }
+  const handleClickOcultar = () => {
+    setDisplay(!display)
+  }
 
   if (userInfo) {
     return (
       <>
-        <h1>Agenda de {userInfo.name}</h1>
-        <div className={style.cajaform}>
-          <form id="form">
-            <div>
-              <label>Fecha</label>
-              <input
-                className={errors.fechaini && style.danger}
-                type="date"
-                name="fechaini"
-                value={input.fechaini}
-                onChange={handleChange}
-              ></input>
-              {errors.fechaini && (
-                <p className={style.danger}>{errors.fechaini}</p>
-              )}
-              <label>Fecha Recordatoria</label>
-              <input
-                className={errors.fecharec && style.danger}
-                type="date"
-                name="fecharec"
-                value={input.fecharec}
-                onChange={handleChange}
-              ></input>
-              {errors.fecharec && (
-                <p className={style.danger}>{errors.fecharec}</p>
-              )}
+        <div className={`${style.formAgenda}`} >
+          <h1>Agenda de {userInfo.name}</h1>
+          <div className={style.cajaform}>
+            <div className={style.botonOcultarSched}>
+              <BsCaretDownFill onClick={handleClickOcultar} />
             </div>
-            <div>
-              <label>Hora de inicio:</label>
-              <input
-                className={errors.initialTime && style.danger}
-                type="time"
-                id="initialTime"
-                name="initialTime"
-                value={input.initialTime}
-                onChange={handleChange}
-              ></input>
-              {errors.initialTime && (
-                <p className={style.danger}>{errors.initialTime}</p>
-              )}
-            </div>
-            <div>
-              <label>Duracion</label>
-              <input
-                className={errors.tiempo && style.danger}
-                type="number"
-                name="tiempo"
-                value={input.tiempo}
-                onChange={handleChange}
-              ></input>
-              {errors.tiempo && <p className={style.danger}>{errors.tiempo}</p>}
-            </div>
-            <div>
-              <label>Notas</label>
-              <input
-                className={errors.notas && style.danger}
-                type="text"
-                name="notas"
-                value={input.notas}
-                onChange={handleChange}
-              ></input>
-              {errors.notas && <p className={style.danger}>{errors.notas}</p>}
-            </div>
-            <button onClick={handleSubmit}>Agregar</button>
-          </form>
+            <form id="form">
+              <div className={display ? `` : `${style.ocultarForm}`}>
+                <div  >
+                  <div className={style.formAgendaCampos} >
+                    <label>Fecha</label>
+                    <input
+                      className={errors.fechaini && style.danger}
+                      type="date"
+                      name="fechaini"
+                      value={input.fechaini}
+                      onChange={handleChange}
+                    ></input>
+                  </div>
+                  {errors.fechaini && (
+                    <p className={style.danger}>{errors.fechaini}</p>
+                  )}
+                  <div className={style.formAgendaCampos}>
+                    <label>Fecha Recordatoria</label>
+                    <input
+                      className={errors.fecharec && style.danger}
+                      type="date"
+                      name="fecharec"
+                      value={input.fecharec}
+                      onChange={handleChange}
+                    ></input>
+                  </div>
+                  {errors.fecharec && (
+                    <p className={style.danger}>{errors.fecharec}</p>
+                  )}
+                </div>
+                <div className={style.formAgendaCampos}>
+                  <label>Hora de inicio:</label>
+                  <input
+                    className={errors.initialTime && style.danger}
+                    type="time"
+                    id="initialTime"
+                    name="initialTime"
+                    value={input.initialTime}
+                    onChange={handleChange}
+                  ></input>
+                  {errors.initialTime && (
+                    <p className={style.danger}>{errors.initialTime}</p>
+                  )}
+                </div>
+                <div className={style.formAgendaCampos}>
+                  <label>Duracion</label>
+                  <input
+                    className={errors.tiempo && style.danger}
+                    type="number"
+                    name="tiempo"
+                    value={input.tiempo}
+                    onChange={handleChange}
+                  ></input>
+                  {errors.tiempo && <p className={style.danger}>{errors.tiempo}</p>}
+                </div>
+                <div className={style.formAgendaCampos}>
+                  <label>Notas</label>
+                  <input
+                    className={errors.notas && style.danger}
+                    type="text"
+                    name="notas"
+                    value={input.notas}
+                    onChange={handleChange}
+                  ></input>
+                  {errors.notas && <p className={style.danger}>{errors.notas}</p>}
+                </div>
+                <div className={style.formAgendaBtn}>
+                  <button onClick={handleSubmit}>Agregar</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </>
     );

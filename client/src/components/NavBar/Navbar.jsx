@@ -27,6 +27,7 @@ const Navbar = () => {
                     <Link to="/" className="Links">Inicio</Link>
                     <Link to="/Actividades" className="Links">Paquete de actividades</Link>
                     <Link to="/profile" className="Links">Perfil</Link>
+                    <Link to="/nosotrxs" className="Links">Nosotrxs</Link>
                     <button className="ButtonNavBarLogOut" onClick={logout}>log out</button>
                 </div>) : null}
             {/* <button className="ButtonNavBarLogOut" onClick={handleSubmit}>log out</button> */}

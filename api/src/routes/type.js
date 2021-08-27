@@ -9,11 +9,11 @@ router.get('/', async(req, res) => {
     if(types[0]) {
         return res.send(types)
     } else {
-        await data.types.forEach(type => {
+        const types = await data.types.forEach(type => {
             Type.create(type)        
         });
     }
-    return res.send("Created")
+    return res.send(types)
 })
 
 module.exports = router;
