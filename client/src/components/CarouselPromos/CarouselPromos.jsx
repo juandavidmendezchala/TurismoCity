@@ -15,10 +15,6 @@ const CarouselPromos = () => {
 
     const { loading, promotions } = Promotions
 
-    useEffect(() => {
-            dispatch(getPromo())
-    }, [])
-
     const NextArrow = ({ onClick }) => {
         return (
             <div className='arrow nextP' onClick={onClick}>

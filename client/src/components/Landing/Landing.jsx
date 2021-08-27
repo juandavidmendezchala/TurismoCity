@@ -16,6 +16,8 @@ import LandingActivities from '../LandingActivities/LandingActivities'
 import { REACT_APP_API } from "../../store/Consts/Consts";
 import airports from './airports.json'
 import countries from '../ActivitiesFilter/countries+states.json'
+import { getNews } from "../../store/actions/newsActions";
+import { getPromo } from "../../store/actions/promoActions";
 
 
 export const Home = () => {
@@ -59,6 +61,11 @@ export const Home = () => {
         if (countrySelect===undefined) {countrySelect = 'EZE'} 
         history.push(`/flights?way=onewaytrip&fromPlace=${countrySelect}&toPlace=${e.target.id}&fromDate=${fechaActual.toISOString().slice(0,10)}&classFlight=Economy&adults=1&kids=0&babies=0&currency=USD`)
     }
+
+    useEffect(() => {
+        dispatch(getNews())
+        dispatch(getPromo())
+    }, [])
 
     return (
         <>

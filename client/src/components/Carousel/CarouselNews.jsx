@@ -27,11 +27,6 @@ const CarouselNews = () => {
 
     const { loading, news } = News
 
-    useEffect(() => {
-        dispatch(getNews())
-        // console.log('ahora', news)
-    }, [])
-
     const NextArrow = ({ onClick }) => {
         return (
             <div className='arrow next' onClick={onClick}>
