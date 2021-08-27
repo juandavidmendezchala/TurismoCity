@@ -180,6 +180,7 @@ const enviarWhishDestino = async (
             detalle: activity.description,
             cupos: activity.places,
             ofrece: activity.user.email,
+            imagen: activity.images
           };
           arraycondestino.push(objectActivity);
         });
@@ -188,8 +189,8 @@ const enviarWhishDestino = async (
           "Se encontraron las siguientes actividades correspondientes a tu deseo<br <br/>";
         var texto2 = "";
         arraycondestino.map((acti) => {
-            let link = "https://lowhenry-tq2dd.ondigitalocean.app/activity/" + acti.idactivity
-            texto2 += "<a href=" + link +">" + acti.nombre + "</a><br/>";
+            let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
+            texto2 += "<a href=" + link +"><img style='width:250px; height:250px; border-radius:25px' src=" + acti.imagen + " alt=LowHenry... vivir viajando />"+ acti.nombre + "</a><br/>";
           });
         var texto = linea1 + texto2;
         deseosenviados++;
@@ -240,6 +241,7 @@ const enviarWhishDestino = async (
             detalle: activity.description,
             cupos: activity.places,
             ofrece: activity.user.email,
+            imagen: activity.images
           };
           arraycondestino.push(objectActivity);
         });
@@ -249,9 +251,9 @@ const enviarWhishDestino = async (
           "<p style='color:white'>Se encontraron las siguientes actividades correspondientes a tu deseo</p><br><br/>";
         var texto2 = "";
         arraycondestino.map((acti) => {
-           let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
-          texto2 += "<a href=" + link +">" + acti.nombre + "</a><br/>";
-        });
+          let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
+          texto2 += "<a href=" + link +"><img style='width:250px; height:250px; border-radius:25px' src=" + acti.imagen + " alt=LowHenry... vivir viajando />"+ acti.nombre + "</a><br/>";
+      });
         var texto = linea1 + texto2;
         deseosenviados++;
         // console.log(deseosenviados)
