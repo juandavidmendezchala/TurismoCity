@@ -42,7 +42,6 @@ export default function TravelForm(props) {
         dispatch(resetFlights())
     }, [])
 
-    const prueba = useSelector(state => state)
 
     var today = new Date().toISOString().split('T')[0];
 
@@ -54,7 +53,7 @@ export default function TravelForm(props) {
 
         if (way === 'roundtrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&toDate=${toDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
         if (way === 'onewaytrip') history.push(`/flights?way=${way}&fromPlace=${fromPlace}&toPlace=${toPlace}&fromDate=${fromDate}&classFlight=${classFlight}&adults=${adults}&kids=${kids}&babies=${babies}&currency=${currency}`)
-        console.log(history) 
+        console.log(history)
     }
     var today = new Date().toISOString().split('T')[0];
 
@@ -95,7 +94,7 @@ export default function TravelForm(props) {
 
                     <form className="RadioTravelForm" action="">
                         <label className="LabelRadioTravelForm"  >Ida y Vuelta</label>
-                        <input className= 'radioTF' required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
+                        <input className='radioTF' required type="radio" id="radioB1" name="time" value="roundtrip" onChange={e => setWay(e.target.value)} />
                         <label className="LabelRadioTravelForm">Ida</label>
                         <input className='radioTF' required type="radio" value="onewaytrip" name="time" onChange={e => setWay(e.target.value)} />
                     </form>
