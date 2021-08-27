@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import * as IoIcons from "react-icons/io"
 import {SidebarDataUserAdmin} from './sidebarDataUserAdmin'
 
@@ -17,6 +17,18 @@ const NavBarUserAdmin = ({showSidebar,sidebar}) => {
         console.log(estado)
         setEstado(index)
     }
+    
+    const userSingin = useSelector(state => state.userSignin)
+    const { userInfo } = userSingin
+
+    const history = useHistory()
+
+    useEffect(() => {
+        if(userInfo?.isAdmin === false) {
+            history.push('/')
+        }
+    }, [])
+    
 
     return (
         <>

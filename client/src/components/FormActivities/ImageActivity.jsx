@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import "./imageActivity.css"
@@ -10,8 +10,6 @@ const ImageActivity = () => {
     const [photoData, setPhotoData] = useState()
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch();
-
-
 
     const uploadImage = async (e) => {
         e.preventDefault()

@@ -42,7 +42,6 @@ module.exports = function (sequelize) {
         picture:{
             type: DataTypes.STRING,
             allowNull: true
-        }
-       
+        },       
     })
 }

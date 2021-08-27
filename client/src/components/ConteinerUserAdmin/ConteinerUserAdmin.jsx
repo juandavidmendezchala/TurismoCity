@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { BsThreeDots } from "react-icons/bs";
 import UserSeller from '../userSeller/userSeller';
 import {searchUserSeller} from '../../store/actions/searchUserSeller'
+import { useHistory } from 'react-router-dom';
 
 export const ContainerUserAdmin = ({ sidebar }) => {
   
@@ -23,6 +24,13 @@ export const ContainerUserAdmin = ({ sidebar }) => {
         const dispatchDiet = () => dispatch(searchUserSeller())
         dispatchDiet();
       }, [])
+
+      const userSingin = useSelector(state => state.userSignin)
+      const { userInfo } = userSingin
+  
+      const history = useHistory()
+  
+
     /*if (loading) {
         return (
             <p>Cargando ...</p>

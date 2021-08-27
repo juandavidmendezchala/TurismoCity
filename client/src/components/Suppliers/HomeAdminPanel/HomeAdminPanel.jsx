@@ -10,6 +10,7 @@ import { REACT_APP_API } from '../../../store/Consts/Consts';
 import { getSalesSup } from '../../../store/actions/actionSupplier/getSalesSupplier'
 import { Doughnut } from 'react-chartjs-2';
 import { mostSaled } from '../../../store/actions/actionSupplier/mostSaled'
+import { useHistory } from 'react-router-dom'
 
 const HomeAdminPanel = ({ sidebar }) => {
 
@@ -21,7 +22,16 @@ const HomeAdminPanel = ({ sidebar }) => {
     let ventas = 0;
     let ingresos = 0;
 
+    const userSingin = useSelector(state => state.userSignin)
+    const { userInfo } = userSingin
 
+    const history = useHistory()
+
+    useEffect(() => {
+        if(userInfo?.isAdmin === false) {
+            history.push('/')
+        }
+    }, [])    
 
     useEffect(() => {
         axios.get(`${REACT_APP_API}/suppliers/sales/${user}`)

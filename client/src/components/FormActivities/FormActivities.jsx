@@ -1,6 +1,5 @@
-import React from "react";
+import React,{ useEffect, useState }  from "react";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import "./FormActivities.css"
 import countryList from "./countries+states.json"
@@ -9,6 +8,7 @@ import * as yup from "yup";
 import axios from 'axios'
 import { sendFormActivity } from "../../store/actions/activityActions";
 import { signin } from "../../store/actions/userActions";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -29,6 +29,17 @@ const FormActivities = () => {
         images: yup.string(),
 
     })
+
+    const userSingin = useSelector(state => state.userSignin)
+
+    const history = useHistory()
+
+    useEffect(() => {
+        if(userInfo?.isAdmin === false) {
+            history.push('/')
+        }
+    }, [])
+
 
     const user = useSelector(state => state.userSignin)
     const { userInfo } = user

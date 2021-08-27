@@ -5,6 +5,7 @@ import Section from "./Section";
 import PromoList from "./PromoList";
 import FormPromo from "./FormPromo";
 import {deletePromo, getPromo} from "../../store/actions/promoActions";
+import { useHistory } from "react-router-dom";
 
 // ESTE ESL EL ARRAY HARDCODEADO QUE HAY QUE TRAER DEL BACK
 const list = [
@@ -34,6 +35,17 @@ const CarouselAdminPost = () => {
      const removePromo = (id) => {
         dispatch(deletePromo(id))
     } 
+
+    const userSingin = useSelector(state => state.userSignin)
+    const { userInfo } = userSingin
+
+    const history = useHistory()
+
+    useEffect(() => {
+        if(userInfo?.isAdmin === false) {
+            history.push('/')
+        }
+    }, [])
 
     useEffect(() => {
         dispatch(getPromo())

@@ -12,6 +12,7 @@ import UserSeller from '../userSeller/userSeller';
 import {getActivities} from '../../store/actions/activityActions'
 import ActivityCard from '../ActivityCard/ActivityCard';
 import StateActivity from '../StateActivity/StateActivity';
+import { useHistory } from 'react-router-dom';
 export const ContainerActivity = ({ sidebar }) => {
   
     //const activity = useSelector((state) => state.activities.activities)
@@ -26,6 +27,17 @@ export const ContainerActivity = ({ sidebar }) => {
     useEffect(() => {
         const dispatchDiet = () => dispatch(getActivities())
         dispatchDiet();
+      }, [])
+
+      const userSingin = useSelector(state => state.userSignin)
+      const { userInfo } = userSingin
+  
+      const history = useHistory()
+  
+      useEffect(() => {
+          if(userInfo?.isAdmin === false) {
+              history.push('/')
+          }
       }, [])
     /*if (loading) {
         return (
