@@ -28,10 +28,10 @@ export default function TarjetaActividad(props) {
     }, [])
 
     const mostrarAlerta = (title,text) => {
-        swal({
+        swal.fire({
             title: title,
             text: text,
-            icon: "success",
+    
             button: "Aceptar"
         })
         .then(value =>{
@@ -62,21 +62,20 @@ export default function TarjetaActividad(props) {
         console.log('ESTE ES EL ID DEL COMENTARIO',id)
         dispatch(removeFeedback(id))
         //await mostrarAlerta2("Este comentario va a eliminarse","Está seguro que quiere eliminar su comentario?")
-        swal({
+        swal.fire({
             title: "Estás seguro?",
             text: "Una vez borrado este comentario, no podrás volver a recuperarlo",
-            icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Poof! Tu comentario fue borrado con éxito!", {
-                icon: "success",
+              swal.fire("Poof! Tu comentario fue borrado con éxito!", {
+
               })
               .then(value => window.location.reload(false))
             } else {
-              swal("Tu comentario está a salvo!");
+              swal.fire("Tu comentario está a salvo!");
             }
           });
         

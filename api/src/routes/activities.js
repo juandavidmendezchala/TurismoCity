@@ -45,7 +45,8 @@ router.post("/filter", async (req, res) => {
         active: true
       },
       include: 
-        { model: Type, through: type_activity } 
+        { model: Type, through: type_activity,
+          model: Purchase } 
       
     })
     .then((resut) => 
@@ -61,7 +62,8 @@ router.post("/filter", async (req, res) => {
         active: true
       },
       include: 
-        { model: Type, through: type_activity } 
+        { model: Type, through: type_activity,
+        model: Purchase } 
       
     })
     .then((resut) => 
@@ -81,7 +83,8 @@ router.post("/filter", async (req, res) => {
         active: true
       },
       include: 
-        { model: Type, through: type_activity } 
+        { model: Type, through: type_activity,
+          model: Purchase } 
       
     })
     .then((resut) => 
@@ -108,7 +111,8 @@ router.post("/filter", async (req, res) => {
           where:{
           id: type
         },
-           through: type_activity } 
+           through: type_activity,
+           model: Purchase } 
       
     })
     .then((resut) => 
@@ -124,7 +128,8 @@ router.post("/filter", async (req, res) => {
         active: true
       },
       include: 
-        { model: Type, through: type_activity } 
+        { model: Type, through: type_activity,
+          model: Purchase } 
       
     })
     .then((resut) => 
@@ -139,7 +144,8 @@ router.post("/filter", async (req, res) => {
         }
       },
       include: 
-        { model: Type, through: type_activity } 
+        { model: Type, through: type_activity,
+          model: Purchase } 
       
     })
     .then((resut) => 
@@ -155,7 +161,8 @@ router.post("/filter", async (req, res) => {
           where:{
           id: type
         },
-           through: type_activity } 
+           through: type_activity,
+           model: Purchase } 
       
     })
     .then ((resut) =>

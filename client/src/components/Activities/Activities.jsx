@@ -22,7 +22,6 @@ export default function Actities() {
     const { favorites } = favorite
 
     const { activities, loading, error } = Activities;
-    console.log('prueba activities', activities)
 
     useEffect(() => {
         if (userSignin.userInfo) {
@@ -44,10 +43,14 @@ export default function Actities() {
                     <div>Loading</div>
                     :
                     <div className="filter-cards">
-                        <div>
+                        <h3 className="PaqueteDeActividadesHeader">Paquete de actividades</h3>
+                        <div className="BarritaActArriba"></div>
+                        <div className="PositionFilterAct">
                             <ActivitiesFilter error={error}></ActivitiesFilter>
                         </div>
-                        <div className="divSupremo">
+                        <h3 className="ActDisponibles">Actividades disponibles</h3>
+                        <div className="BarritaAct"></div>
+                        <div className="divsupremo">
                             {
                                 currentPosts?.map(a => <ActivityCard key={a.id}
                                     id={a.id}
@@ -63,7 +66,6 @@ export default function Actities() {
                                     city={a.city}
                                     favorites={favorites}
                                     purchases={a.purchases}
-                                    UserId = {a.userId}
                                 ></ActivityCard>)
                             }
                         </div>

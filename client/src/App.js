@@ -91,10 +91,10 @@ function App() {
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/scheduler"><Scheduler /></Route>
       <Route path="/scheduler"><ListSchedulers /></Route>
-      <Route path="/emailsend"><EmailSender /></Route>
+      <Route path="/admin/emailsend"><EmailSender /></Route>
       <Route path="/yourActivities/whishes"><Whishes /></Route>
       <Route path="/yourActivities/whishes"><ListActivWish /></Route>
-<Route path="/newscarousel" component={CarouselNews} />
+      <Route path="/newscarousel" component={CarouselNews} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>
@@ -107,25 +107,10 @@ function App() {
       <Route path="/suppliers/image" component={ImageActivity} />
       <Route path="/admin/post" component={CarouselAdminPost} />
       <Route path="/nosotrxs" component={Nosotrxs} />
-      <Route path="/scheduler">
-        <Scheduler />
-      </Route>
-      <Route path="/scheduler">
-        <ListSchedulers />
-      </Route>
-      <Route path="/emailsend">
-        <EmailSender />
-      </Route>
-      <Route path="/whishes">
-        <Whishes />
-      </Route>
-      <Route path="/whishes">
-        <ListActivWish />
-      </Route>
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route></Elements>
       <Route path="/newsletter" component={Newsletter}></Route>
-      
+
     </div >
   );
 }

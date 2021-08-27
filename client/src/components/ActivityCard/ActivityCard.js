@@ -28,7 +28,7 @@ export default function ActivityCard({ id, name, description, date, price, place
                 setIsFavorite(false)
             }
         } else {
-            swal({
+            swal.fire({
                 title: "Loguearse",
                 text: "Para guardar esta actividad en favoritos debes loguearte a tu cuenta!",
                 icon: "info",
@@ -80,11 +80,11 @@ export default function ActivityCard({ id, name, description, date, price, place
             }
         }
         
-        if (purchases.length >= places ){
+        if (purchases?.length >= places ){
             setisSoulOut(true)
         }
 
-        if((places -purchases.length) < 5 && (places -purchases.length) > 1 ){
+        if((places -purchases?.length) < 5 && (places -purchases?.length) > 1 ){
             setisLastPlace(true)
         }
 

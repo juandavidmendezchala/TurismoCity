@@ -1,7 +1,7 @@
 .boxwhish {
     width: 300px;
     height: auto;
-    border: 1px solid rgb(82, 76, 76);
+    border: 1px solid #e5e5f4;
     border-radius: 1em;
     overflow: auto;
     margin-left: auto;
@@ -35,18 +35,21 @@
 
 .butclose {
     display: flex;
-    background-color: red;
+    border: transparent;
+    font-size: 20px;
+    background-color: transparent;
     color: white;
+    border-radius: 1px;
     right: auto;
-    border-radius: 0.5em;
     align-items: center;
 }
 
 .imgwhish {
     display: flex;
+    object-fit: cover;
     border-radius: 5px;
-    width: 250px;
-    height: 250px;
+    min-width: 100%;
+    max-width: 100%;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
@@ -58,9 +61,7 @@
 }
 
 .buttonera {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: block;
     padding: 10px;
 }
 
@@ -90,3 +91,15 @@
     transition: 0.2s;
 }
 
+.titleWhishes p{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.buttonWhishesCard{
+  display: flex; 
+  justify-content: center;
+}
+.buttonWhishesCard button{
+   min-width: 80%;
+   background-color: #0f3057;
+}

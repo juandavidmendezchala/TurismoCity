@@ -165,7 +165,7 @@ import * as yup from "yup";
 import axios from 'axios'
 import { sendFormActivity } from "../../store/actions/activityActions";
 import { signin } from "../../store/actions/userActions";
-
+import swal from 'sweetalert2';
 
 
 
@@ -240,8 +240,24 @@ const FormActivities = () => {
         const { name, date, description, price, places, duration, initialTime, images, country, city } = form
         dispatch(sendFormActivity({ name, date, description, price, places, duration, initialTime, images, country, city, email }))
         dispatch(signin(email, token))
-        alert("Cargaste la actividad con Exito!!!");
-    }
+        swal.fire({
+            title: 'Genial! Tu actividad ha sido cargada. Deseas cargar otra actividad?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: `Sí`,
+            // denyButtonText: `Cancelar`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              swal.fire('Perfecto!')
+              .then(window.location.href='/suppliers/image')
+            } else if (result.isDenied) {
+              swal.fire('OK, aquí podras ver tu actividad cargada:')
+              .then(window.location.href='/suppliers/posts')
+            }
+          })
+    } 
+    
     var today = new Date().toISOString().split('T')[0];
 
 
