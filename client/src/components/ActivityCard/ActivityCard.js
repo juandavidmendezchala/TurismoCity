@@ -7,9 +7,9 @@ import favoriteLogoDone from '../../icons/FavoriteLogoDone.png'
 import { addFavorite } from '../../store/actions/activityActions.js'
 import { removeMyFavorite } from '../../store/actions/removeMyFavorite'
 import { useAuth0 } from '@auth0/auth0-react';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
-export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases }) {
+export default function ActivityCard({ id, name, description, date, price, places, duration, initialTime, images, country, city, favorites, purchases, UserId }) {
 
     const dispatch = useDispatch()
     const userSignin = useSelector(state => state.userSignin)
@@ -78,6 +78,14 @@ export default function ActivityCard({ id, name, description, date, price, place
             if ((places - purchases?.length) < 5 && (places - purchases?.length) >= 1) {
                 setisLastPlace(true)
             }
+        }
+        
+        if (purchases.length >= places ){
+            setisSoulOut(true)
+        }
+
+        if((places -purchases.length) < 5 && (places -purchases.length) > 1 ){
+            setisLastPlace(true)
         }
 
     }, [favorites])

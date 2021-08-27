@@ -35,9 +35,9 @@
 .arrowPromos svg {
   transition: color 300ms;
 }
-.arrowPromos svg:hover {
-  /* color: rgb(255, 255, 255); */
-}
+/* .arrowPromos svg:hover {
+  
+} */
 .nextP {
   right: 3%;
   top: 50%;

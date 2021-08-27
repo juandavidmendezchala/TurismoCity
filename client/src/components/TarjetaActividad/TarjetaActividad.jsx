@@ -1,8 +1,11 @@
 import './TarjetaActividad.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+//import { addFeedback } from '../../store/actions/feedBack'
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 import { addFeedback, getAllCommentsOfUser, removeFeedback } from '../../store/actions/feedBack'
-import swal from 'sweetalert'
+//import swal from 'sweetalert'
 import './Estrellitas.css';
 import { useHistory } from 'react-router-dom'
 

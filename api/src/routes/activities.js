@@ -8,30 +8,20 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    // const getAllActivities = await Activity.findAll(
-    //    {where:
-    //      {active: true}
-    //    ,
-    //    include: [{
-    //     model: Purchase
-    //    }]
-    //   });
     const getAllActivities = await Activity.findAll(
-      {where:
-        {active: true}
-      , 
-      include: [{
-        model: Type, through: type_activity
-      },
-      {
-      model: Purchase
-      }]
+       {where:
+         {active: true,
+          estadoAdmin:'ACE'}
+       ,
+       include: [{
+        model: Purchase
+       }]
       });
     return res.send(getAllActivities);
   } catch (err) {
     return res.send({
       message:
-        "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!" + err,
+        "Ha ocurrido un error con el servidor, ¡Intentá refrescar la página!",
     });
   }
 });
@@ -212,6 +202,27 @@ router.post("/filter", async (req, res) => {
     }
   }*/
 });
+router.get("/adminTodas", async (req, res) => {
+  
+  
+  const todas = await Activity.findAll()
+
+  res.send(todas)
+})
+router.put("/admin/:id/:s", async (req, res) => {
+  const { id, s } = req.params
+
+  console.log(id, s)
+  await Activity.update({
+      estadoAdmin: s
+  }, {
+      where: {
+          id: id
+      }
+  })
+
+  res.send(console.log("Estado de la publicacions cambiado con exito"))
+})
 
 router.get("/:id", async (req, res) => {
   let { id } = req.params;
@@ -258,7 +269,7 @@ router.post("/", async (req, res) => {
     country,
     city,
     active: true,
-    estadoAdmin: false
+    estadoAdmin: 'PEN'
   });
   // const updateUser = await User.update({
   //   isAdmin: true

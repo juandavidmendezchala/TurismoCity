@@ -8,12 +8,13 @@ import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 import { activityDetailReducer, activityReducer, activityFavoriteReducer, feedBackReducer, landingActivityReducer } from './reducers/reducerActivity'
 import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
-import { reducerMyActivities } from "./reducers/reducerMyActivities";
-import { reducerFeedBack } from "./reducers/reducerFeedBack";
-import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
+import { reducerMyActivities } from "./reducers/reducerMyActivities"
+import { reducerFeedBack } from "./reducers/reducerFeedBack"
+import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
+import {reducerUserSeller} from './reducers/reducerUserAdmin'
+import {reducerQuestion} from './reducers/reducerQuestion'
+import {reducerAnswer} from './reducers/reducerAnswer' 
 import { reducerPurchase } from "./reducers/reducerPurchase";
-import { reducerUserSeller } from './reducers/reducerUserAdmin'
-import { reducerQuestion } from './reducers/reducerQuestion'
 import { reducerScheduler } from "./reducers/reducersScheduler"
 import { reducerWhishes } from "./reducers/reducerWhishes";
 import { reducerSuppliers } from "./reducers/reducerSupplier";
@@ -55,10 +56,11 @@ const reducer = combineReducers({
   reducerMyActivities: reducerMyActivities,
   reducerFeedBack: reducerFeedBack,
   reducerActivitiesPrev: reducerActivitiesPrev,
-  comments: feedBackReducer,
-  reducerPurchase,
   reducerUserSeller: reducerUserSeller,
+  comments: feedBackReducer,
   reducerQuestion: reducerQuestion,
+  reducerAnswer: reducerAnswer,
+  reducerPurchase,
   scheduled: reducerScheduler,
   whishes: reducerWhishes,
   infoSales: reducerSuppliers,

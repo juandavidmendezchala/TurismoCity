@@ -6,7 +6,7 @@ import { purchase } from "../../store/actions/purchase"
 //Importo librerias necesarias
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { REACT_APP_API } from '../../store/Consts/Consts'
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios'
 import { pendingPurchase } from '../../store/actions/pendingPurchase';

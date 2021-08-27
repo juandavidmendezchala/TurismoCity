@@ -1,17 +1,3 @@
-/* @mixin tablet-and-up {
-    @media screen and (min-width: 769px) { @content; }
-}
-@mixin mobile-and-up {
-    @media screen and (min-width: 601px) { @content; }
-}
-@mixin tablet-and-down  {
-    @media screen and (max-width: 768px) { @content; }
-}
-@mixin mobile-only {
-    @media screen and (max-width: 600px) { @content; }
-} */
-
-
 ul, li{
   list-style: none;
   padding: 0;
@@ -99,4 +85,8 @@ ul, li{
     background: #eaf6ff;
     padding: 2rem;
     border-radius: 15px;
+}
+
+.botonComment{
+  border: none;
 }

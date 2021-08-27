@@ -3,8 +3,10 @@
 //import {useEffect, useState} from 'react'
 //import {useDispatch, useSelector} from 'react-redux'
 //import {getRecipe} from '../../actions/recipeActions'
+import Filter from "../Filter/Filter";
+import FiltroMenu from "../FiltroMenu/FiltroMenu";
+//import filtroMenu from "../filtroMenu/filtroMenu";
 
-import Filter from "../FiltroMenu/FiltroMenu"
 import FlightCard from "../FlightCard/FlightCard";
 
 export default function Search(props) {
@@ -24,7 +26,8 @@ export default function Search(props) {
 
   return (
     <div className='orderFilterCard'>
-      <div><Filter /></div>  
+      <div><FiltroMenu /></div>   
+      
       
       <div><FlightCard 
         way={way} fromPlace={fromPlace} toPlace={toPlace} fromDate={fromDate} toDate={toDate} classFlight={classFlight}
