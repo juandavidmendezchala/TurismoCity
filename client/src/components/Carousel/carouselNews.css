@@ -1,19 +1,19 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.carrouselFirst {
+/* .carrouselFirst { */
   /* margin-top: 300px; */
-  width: 90%;
-  margin: 3rem auto;
+/*   width: 90%;
+  margin: 3rem auto; */
   /* height: 450px; */
   /* font-size: medium; */
-}
+/* } */
 /* .slide img {
   width: 20rem;
   margin: 0 auto;
 } */
 
-.slide {
+/* .slide {
   transform: scale(0.2);
   transition: transForm 300ms;
   opacity: 0.5;
@@ -43,11 +43,11 @@
   left: 0%;
   top: 50%;
   color: rgba(113, 113, 247, 0.377);
-}
-
-.container-carousel {
+} */
+/* 
+.container-carousel { */
   /* margin-top: 10px; */
-  background-color: rgb(236, 236, 236);
+/*   background-color: rgb(236, 236, 236);
   height: 450px;
   width: 500px;
   border-radius: 0.5rem;
@@ -55,14 +55,14 @@
   box-shadow: 6px 6px 15px rgb(151, 150, 150);
   margin-bottom: 6%;
   margin-top: 6%;
-}
-.newstitle {
+} */
+/* .newstitle {
   font-family: "Guardian Headline", "Futura", "Helvetica", Arial, sans-serif;
   font-size: x-large;
   text-shadow: 5px 5px 9px rgba(87, 125, 221, 0.801);
-}
+} */
 
-.newstext {
+/* .newstext {
   font-family: "Guardian Headline", "Futura", "Helvetica", Arial, sans-serif;
   margin-top: 1rem;
   max-width: 400px;
@@ -70,3 +70,4 @@
   font-weight: bold;
   text-shadow: 6px 6px 10px rgba(43, 41, 41, 0.568);
 }
+ */

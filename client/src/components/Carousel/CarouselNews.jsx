@@ -8,6 +8,7 @@ import rick from './R.png'
 import brain from './B.png'
 import wars from './W.png'
 import hom from './H.png'
+import './carouselNews.css'
 
 import './carouselNews.css'
 import { useEffect } from "react/cjs/react.development";
@@ -25,11 +26,6 @@ const CarouselNews = () => {
     const dispatch = useDispatch()
 
     const { loading, news } = News
-
-    useEffect(() => {
-        dispatch(getNews())
-        // console.log('ahora', news)
-    }, [])
 
     const NextArrow = ({ onClick }) => {
         return (
@@ -70,8 +66,11 @@ const CarouselNews = () => {
     return (
 
         <div className='carrouselFirst'>
-        
-            <Slider {...settings}>
+            {
+                loading && loading?
+                <div></div>
+                :
+                <Slider {...settings}>
                 {news?.map((news, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlide' : 'slide'}>
                         <div className="container-carousel">
@@ -82,7 +81,8 @@ const CarouselNews = () => {
                         </div>
                     </div>
                 ))}
-            </Slider>
+            </Slider>                
+            }
         </div>
     )
 }

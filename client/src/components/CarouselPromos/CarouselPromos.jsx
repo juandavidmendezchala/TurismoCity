@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from "react";
 import Slider from 'react-slick'
 import { useEffect } from "react/cjs/react.development";
+import banner from '../../assets/images/promotions-banner.png'
 // import { getPromos } from "../../store/actions/promosActions";
 import { getPromo } from '../../store/actions/promoActions';
 import './carouselPromos.css'
@@ -12,9 +13,6 @@ import image3 from './LOWHENRY3.png'
 import image4 from './LOWHENRY4.png'
 import image5 from './LOWHENRY5.png'
 
-const promos = [
-    { title: '12 CUOTAS SIN INTERES CON TODOS LOS BANCOS', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '20% CON BANCO GALICIA', description: 'EN TODAS LA ACTIVIDADES DE ARGENTINA' }, { title: '2X1 PAGA UNO DISFRUTAN 2', description: 'EN TODAS LA ACTIVIDADES EN LA NIEVE' }, { title: '24 CUOTAS CON INTERES CON TARJETA', description: 'EN TODAS LA ACTIVIDADES EN AFRICA' },
-]
 
 const CarouselPromos = () => {
     const array = [image2, image3, image4, image5]
@@ -23,13 +21,6 @@ const CarouselPromos = () => {
     const dispatch = useDispatch()
 
     const { loading, promotions } = Promotions
-
-    useEffect(() => {
-        async function fetchData() {
-            await dispatch(getPromo())
-          }
-          fetchData();
-    }, [])
 
     const NextArrow = ({ onClick }) => {
         return (
@@ -72,9 +63,15 @@ const CarouselPromos = () => {
     return (
 
         <div className='carrouselFirstPromos'>
-            <Slider {...settings}>
-                {promotions?.map((promo, id) => (
-                    <div className='imageActiveSlidePromos'>
+            {
+                loading && loading?
+                <div>Loading</div>
+                :
+                <Slider {...settings}>
+                {
+                promotions && promotions[0]?
+                promotions?.map((promo, id) => (
+                    <div className={id === imageIdx ? 'imageActiveSlidePromos' : 'slidePromos'}>
                         <div className="container-carouselPromos">
                             <img className='imagCarusel' height="150px" src={array[id]} />
                             <h2 className="newstitlePromos">{promo.title}</h2>
@@ -83,8 +80,13 @@ const CarouselPromos = () => {
                         </div>
                     </div>
                 ))
-                }
+                :
+                <div className="div-img-banner-promo">
+                    <img className="div-img-banner-promo-img" src={banner}></img>
+                </div>
+            }
             </Slider>
+            }
         </div>
     )
 }
