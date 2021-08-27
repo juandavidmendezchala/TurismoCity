@@ -20,7 +20,7 @@ const Newsletter = () => (
 
                 }}>
                     <SimpleForm placeholder="Email" style={{
-
+                        borderRadius: 20
                     }} onSubmitted={formData => subscribe(formData)} />
                     {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
                     {status === "error" && <div classname='alertaSuscribe' style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}

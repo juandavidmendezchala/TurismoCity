@@ -2,6 +2,7 @@ import React from 'react'
 import "./Nosotrxs.css"
 import foto from "./fotoSobreNos.jpg"
 import block from "./Equipo.png"
+import Presentacion from './Presentacion/Presentacion'
 
 
 const Nosotrxs = () => {
@@ -14,6 +15,9 @@ const Nosotrxs = () => {
             </div>
             <div className="SecondBlock">
                 <img className="SecondBlockImg" src={block}></img>
+            </div>
+            <div className="Presentacion">
+                <Presentacion />
             </div>
         </div>
     )
