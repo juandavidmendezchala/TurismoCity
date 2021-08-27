@@ -57,11 +57,11 @@ const EmailSender = (props) => {
     return (
       <>
         <h1 className={style.tituno}>
-          Enviar los recordatorios (por ahora a mano)
+          Envío de recordatorios de agenda de usuarios
         </h1>
         <div className={style.boxform}>
           <form>
-            <label>Fecha de recordatorio</label>
+            <label>Fecha de recordatorio: </label>
             <input
               id="fecha"
               name="fecha"
@@ -69,7 +69,7 @@ const EmailSender = (props) => {
               value={input.fecha}
               onChange={handleChange}
             ></input>
-            <button onClick={handleEnviar}> Enviar Recordatorios</button>
+            <button className={style.LinkGetIt} onClick={handleEnviar}>Enviar Recordatorios</button>
           </form>
         </div>
         <h1 className={style.tituno}>{result.data}</h1>
@@ -79,14 +79,13 @@ const EmailSender = (props) => {
         </h2>
         <hr />
         <h1 className={style.tituno}>
-          Enviar diario de actividades a usuarios que guardaron deseos
+          Envío diario a usuarios que guardaron deseos de viajes
         </h1>
-
         <div className={style.boxform}>
           <form>
-            <label>Avisar actividades a quienes haya guardado sus deseos</label>
-            <button onClick={handleDesear}>
-              Enviar Enviar mail de actividades
+            <label>Avisar actividades que matcheen con deseos guardados</label>
+            <button className={style.LinkGetIt} onClick={handleDesear}>
+              Enviar mail con actividades
             </button>
           </form>
         </div>

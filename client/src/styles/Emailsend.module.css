@@ -1,14 +1,14 @@
 .boxform {
     display: flex;
-    width: 250px;
-    height: 7em;
+    width: 350px;
+    height: 10vw;
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(82, 76, 76);
     border-radius: 1em;
     overflow: auto;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; 
     margin-bottom: 1em;
 }
 
@@ -29,4 +29,18 @@
     font-weight: bold;
     color: #0F3057 
   }
+
+  .LinkGetIt{
+    display: flex;
+    margin-top: 15px;
+    padding: 13px;
+    border:none;
+    border-radius: 10px;
+    background-color: rgb(51, 126, 161);
+    color: rgb(255, 255, 255);
+    cursor:pointer;
+    transition: 0.2s;
+    margin-left: auto;
+    margin-right: auto;
+}
   
