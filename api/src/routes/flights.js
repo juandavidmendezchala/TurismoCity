@@ -6,7 +6,7 @@ const { APIKEY } = require('../utils/config/index');
 const { REACT_APP_FLIGHT_API } = require('../../../client/src/store/Consts/Consts');
 
 const router = Router();
-const KEY_API = '6108ab9e1c7bef42b2e7580e'
+const KEY_API = '612930ec747a9a05325624f3'
 
 function getAll(req, res, next) {
 
