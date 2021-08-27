@@ -188,7 +188,7 @@ const enviarWhishDestino = async (
           "Se encontraron las siguientes actividades correspondientes a tu deseo<br <br/>";
         var texto2 = "";
         arraycondestino.map((acti) => {
-            let link = "https://lowhenry-psi.vercel.app/activity/" + acti.idactivity
+            let link = "https://lowhenry-tq2dd.ondigitalocean.app/activity/" + acti.idactivity
             texto2 += "<a href=" + link +">" + acti.nombre + "</a><br/>";
           });
         var texto = linea1 + texto2;
