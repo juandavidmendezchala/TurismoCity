@@ -1,16 +1,17 @@
-import React, { useEffect } from "react"
+import React, { Fragment, useEffect } from "react"
 import { useHistory } from "react-router";
 import "./Banner.css"
 import DropdownTriggerExample from "../TriggerLogin/TriggerLogin"
 import { NavLink } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import 'semantic-ui-css/semantic.min.css';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import { setUserCountry } from "../../store/actions/countryactions";
 
 
 
-export const Banner = () => {
+export const Banner = (props) => {
 
     const userSingin = useSelector(state => state.userSignin)
     const { userInfo, loading } = userSingin
@@ -25,8 +26,22 @@ export const Banner = () => {
     const { user, loginWithRedirect, isAuthenticated, isLoading } = useAuth0()
     const { logout } = useAuth0()
 
-   
+    const userCountry = useSelector(state => state.userCountry) 
 
+    const allcountries = useSelector(state => state.countries)
+
+    const {countries} = allcountries
+
+    const findCountry = countries?.find(c => c.name === userCountry)
+
+    const dispatch = useDispatch()
+    
+    const location = props.location.pathname
+
+    const handleCountry = () => {
+        dispatch(setUserCountry(""))
+        window.location.reload();
+    }
 
 
     return (
@@ -40,6 +55,14 @@ export const Banner = () => {
                             <Link to="/" className="Links">Inicio</Link>
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
                             <Link to="/experiences" className="Links">Experiencias</Link>
+                            <div className="div-img-country-banner">
+                            {
+                                userCountry && location === '/' && userCountry.length > 1 ?
+                                <img height="45px" onClick={() => handleCountry()} className="countries-img" src={`https://www.countryflags.io/${findCountry?.iso2}/flat/64.png`}></img>
+                                :
+                                <Fragment></Fragment>
+                            }
+                            </div>                            
                         </div>) : null}
                     {
                         isLoading?

@@ -13,7 +13,7 @@ export const countriesReducer = ( state = {}, action) => {
     }
 }
 
-export const userCountryReducer = (state = {}, action) => {
+export const userCountryReducer = (state = "", action) => {
     switch(action.type){
         case SET_COUNTRY_REQUEST:
             return {loading: true}

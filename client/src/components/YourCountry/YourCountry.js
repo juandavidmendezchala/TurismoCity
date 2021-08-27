@@ -5,7 +5,7 @@ import './YourCountry.css'
 
 export default function YourCountry({children}) {
 
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     const onClose = () => {
         setIsOpen(false)
@@ -14,18 +14,23 @@ export default function YourCountry({children}) {
     const dispatch = useDispatch();
 
     const allcountries = useSelector(state => state.countries)
+    const userCountry = useSelector(state => state.userCountry)
 
     const setCountry = (country) => {
         dispatch(setUserCountry(country))
         setIsOpen(false)
+        window.location.reload();
         alert(`Haz elegido ${country}, ¡Bienvenido!`)
     }
 
     const {countries, loading} = allcountries;
 
     useEffect(() => {
+        if(userCountry.length < 1) {
+            setIsOpen(true)
+        }
         dispatch(getCountries())
-    }, [])
+    }, [userCountry, dispatch])
 
     return(
         <div className={`country ${isOpen && 'is-open'}`}>
