@@ -19,9 +19,9 @@ const DropdownTriggerExample = () => {
     const { userInfo } = userSingin
 
     // const singout = () => {
-    //     dispatch(logout())
+        //     dispatch(logout())
     // }
-
+    
     const logoOutWeb = () => {
         // vacio el state userInfo para desloguear
         dispatch(logoutlocal())
@@ -31,21 +31,20 @@ const DropdownTriggerExample = () => {
         console.log("fin de funcion")
         window.location.origin()
     }
-
+    
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
          if (!userInfo) {
-            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10",user.picture))
-            console.log("USER DE AUTHO AQUI ESTA LA FOTO",user)
+             dispatch(register(user.name, user.email, user.birthdate || "1999-07-10",user.picture))
+             console.log("USER DE AUTHO AQUI ESTA LA FOTO",user)
          }
-    }, [])
+        }, [])
     
     const trigger = (
         <span className="SpanNameLogin">
             <Icon name='Localuser' /> Hola, {!userInfo ? "LowHenry" : userInfo.name}
         </span>
     )
-
     const options = [
         {
             key: 'Localuser',
@@ -57,13 +56,14 @@ const DropdownTriggerExample = () => {
             disabled: true,
         },
         //{ key: 'profile', text: 'Tu Perfil', href: "/profile" },
+        userInfo?.isAdmin?{ key: 'administrador', text: 'Administrador', href: "/admin/activityList" }:{},   
         { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
         { key: 'experiences', text: 'Ofrecé experiencias', href: "/suppliers/info" },
         { key: 'scheduler', text: 'Agenda', href: "/scheduler" },
-        { key: 'administrador', text: 'Administrador', href: "/admin/activityList" },   
         { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)}, 
     ]
-
+    
+    
     return (
         <div>
             <Dropdown trigger={trigger} options={options} />

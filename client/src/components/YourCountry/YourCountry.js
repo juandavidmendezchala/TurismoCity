@@ -22,14 +22,14 @@ export default function YourCountry({children}) {
     const setCountry = (country) => {
         dispatch(setUserCountry(country))
         setIsOpen(false)
-        window.location.reload();
-        alert(`Haz elegido ${country}, ¡Bienvenido!`)
+        
         swal.fire({
             title: "Bienvenido!",
             text: `Haz elegido ${country}`,
             buttons: true,
             dangerMode: false,
         })
+        .then(res => window.location.reload())
         
     }
 

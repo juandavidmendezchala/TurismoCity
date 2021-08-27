@@ -114,23 +114,7 @@ export default function FiltroMenu(){
                     <div className="sub-menu-holder"></div>
                 </div>
             </div>
-            <div className="menu-item">
-                <div className="menu-text">
-                    <a className="menucitoA" onClick={buscarAerolineas} href="#">Aerolineas</a>
-                   
-                </div>
-                <div className="sub-menu">
-                {
-                 aFilter && aFilter.map((aero) => {
-                 return (
-                    <p><label className="colorCk"><input type="radio" name="aerolienea" onChange={()=>eligeAero(aero)} value={aero}/>{aero}</label></p>
-                 )
-                })
-                }
-                   
-                    <div className="sub-menu-holder"></div>
-                </div>
-            </div>
+            
             <div className="menu-item">
                 <div className="menu-text">
                     <a className="menucitoA" onClick={buscarEscala} href="#">Escala</a>

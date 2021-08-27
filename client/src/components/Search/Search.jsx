@@ -3,7 +3,7 @@
 //import {useEffect, useState} from 'react'
 //import {useDispatch, useSelector} from 'react-redux'
 //import {getRecipe} from '../../actions/recipeActions'
-import Filter from "../Filter/Filter";
+
 import FiltroMenu from "../FiltroMenu/FiltroMenu";
 //import filtroMenu from "../filtroMenu/filtroMenu";
 

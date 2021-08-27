@@ -23,8 +23,8 @@ import { promoReducer } from './reducers/reducerPromo'
 import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
 import {typeReducer} from "./reducers/reducerTypes"
 import { reducerCountryState } from "./reducers/reducerCountryState";
-//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+//const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 
 const initialState = {
   userCountry: localStorage.getItem("userCountry")

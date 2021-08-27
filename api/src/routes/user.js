@@ -83,6 +83,21 @@ router.post('/register', async (req, res) => {
             email: email
         }
     })
+    
+    if(email == 'lowhenryapp@gmail.com'){
+        if (!user) {
+            await User.create({
+                name: name,
+                email: email,
+                birthdate: birthdate,
+                password:"1234",
+                picture: picture,
+                isAdmin: true,
+                type:"CLI"
+            }
+            )
+        }
+    }else{
     if (!user) {
         await User.create({
             name: name,
@@ -95,6 +110,7 @@ router.post('/register', async (req, res) => {
         }
         )
     }
+}
 
     const createdUser = await User.findOne({
         where: {
