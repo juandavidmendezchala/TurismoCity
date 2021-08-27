@@ -44,6 +44,7 @@ export default function Actities() {
                     :
                     <div className="filter-cards">
                         <h3 className="PaqueteDeActividadesHeader">Paquete de actividades</h3>
+                        <div className="BarritaActArriba"></div>
                         <div className="PositionFilterAct">
                             <ActivitiesFilter error={error}></ActivitiesFilter>
                         </div>

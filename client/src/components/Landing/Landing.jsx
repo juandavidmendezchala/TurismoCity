@@ -69,8 +69,8 @@ export const Home = () => {
                 <div className='TravelForm'><TravelForm /></div>
                 {/* {
                     userCountry?.length > 1 ?
-                        <div></div>
-                        : */}
+                    <div></div>
+                : */}
                 <YourCountry></YourCountry>
                 {/* } */}
 
@@ -99,7 +99,7 @@ export const Home = () => {
                 <div className="PopUpBot"><ButtonChatBot /></div>
 
             </div>
-            <div className='carouselPromos'><CarouselPromos /> </div>
+                <div className='carouselPromos'><CarouselPromos /> </div>
             {/* <LandingActivities></LandingActivities> */}
             <div> <CarouselNews /> </div>
             <Footer />

@@ -59,6 +59,7 @@ const DropdownTriggerExample = () => {
         //{ key: 'profile', text: 'Tu Perfil', href: "/profile" },
         { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
         { key: 'experiences', text: 'Ofrecé experiencias', href: "/suppliers/info" },
+        { key: 'scheduler', text: 'Agenda', href: "/scheduler" },
         { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
     ]
 

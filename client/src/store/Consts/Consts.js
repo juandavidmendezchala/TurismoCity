@@ -92,7 +92,7 @@ export const GET_TYPES_REQUEST = 'GET_TYPES_REQUEST'
 export const GET_TYPES_SUCCESS = 'GET_TYPES_SUCCESS'
 export const GET_TYPES_FAIL = 'GET_TYPES_FAIL'
 
-export const API_KEY_NEWS = '32c9a70ccfc2ab691669a85dd44b3703'
+export const API_KEY_NEWS = 'bfa69cef1ee0e772c2075ae964c65ad2'
 
 
 

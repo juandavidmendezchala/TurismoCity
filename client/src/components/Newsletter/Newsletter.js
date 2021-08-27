@@ -19,10 +19,12 @@ const Newsletter = () => (
                     display: "inline-block",
 
                 }}>
-                    <SimpleForm className="aver" onSubmitted={formData => subscribe(formData)} />
-                    {status === "sending" && <div style={{ color: "blue" }}>Enviando ..</div>}
-                    {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
-                    {status === "success" && <div style={{ color: "green" }}>Subscricion exitosa!</div>}
+                    <SimpleForm placeholder="Email" style={{
+
+                    }} onSubmitted={formData => subscribe(formData)} />
+                    {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+                    {status === "error" && <div classname='alertaSuscribe' style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
+                    {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
                 </div>
             )}
         /></div>

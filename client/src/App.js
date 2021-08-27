@@ -90,8 +90,8 @@ function App() {
       <Route path="/scheduler"><Scheduler /></Route>
       <Route path="/scheduler"><ListSchedulers /></Route>
       <Route path="/emailsend"><EmailSender /></Route>
-      <Route path="/whishes"><Whishes /></Route>
-      <Route path="/whishes"><ListActivWish /></Route>
+      <Route path="/yourActivities/whishes"><Whishes /></Route>
+      <Route path="/yourActivities/whishes"><ListActivWish /></Route>
 <Route path="/newscarousel" component={CarouselNews} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>

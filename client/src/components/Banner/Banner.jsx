@@ -40,6 +40,7 @@ export const Banner = () => {
                             <Link to="/" className="Links">Inicio</Link>
                             <Link to="/activities" className="Links">Paquete de actividades</Link>
                             <Link to="/experiences" className="Links">Experiencias</Link>
+                            <Link to="/nosotrxs" className="Links">Nosotrxs</Link>
                         </div>) : null}
                     {
                         isLoading?
