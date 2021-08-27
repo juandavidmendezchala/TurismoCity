@@ -9,8 +9,8 @@
     width: 800px;
     font-family: roboto;
     padding: 30px;
-    background-color: rgb(192, 192, 192);
-    opacity: 95%;
+    background-color: rgba(192, 192, 192, 0.911);
+    
     /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); */
     margin-top: 1px;
     transition: 0.5s ease;

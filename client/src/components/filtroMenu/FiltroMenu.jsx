@@ -114,7 +114,7 @@ export default function FiltroMenu(){
                     <div className="sub-menu-holder"></div>
                 </div>
             </div>
-            <div className="menu-item">
+            {/* <div className="menu-item">
                 <div className="menu-text">
                     <a className="menucitoA" onClick={buscarAerolineas} href="#">Aerolineas</a>
                    
@@ -130,7 +130,7 @@ export default function FiltroMenu(){
                    
                     <div className="sub-menu-holder"></div>
                 </div>
-            </div>
+            </div> */}
             <div className="menu-item">
                 <div className="menu-text">
                     <a className="menucitoA" onClick={buscarEscala} href="#">Escala</a>

@@ -30,10 +30,10 @@ export default function Actities() {
         dispatch(getActivities())
     }, [userSignin, dispatch])
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = activities?.slice(indexOfFirstPost, indexOfLastPost)
-    const pagination = (pageNumber) => setCurrentPage(pageNumber)
+    // const indexOfLastPost = currentPage * postsPerPage;
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    // const currentPosts = activities && activities?.length.slice(indexOfFirstPost, indexOfLastPost) || []
+    // const pagination = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div className="divSupremo">
@@ -51,8 +51,9 @@ export default function Actities() {
                         <h3 className="ActDisponibles">Actividades disponibles</h3>
                         <div className="BarritaAct"></div>
                         <div className="divsupremo">
-                            {
-                                currentPosts?.map(a => <ActivityCard key={a.id}
+                            
+                            { activities?.length>0?
+                                activities?.map(a => <ActivityCard key={a.id}
                                     id={a.id}
                                     name={a.name}
                                     description={a.description}
@@ -66,12 +67,12 @@ export default function Actities() {
                                     city={a.city}
                                     favorites={favorites}
                                     purchases={a.purchases}
-                                ></ActivityCard>)
+                                ></ActivityCard>) : <h1>No hay actividades</h1>
                             }
                         </div>
-                        <div className="pag">
+                        {/* <div className="pag">
                             <PaginationActivity postsPerPage={postsPerPage} totalPosts={activities?.length} paginate={pagination} />
-                        </div>
+                        </div> */}
 
                     </div>
             }
