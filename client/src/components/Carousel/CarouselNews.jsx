@@ -66,8 +66,11 @@ const CarouselNews = () => {
     return (
 
         <div className='carrouselFirst'>
-        
-            <Slider {...settings}>
+            {
+                loading && loading?
+                <div></div>
+                :
+                <Slider {...settings}>
                 {news?.map((news, id) => (
                     <div className={id === imageIdx ? 'imageActiveSlide' : 'slide'}>
                         <div className="container-carousel">
@@ -78,7 +81,8 @@ const CarouselNews = () => {
                         </div>
                     </div>
                 ))}
-            </Slider>
+            </Slider>                
+            }
         </div>
     )
 }
