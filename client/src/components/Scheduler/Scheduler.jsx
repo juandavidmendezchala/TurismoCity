@@ -84,6 +84,7 @@ const Scheduler = (props) => {
   const handleClickOcultar = () => {
     setDisplay(!display)
   }
+  
 
   if (userInfo) {
     return (

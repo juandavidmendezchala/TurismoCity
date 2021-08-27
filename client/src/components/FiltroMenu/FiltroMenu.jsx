@@ -11,6 +11,7 @@ import {filterTime} from '../../store/actions/filterTime'
 //import {backupFlight} from '../../store/actions/backupFlight'
 //import './FlightCard.css'
 import * as IconName from "react-icons/ai";
+
 import { getFlights } from '../../store/actions/getFlights'
 
 //AiOutlineClear
@@ -37,6 +38,8 @@ export default function FiltroMenu(){
       [e.target.name] : e.target.value //cuando name no es el nombre se usa corchtes
      })
   }
+
+
 
   function eligeAero(aero) {
 
