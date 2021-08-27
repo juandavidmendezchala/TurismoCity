@@ -93,8 +93,9 @@ Activity.hasMany(Question)
 Question.belongsTo(User)
 User.hasMany(Question)
 
-Answer.belongsTo(Question)
 Question.hasMany(Answer)
+Answer.belongsTo(Question)
+
 Answer.belongsTo(User)
 User.hasMany(Answer)
 

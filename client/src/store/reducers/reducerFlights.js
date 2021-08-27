@@ -63,6 +63,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 from: action.payload
             }
+       case  FILTER_CARD_AERO:
+                return {
+                    ...state,
+                    flights: action.payload
+                }
         case LOAD_INFO_TO:
             return {
                 ...state,
@@ -87,7 +92,7 @@ const reducer = (state = initialState, action) => {
             console.log('reducer filter', action.payload)
             return {
                 ...state,
-                aeroFiltro: action.payload
+                flights: action.payload
             };
         case GET_FLIGHTS_ONEWAY:
             return {

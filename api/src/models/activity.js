@@ -54,8 +54,8 @@ module.exports = function (sequelize) {
         allowNull: false,
       },
        estadoAdmin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false, //3 estados posibles: 'CAN', 'ACE', 'PEN'
       },
     },
     {

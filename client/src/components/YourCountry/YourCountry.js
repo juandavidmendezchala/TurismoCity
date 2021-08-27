@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {getCountries, setUserCountry} from '../../store/actions/countryactions'
 import './YourCountry.css'
+import swal from 'sweetalert2';
 
 export default function YourCountry({children}) {
 
@@ -18,7 +19,13 @@ export default function YourCountry({children}) {
     const setCountry = (country) => {
         dispatch(setUserCountry(country))
         setIsOpen(false)
-        alert(`Haz elegido ${country}, ¡Bienvenido!`)
+        swal.fire({
+            title: "Bienvenido!",
+            text: `Haz elegido ${country}`,
+            buttons: true,
+            dangerMode: false,
+        })
+        
     }
 
     const {countries, loading} = allcountries;

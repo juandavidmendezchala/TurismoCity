@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 export const REACT_APP_API = process.env.REACT_APP_API
 export const REACT_APP_DEV_TOOLS = process.env.REACT_APP_DEV_TOOLS
 export const REACT_APP_FLIGHT_API = process.env.REACT_APP_FLIGHT_API
@@ -24,6 +23,7 @@ export const WHISH_FAIL = "WHISH_FAIL"
 export const WHISH_ACTIV_ALL = "WHISH_ACTIV_ALL"
 export const WHISH_REMOV_ACTIV = "WHISH_REMOV_ACTIV"
 
+// Constantes para Lista de deseos
 
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
@@ -88,8 +88,11 @@ export const POST_PROMO_REQUEST = 'POST_PROMO_REQUEST'
 export const POST_PROMO_SUCCESS = 'POST_PROMO_SUCCESS'
 export const POST_PROMO_FAIL = 'POST_PROMO_FAIL'
 
+export const GET_TYPES_REQUEST = 'GET_TYPES_REQUEST'
+export const GET_TYPES_SUCCESS = 'GET_TYPES_SUCCESS'
+export const GET_TYPES_FAIL = 'GET_TYPES_FAIL'
 
-export const API_KEY_NEWS = 'aded1aa076e3330aebb4878c10bb83f1'
+export const API_KEY_NEWS = 'bfa69cef1ee0e772c2075ae964c65ad2'
 
 
 

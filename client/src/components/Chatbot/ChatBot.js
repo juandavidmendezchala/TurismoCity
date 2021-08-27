@@ -45,13 +45,17 @@ const ChatBotLanding = () => {
                     },
                     {
                         id: "Actividades",
-                        message: "Descubri todas las actividades que tenemos en tu destino ingresando a Paquete de Actividades",
+                        component: (<div>
+                            <h3>Descubri todas las actividades que tenemos en tu destino ingresando a Paquete de Actividades</h3>
+                            <NavLink className="ActivitiesBotDesign" to="/activities">Click aqui para ver actividades</NavLink>
+                        </div>
+                        ),
                         trigger: "Ok"
                     },
                     {
                         id: "Ok",
                         options: [
-                            { value: "Okay", label: "Ok", trigger: "Repregunta" }
+                            { value: "Okay", label: "Continuar", trigger: "Repregunta" }
                         ],
 
                     },

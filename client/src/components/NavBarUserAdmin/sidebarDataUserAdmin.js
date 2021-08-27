@@ -7,21 +7,21 @@ import * as BIcons from "react-icons/bi";
 //BsFillPersonCheckFill
 export const SidebarDataUserAdmin = [
     {
-        title: "Habilitar Usuarios",
-        path: "/admin/userList",
-        icon: <BIcons.BiListCheck />,
-        cName: "nav-text2"
-    },
-    {
         title: "Habilitar Actividad",
         path: "/admin/activityList",
         icon: <BIcons.BiListCheck />,
         cName: "nav-text2"
     },
     {
-        title: "Estadisticas",
-        path: "/yourActivities/favorites",
+        title: "Habilitar Recordatorio",
+        path: "/admin/emailsend",
         icon: <BIcons.BiLineChartDown />,
         cName: "nav-text2"
-    }
+    },
+    {
+        title: "Habilitar Promos",
+        path: "/admin/post",
+        icon: <BIcons.BiListCheck />,
+        cName: "nav-text2"
+    },
 ]

@@ -10,8 +10,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {searchUserEmail} from '../../store/actions/searchUserEmail'
 import { REACT_APP_API } from '../../store/Consts/Consts';
 
-const StateActivity = ({id,name,description,date,price,places,duration,initialTime,images,country,city,estado}) => {
-    const [status, setStatus] = useState(estado)
+const StateActivity = ({id,name,description,date,price,places,duration,initialTime,images,country,city,estado,estadoAdmin}) => {
+    const [status, setStatus] = useState(estadoAdmin)
     const [deleted, setDeleted] = useState(false)
     const [state, setState] = useState({
         updateState: ''
@@ -21,14 +21,9 @@ const StateActivity = ({id,name,description,date,price,places,duration,initialTi
     console.log('estadi',state.updateState)
     const userEmail = useSelector(store => store.reducerUserSeller.userUpdate);
     console.log('datos del email', userEmail)
-    const handleOnClickStatus = async (e) => {  
-        setStatus(!status)
-        //await axios.put(`http://local*host:3001/suppliers/${idUser}/${idPost}/${!status}`)
-    }
 
     const cambiarEstado = async (s) => {
-        setStatus(!status)
-        await axios.put(`${REACT_APP_API}/suppliers/1/${id}/${s}`)
+        await axios.put(`${REACT_APP_API}/activity/admin/${id}/${s}`)
     }
     const handleDelete = async () => {
         /*let eliminar = window.confirm("Estas seguro de borrar esta publicacion? esta accion es PERMANENTE")
@@ -47,21 +42,22 @@ const StateActivity = ({id,name,description,date,price,places,duration,initialTi
             //le paso la propiedad que cambie
             [e.target.name] : e.target.value //cuando name no es el nombre se usa corchtes
            })
-        if (e.target.value === 'TRUE') {
-            //await axios.put(`http://local*host:3001/suppliers/${idUser}/${idPost}/TRUE`)
-            //alert('aprobada')
-            setStatus('TRUE')
-            cambiarEstado('TRUE')
+        if (e.target.value === 'ACE') {
+            
+            setStatus('ACE')
+            cambiarEstado('ACE')
         }
-        if (e.target.value === 'pendiente'){
+        if (e.target.value === 'PEN'){
            //alert('pendiente')
+           setStatus('PEN')
+           cambiarEstado('PEN')
            dispatch(searchUserEmail(id))
         } 
-        if (e.target.value === 'FALSE')
+        if (e.target.value === 'CAN')
         {
             //setStatus('FALSE')
-            setStatus('FALSE')
-            cambiarEstado('FALSE')
+            setStatus('CAN')
+            cambiarEstado('CAN')
         } 
     }
 
@@ -76,23 +72,23 @@ const StateActivity = ({id,name,description,date,price,places,duration,initialTi
                     <span className="moneyDetail">${price}</span>
                 </div>
                 <div className="detailActivities">
-                <p><span className={status ? "postActive" : "postDisabled"}> {status ? "Activada" : "Cancelada"}</span></p>
+                <p><span className={status==='ACE' ? "postActive" :(status==='CAN'?"postDisabled":"postPendig")}> {status==='ACE' ? "Activada" : (status==='CAN'?"Cancelada":"Pendiente")}</span></p>
                 </div>
                 <div className='uploadStatus'>
                     <div>
-                     <select placeholder="Select" name="updateState" onChange={handlerChange}>
+                     <select placeholder="Select" name="updateState" onChange={(e)=>handlerChange(e)}>
                        <option  value=""> Seleccione Opcion </option>
-                       <option  value="TRUE">Aprobada</option>
-                       <option  value="pendiente">Pendiente</option>
-                       <option  value="FALSE">Cancelada</option>
+                       <option  value="ACE">Aprobada</option>
+                       <option  value="PEN">Pendiente</option>
+                       <option  value="CAN">Cancelada</option>
                       </select>
                     </div>
                     <p></p>
-                    <a href={`/suppliers/post/`}><BsThreeDots /></a>
+                    <a href={`/suppliers/info`}><BsThreeDots /></a>
                 </div>
             </div >}
             {
-              state.updateState === 'pendiente'? (
+              state.updateState === 'PEN'? (
                   <ContactUs  idAct={id}
                     email={userEmail.email}
                     name={userEmail.name}></ContactUs>

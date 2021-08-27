@@ -1,7 +1,8 @@
 import React from 'react';
 import './ContactUS.css'
 import emailjs, {init} from 'emailjs-com';
-import swal from 'sweetalert'
+//import swal from 'sweetalert'
+import swal from 'sweetalert2'
 //importar {init} desde 'emailjs-com' ;
 init ("usuario_0gBAhTyw4hMs42ISKH7dB") ;
 

@@ -7,13 +7,20 @@ function DetailSched(props) {
   const { id, fechaini, fecharec, horario, tiempo, notas } = props
   return (
     <div key={id} className={styles.boxsched}>
-      <div className={styles.titteam}>Fecha: {fechaini}
-      <button className={styles.butclose} onClick={() => props.schedRemove(id)}>x</button>
+      <div className={styles.titteam}>
+        <div className={styles.fechaReminder}><p>Fecha: {fechaini}</p></div>
+        <div className={styles.horarioReminder}><p>Horario: {horario}</p></div>
       </div>
-      <p>Recordatorio {fecharec}</p>
-      <p>Horario: {horario}</p>
-      <p>Duracion: {tiempo}</p>
-      <p>Notas: {notas}</p>
+      <div className={styles.remainderInfo}>
+        <div className={styles.reminderDetail}>
+          <p>Recordatorio {fecharec}</p>
+          <p>Duracion: {tiempo}</p>
+          <p>Notas: {notas}</p>
+          <div className={styles.buttonReminder}>
+            <button className={styles.butclose} onClick={() => props.schedRemove(id)}>Eliminar</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -24,4 +31,4 @@ function mapDispacthToProps(dispatch) {
   }
 }
 
-export default connect (null,mapDispacthToProps)(DetailSched);
+export default connect(null, mapDispacthToProps)(DetailSched);

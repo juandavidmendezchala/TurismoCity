@@ -1,0 +1,41 @@
+.FirstBlock{
+    background-color: black;
+    width: 1480px;
+    height: 573px;
+}
+.SecondBlock{
+    background-color: black;
+    width: 1480px;
+    height: 573px;
+}
+.QuienesSomos{
+    position: relative;
+margin-top: -10px;
+padding-top: 30px;
+    left: 100px;
+    width: 800px;
+    color: white;
+    font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+    font-size: 80px;
+    z-index: 2;
+}
+.FotoQuienesSomos{
+    position: absolute;
+    z-index: 0;
+    width: 1480px;
+    height: 590px;
+}
+.SecondBlockImg{
+
+width: 1352px;
+height: 620px;
+margin-bottom: -5px;
+margin-top: 0px;
+}
+.FotoAvioncito{
+    position: absolute;
+    z-index: 2;
+    width:90px;
+    top:560px;
+    right: 20px;
+}
