@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react"
 import "./Landing.css"
 import TravelForm from "../TravelForm/TravelForm"
+import { useDispatch } from "react-redux";
 import image from './img3.png';
 import axios from 'axios';
 import { useHistory } from "react-router-dom"
@@ -61,6 +62,8 @@ export const Home = () => {
         if (countrySelect===undefined) {countrySelect = 'EZE'} 
         history.push(`/flights?way=onewaytrip&fromPlace=${countrySelect}&toPlace=${e.target.id}&fromDate=${fechaActual.toISOString().slice(0,10)}&classFlight=Economy&adults=1&kids=0&babies=0&currency=USD`)
     }
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getNews())
