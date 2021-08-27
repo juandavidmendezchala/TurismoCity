@@ -7,13 +7,6 @@ const url = "https://gmail.us5.list-manage.com/subscribe/post?u=1ebaeaba3338a561
 const SimpleForm = () => <MailchimpSubscribe url={url} />
 
 
-
-
-
-
-
-
-
 const Newsletter = () => (
     <div className="NewsletterPosition">
         <MailchimpSubscribe
@@ -26,12 +19,10 @@ const Newsletter = () => (
                     display: "inline-block",
 
                 }}>
-                    <SimpleForm placeholder="Email" style={{
-
-                    }} onSubmitted={formData => subscribe(formData)} />
-                    {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+                    <SimpleForm className="aver" onSubmitted={formData => subscribe(formData)} />
+                    {status === "sending" && <div style={{ color: "blue" }}>Enviando ..</div>}
                     {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
-                    {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
+                    {status === "success" && <div style={{ color: "green" }}>Subscricion exitosa!</div>}
                 </div>
             )}
         /></div>

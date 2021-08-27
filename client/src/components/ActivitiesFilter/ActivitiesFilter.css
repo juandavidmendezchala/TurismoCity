@@ -1,15 +1,21 @@
 .form-form-body{
-    margin-top: 25px;
-    
+    margin-top: -40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 270px;
+    height: 290px;
+    width: 800px;
     font-family: roboto;
-    border-radius: 18px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.897);
+    background-color: rgb(192, 192, 192);
     opacity: 95%;
     /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); */
-height: 70px;
+
     transition: 0.5s ease;
     margin-bottom:50px;
+    border-radius: 2%;
 }
 .filter-cards{
     display: flex;
@@ -17,6 +23,9 @@ height: 70px;
     margin-bottom: 40px;
 }
 .form-barra{
+    position: relative;
+    left: 100px;
+    margin-top: -40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,11 +34,33 @@ height: 70px;
     color: gray;
     width: 150px;
 }
+.ContenedorDeTodo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left:100px;
+}
 .SelectPaisJ{
-    border: 1px solid black;
-    border-radius: 40px;
-    padding: 7px;
-    width:200px;
+    
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+
+
+    width: 160px;
+    height: 37px;
+
+
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px white;
+    cursor: pointer;
+    font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+    font-size: 17px;
+    transition: all 150ms ease;
+    padding-left: -40px;
+      color: black;
 }
 
 .form-label-input{
@@ -37,24 +68,85 @@ height: 70px;
 }
 
 .form-label{
-    font-family: roboto;
+    font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
     font-weight: 700;
+    color: white;
 }
 
 .form-label-input > select{
     cursor: pointer;
 }
 
-.submit-button-filter{
-    margin-top: 25px;
+/* .submit-button-filter{
+    position: relative;
+    top: 120px;
+    right: 320px;
     
 
     border-radius: 12px;
     
     padding: 5px;
-    background: rgba(46, 100, 151, 0.897);
+    background: rgba(78, 120, 160, 0.897);
     opacity: 95%;
     color: honeydew;
-  
+} */
 
+.skewBtnblue{
+    position:relative;
+    top:120px;
+    right: 410px;
+
+
+    width: 140px;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    background: #ff6347;
+    color:white;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 8%;
+    border-color:#ff6347 ;
+    font-family: "Lato",sans-serif;
+}
+    .skewBtnblue:hover{
+      border: none;
+      background-color: #ffff;
+      color: black;
+      font-size: 28px;
+      transform:scale(1.1);
+    
+}
+.submit-button-filter:hover{
+    background-color: red;
+}
+.ContenedorPaisCiudad{
+    position: relative;
+    bottom: 20px;
+    padding-bottom: 10px;
+}
+.ContenedorDesdeHacia{
+    position: relative;
+    bottom:24px;
+}
+.InputHastaUsd{
+    position: relative;
+    bottom: -1px;
+    left: 5px;
+    width: 180px;
+    height: 37px;
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    border: none;
+}
+.SelectTipodeAct{
+    position: relative;
+    bottom: -1px;
+    left: 5px;
+    width: 180px;
+    height: 37px;
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    border: none;
+    font-size: 17px;
 }

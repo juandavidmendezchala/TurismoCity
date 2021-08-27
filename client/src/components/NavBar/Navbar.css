@@ -1,7 +1,7 @@
 .NavBarContainer {
-  background-color:#0F3057;
+  background-color:black;
   height: 40px;
-  color:black;
+  color:white;
   display: flex;
   justify-content: space-around;
   align-items: center;
