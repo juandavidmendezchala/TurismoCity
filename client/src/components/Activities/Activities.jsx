@@ -14,7 +14,7 @@ export default function Actities() {
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(8);
-    const Activities = useSelector(store => store.userActivities);
+    const Activities = useSelector(store => store.activities);
 
     const favorite = useSelector(state => state.reducersActivities)
     const userSignin = useSelector(state => state.userSignin)
@@ -30,10 +30,10 @@ export default function Actities() {
         dispatch(getActivities())
     }, [userSignin, dispatch])
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = activities && activities.length?.slice(indexOfFirstPost, indexOfLastPost) || []
-    const pagination = (pageNumber) => setCurrentPage(pageNumber)
+    // const indexOfLastPost = currentPage * postsPerPage;
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    // const currentPosts = activities && activities?.length.slice(indexOfFirstPost, indexOfLastPost) || []
+    // const pagination = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div className="divSupremo">
@@ -52,8 +52,8 @@ export default function Actities() {
                         <div className="BarritaAct"></div>
                         <div className="divsupremo">
                             
-                            { currentPosts.length>0?
-                                currentPosts?.map(a => <ActivityCard key={a.id}
+                            { activities?.length>0?
+                                activities?.map(a => <ActivityCard key={a.id}
                                     id={a.id}
                                     name={a.name}
                                     description={a.description}
@@ -70,9 +70,9 @@ export default function Actities() {
                                 ></ActivityCard>) : <h1>No hay actividades</h1>
                             }
                         </div>
-                        <div className="pag">
+                        {/* <div className="pag">
                             <PaginationActivity postsPerPage={postsPerPage} totalPosts={activities?.length} paginate={pagination} />
-                        </div>
+                        </div> */}
 
                     </div>
             }
