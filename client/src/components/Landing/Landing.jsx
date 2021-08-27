@@ -67,10 +67,12 @@ export const Home = () => {
     }
 
     const dispatch = useDispatch()
+    
 
     useEffect(() => {
         dispatch(getNews())
         dispatch(getPromo())
+        
     }, [])
 
     return (
