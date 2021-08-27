@@ -264,7 +264,7 @@ router.post("/", async (req, res) => {
     },
   });
   await createPack.addType(type) //Recibe el Id del type
-  //await findUser.addActivity(createPack);
+  await findUser.addActivity(createPack);
   return res.send(createPack);
 });
 
