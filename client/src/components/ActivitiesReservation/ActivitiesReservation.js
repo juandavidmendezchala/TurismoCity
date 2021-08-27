@@ -18,9 +18,9 @@ export const ActivitiesReservation = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [success, setSuccess] = useState(false);
-    const fecha = Date.now();
-const fechaActual = new Date(fecha);
-const activity = useSelector(state => state.activity)
+    // const fecha = Date.now();
+    // const fechaActual = new Date(fecha);
+    const activity = useSelector(state => state.activity)
     
     //login para redireccionar si aun no es usuario al momento de querer comprar
     const { loginWithRedirect } = useAuth0()
@@ -47,12 +47,12 @@ const activity = useSelector(state => state.activity)
                 if (response.data.success) {
                     console.log("Success Payment")
                     setSuccess(true)
-                }
-                dispatch(purchase(userSignin.userInfo.id, data.activity.id, fechaActual.toISOString().slice(0,10)))
-                swal({
+                } 
+                // fechaActual.toISOString().slice(0,10)
+                dispatch(purchase(userSignin.userInfo.id, data.activity.id, '2021-08-27'))
+                swal.fire({
                     title: "Felicitaciones!",
                     text: "Su compra ha sido realizada!",
-                    icon: "success",
                     button: "Aceptar",
                     dangerMode: false
                   })
@@ -61,7 +61,7 @@ const activity = useSelector(state => state.activity)
                         window.location.reload(false)
                     }})
             } catch (error) {
-                    swal({
+                    swal.fire({
                       title: "Atención!",
                       text: error.message,
                       icon: "info",
@@ -71,7 +71,7 @@ const activity = useSelector(state => state.activity)
             }
         } else {
             
-            swal({
+            swal.fire({
                 title: "Atención!",
                 text: error.message,
                 icon: "info",
@@ -84,7 +84,7 @@ const activity = useSelector(state => state.activity)
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (!userSignin.userInfo) {
-            swal({
+            swal.fire({
                 title: "Loguearse",
                 text: "Para comprar esta actividad debes loguearte a tu cuenta!",
                 icon: "info",
@@ -99,7 +99,7 @@ const activity = useSelector(state => state.activity)
               });
         } else {
             if(activity.activity.places - activity.activity.purchases?.length<=0){
-                swal({
+                swal.fire({
                     title: "Atención!",
                     text: 'Esta actividad ya no tiene cupos disponibles!',
                     icon: "info",
@@ -107,7 +107,7 @@ const activity = useSelector(state => state.activity)
                     dangerMode: true
                   })
             } else{
-                swal({
+                swal.fire({
                     title: "Atención! Estás por adquirir un producto.",
                     text: `ACTIVIDAD: ${data.activity.name}___________ PRECIO: USD$${data.activity.price}`,
                     icon: "info",

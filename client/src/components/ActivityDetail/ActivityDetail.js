@@ -72,7 +72,8 @@ export default function ActivityDetail(props) {
                                         <div className='conteiner-stats-detail'>
                                             <div className="card-stats">
                                                 <div className="stat">
-                                                    <div className="value">{activity.places}</div>
+
+                                                    <div className="value">{(activity.places - activity.purchases.length) +'/'+ activity.places}</div>
                                                     <div className="type">Cupos</div>
                                                 </div>
                                                 <div className="stat">
@@ -115,8 +116,8 @@ export default function ActivityDetail(props) {
                                         <h2 className='Reseñas-detail'>Reseñas</h2>
                                         {
                                             comments?.length !== 0 ?
-                                                comments?.map(c => <ActivitiesComments
-                                                    key={c.id}
+                                                comments?.map((c) => <ActivitiesComments
+                                                    // key={index+'B'}
                                                     comment={c.commentary}
                                                     score={c.score}
                                                     update={c.updatedAt.slice(8,10)+'-'+c.updatedAt.slice(5,7)+'-'+c.updatedAt.slice(0,4)}
@@ -133,13 +134,13 @@ export default function ActivityDetail(props) {
                                     activityId={props.match.params.id}
                                     userId={userSingin}
                                 />
-                                {/* <h1>Preguntas y Respuestas</h1> */}
+                                
                                 <div class="containerComment">
 
                                     {
                                         Question?.map(m =>
                                             <Comment
-                                                key={m.id}
+                                                // key={m.id}
                                                 query={m.query}
                                                 date={m.date}
                                                 answers={m.answers}
@@ -147,17 +148,14 @@ export default function ActivityDetail(props) {
                                         )
                                     }
                                 </div>
-                                <FormComment 
-                                   activityId= {props.match.params.id}
-                                   userId={userSingin}
-                                />
+                                
                                 <h1>Preguntas y Respuestas</h1>
                                 <div class="containerComment">
                                 
                                 {
                                    Question?.map( m => 
                                     <Comment
-                                        key= {m.id}
+                                        // key= {m.id}
                                         idQuestion = {m.id}
                                         query={m.query}
                                         date={m.date}

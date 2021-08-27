@@ -17,6 +17,8 @@ ul, li{
 .wrapperComment{
   background: #eaf6ff;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
   /* border-radius: 15px; */
   margin-bottom: 20px;
   margin-left:50px;

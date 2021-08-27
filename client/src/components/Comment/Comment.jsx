@@ -21,6 +21,7 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
   const [isProv, setIsProv] = useState(false)
   const dispatch = useDispatch();
   const userSingin = useSelector(state => state.userSignin.userInfo.id)
+  const fecha = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
 
@@ -58,13 +59,13 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
       preConfirm: (rta) => {
         console.log('el dia es',date, 'el id question',idQuestion, 'el usuario', idUsuario)
         dispatch(postAnswer(rta,date,idQuestion,idUsuario))
-        window.location.reload(false);
-        //uery, date, questionId, userId
-      },
-      //allowOutsideClick: () => !Swal.isLoading()
+        .then(res =>window.location.reload(false))
+      }
+      
+      
     });
      
-  
+    
     //alert("responder")
   }
   return (
@@ -74,15 +75,10 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
           {
             isClient?<button className="botonComment" onClick={() =>eliminar(idQuestion)}><IconName.BsFillTrashFill/></button>:null
           }
-          {
-            isClient? <button className="botonComment" onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill/></button>
-             : null
-          }
-          {
-
-            isProv? <button className="botonComment" onClick={() => responder('2021-08-24',idQuestion,userSingin)}><IconName.BsChatFill /> </button>
-            : null
-          }
+          
+            <button className="botonComment" onClick={() => responder('2021-08-27',idQuestion,userSingin)}><IconName.BsChatFill/></button>
+             
+          
 
       
 

@@ -17,7 +17,7 @@ export const FormComment = ({activityId, userId}) => {
     //console.log(state)
     const {query} = state
     
-    dispatch(postQuestion(query,activityId, userId, '2021-08-23'))
+    dispatch(postQuestion(query,activityId, userId, new Date().toISOString().split('T')[0]))
     // si no uso Hooks uso props.addContact(name, phone, address)
     //props por parametro en el componente
     //seteamos el estado
