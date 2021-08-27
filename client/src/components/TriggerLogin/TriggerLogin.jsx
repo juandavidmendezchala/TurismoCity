@@ -35,7 +35,7 @@ const DropdownTriggerExample = () => {
     useEffect(() => {
         // cuando completo form en auth0 envio a registrarme en nuestra db (controlando en back que no se dupliquen los usuarios)
          if (!userInfo) {
-            dispatch(register(user?.name, user?.email, user?.birthdate || "1999-07-10",user?.picture))
+            dispatch(register(user.name, user.email, user.birthdate || "1999-07-10",user.picture))
             console.log("USER DE AUTHO AQUI ESTA LA FOTO",user)
          }
     }, [])
@@ -59,9 +59,7 @@ const DropdownTriggerExample = () => {
         //{ key: 'profile', text: 'Tu Perfil', href: "/profile" },
         { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
         { key: 'experiences', text: 'Ofrecé experiencias', href: "/suppliers/info" },
-        { key: 'scheduler', text: 'Agenda', href: "/scheduler" },
-        { key: 'administrador', text: 'Administrador', href: "/admin/activityList" },   
-        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)}, 
+        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)},    
     ]
 
     return (
