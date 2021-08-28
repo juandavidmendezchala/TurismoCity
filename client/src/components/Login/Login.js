@@ -5,9 +5,10 @@ import "./Login.css"
 import axios from 'axios'
 import md5 from 'md5' // para el cifrado de la pw
 import Cookies from 'universal-cookie'
+import { REACT_APP_API } from "../../store/Consts/Consts";
 
 
-const baseUrl='http://localhost:3001/users' //El url/nombre de la base de datos o api
+const baseUrl=`${REACT_APP_API}/users` //El url/nombre de la base de datos o api
 const cookies = new Cookies();
 
 

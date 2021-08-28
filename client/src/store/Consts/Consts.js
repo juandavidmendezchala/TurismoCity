@@ -1,7 +1,7 @@
 require("dotenv").config();
-
 export const REACT_APP_API = process.env.REACT_APP_API;
 export const REACT_APP_DEV_TOOLS = process.env.REACT_APP_DEV_TOOLS;
+export const REACT_APP_FLIGHT_API = process.env.REACT_APP_FLIGHT_API;
 
 // Constantes para Agenda
 
@@ -22,6 +22,8 @@ export const WHISH_REMOVE = "WHISH_REMOVE";
 export const WHISH_FAIL = "WHISH_FAIL";
 export const WHISH_ACTIV_ALL = "WHISH_ACTIV_ALL";
 export const WHISH_REMOV_ACTIV = "WHISH_REMOV_ACTIV";
+
+// Constantes para Lista de deseos
 
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
@@ -60,15 +62,11 @@ export const DELETE_FAVORITE_REQUEST = "DELETE_FAVORITE_REQUEST";
 export const DELETE_FAVORITE_SUCCESS = "DELETE_FAVORITE_SUCCESS";
 export const DELETE_FAVORITE_FAIL = "DELETE_FAVORITE_FAIL";
 
-export const GET_COMMENTS_REQUEST = "GET_COMMENTS_REQUEST";
-export const GET_COMMENTS_SUCCESS = "GET_COMMENTS_SUCCESS";
-export const GET_COMMENTS_FAIL = "GET_COMMENTS_FAIL";
+export const GET_TYPES_REQUEST = "GET_TYPES_REQUEST";
+export const GET_TYPES_SUCCESS = "GET_TYPES_SUCCESS";
+export const GET_TYPES_FAIL = "GET_TYPES_FAIL";
 
-export const GET_SALES_SUPPLIER = "GET_SALES_SUPPLIER";
-export const GET_MOST_SALED = "GET_MOST_SALED";
-export const GET_NEWS_REQUEST = "GET_NEWS_REQUEST";
-export const GET_NEWS_SUCCESS = "GET_NEWS_SUCCESS";
-export const GET_NEWS_FAIL = "GET_NEWS_FAIL";
+export const API_KEY_NEWS = "bfa69cef1ee0e772c2075ae964c65ad2";
 
 export const GET_PROMO_REQUEST = "GET_PROMO_REQUEST";
 export const GET_PROMO_SUCCESS = "GET_PROMO_SUCCESS";

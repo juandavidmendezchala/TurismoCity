@@ -16,7 +16,8 @@ import LandingActivities from '../LandingActivities/LandingActivities'
 import { REACT_APP_API } from "../../store/Consts/Consts";
 import airports from './airports.json'
 import countries from '../ActivitiesFilter/countries+states.json'
-
+import Footer from "../Footer/Footer"
+import newsletter from "../Newsletter/Newsletter";
 
 export const Home = () => {
     // const history = useHistory();
@@ -36,6 +37,12 @@ export const Home = () => {
     const getAirport = function (countrySelect) {
         if (countrySelect === 'Brazil') {
             return 'GRU';
+        }
+        if (countrySelect === 'Colombia') {
+            return 'BOG'
+        }
+        if (countrySelect === 'Argentina') {
+            return 'EZE'
         }
         var country = countries.find(countri => countri.name === countrySelect)
         console.log('ESTO ES COUNTRIES:', countries)
@@ -62,8 +69,8 @@ export const Home = () => {
                 <div className='TravelForm'><TravelForm /></div>
                 {/* {
                     userCountry?.length > 1 ?
-                        <div></div>
-                        : */}
+                    <div></div>
+                : */}
                 <YourCountry></YourCountry>
                 {/* } */}
 
@@ -94,7 +101,10 @@ export const Home = () => {
             </div>
             <div className='carouselPromos'><CarouselPromos /> </div>
             <LandingActivities></LandingActivities>
+            <div className='carouselPromos'><CarouselPromos /> </div>
+            {/* <LandingActivities></LandingActivities> */}
             <div> <CarouselNews /> </div>
+            <Footer />
 
         </>
     )

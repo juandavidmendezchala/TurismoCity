@@ -18,23 +18,17 @@ import { reducerMyActivities } from "./reducers/reducerMyActivities";
 import { reducerFeedBack } from "./reducers/reducerFeedBack";
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
 import { reducerPurchase } from "./reducers/reducerPurchase";
-import { reducerUserSeller } from "./reducers/reducerUserAdmin";
-import { reducerQuestion } from "./reducers/reducerQuestion";
-import { reducerScheduler } from "./reducers/reducersScheduler";
+import { reducerUserSeller } from './reducers/reducerUserAdmin'
+import { reducerQuestion } from './reducers/reducerQuestion'
+import { reducerScheduler } from "./reducers/reducersScheduler"
 import { reducerWhishes } from "./reducers/reducerWhishes";
 import { reducerSuppliers } from "./reducers/reducerSupplier";
 import { newsReducer } from "./reducers/reduceNews";
-import { promoReducer } from "./reducers/reducerPromo";
-import {
-  countriesReducer,
-  userCountryReducer,
-} from "./reducers/reducerCountries";
-
+import { promoReducer } from './reducers/reducerPromo'
+import { countriesReducer, userCountryReducer } from "./reducers/reducerCountries";
+import {typeReducer} from "./reducers/reducerTypes"
 //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const composeEnhancers =
-  REACT_APP_DEV_TOOLS === "on"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null || compose;
+const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
 
 const initialState = {
   userCountry: localStorage.getItem("userCountry")
@@ -79,7 +73,8 @@ const reducer = combineReducers({
   countries: countriesReducer,
   userCountry: userCountryReducer,
   landingActivities: landingActivityReducer,
-});
+  types: typeReducer
+})
 
 const store = createStore(
   reducer,

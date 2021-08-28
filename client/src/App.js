@@ -38,7 +38,7 @@ import ListSchedulers from "./components/Scheduler/ListShedulers";
 import EmailSender from "./components/EmailSender/EmailSender";
 import Whishes from "./components/Whishes/Whishes";
 import ListActivWish from "./components/Whishes/ListActivWish";
-import Newsletter from "./components/Newsletter/Newsletter"
+import Footer from "./components/Footer/Footer"
 
 
 
@@ -47,6 +47,8 @@ import Sales from "./components/Suppliers/Sales/Sales";
 import HomeAdminPanel from "./components/Suppliers/HomeAdminPanel/HomeAdminPanel";
 import CarouselNews from "./components/Carousel/CarouselNews";
 import CarouselAdminPost from "./components/CarouselAdminPost/CarouselAdminPost";
+import newsletter from "./components/Newsletter/Newsletter";
+import Nosotrxs from "./components/Nosotrxs/Nosotrxs";
 
 function App() {
   const [sidebar, setSidebar] = useState(true);
@@ -83,17 +85,18 @@ function App() {
       <Route exact path="/comment" component={Comment} ></Route>
       <Route path="/politics" component={Politics} ></Route>
       <Route path="/activities" component={Actities}></Route>
-      <Route path="/suppliers" render={() => <Suppliers sidebar={sidebar} showSidebar={showSidebar} />}/>
+      <Route path="/suppliers" render={() => <Suppliers sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/activity/:id" component={ActivityDetail}></Route>
       <Route path="/scheduler"><Scheduler /></Route>
       <Route path="/scheduler"><ListSchedulers /></Route>
       <Route path="/emailsend"><EmailSender /></Route>
-      <Route path="/whishes"><Whishes /></Route>
-      <Route path="/whishes"><ListActivWish /></Route>
+      <Route path="/yourActivities/whishes"><Whishes /></Route>
+      <Route path="/yourActivities/whishes"><ListActivWish /></Route>
+<Route path="/newscarousel" component={CarouselNews} />
       <Elements stripe={stripePromise}>
         <Route path="/checkout" component={Checkout}></Route>
       </Elements>
-      <Route path="/newsletter" component={Newsletter}></Route>
+      <Route path="/footer" component={Footer}></Route>
       <Route path="/suppliers/posts" render={() => <ContainerUserAct sidebar={sidebar} />} />
       <Route path="/suppliers/info" render={() => <HomeAdminPanel sidebar={sidebar} />} />
       <Route path="/suppliers/load" component={FormActivities} />
@@ -101,6 +104,7 @@ function App() {
       <Route path="/suppliers/post/:id" render={({ match }) => <DetailPostSupplier match={match} sidebar={sidebar} showSidebar={showSidebar} />} />
       <Route path="/suppliers/image" component={ImageActivity} />
       <Route path="/admin/post" component={CarouselAdminPost} />
+      <Route path="/nosotrxs" component={Nosotrxs} />
     </div>
   );
 }

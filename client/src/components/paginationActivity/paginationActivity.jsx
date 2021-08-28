@@ -13,10 +13,11 @@ export default function PaginationActivity(props) {
     const [index, setIndex] = useState(0);
     const [estado, setEstado] = useState(1);
 
-    useEffect(async() => {
-        await setState(pageNumbers.slice(index, index + 10))
+    useEffect(() => {
+         setState(pageNumbers.slice(index, index + 10))
     }, [index])
     useEffect(() => {
+        
         props.paginate(estado)
     }, [estado])
 

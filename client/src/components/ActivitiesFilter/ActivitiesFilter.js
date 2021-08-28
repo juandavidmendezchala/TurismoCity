@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getFilterActivities } from '../../store/actions/activityActions';
+import {getTypes} from "../../store/actions/typesActions"
 import { Input } from 'semantic-ui-react'
 import countries from './countries+states.json'
 import MessageBox from '../Boxes/MessageBox'
@@ -16,11 +17,18 @@ export default function ActivitiesFilter(props) {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [price, setPrice] = useState('');
+    const [type, setType] = useState('');
     // const [places, setPlaces] = useState('1');
     // const [duration, setDuration] = useState('10');
     // const [initialTime, setInitialTime] = useState('08:00');
     const [state, setState] = useState('')
     const activities = useSelector(state => state.activities.activities);
+    const types = useSelector (state => state.types)
+    const {alltypes, loading} = types
+    useEffect (()=> {
+    dispatch(getTypes())
+    }, [])
+    
     console.log('trae activitie',activities)
 
     const dispatch = useDispatch()
@@ -43,18 +51,21 @@ export default function ActivitiesFilter(props) {
 
     const onHandleSubmit = async (e) => {
         e.preventDefault()
+        console.log(country, city, startDate, endDate, price, type, "AQUI ESTA TYPES")
         await dispatch(getFilterActivities(
             country,
             city,
             startDate,
             endDate,
             price,
+            type,
+           
             // places,
             // duration,
             // initialTime
-            ))
+            ))      
     }
-
+    var today = new Date().toISOString().split('T')[0];
     function changeState(e) {
         setCountry(e.target.value)
         var countrie = countries.find(el => el.name === e.target.value);
@@ -86,8 +97,8 @@ export default function ActivitiesFilter(props) {
                 <div className="form-label-input">
                     <label className="form-label">Desde:</label>
                     <Input
+                        min={today}
                         type="date"
-                        
                         icon='calendar alternate outline'
                         iconPosition='left'
                         value={startDate}
@@ -97,8 +108,9 @@ export default function ActivitiesFilter(props) {
                 <div className="form-label-input">
                     <label className="form-label">Hasta:</label>
                     <Input
+                        min={startDate}
                         type="date"
-                    icon='calendar alternate outline'
+                        icon='calendar alternate outline'
                         iconPosition='left'
                         value={endDate}
                         onChange={e => setEndDate(e.target.value)}>
@@ -108,11 +120,22 @@ export default function ActivitiesFilter(props) {
                     <label className="form-label">Hasta(USD):</label>
                     <Input
                         class="ui input"
-                        type="text"
+                        type="number"
+                        min="0"
                         id="price"
                         value={price}
                         onChange={e => setPrice(e.target.value)}>
                     </Input>
+                </div>
+                <div className="form-label-input">
+                    <label className="form-label">Tipo de Actividad:</label>
+                    <select onChange ={e => setType(e.target.value)} className='SelectPaisJ'>
+                    {
+                        alltypes?.map(t =>(
+                            <option value={t.id}>{t.category}</option>
+                            ))
+                    }
+                    </select>
                 </div>
                 <div className="form-label-input">
                     {/* <label className="form-label">Cupos:</label>

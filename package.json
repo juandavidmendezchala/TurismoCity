@@ -3,6 +3,7 @@
     "start": "nodemon --watch api --exec node --experimental-modules api/index.js"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.58",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.17.0",
     "axios": "^0.21.1",
@@ -20,6 +21,8 @@
     "nodemon": "2.0.7",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
+    "react-simple-chatbot": "^0.6.1",
+    "request": "^2.88.2",
     "react-chartjs-2": "^3.0.4",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",

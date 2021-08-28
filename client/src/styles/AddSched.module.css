@@ -78,7 +78,16 @@ width: 60%;
 .cajaform button:hover{
   cursor: pointer;
 }
-
+.botonWhishes{
+  text-align: center;
+}
+.botonWhishes button{
+  display: flex;
+  min-width: 300px;
+  margin-top: 20px;
+  margin: 20px auto;
+  justify-content: center;
+}
 .cajaform input{
   height: 40px;
   font-size: 1.5rem;
@@ -140,4 +149,18 @@ h1 {
   font-size: larger;
   font-weight: bold;
   color: #0F3057 
+}
+.ocultarForm{
+  display: none;
+}
+.botonOcultarSched{
+display: flex;
+justify-content: end;
+}
+.botonOcultarSched svg{
+  cursor: pointer;
+}
+.botonOcultarSched svg:hover{
+  color: #ff9034;
+  -webkit-transition:all 0.3s ease;
 }
