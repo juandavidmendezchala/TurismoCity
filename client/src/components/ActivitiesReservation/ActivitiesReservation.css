@@ -9,7 +9,6 @@
 .reservation-label{
     display: flex;
     flex-direction: column;
-    opacity: 100%;
     font-family: roboto;
     margin-top: 15px;
 }

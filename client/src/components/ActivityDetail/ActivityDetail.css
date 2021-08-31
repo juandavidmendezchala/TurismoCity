@@ -74,7 +74,7 @@ margin-bottom: 0px;
 .card-stats-detail{
     position: relative;
     left:-50px;
-    opacity: 1%;;
+    /* opacity: 1%; */
 }
 .detail-down .reservation{
     padding: 40px;
