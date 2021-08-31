@@ -8,5 +8,6 @@ module.exports = {
     dbPassword: process.env.DB_PASSWORD,
     host: process.env.DB_HOST || 3001,
     PORT: process.env.PORT,
-    APIKEY: process.env.API_KEY
+    APIKEY: process.env.API_KEY,
+    APIKEYFLIGHT: process.env.API_KEY_FLIGHT
 }
