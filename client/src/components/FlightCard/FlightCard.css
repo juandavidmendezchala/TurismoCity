@@ -63,7 +63,7 @@
 .destinoIda{
     margin: 0px;
     padding: 0px;
-    opacity: 50%;
+    color: gray;
     font-family:Arial, Helvetica, sans-serif;
     font-size: small;
 }
