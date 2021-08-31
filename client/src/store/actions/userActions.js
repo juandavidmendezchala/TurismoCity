@@ -60,5 +60,5 @@ export const logout = () => (dispath) => {
 //action que vacia el localstorage luego de vaciar auth0 user
 export const logoutlocal = () => (dispath) => {
     localStorage.removeItem('userInfo')
-    dispath({ type: USER_LOGOUT_LOC })
+    dispath({ type: USER_LOGOUT })
 }
