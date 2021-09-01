@@ -48,6 +48,10 @@ export const Home = () => {
         if (countrySelect === 'Argentina'){
             return 'EZE'
         }
+        if (countrySelect === 'Chile'){
+            return 'SCL'
+        }
+        
         var country = countries.find(countri => countri.name === countrySelect)
         console.log('ESTO ES COUNTRIES:', countries)
         console.log('ESTE ES COUNTRY', country)
