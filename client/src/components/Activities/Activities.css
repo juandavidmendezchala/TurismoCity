@@ -48,8 +48,10 @@
     left: 270px;
 }
 .divsupremo{
+    margin-top:150px;
     position: relative;
     display: flex;
+    justify-content:center;
     flex-wrap: wrap;
 }
 .ActDisponibles{
