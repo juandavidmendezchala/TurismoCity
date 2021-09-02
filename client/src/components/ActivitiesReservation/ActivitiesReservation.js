@@ -64,7 +64,7 @@ export const ActivitiesReservation = () => {
                     swal.fire({
                       title: "Atención!",
                       text: error.message,
-                      icon: "info",
+     
                       button: "Aceptar",
                       dangerMode: true
                     })
@@ -74,7 +74,7 @@ export const ActivitiesReservation = () => {
             swal.fire({
                 title: "Atención!",
                 text: error.message,
-                icon: "info",
+               
                 button: "Aceptar",
                 dangerMode: true
               })
@@ -87,7 +87,7 @@ export const ActivitiesReservation = () => {
             swal.fire({
                 title: "Loguearse",
                 text: "Para comprar esta actividad debes loguearte a tu cuenta!",
-                icon: "info",
+                
                 buttons: true,
                 dangerMode: false,
               })
@@ -102,15 +102,15 @@ export const ActivitiesReservation = () => {
                 swal.fire({
                     title: "Atención!",
                     text: 'Esta actividad ya no tiene cupos disponibles!',
-                    icon: "info",
+                   
                     button: "Aceptar",
                     dangerMode: true
                   })
             } else{
                 swal.fire({
                     title: "Atención! Estás por adquirir un producto.",
-                    text: `ACTIVIDAD: ${data.activity.name}___________ PRECIO: USD$${data.activity.price}`,
-                    icon: "info",
+                    text: `ACTIVIDAD: ${data.activity.name}____ PRECIO: USD$${data.activity.price}`,
+                    
                     buttons: true,
                     dangerMode: false,
                   })
