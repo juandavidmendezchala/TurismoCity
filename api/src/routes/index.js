@@ -19,6 +19,7 @@ const answerRoutes = require('./answer')
 const emailSendRoutes = require('./sendemails')
 const promoRoutes = require('./promo')
 const typesRoutes = require('./type')
+const newsRouter = require('./news')
 
 
 const router = Router();
@@ -46,6 +47,7 @@ router.use('/purchase', purchaseRoutes)
 router.use('/purchase', purchaseRoutes)
 router.use('/question', questionRoutes)
 router.use('/answer', answerRoutes)
+router.use('/news', newsRouter)
 // Rutas de scheduler
 router.use(schedulerRoutes)
 // Rutas de deseos

@@ -40,7 +40,7 @@ export default function TarjetaPrev(props) {
      }
     return(
         <div>         
-                <div class="card">
+                <div class="card-future">
                     <div class="flip-card">
                         <div class="flip-card__container">
                             <div class="card-front">
@@ -61,7 +61,6 @@ export default function TarjetaPrev(props) {
                                 <img className="imagenDentro" src={props.images} alt="no esta la imagen" />
                             </div>
                         </div>
-                    </div>
 
                     <div class="inside-page">
                         <div class="inside-page__container">
@@ -83,6 +82,8 @@ export default function TarjetaPrev(props) {
                             </p>
                         </div>
                     </div>
+                    </div>
+
                 </div>
         </div>
        

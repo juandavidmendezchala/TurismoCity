@@ -3,6 +3,7 @@ import {
   GET_NEWS_FAIL,
   GET_NEWS_REQUEST,
   GET_NEWS_SUCCESS,
+  REACT_APP_API
 } from "../Consts/Consts";
 import { API_KEY_NEWS } from "../Consts/Consts";
 
@@ -10,7 +11,7 @@ export const getNews = () => async (dispatch) => {
   dispatch({ type: GET_NEWS_REQUEST });
   try {
     const { data } = await axios.get(
-      `http://api.mediastack.com/v1/news?access_key=${API_KEY_NEWS}&languages=es&keywords=coronavirus turismo vacuna  -muertes&limit=15&sort=published_asc`
+      `${REACT_APP_API}/news`
     );
     dispatch({ type: GET_NEWS_SUCCESS, payload: data.data });
   } catch (err) {
