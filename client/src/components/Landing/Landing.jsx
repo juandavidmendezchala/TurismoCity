@@ -39,31 +39,17 @@ export const Home = () => {
     const history = useHistory();
 
     const getAirport = function (countrySelect) {
-        if (countrySelect === 'Brazil') {
-            return 'GRU';
-        }
-        if (countrySelect === 'Colombia'){
-            return 'BOG'
-        }
-        if (countrySelect === 'Argentina'){
-            return 'EZE'
-        }
-        if (countrySelect === 'Chile'){
-            return 'SCL'
-        }
-        
-        var country = countries.find(countri => countri.name === countrySelect)
-        console.log('ESTO ES COUNTRIES:', countries)
-        console.log('ESTE ES COUNTRY', country)
-        var airport = airports?.find(air => air.city === country.capital)
-        console.log(`ESTE ES AIRPORT DE ${countrySelect}`, airport)
+        var airport = airports?.find(air => air.country === countrySelect)
+        console.log('ESTE ES EL AEROPUERTO DE '+countrySelect+': '+airport?.code)
         return airport?.code
     }
 
     const flights = function (e) {
-        console.log("ESTO DEBERIA SER BRAZIL:", userCountry.userCountry)
-        if (userCountry.userCountry) {
-            var countrySelect = getAirport(userCountry.userCountry)
+        console.log("ESTO DEBERIA SER BRAZIL:", userCountry)
+        if (userCountry) {
+            console.log('ESTE ES EL AEROPUERTO DE '+countrySelect)
+            var countrySelect = getAirport(userCountry)
+            console.log(countrySelect)
         } else { var countrySelect = 'EZE' }
         console.log(countrySelect)
         if (countrySelect === undefined) { countrySelect = 'EZE' }
@@ -126,3 +112,4 @@ export const Home = () => {
 }
 
 export default Home
+

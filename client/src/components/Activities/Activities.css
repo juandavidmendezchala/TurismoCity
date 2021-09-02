@@ -36,7 +36,7 @@
 
 .divSupremo {
     background-color: black;
-    height: 1300px;
+    min-height: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -48,9 +48,10 @@
     left: 270px;
 }
 .divsupremo{
+    margin-top:150px;
     position: relative;
-    top: 120px;
     display: flex;
+    justify-content:center;
     flex-wrap: wrap;
 }
 .ActDisponibles{
