@@ -21,7 +21,7 @@ export default function ActivityDetail(props) {
     const Question = useSelector(state => state.reducerQuestion.question);
     //const user = useSelector(state => state.userSignin.userInfo.id);
     //console.log('reducer quesion', user)
-    const userSingin = useSelector(state => state.userSignin.userInfo.id)
+    const userSingin = useSelector(state => state.userSignin)
     //console.log('userAct', userSingin)
 
     console.log('reducer quesion', props)
@@ -132,22 +132,9 @@ export default function ActivityDetail(props) {
                                 </div>
                                 <FormComment
                                     activityId={props.match.params.id}
-                                    userId={userSingin}
+                                    userId={userSingin.userInfo?.id}
                                 />
                                 
-                                <div class="containerComment">
-
-                                    {
-                                        Question?.map(m =>
-                                            <Comment
-                                                // key={m.id}
-                                                query={m.query}
-                                                date={m.date}
-                                                answers={m.answers}
-                                            />
-                                        )
-                                    }
-                                </div>
                                 
                                 <h1>Preguntas y Respuestas</h1>
                                 <div class="containerComment">
@@ -161,7 +148,7 @@ export default function ActivityDetail(props) {
                                         date={m.date}
                                         answers = {m.answers}
                                         userId = {m.userId}
-                                        userLogeo = {userSingin}
+                                        userLogeo = {userSingin.userInfo?.id}
                                         userActPres = {activity.userId}
                                         idAct = {props.match.params.id}
                                      />

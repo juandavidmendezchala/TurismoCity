@@ -29,7 +29,7 @@ const DropdownTriggerExample = () => {
         logout()
         // probar de ir a inicio
         console.log("fin de funcion")
-        window.location.reload();
+        window.location.origin();
     }
     
     useEffect(() => {

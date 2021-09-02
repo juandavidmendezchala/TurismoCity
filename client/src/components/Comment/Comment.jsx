@@ -20,7 +20,7 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
   const [isClient, setIsClient] = useState(false)
   const [isProv, setIsProv] = useState(false)
   const dispatch = useDispatch();
-  const userSingin = useSelector(state => state.userSignin.userInfo.id)
+  const userSingin = useSelector(state => state.userSignin)
   const fecha = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Comment({key,idQuestion,query,date,answers,userId, userL
             isClient?<button className="botonComment" onClick={() =>eliminar(idQuestion)}><IconName.BsFillTrashFill/></button>:null
           }
           
-            <button className="botonComment" onClick={() => responder('2021-08-27',idQuestion,userSingin)}><IconName.BsChatFill/></button>
+            <button className="botonComment" onClick={() => responder('2021-08-27',idQuestion,userSingin.userInfo?.id)}><IconName.BsChatFill/></button>
              
           
 
