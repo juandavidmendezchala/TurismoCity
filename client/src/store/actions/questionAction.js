@@ -17,12 +17,12 @@ export const getQuestion = (idAct) => {
 //HO
 export const deleteQuestion = (idQuestion, idAct) => {
   return function (dispatch) {
-      return fetch(`http://localhost:3001/question/delete/${idQuestion}/`,{
+      return fetch(`${REACT_APP_API}/question/delete/${idQuestion}/`,{
         method: 'DELETE'})  
         .then(response => response.json())
         .then(json => {
           //dispatch({ type: DELETE_QUESTION, payload: json })
-          return fetch(`http://localhost:3001/question/${idAct}`)   
+          return fetch(`${REACT_APP_API}/question/${idAct}`)   
           .then(response => response.json())
           .then(json => {
             dispatch({ type: DELETE_QUESTION, payload: idQuestion })
