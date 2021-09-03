@@ -1,3 +1,4 @@
+import { REACT_APP_API } from "../Consts/Consts";
 export const POST_ANSWER = "POST_ANSWER";
 
 export const postAnswer = (query, date, questionId, userId) => {
@@ -9,7 +10,7 @@ export const postAnswer = (query, date, questionId, userId) => {
           body: JSON.stringify({query, date, questionId, userId})
           //query, date, activityId, userId
       };
-      return fetch('http://localhost:3001/answer', requestOptions)
+      return fetch(`${REACT_APP_API}/answer`, requestOptions)
         .then(response => response.json())
         .then(obj => {
           //console.log('devuelve',obj)
