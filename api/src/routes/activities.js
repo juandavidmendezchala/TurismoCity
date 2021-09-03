@@ -42,7 +42,8 @@ router.post("/filter", async (req, res) => {
     Activity.findAll({
       where: {
         country: country, 
-        active: true
+        active: true,
+        estadoAdmin:'ACE'
       },
       include: 
         { model: Type, through: type_activity,
@@ -59,7 +60,8 @@ router.post("/filter", async (req, res) => {
       where: {
         country: country,
         city: city, 
-        active: true
+        active: true,
+        estadoAdmin:'ACE'
       },
       include: 
         { model: Type, through: type_activity,
@@ -80,7 +82,8 @@ router.post("/filter", async (req, res) => {
         price: {
           [Op.lte]: price,
         }, 
-        active: true
+        active: true,
+        estadoAdmin:'ACE'
       },
       include: 
         { model: Type, through: type_activity,
@@ -102,6 +105,7 @@ router.post("/filter", async (req, res) => {
           [Op.lte]: price,
         },
         active: true,
+        estadoAdmin:'ACE',
         date: {
           [Op.between]: [startDate, endDate]
         }},
@@ -125,7 +129,8 @@ router.post("/filter", async (req, res) => {
         price: {
           [Op.lte]: price,
         },
-        active: true
+        active: true,
+        estadoAdmin:'ACE'
       },
       include: 
         { model: Type, through: type_activity,
@@ -138,7 +143,8 @@ router.post("/filter", async (req, res) => {
   if (!country && !city && !price && startDate && endDate && !type ){
     Activity.findAll({
       where: {
-        active: true,       
+        active: true,
+        estadoAdmin:'ACE',
         date: {
           [Op.between]: [startDate, endDate]
         }
@@ -154,7 +160,8 @@ router.post("/filter", async (req, res) => {
   if (!country && !city && !price && !startDate && !endDate && type){
     Activity.findAll({
      where: {
-        active: true
+        active: true,
+       estadoAdmin:'ACE'
       },
       include: 
         { model: Type,
