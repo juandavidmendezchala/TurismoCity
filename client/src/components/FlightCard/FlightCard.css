@@ -166,6 +166,8 @@
       padding: 0px;
       text-decoration: none;
       color: rgb(129, 129, 129);
+      display: flex;
+      justify-content: center;
 
   }
   .escalaTitulop{
@@ -180,6 +182,7 @@
     color: rgb(129, 129, 129);
     cursor:pointer;
     font-size: small;
+    margin-left: 0px!important;
   }
   /* .flightGif{
     visibility:hidden;
