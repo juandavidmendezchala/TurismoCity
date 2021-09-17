@@ -1,9 +1,12 @@
 # TurismoCity
-Proyecto Final Grupal. Consiste en una Web App de consulta y adquisición de vuelos, paquetes y actividades de turismo.
 
-¡Puedes verlo acá!
+Ingresa a
 <a href="lowhenry-psi.vercel.app">TurismoCity
 </a>
+
+Proyecto Final Grupal. Consiste en una Web App de consulta y adquisición de vuelos, paquetes y actividades de turismo.
+
+
 
 <img src="portada01.png" alt="portada">
 
