@@ -27,8 +27,13 @@ const DropdownTriggerExample = () => {
         dispatch(logoutlocal())
         // vacio el user de auth0
         logout()
+
         // probar de ir a inicio
         console.log("fin de funcion")
+
+        // llevo a principal
+        console.log("Saliendo...")
+
         window.location.origin();
     }
     
@@ -58,9 +63,14 @@ const DropdownTriggerExample = () => {
         //{ key: 'profile', text: 'Tu Perfil', href: "/profile" },
         userInfo?.isAdmin?{ key: 'administrador', text: 'Administrador', href: "/admin/activityList" }:{},   
         { key: 'panel', text: 'Tus Actividades', href: "/youractivities/activities" },
+
         { key: 'experiences', text: 'Ofrecé experiencias', href: "/suppliers/info" },
         { key: 'scheduler', text: 'Agenda', href: "/scheduler" },
         { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb)}, 
+
+        { key: 'experiences', text: 'Ofrecé experiencias', href: "/experiences" },
+        { key: 'sign-out', text: 'Salir', onClick: (logout,logoOutWeb) }    
+
     ]
     
     

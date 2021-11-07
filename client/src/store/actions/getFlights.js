@@ -7,6 +7,7 @@ const apiKey2 = "610ecfda747a9a053255e81e"//USADA
 const apiKey3 = "610ed044747a9a053255e820"//USADA
 const apiKey4 = "61106959747a9a053255eb0a"//USADA
 const apiKey5 = "61106983747a9a053255eb0b"//USADA
+
 const apiKey6 = "61200571747a9a0532560f12"//USADA
 const apiKey12 = "61198e61747a9a053255ffdf"
 const apiKey8 = "612702f5747a9a05325621c5" 
@@ -15,6 +16,9 @@ const apiKey10 = "61270265747a9a05325621c3"
 const apiKey7 = "61293435747a9a05325624f4"
 const apiKey13 = "6126c2aa747a9a0532561ea2"
 
+const apiKey6 = "61200571747a9a0532560f12"
+
+
 export function getFlights(p, index = 1) {
 
   console.log('ESTO LLEGA A GETFLIGHTS: ' + p)
@@ -22,9 +26,18 @@ export function getFlights(p, index = 1) {
   if (p.way === 'roundtrip') {
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
+
       return axios.get(`${REACT_APP_API}/getflights/roundtrip/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
       //return axios.get(`https://api.flightapi.io/roundtrip/${apiKey9}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.data)
+
+      return fetch(`https://api.flightapi.io/roundtrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.toDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'access-control-allow-credentials,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
+  }})
+        .then(response => response.json())
+
         .then(json => {
           if (json.message) {
             var arregloFlights = [json];
@@ -59,8 +72,17 @@ export function getFlights(p, index = 1) {
   else{
     console.log('ENTRO CON: ', p.way)
     return function (dispatch) {
+
       return axios.get(`${REACT_APP_API}/getflights/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`)
         .then(response => response.data)
+
+      return fetch(`https://api.flightapi.io/onewaytrip/${apiKey6}/${p.fromPlace}/${p.toPlace}/${p.fromDate}/${p.adults}/${p.kids}/${p.babies}/${p.classFlight}/${p.currency}`,{ headers:{
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'access-control-allow-credentials,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin',
+    'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE'
+      }})
+        .then(response => response.json())
+
         .then(json => {
           if (json.message) {
             var arregloFlights = [json];

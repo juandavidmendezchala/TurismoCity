@@ -8,6 +8,7 @@ import reducerActivities from "./reducers/reducerActivities";
 import { userRegisterReducer, userSigninReducer } from "./reducers/reducerUser";
 import { activityDetailReducer, activityReducer, activityFavoriteReducer, feedBackReducer, landingActivityReducer } from './reducers/reducerActivity'
 import { reducerActivitiesF } from "./reducers/reducerActivitiesF";
+
 import { reducerMyActivities } from "./reducers/reducerMyActivities"
 import { reducerFeedBack } from "./reducers/reducerFeedBack"
 import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev"
@@ -25,6 +26,13 @@ import {typeReducer} from "./reducers/reducerTypes"
 import { reducerCountryState } from "./reducers/reducerCountryState";
 //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composeEnhancers = REACT_APP_DEV_TOOLS === 'on' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
+
+import { reducerMyActivities } from "./reducers/reducerMyActivities";
+import { reducerFeedBack } from "./reducers/reducerFeedBack";
+import { reducerActivitiesPrev } from "./reducers/reducerActivitiesPrev";
+
+const composeEnhancers = process.env.NODE_ENV === 'pruebas' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : (null || compose);
+
 
 const initialState = {
   
